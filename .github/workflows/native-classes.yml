@@ -4,7 +4,7 @@ on:
     branches: ['feat/wp0-screening-core']
     paths:
       - '.github/workflows/native-classes.yml'
-      - 'native-openlca/src/main/java/org/openenergymethods/ptxlens/NativeBafuCalculation.java'
+      - 'native-openlca/src/main/java/org/openenergymethods/ptxlens/**'
   workflow_dispatch:
 permissions:
   contents: read
