@@ -59,7 +59,7 @@ jobs:
           root=Path("outputs/bafu_real_2023")
           x=json.loads((root/"2023_original_E_vs_ES_BAFU2026_method_sensitivity.json").read_text())
           factor=x["factor_source_registry"]
-          assert len(factor)==12
+          assert len(factor)==13
           assert x["no_total_cradle_to_gate_GWP_computed"] is True
           assert x["full_product_system_LCA_claim_allowed"] is False
           for key in ("E","E_plus_S"):
