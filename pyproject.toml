@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ptxlens"
+version = "0.1.0"
+description = "Auditable PtX TEA/GWP screening"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+ptxlens = "ptxlens.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
