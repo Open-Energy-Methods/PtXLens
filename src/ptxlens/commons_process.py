@@ -64,8 +64,11 @@ def read_public_process(*,opener=urlopen):
     missing=[r["flow"]["name"] for r in useful if not (r["default_provider"] and r["default_provider"]["id"])]
     if not useful:
         raise ValueError("no identified inputs; invalid or incomplete JSON-LD parsing")
+    from .lca_source_quality import inventory_stoichiometry_check
+    physical_quality=inventory_stoichiometry_check(rows)
     return {
         "schema_version":"ptxlens.actual_uslci_pem_process_audit.v0.1",
+        "mass_and_stoichiometry_source_check":physical_quality,
         "source_repo":"Federal_LCA_Commons/commons_merged",
         "original_source_record":PROCESS_URL,
         "process_uuid":PROCESS_ID,
