@@ -3,6 +3,9 @@ package org.openenergymethods.ptxlens;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Locale;
+import java.util.HashSet;
+import java.util.ArrayList;
+import org.openlca.core.model.FlowType;
 
 import org.openlca.core.database.Derby;
 import org.openlca.core.math.SystemCalculator;
@@ -62,6 +65,34 @@ public final class DiagnosticNativeCalculation {
                 throw new IllegalStateException("Failed to construct native product system");
             System.out.println("PTXLENS_NATIVE_LINK_COUNT\t" + system.processLinks.size());
             System.out.println("PTXLENS_NATIVE_PROCESS_COUNT\t" + system.processes.size());
+
+            // Evaluate the actual native auto-linked system, not only the
+            // JSON-LD default-provider fields. Unlinked product-inputs are
+            // an explicit research completeness blocker, not zero impacts.
+            var actualLinks = new HashSet<Long>();
+            for (var link : system.processLinks) {
+                actualLinks.add(link.exchangeId);
+            }
+            var missingInputs = new ArrayList<String>();
+            for (var processId : system.processes) {
+                var participating = db.get(Process.class, processId);
+                if (participating == null)
+                    throw new IllegalStateException("Missing process inside native system");
+                for (var exchange : participating.exchanges) {
+                    if (!exchange.isInput || exchange.flow == null ||
+                            exchange.flow.flowType != FlowType.PRODUCT_FLOW ||
+                            Math.abs(exchange.amount) < 1e-12)
+                        continue;
+                    if (!actualLinks.contains(exchange.id)) {
+                        missingInputs.add(participating.name + " / " +
+                                exchange.flow.name + " [" + exchange.flow.refId + "]");
+                    }
+                }
+            }
+            System.out.println("PTXLENS_NATIVE_UNLINKED_PRODUCT_INPUT_COUNT\t" + missingInputs.size());
+            for (var i = 0; i < Math.min(15, missingInputs.size()); i++)
+                System.out.println("PTXLENS_NATIVE_MISSING_PRODUCT_INPUT\t" + missingInputs.get(i));
+
 
             CalculationSetup setup = CalculationSetup.of(system)
                 .withImpactMethod(method)
