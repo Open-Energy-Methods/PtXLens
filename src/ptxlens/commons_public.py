@@ -17,10 +17,12 @@ REPO="commons_merged"
 MAX_BYTES=900_000_000
 
 
-def download(output_zip):
+def download(output_zip, repository=REPO):
+    if repository not in ("commons_merged","commons_merged_hybrid"):
+        raise ValueError("Only the two exact official 2026 Commons repositories are permitted")
     path=Path(output_zip)
     if path.exists():raise FileExistsError("do not overwrite verified source archive")
-    prep=f"{BASE}/prepare/{GROUP}/{REPO}"
+    prep=f"{BASE}/prepare/{GROUP}/{repository}"
     headers={"User-Agent":"PtXLens/0.2 academic reproducibility",
              "Accept":"application/json,text/plain"}
     with urlopen(Request(prep,headers=headers),timeout=240) as resp:
@@ -62,7 +64,7 @@ def download(output_zip):
                 "schema_version":"ptxlens.commons_public_full_archive.v0.1",
                 "acquired_at_utc":datetime.now(timezone.utc).isoformat(),
                 "download_provider":BASE,
-                "group":GROUP,"repository":REPO,
+                "group":GROUP,"repository":repository,
                 "download_sha256":digest.hexdigest(),"size_bytes":count,
                 "member_count":len(infos),"top_level_member_counts":dirs,
                 "first_paths":[x.filename for x in infos[:20]],
@@ -87,7 +89,8 @@ if __name__=="__main__":
     p=argparse.ArgumentParser()
     p.add_argument("--archive",type=Path,required=True)
     p.add_argument("--manifest",type=Path,required=True)
+    p.add_argument("--repository",choices=("commons_merged","commons_merged_hybrid"),default=REPO)
     args=p.parse_args()
-    result=download(args.archive)
+    result=download(args.archive,repository=args.repository)
     record(result,args.manifest)
     print(json.dumps(result,indent=2,sort_keys=True))
