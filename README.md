@@ -1,12 +1,30 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## Latest scientific result — genuine native BAFU:2026 v1.1 30-bar PEM E/E+S GWP100
+
+Using the **user-provided real BAFU v1.1 native openLCA database**, the actual GreenDelta openLCA 2.7 Java engine and UMFPACK sparse solver have now produced independently checked **IPCC 2021 / IPCC 2021 GWP 100** results from native, closed supplier process systems:
+
+| Native BAFU v1.1, kgCO₂e/kg H₂ | GWP100 | Linked processes | Unlinked product/waste exchanges |
+|---|---:|---:|---:|
+| Original Swiss 30-bar PEM reference | **5.541965562** | 4,235 | 0 / 0 |
+| **E**, original 2023 NL-model electricity reparameterization | **6.148174396** | 4,240 | 0 / 0 |
+| **E+S**, original 2023 NL-model electricity reparameterization | **6.076552654** | 4,240 | 0 / 0 |
+
+All native results agree with independent source-factor reconstructions using the uploaded **corrected BAFU v1** LCIA to within ~2.2×10⁻⁸ kgCO₂e/kg H₂. Original data: 2023 PyNEXUS real observed NL market and ERA5-derived wind inputs, with **modelled (not metered) hydrogen operation**. The raw licensed BAFU v1.1 database and v1 source files remain **outside GitHub**.
+
+**Crucial scope restriction:** E+S has **20,000 kg additional configured hydrogen storage capacity** (40,000 vs E 20,000 kg), but a validated *physical* storage vessel, compressor, losses and extra infrastructure inventory is **not included**. The BAFU offshore-wind reference is an old 2MW "xx" process and E/E+S H₂ delivery differs. These are genuine native GWP100 results for **scoped BAFU-reference 30-bar PEM systems with source-grounded Dutch electricity/water substitutions**, not a completed matched-service industrial E vs E+S cradle-to-gate comparison. **Do not present E+S as environmentally superior from the intensity difference alone.**
+
+[Full reproducible source and native calculation methodology](docs/BAFU_2026_V11_NATIVE_2023_DUTCH_E_ES_VERIFIED.md) · [Remaining equipment/service gates](https://github.com/Open-Energy-Methods/PtXLens/issues/2)
+
+
+
 ## BAFU:2026 — Swiss official full GWP100 process catalogue and Dutch original E/E+S work
 
 The **official Swiss Federal Office for the Environment (BAFU:2026 v1) public API** has been queried live for all **11,947 real process-reference IPCC 2021 GWP100 results** over 16 complete UUID partitions. Records include exact source UUIDs, names, country, units, edition and source provenance. [Successful full source ingest](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43441882303).
 
 Using frozen original 8,760-hour PyNEXUS E and E+S dispatch ZIPs, we executed a second independent **BAFU-published-factor electricity-supply component sensitivity**, with source-verified NL high-voltage grid and legacy offshore-wind factors: **5.522554 (E)** and **5.455317 (E+S)** kgCO2e/kg modelled delivered H2. Four of the eight published PEM stack material categories also have source-matched mass-based BAFU reference factors, resulting in strictly **partial material components** only (0.002613 and 0.002559 kgCO2e/kg model H2). Titanium metal production, virgin activated carbon, Nafion precursor, and iridium-bearing concentrate **do not have technology-equivalent verified suppliers**; they were never given zero GWP. [Successful original data CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43443319012).
 
-**These are NOT complete H2 cradle-to-gate LCA results.** The official API exposes pre-calculated BAFU process impact factors, not the native process supplier graph. The separately downloadable BAFU:2026 Nexus zolca requires the downloader's terms acceptance and is NOT yet present. A validated local source-archive verifier and real openLCA 2.7 native BAFU zolca provider-audit program are prepared for a legally supplied copy. [Exact source, 30bar PEM benchmark references, methods, limitations and local execution](docs/BAFU_2026_REAL_SOURCE_AND_NATIVE_INTEGRATION.md).
+**These are NOT complete H2 cradle-to-gate LCA results.** The official API exposes pre-calculated BAFU process impact factors, not the native process supplier graph. **Historical preliminary stage:** the BAFU:2026 original native v1.1 zolca was subsequently supplied with user authorization and executed locally; see the latest section above. A validated local source-archive verifier and real openLCA 2.7 native BAFU zolca provider-audit program are prepared for a legally supplied copy. [Exact source, 30bar PEM benchmark references, methods, limitations and local execution](docs/BAFU_2026_REAL_SOURCE_AND_NATIVE_INTEGRATION.md).
 
 
 
@@ -21,12 +39,12 @@ Read [complete native execution, IPCC method and supplier-validation evidence](d
 
 ## Commons Merged real-background audit — November 2026
 
-The **authentic Federal LCA Commons Merged 2026 openLCA JSON-LD archive** (51,012,635 bytes, SHA256 `1ded185617d4de67f8ed6933c473a68d65c232dd738779179e8559a31dfd056d`) is now reproducibly downloadable without an API key. The actual 1 kg PEM-hydrogen USLCI unit process and IPCC **AR6-100 method with 134 matching characterization-flow references** were identified. The exact supplier graph still has **695 unresolved upstream input exchanges (683 without any same-flow output supplier; 12 with candidate suppliers requiring review)**, including deionized water and PEM-stack precursor flows. **Native openLCA cradle-to-gate LCIA remains blocked; no full GWP value is claimed.**
+The **authentic Federal LCA Commons Merged 2026 openLCA JSON-LD archive** (51,012,635 bytes, SHA256 `1ded185617d4de67f8ed6933c473a68d65c232dd738779179e8559a31dfd056d`) is now reproducibly downloadable without an API key. The actual 1 kg PEM-hydrogen USLCI unit process and IPCC **AR6-100 method with 134 matching characterization-flow references** were identified. The exact supplier graph still has **695 unresolved upstream input exchanges (683 without any same-flow output supplier; 12 with candidate suppliers requiring review)**, including deionized water and PEM-stack precursor flows. **This earlier Commons-only LCA had unresolved links**; subsequently the legitimate BAFU v1.1 native model was obtained and executed with zero unlinked product/waste exchanges (see current BAFU section).
 
 Read [the actual background database / missing-provider research audit](docs/COMMONS_MERGED_2026_PROVIDER_AUDIT.md). [Source acquisition and provider graph CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43432287400).
 
 
-**Research status (13 Nov 2026): real-data provenance, genuine OpenPyTEA capital calculation, and a reproducible, published-factor electricity-supply life-cycle GWP screening completed; full LCOH and provider-linked process-based cradle-to-gate LCA not yet completed.** The original source PyNEXUS model is unchanged.
+**Research status (13 Nov 2026): real-source native BAFU v1.1 provider-linked reference and scoped Dutch E/E+S IPCC GWP100 calculations completed, original model provenance audited; full matched-service E/E+S storage-equipment cradle-to-gate comparison and complete LCOH not yet completed.** The original source PyNEXUS model is unchanged.
 
 ## Executed work, not mock data
 
