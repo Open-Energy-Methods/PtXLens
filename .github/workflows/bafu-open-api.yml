@@ -1,0 +1,31 @@
+name: Live Swiss BAFU 2026 official GWP API schema and provider discovery
+on:
+  push:
+    branches: [feat/wp0-screening-core]
+    paths:
+      - '.github/workflows/bafu-open-api.yml'
+      - 'src/ptxlens/bafu_ogd.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bafu-ogd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Real no-auth Swiss FOEN GraphQL schema and impact-factor namespace
+        run: |
+          mkdir -p outputs/bafu_ogd
+          python -m ptxlens.bafu_ogd --output outputs/bafu_ogd/official_schema_and_provider_provenance.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: genuine-swiss-bafu-2026-public-api-evidence
+          path: outputs/bafu_ogd/
+          retention-days: 90
+          if-no-files-found: warn
