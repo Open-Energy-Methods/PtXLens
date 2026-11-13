@@ -50,8 +50,10 @@ def read_public_process(*,opener=urlopen):
     rows=[]
     for e in exchanges:
         if not isinstance(e,dict):raise ValueError("invalid source exchange")
+        if "isInput" not in e or not isinstance(e["isInput"],bool):
+            raise ValueError("openLCA JSON-LD exchange isInput flag missing or nonboolean")
         rows.append({
-            "flow":ref(e.get("flow")),"input":e.get("input"),
+            "flow":ref(e.get("flow")),"input":e["isInput"],
             "amount":e.get("amount"),"unit":ref(e.get("unit")),
             "flow_property":ref(e.get("flowProperty")),
             "default_provider":ref(e.get("defaultProvider")),
@@ -60,6 +62,8 @@ def read_public_process(*,opener=urlopen):
         })
     useful=[r for r in rows if r["input"] and r["flow"]]
     missing=[r["flow"]["name"] for r in useful if not (r["default_provider"] and r["default_provider"]["id"])]
+    if not useful:
+        raise ValueError("no identified inputs; invalid or incomplete JSON-LD parsing")
     return {
         "schema_version":"ptxlens.actual_uslci_pem_process_audit.v0.1",
         "source_repo":"Federal_LCA_Commons/commons_merged",
