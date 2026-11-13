@@ -17,14 +17,23 @@ jobs:
         with:
           distribution: temurin
           java-version: '25'
-      - name: Fetch real GreenDelta UMFPACK Linux-x64 binary from Maven Central
+      - name: Download official GPL UMFPACK sparse library from GreenDelta upstream v0.0.1 GitHub release
         run: |
           mkdir -p offline_umfpack/
-          mvn --batch-mode -ntp \
-            dependency:copy \
-            -Dartifact=org.openlca:olca-native-umfpack-linux-x64:0.0.2 \
-            -DoutputDirectory="$PWD/offline_umfpack/"
-          ls -lh offline_umfpack/
+          curl -fL --retry 3 --retry-all-errors             'https://github.com/GreenDelta/olca-native/releases/download/v0.0.1/olca-native-umfpack-linux-x64.zip'             -o /tmp/openlca_umfpack_upstream_release.zip
+          python - <<'PY'
+          import zipfile,hashlib,json
+          from pathlib import Path
+          path=Path('/tmp/openlca_umfpack_upstream_release.zip')
+          with zipfile.ZipFile(path) as z:
+              entries=z.namelist()
+              print('source original ZIP SHA256',hashlib.sha256(path.read_bytes()).hexdigest())
+              print('original UMFPACK members',entries[:40])
+              assert len(entries)>4
+              for m in entries:
+                  assert not m.startswith('/') and '..' not in m.split('/')
+              z.extractall('offline_umfpack/')
+          PY
       - name: Record special GPL obligations for optional sparse solver
         run: |
           cat > offline_umfpack/README_GPL_LICENSE.txt <<'TXT'
