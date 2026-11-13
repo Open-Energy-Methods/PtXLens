@@ -53,6 +53,8 @@ jobs:
           source=pathlib.Path('outputs/native_openlca/original_source_provenance.json')
           lines=log.read_text(errors='replace') if log.exists() else ''
           gwp=re.search(r'PTXLENS_NATIVE_AR6_100_KG_CO2E_PER_KG_US_REFERENCE_H2\s+([+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][+-]?\d+)?)',lines)
+          missing=re.search(r'PTXLENS_NATIVE_UNLINKED_PRODUCT_INPUT_COUNT\s+(\d+)',lines)
+          actual_missing=int(missing.group(1)) if missing else None
           report={
              'schema_version':'ptxlens.native_openlca_uslci_diagnostic.v0.1',
              'source_archive_sha256':'1ded185617d4de67f8ed6933c473a68d65c232dd738779179e8559a31dfd056d',
@@ -61,8 +63,11 @@ jobs:
              'source_process':'USLCI 2017 reference 1kg dried H2 from PEM; not 2023 NL',
              'impact_method':'IPCC AR6-100',
              'native_engine_reached_impact_result':gwp is not None,
+             'native_unlinked_product_inputs_after_automatic_linking':actual_missing,
+             'native_product_system_linking_complete':actual_missing==0,
+             'mass_balance_source_discrepancy':'original USLCI lists 12kg O2 output with 1kg H2, 9kg deionized water input; stoichiometry unreconciled',
              'native_truncated_reference_impact_value':float(gwp.group(1)) if gwp else None,
-             'native_result_scientific_status':'INCOMPLETE; 695 documented upstream supplier exchanges / 265 distinct flow UUIDs',
+             'native_result_scientific_status':'DIAGNOSTIC ONLY: original 695 missing source-default links, native auto-link residual recorded separately; 2017 US reference physically and geographically not Netherlands 2023',
              'can_claim_full_cradle_to_gate_lca':False,
              'can_claim_2023_netherlands_ptxlens_lca':False,
              'limitations':'2017 US model with original unmodified Commons data, missing suppliers, no Dutch electricity/BoP/storage/transport adaptation; no ISO 14044 assertion',
@@ -70,6 +75,8 @@ jobs:
           }
           target=pathlib.Path('outputs/native_openlca/native_diagnostic_status.json')
           target.write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+          if not report['native_engine_reached_impact_result'] or actual_missing is None:
+              raise RuntimeError("actual native engine or post-auto-link scientific integrity audit did not execute")
           print(json.dumps(report,indent=2,sort_keys=True))
           PY
       - uses: actions/upload-artifact@v4
