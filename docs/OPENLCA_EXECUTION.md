@@ -12,6 +12,14 @@ Status: a **live IPC calculation command exists**, but there is no completed LCA
 6. In the product system, define two separate, operative parameters for grid/wind electricity in kWh per kg delivered hydrogen, with actual processes linked and no duplicate electricity GWP entry. Test that overriding these parameters changes actual provider requirements.
 7. Enable openLCA IPC server (local port 8080 by default) on the exact database and record product-system UUID, product-system name, impact-method UUID and name, database name, version, provider, source year and licence.
 
+## Headless server option (official openLCA IPC)
+
+GreenDelta also supports headless stand-alone servers that connect to a previously imported workspace database; no graphical session is required for calculations. See https://greendelta.github.io/openLCA-ApiDoc/servers.html .
+
+After importing the model into an actual openLCA database, stop the desktop's connection to that database and launch the openLCA installation's bin/ipc-server script with the real database name (the desktop and headless server cannot open that same database simultaneously). Headless server needs a valid openLCA workspace containing databases and any referenced libraries.
+
+Optionally use the official gdt-server container with that workspace mounted and a read-only source database. The absence of a real linked database is still a hard stop: starting an empty server is NOT a completed LCA. Never commit restricted LCI files or database directories to GitHub.
+
 ## Run the real LCA
 
 Copy configs/openlca.user.template.json to a private local file and replace all nulls and the placeholder parameter names with real verified values. Do not commit provider licence files or private API keys.
