@@ -103,7 +103,7 @@ Every term has a validated source or must be explicitly marked scenario assumpti
 
 Pressure/usable inventory \(m_\mathrm{usable}=V[\rho(P_\mathrm{max},T)-\rho(P_\mathrm{min},T)]\). Work from compressor thermodynamics (enthalpy rise and isentropic efficiency with inlet/outlet limits) or validated benchmark; prohibit a flat kWh/kg "realistic" coefficient with no physical or sourced pressure duty. Compare ideal-gas and real-gas density over specified range; verify conservation, positive temperatures/pressures, temperature limits and test model failure on impossible pressures.
 
-**Original configured capacity vs physical capacity:** 20,000 and 40,000 kg in PyNEXUS are *model storage capacities*. Determine whether these are nameplate, usable or working inventory; preregister the mapping and necessary pressure/temperature/volume before assigning vessel count.
+**Original configured capacity vs physical capacity — original source audit completed:** the original archived PyNEXUS config and storage equations prove **20,000/40,000 kg are maximum inventory state bounds** with common initial/final minimum 10,000 kg, charge/discharge limits 2,200 kg/h, PEM outlet 30 bar and pipeline delivery minimum 20 bar. These are NOT already usable mass in a pressure-rated bank. The F2 source-based [working-pressure and published Type I-IV vessel audit](F2_PUBLISHED_STORAGE_PRESSURE_SWING_AUDIT.md) documents very different physical heel inventories and equipment masses. Demand pressure, tank pressure rating, source study bar basis and external pressure-vessel suitability must still be validated; do not conflate max gas stock, withdrawable gas and empty vessel kg.
 
 ### Methanol
 
@@ -173,6 +173,8 @@ Target shared exchange fields/semantics:
 - \`impact\` (method and region, gross climate, embodied, operational, upstream, end-of-life, noncharacterized flow counts, native-run evidence);
 - \`economics\` (country/currency/price year, capex/opex, VAT/tariffs treatment and DCF);
 - \`evidence_status\` and \`limits\` with \`null\` for *unknown*, never 0.
+
+**BAFU provider rule, newly audited from original v1 EcoSpold:** process UUID b4739ad2-aa38-368d-8ada-63f5417c8b55 (High pressure hydrogen storage tank) is a **vehicle/composite** tank reference with general comment describing inventory *per kg of hydrogen capacity*, despite an exported reference flow unit of kg. Its recipe uses 7.14kg carbon fibre and 3.06kg epoxy plus metal inputs per reference unit. It is **not a kg-empty-Type-I-steel source**. No existing nominal/mass-based BAFU tank multiplication is approved; source v1.1 must be independently verified and the physical technology matched before native storage impacts. PtXLens records this mismatch in its original-source audit. 
 
 **Critical identity:** \`m_\mathrm{H2,delivered}\` refers to product flowing over the boundary at the same delivered service/pressure/purity. \`m_\mathrm{tank}\` refers to empty equipment mass; \`m_\mathrm{stored}\` to instantaneous physical H2; \`m_\mathrm{tank,nominal}\` to rated H2 capacity; no implicit exchange is permitted.
 
