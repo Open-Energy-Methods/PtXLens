@@ -47,7 +47,12 @@ Successful real external software CI: https://github.com/Open-Energy-Methods/PtX
 
 **NOT LCOH**: wind and storage CAPEX, electricity, other plant OPEX, grid tariffs, compression, financing and many other items are omitted. Do not add this 2022 USD component to 2023 EUR electricity settlements without sourced FX/inflation conversions. No independently measured industrial performance is claimed.
 
-## LCA remains uncalculated
+## Electricity-supply LCA-informed GWP screen is calculated; full native openLCA LCIA remains uncalculated
+
+The source-verified 2023 Dutch grid+wind supply GWP calculation uses the actual PyNEXUS E/E+S 8760-hour model flows and published default lifecycle electricity indicators. The official Dutch 2023 grid factor is 0.290 kgCO2e/kWh generation + 0.047 kgCO2e/kWh upstream fuels + 0.007 kgCO2e/kWh infrastructure, and the UNECE offshore-wind benchmark is 0.0142 kgCO2e/kWh. Outputs: E **6.74243** and E+S **6.65815** kgCO2e/kg modelled delivered H2, **electricity supply only**. See [complete research note](LCA_2023_METHODS_RESULTS.md) and [real-source CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43424086998).
+
+A real 1MW PEM stack material input inventory from Kanz (TU Eindhoven, 2024, Table B8) is separately transcribed and executable against observed source 2023 model capacity, with explicit 30-year/replacement assumptions. [Source-cited material model](../data/lci/pem_stack_kanz_2024_1mw.json); [executed source-mapping CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43425080024). This provides **material masses**, not material manufacturing GWP until background suppliers and flow identities are linked.
+
 
 Actual openLCA IPC interface exists, but no connected, physically complete foreground plus licensed background plus named compatible GWP100 characterization method has been provided; **there is no completed LCIA score**.
 
