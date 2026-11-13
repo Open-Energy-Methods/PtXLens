@@ -15,7 +15,10 @@
     "market_source_ref": "ENTSO-E NL A44 2023 observed, original registered PyNEXUS frozen archive",
     "model_source_ref": "PyNEXUS WP5 E+S original 8760h modelled H2 + BAFU v1.1 native LCIA",
     "code_commit_sha": null,
-    "source_notes": "No industrial H2 plant telemetry; the original weather/wind conversion and dispatch are simulated."
+    "source_notes": "No industrial H2 plant telemetry; the original weather/wind conversion and dispatch are simulated.",
+    "market_price_input_sha256": "2dfea4651fce314893201e7b08a4ae0ad24deef6b69ef85d81d9f54428f95bb2",
+    "wind_available_input_sha256": "a1c1443c49fa700d57038e008abd99f89c85d87e56a0fbd6141af37215e25520",
+    "hourly_demand_input_sha256": "1d35b2a2091a14998c3936819dac4edac0675319bd5b63553944c61a41943cd4"
   },
   "functional_unit": {
     "product": "H2",
@@ -74,7 +77,8 @@
     "matched_service_comparison_eligible": false,
     "comparative_superiority_claim": false,
     "industrial_validation": false,
-    "claim_notes": "Valid scoped BAFU v1.1 E+S native calculation, NOT including incremental 20t equipment or compression, NOT a matched-service comparison."
+    "claim_notes": "Valid scoped BAFU v1.1 E+S native calculation, NOT including incremental 20t equipment or compression, NOT a matched-service comparison.",
+    "matched_operational_service_verified": false
   },
   "limitations": [
     "Additional storage vessels, compressor/auxiliary energy, hydrogen loss and tank end-of-life not included.",
