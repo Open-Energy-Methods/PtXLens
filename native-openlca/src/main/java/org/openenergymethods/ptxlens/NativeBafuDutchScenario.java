@@ -164,8 +164,11 @@ public final class NativeBafuDutchScenario {
     }
 
     public static void main(String[] args) throws Exception{
-        if(args.length!=3)
-            throw new IllegalArgumentException("usage: <scratch-copy-BAFU-v1.1-Derby-db> <source-verified-E-ES-config.json> <optional-GPL-UMFPACK-root>");
+        if(args.length!=3 && args.length!=4)
+            throw new IllegalArgumentException("usage: <scratch-copy-BAFU-v1.1-Derby-db> <source-verified-E-ES-config.json> <GPL-UMFPACK-root> [E|E_plus_S]");
+        String requested=args.length==4?args[3]:"both";
+        require("both".equals(requested)||"E".equals(requested)||"E_plus_S".equals(requested),
+                "unsupported independently selected historical scenario");
         File folder=Path.of(args[0]).toAbsolutePath().toFile();
         require(Derby.isDerbyFolder(folder),"the scratch DB is not an actual native openLCA Derby database");
         NativeLib.loadFrom(Path.of(args[2]).toAbsolutePath().toFile());
@@ -189,7 +192,7 @@ public final class NativeBafuDutchScenario {
             var water=exactSource(db,NL_DEIONIZED,
                 "Water, deionised, water balance according to MoeK 2013, at plant","kg");
             var method=climateMethod(db);
-            int i=0;
+            int i=0,executed=0;
             for(var e:cases){
                 var row=e.getAsJsonObject();
                 String scenario=row.get("case").getAsString();
@@ -197,15 +200,18 @@ public final class NativeBafuDutchScenario {
                     "expected registered original E followed by E_plus_S source model");
                 require(!row.get("incremental_storage_equipment_included").getAsBoolean(),
                     "source config wrongly asserts independently validated extra storage");
-                runCase(db,method,original,grid,wind,water,scenario,
-                        row.get("original_sha256").getAsString(),
-                        row.get("grid_input_kWh_per_kg_H2").getAsDouble(),
-                        row.get("wind_input_kWh_per_kg_H2").getAsDouble(),
-                        row.get("modelled_delivered_kg_2023").getAsDouble());
+                if("both".equals(requested)||scenario.equals(requested)) {
+                    runCase(db,method,original,grid,wind,water,scenario,
+                            row.get("original_sha256").getAsString(),
+                            row.get("grid_input_kWh_per_kg_H2").getAsDouble(),
+                            row.get("wind_input_kWh_per_kg_H2").getAsDouble(),
+                            row.get("modelled_delivered_kg_2023").getAsDouble());
+                    executed++;
+                }
                 i++;
             }
+            System.out.println("PTXLENS_NATIVE_SCENARIOS_EXECUTED\t"+executed);
         }
-        System.out.println("PTXLENS_NATIVE_SCENARIOS_EXECUTED\t2");
         System.out.println("PTXLENS_NATIVE_BAFU_V11_SOURCE_REMAINS_UNALTERED\ttrue");
         System.out.println("PTXLENS_NATIVE_DUTCH_PTX_COMPLETE_STUDY\tfalse");
     }
