@@ -128,6 +128,26 @@ def audit(archive_path):
                 "in_archive":actual is not None,
             })
         method_names.append(entry)
+    # Prevent an archive with a named method but missing characterization rows
+    # from being described as ready for real LCIA.
+    ipcc=methods.get("00feb6d9-9282-3bcf-9d18-7b040f516935")
+    ar6=categories.get("a6206006-65bc-395c-8dc9-f12262f45a04")
+    if ipcc is None or ar6 is None or ar6.get("name")!="AR6-100":
+        raise ValueError("original version-pinned IPCC AR6-100 method/category missing")
+    cf=ar6.get("impactFactors") or []
+    if len(cf)!=134:
+        raise ValueError("unexpected original AR6-100 number of published characterization factors")
+    cf_types=Counter(
+        (flows.get(refid(k.get("flow")),{}).get("flowType","UNKNOWN"))
+        for k in cf if isinstance(k,dict)
+    )
+    if cf_types.get("ELEMENTARY_FLOW",0)!=134:
+        raise ValueError("AR6-100 characterization factors do not all reference valid elementary flows")
+    method_verification={"ipcc_method_uuid":ipcc["@id"],"ipcc_method_name":ipcc.get("name"),
+                         "ar6_100_category_uuid":ar6["@id"],
+                         "characterization_factor_count":len(cf),
+                         "verified_elementary_flow_factors":cf_types["ELEMENTARY_FLOW"],
+                         "impact_factors_are_native_lcia_results":False}
     first_inputs=[]
     for x in source.get("exchanges",[]):
         if x.get("isInput") is True:
@@ -154,6 +174,7 @@ def audit(archive_path):
                   "missing_or_incompatible_provider_links":len(errors)},
         "first_process_actual_source_inputs":first_inputs,
         "available_impact_methods":method_names,
+        "ipcc_ar6_100_original_method_verification":method_verification,
         "impact_method_category_characterization_coverage":method_categories,
         "upstream_errors_by_type":dict(Counter(row["issue"] for row in errors)),
         "missing_provider_candidate_counts":repair_candidates,
