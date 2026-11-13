@@ -1,5 +1,15 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## Coordinated scientific v1.0 — adopted research programme
+
+**Start here:** [shared v1.0 master plan](docs/PROGRAMME_MASTER_PLAN_v1.0.md) · [scientific decisions and change control](docs/DECISION_REGISTER_v1.0.md) · [12-WP release evidence status](research/gates-v1.0.json) · [versioned shared exchange schema](contracts/ptx-exchange-v1.schema.json) (byte-identical with PtXFlex).
+
+**Existing native source evidence preserved:** [real BAFU:2026 v1.1 E/E+S native LCIA](docs/BAFU_2026_V11_NATIVE_2023_DUTCH_E_ES_VERIFIED.md) with original 2023 PyNEXUS modelled H₂ and native 30bar PEM reference. E=**6.148174395784**, E+S=**6.0765526538929** kg CO₂e/kg modelled delivered H₂ under a **scoped reference** that omits additional E+S storage equipment/compression and uses different delivered service. **Not** a complete matched-service comparison. [PtXFlex F1 audited source](https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43497912940) and [F2 preliminary CoolProp physics](https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43498612013) will provide the pressure/working-inventory evidence.
+
+**Release gate:** the actual 20t→40t equipment inventory, storage pressure/usable mass and operational loss/compression must be sourced before we re-run BAFU whole-plant GWP. Full H₂ discounted cost needs complete EU plant CAPEX/OPEX and matched delivery; capital-only OpenPyTEA is not LCOH. Methanol must pass a separate CO₂/product-gate method. [Storage-LCA task](https://github.com/Open-Energy-Methods/PtXLens/issues/6) · [methanol product LCA task](https://github.com/Open-Energy-Methods/PtXLens/issues/7).
+
+
+
 ## Latest scientific result — genuine native BAFU:2026 v1.1 30-bar PEM E/E+S GWP100
 
 Using the **user-provided real BAFU v1.1 native openLCA database**, the actual GreenDelta openLCA 2.7 Java engine and UMFPACK sparse solver have now produced independently checked **IPCC 2021 / IPCC 2021 GWP 100** results from native, closed supplier process systems:
