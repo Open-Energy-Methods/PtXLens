@@ -1,0 +1,84 @@
+name: Real BAFU 2026 GWP component screen using original Dutch 2023 E and E+S
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/bafu-original-2023.yml'
+      - 'src/ptxlens/bafu_real_screen.py'
+      - 'src/ptxlens/bafu_candidates.py'
+      - 'tests/test_bafu_real_screen.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-and-external:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest -q tests/test_bafu_real_screen.py
+      - name: Download all 11947 independently source-versioned official BAFU:2026 IPCC GWP100 processes
+        run: |
+          mkdir -p outputs/bafu_real_2023 /tmp/ptxlens_2023
+          python -m ptxlens.bafu_candidates \
+            --csv outputs/bafu_real_2023/bafu_2026_11947_source_processes.csv \
+            --candidates outputs/bafu_real_2023/source_material_provider_candidates.json \
+            --manifest outputs/bafu_real_2023/bafu_2026_source_provenance.json
+      - name: Retrieve 2023 E/ES ORIGINAL registered PyNEXUS modelled dispatch (no substituted fixture)
+        run: |
+          for pair in "12612294862 E.zip" "12613045475 ES.zip"; do
+            set -- $pair
+            curl -fL --retry 3 --retry-all-errors \
+              --connect-timeout 20 --max-time 180 \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/abhijith-sivaprasadan/PyNEXUS/actions/artifacts/$1/zip" \
+              -o "/tmp/ptxlens_2023/$2"
+          done
+      - name: Execute source-grounded E vs ES original dispatch + BAFU electricity/material GWP subset
+        run: |
+          python -m ptxlens.bafu_real_screen \
+            --E /tmp/ptxlens_2023/E.zip \
+            --ES /tmp/ptxlens_2023/ES.zip \
+            --catalogue outputs/bafu_real_2023/bafu_2026_11947_source_processes.csv \
+            --source-manifest outputs/bafu_real_2023/bafu_2026_source_provenance.json \
+            --stack-source data/lci/pem_stack_kanz_2024_1mw.json \
+            --output outputs/bafu_real_2023/2023_original_E_vs_ES_BAFU2026_method_sensitivity.json
+      - name: Independent one-line source-factor recheck and fail-closed LCA boundary assertions
+        run: |
+          python - <<'PY'
+          import csv,json,math
+          from pathlib import Path
+          root=Path("outputs/bafu_real_2023")
+          x=json.loads((root/"2023_original_E_vs_ES_BAFU2026_method_sensitivity.json").read_text())
+          factor=x["factor_source_registry"]
+          assert len(factor)==12
+          assert x["no_total_cradle_to_gate_GWP_computed"] is True
+          assert x["full_product_system_LCA_claim_allowed"] is False
+          for key in ("E","E_plus_S"):
+              case=x[key]
+              assert case["full_product_system_LCA_claim_allowed"] is False
+              assert case["no_total_cradle_to_gate_GWP_computed"] is True
+              assert len(case["unresolved_source_stack_materials"])==4
+              assert len(case["published_BAFU_subset_of_stack_materials"])==4
+              energy=case["historical_2023_electricity_mwh"]
+              g=energy["grid_import_for_electrolysis"]*3600*factor["grid_nl_high_voltage"]["original_IPCC_2021_GWP100_kgco2e_per_reference_unit"]
+              w=energy["offshore_wind_for_electrolysis"]*3600*factor["offshore_wind_legacy_2mw"]["original_IPCC_2021_GWP100_kgco2e_per_reference_unit"]
+              expected=(g+w)/case["historical_2023_modelled_H2_delivered_kg"]
+              assert math.isclose(expected,case["BAFU_energy_supply_intensity_kgco2e_per_kg_model_delivered_H2"],rel_tol=1e-12)
+              print(key,"published-source energy supply GWP only, kgCO2e/kg delivered H2",expected)
+              print(key,"4/8 documented material process GWP subset only",case["published_stack_GWP_subset_kgco2e_per_kg_delivered_H2"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BAFU2026-2023-real-E-ES-source-and-incomplete-GWP-screen
+          path: outputs/bafu_real_2023/
+          retention-days: 90
+          if-no-files-found: error
