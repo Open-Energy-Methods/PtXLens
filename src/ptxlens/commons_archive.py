@@ -32,9 +32,24 @@ def retrieve_json(path,*,opener=urlopen):
     req=Request(url,headers={"Accept":"application/json","User-Agent":"PtXLens/0.2 academic database coverage"})
     with opener(req,timeout=240) as resp:
         raw=resp.read(80_001)
+        status=getattr(resp,"status",200)
+        kind=resp.headers.get("Content-Type","")
+        location=resp.headers.get("Location","")
     if len(raw)>80_000:
         raise ValueError("unexpectedly large prepare response; refusing")
-    return json.loads(raw)
+    if not raw.strip():
+        raise RuntimeError(f"FLCAC prepare returned empty body (HTTP {status}, type={kind}, location_present={bool(location)}); no archive created")
+    try:
+        return json.loads(raw)
+    except (ValueError, UnicodeError) as ex:
+        # Some API versions return a plain-text token; never log it.
+        text=raw.decode("utf-8",errors="replace").strip()
+        if (5<=len(text)<=200 and all(c.isalnum() or c in "-_." for c in text)
+                and "html" not in kind.lower()):
+            return {"token":text}
+        marker=("HTML" if "<html" in text.lower() or "<!doctype" in text.lower()
+                else "unrecognized body")
+        raise RuntimeError(f"FLCAC prepare HTTP {status}, Content-Type {kind}, {len(raw)} bytes ({marker}); no archive") from ex
 
 
 def retrieve_zip(target_path,*,opener=urlopen):
