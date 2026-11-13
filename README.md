@@ -1,4 +1,10 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
+## Commons Merged real-background audit — November 2026
+
+The **authentic Federal LCA Commons Merged 2026 openLCA JSON-LD archive** (51,012,635 bytes, SHA256 `1ded185617d4de67f8ed6933c473a68d65c232dd738779179e8559a31dfd056d`) is now reproducibly downloadable without an API key. The actual 1 kg PEM-hydrogen USLCI unit process and IPCC **AR6-100 method with 134 matching characterization-flow references** were identified. The exact supplier graph still has **695 unresolved upstream input exchanges (683 without any same-flow output supplier; 12 with candidate suppliers requiring review)**, including deionized water and PEM-stack precursor flows. **Native openLCA cradle-to-gate LCIA remains blocked; no full GWP value is claimed.**
+
+Read [the actual background database / missing-provider research audit](docs/COMMONS_MERGED_2026_PROVIDER_AUDIT.md). [Source acquisition and provider graph CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43432287400).
+
 
 **Research status (13 Nov 2026): real-data provenance, genuine OpenPyTEA capital calculation, and a reproducible, published-factor electricity-supply life-cycle GWP screening completed; full LCOH and provider-linked process-based cradle-to-gate LCA not yet completed.** The original source PyNEXUS model is unchanged.
 
