@@ -20,6 +20,11 @@ KNOWN_2023_ORIGINAL={
     "E":"069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
     "E_plus_S":"cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
 }
+KNOWN_2023_INPUT_SHA256={
+    "market_price_input_sha256":"2dfea4651fce314893201e7b08a4ae0ad24deef6b69ef85d81d9f54428f95bb2",
+    "wind_available_input_sha256":"a1c1443c49fa700d57038e008abd99f89c85d87e56a0fbd6141af37215e25520",
+    "hourly_demand_input_sha256":"1d35b2a2091a14998c3936819dac4edac0675319bd5b63553944c61a41943cd4",
+}
 NATIVE_METHOD="IPCC 2021"
 NATIVE_CATEGORY="IPCC 2021 GWP 100"
 
@@ -66,6 +71,10 @@ def validate_exchange(data):
             fail("known 2023 historical source archive SHA mismatch")
         if src["source_year"]!=2023 or src["hour_count"]!=8760:
             fail("original 2023 NL source must have exactly 8760 hours")
+        if scenario in KNOWN_2023_ORIGINAL:
+            for name,pinned in KNOWN_2023_INPUT_SHA256.items():
+                if src[name]!=pinned:
+                    fail("verified frozen PyNEXUS 2023 price/weather/demand series SHA mismatch: "+name)
     if data["evidence_status"]=="external_plant_validated" and not claims["industrial_validation"]:
         fail("external plant validation requires independent measurements and evidence")
     if claims["industrial_validation"] and data["evidence_status"]!="external_plant_validated":
@@ -101,13 +110,18 @@ def validate_exchange(data):
             fail("MeOH functional unit must use methanol research-question scope")
         if flows["methanol_delivered_kg"] in (None,0) or flows["co2_feed_kg"] in (None,0):
             fail("methanol study requires nonzero specified product and CO2 feed")
-    if claims["matched_service_comparison_eligible"]:
+    if claims["matched_operational_service_verified"]:
         if not fu["same_service_as_comparator"] or fu["service_profile_sha256"] is None:
-            fail("matched service claim requires identical documented hourly service profile")
+            fail("operational matched service requires a named identical profile SHA")
         if fu["pressure_bar"] is None or fu["purity_mol_fraction"] is None or not fu.get("quality_verified",False):
-            fail("matched service requires proven pressure/purity product gate")
+            fail("operational matched service requires verified product pressure and purity")
         if data["analysis_scope"] not in ("matched_service_h2","methanol_validated"):
-            fail("historical unmatched/scoped LCIA cannot be labelled a matched comparison")
+            fail("unmatched historical source cannot be relabelled operationally matched")
+        for required in ("market_price_input_sha256","wind_available_input_sha256","hourly_demand_input_sha256"):
+            if src[required] is None:
+                fail("matched operations require identical source price/weather/demand hashes: "+required)
+    if claims["matched_service_comparison_eligible"] and not claims["matched_operational_service_verified"]:
+        fail("complete environmental comparison requires first verifying matched operating service")
 
     native=claims["native_lca_executed"]
     if native:
@@ -148,24 +162,35 @@ def validate_exchange(data):
     return data
 
 
-def comparable_pair(a,b):
-    """Fail if two model results are not scientifically comparable as a pair."""
+def comparable_pair(a,b,*,domain="environmental"):
+    """Check identical physical service separately from complete environmental TEA/LCA.
+
+    Operational comparison can legitimately precede full equipment LCIA.
+    Environmental comparison additionally requires complete system boundary
+    and comparable financial/LCA sources. No unsupported source data are added.
+    """
     validate_exchange(a);validate_exchange(b)
+    if domain not in ("operational","environmental"):
+        raise ScientificContractError("comparison domain must be operational or environmental")
     if {a["scenario_id"],b["scenario_id"]}!={"E","E_plus_S"}:
         raise ScientificContractError("require original E vs E+S pair")
     for d in (a,b):
-        if d["analysis_scope"]!="matched_service_h2" or not d["claims"]["matched_service_comparison_eligible"]:
-            raise ScientificContractError("pair is not explicitly validated for equal H2 service")
+        if d["analysis_scope"]!="matched_service_h2" or not d["claims"]["matched_operational_service_verified"]:
+            raise ScientificContractError("pair is not explicitly validated for equal operating H2 service")
+        if domain=="environmental" and not d["claims"]["matched_service_comparison_eligible"]:
+            raise ScientificContractError("complete environmental comparison claim has not passed lifecycle gates")
     keys=("product","unit","gate_name","pressure_bar","purity_mol_fraction","service_profile_sha256")
     for k in keys:
         if a["functional_unit"][k]!=b["functional_unit"][k]:
             raise ScientificContractError("different product-gate or hourly service: "+k)
-    if a["source"]["source_year"]!=b["source"]["source_year"] or a["source"]["hour_count"]!=b["source"]["hour_count"]:
-        raise ScientificContractError("different original weather/market time window")
-    for k in ("source_database","source_database_version","method","category"):
-        if a["impact"][k]!=b["impact"][k]:
-            raise ScientificContractError("environmental method/background not comparable: "+k)
-    for k in ("currency","price_year","discount_rate_fraction"):
-        if a["economics"][k]!=b["economics"][k]:
-            raise ScientificContractError("cost basis not comparable: "+k)
+    for k in ("source_year","hour_count","market_price_input_sha256","wind_available_input_sha256","hourly_demand_input_sha256"):
+        if a["source"][k]!=b["source"][k]:
+            raise ScientificContractError("different source time series or demand: "+k)
+    if domain=="environmental":
+        for k in ("source_database","source_database_version","method","category"):
+            if a["impact"][k]!=b["impact"][k]:
+                raise ScientificContractError("environmental method/background not comparable: "+k)
+        for k in ("currency","price_year","discount_rate_fraction"):
+            if a["economics"][k]!=b["economics"][k]:
+                raise ScientificContractError("cost basis not comparable: "+k)
     return True
