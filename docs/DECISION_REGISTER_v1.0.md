@@ -98,6 +98,8 @@
 
 **Status:** ACCEPTED; initial implementation under P1 · **Decision:** canonical \`contracts/ptx-exchange-v1.schema.json\` is mirrored byte-for-byte across PtXFlex/PtXLens, validated by a scientific cross-field gate. Publication rejects null relevant impacts, missing storage BOM, mismatched service profile/hash, methods/functional unit/year or unverified economic terms. Any breaking change increments major contract version and requires an ADR and migration tests.
 
+**Scientific distinction:** The initial implemented schema is a source-verified **annual summary** and rejects false matched-service GWP; an hourly content-addressed flow ledger, full equipment BOM provider list and original pressure/quality evidence remain to be built before the P1 gate can pass. The distinct `matched_operational_service_verified` (physical dispatch comparability) and `matched_service_comparison_eligible` (complete economic/environmental comparability) statuses must not be collapsed. Original E and E+S source wind/price/demand SHA are pinned even though their actual H₂ delivery is unequal.
+
 **Why:** source preservation and exchange semantics, not a shared website dashboard, are v1.0 integration prerequisites.
 
 ## Decision request template
