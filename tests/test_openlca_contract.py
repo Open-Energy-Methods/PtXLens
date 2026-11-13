@@ -35,8 +35,8 @@ def test_contract_requires_explicit_user_database_and_distinct_parameters():
 
 
 def test_client_package_2_6_api_exists():
-    import olca_ipc
-    import olca_schema as o
+    olca_ipc=pytest.importorskip("olca_ipc", reason="optional openLCA IPC installed in dedicated Python 3.12 contract job")
+    o=pytest.importorskip("olca_schema")
     assert hasattr(olca_ipc,"Client")
     assert hasattr(o,"CalculationSetup")
     assert hasattr(o,"ParameterRedef")
