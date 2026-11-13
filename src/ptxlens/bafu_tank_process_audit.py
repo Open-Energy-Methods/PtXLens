@@ -18,7 +18,7 @@ import math
 from pathlib import Path
 import zipfile
 
-from lxml import etree
+from xml.etree import ElementTree as etree  # stdlib; private v1 source extraction needs no optional package
 
 BAFU_TANK_UUID="b4739ad2-aa38-368d-8ada-63f5417c8b55"
 BAFU_SOURCE_V1_ZIP_SHA256="ebaab56717a6227b5eb271fcb4c86fb9db206115eb937fb0ec0b10d7accf26c7"
