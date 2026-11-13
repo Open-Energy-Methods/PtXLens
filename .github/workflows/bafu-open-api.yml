@@ -23,9 +23,9 @@ jobs:
         run: |
           mkdir -p outputs/bafu_ogd
           python -m ptxlens.bafu_ogd --output outputs/bafu_ogd/official_schema_and_provider_provenance.json
-      - name: Query real BAFU 2026 IPCC GWP100 provider catalogue (source UUID partition pilot)
+      - name: Retrieve complete real BAFU 2026 IPCC GWP100 process catalogue (16 UUID partitions)
         run: |
-          python -m ptxlens.bafu_candidates --pilot \
+          python -m ptxlens.bafu_candidates \
             --csv outputs/bafu_ogd/bafu_2026_actual_process_catalogue.csv \
             --candidates outputs/bafu_ogd/material_provider_candidates.json \
             --manifest outputs/bafu_ogd/material_provider_provenance.json
@@ -35,7 +35,8 @@ jobs:
           m=json.loads(Path("outputs/bafu_ogd/material_provider_provenance.json").read_text())
           assert m['database_version']=='BAFU:2026 v1'
           assert m['impact_method']=='IPCC 2021' and m['impact_category']=='GWP 100'
-          assert m['all_16_hex_partitions_covered'] is False
+          assert m['all_16_hex_partitions_covered'] is True
+          assert m['provider_records']>8000
           print("real, published candidate processes",m['provider_records'])
           print("actual candidate match counts",m['candidate_counts'])
           PY
