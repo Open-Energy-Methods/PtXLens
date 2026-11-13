@@ -72,13 +72,14 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Official CoolProp 8.0.0 EOS/isentropic compressor source-library foundation PASS (15 dedicated property/physical QA tests); 20/40t usable-vs-nominal mass, tank pressures, manufacturer BOM, auxiliary/cooler/leak source and physical validation OPEN. Screening pressure grid is NOT approved tank design.",
+      "current_evidence_status": "Verified original PyNEXUS 20/40t MAX STOCK (not usable H2), 30bar PEM/20bar pipeline, source loss, 10t start/end. CoolProp 8 EOS; 25 physical/source-vessel tests passed. Published Type I-IV Table 2 physical reference volume and empty vessel mass scenarios; supplier/vendor design and pressure/cooling/transient model still missing.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
       "work_evidence": [
-        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43498612013",
-        "src/ptxflex/hydrogen_physics.py"
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43502681218",
+        "docs/F2_PUBLISHED_STORAGE_PRESSURE_SWING_AUDIT.md",
+        "src/ptxflex/storage_reference_vessels.py"
       ]
     },
     {
@@ -90,11 +91,15 @@
       ],
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
-      "status": "blocked",
-      "current_evidence_status": "Native BAFU supplier exists but empty vessel mass/design/replacement inventory unknown.",
+      "status": "in_progress",
+      "current_evidence_status": "Published Type I/II/III/IV reference vessel empty mass and gas heel available as noncertified physical sensitivity. Actual BAFU v1 high-pressure tank process is vehicle composite PER KG H2 CAPACITY (despite unit kg); NOT a per-kg empty steel vessel provider. Correct L1 manufacturer BOM, v1.1 supplier check and full installed costs/impacts still absent.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/docs/L1_BAFU_STATIONARY_H2_TANK_PROVIDER_UNIT_AUDIT.md",
+        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/F2_PUBLISHED_STORAGE_PRESSURE_SWING_AUDIT.md"
+      ]
     },
     {
       "id": "F3",
@@ -105,11 +110,16 @@
       ],
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
-      "status": "blocked",
-      "current_evidence_status": "Original service unequal; common delivery target and reliability require 8760h optimized physical dispatch.",
+      "status": "in_progress",
+      "current_evidence_status": "PASS: New independently audited original-source 2023 E/ES 8760h HiGHS MILP pilot matched *exactly the SAME ORIGINAL E hourly delivered H2 schedule* 16.335M kg; optimized annual signed wholesale €25.7489m vs €24.6070m with best-bound interval. This was IDEAL original numeric stock, not physically pressure-limited usable H2, compression/purity/equipment or full 50t/day original demand. Full F3 gate NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43505154927",
+        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/data/results/F3_original2023_E_ES_ideal_matched_hourly_H2_annual_verified.json",
+        "src/ptxflex/f3_matched_ideal_benchmark.py"
+      ]
     },
     {
       "id": "L2",
@@ -214,7 +224,7 @@
     "original_historical_E_EplusS_service_matched": false,
     "additive_storage_BOM_validated": false,
     "independent_scientific_peer_review_passed": false,
-    "note": "Hydrogen core requires H2-only X1/L2/L3 and independent review; full methanol requires separate F4/L4 gates. No results are presently release ready."
+    "note": "Original existing E/E+S results remained unequal. NEW F3 ideal-stock pilot has identical E-delivered hourly service and source inputs, but physical pressure/missing tank equipment and full 50t/day demand still prevent v1.0 matched plant comparison. L1 BAFU tank source-unit mismatch prohibits applying its impacts to empty steel mass."
   },
   "source_and_licensing_guardrails": {
     "original_PyNEXUS_frozen": true,
