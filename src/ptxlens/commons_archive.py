@@ -8,6 +8,7 @@ from datetime import datetime,timezone
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -49,7 +50,8 @@ def retrieve_json(path,*,opener=urlopen):
             return {"token":text}
         marker=("HTML" if "<html" in text.lower() or "<!doctype" in text.lower()
                 else "unrecognized body")
-        raise RuntimeError(f"FLCAC prepare HTTP {status}, Content-Type {kind}, {len(raw)} bytes ({marker}); no archive") from ex
+        safe_snippet=re.sub(r"[A-Za-z0-9_-]{18,}","[REDACTED]",text[:150])
+        raise RuntimeError(f"FLCAC prepare HTTP {status}, Content-Type {kind}, {len(raw)} bytes ({marker}); redacted excerpt={safe_snippet!r}; no archive") from ex
 
 
 def retrieve_zip(target_path,*,opener=urlopen):
