@@ -1,0 +1,44 @@
+name: DOE-source OpenPyTEA cross-check on observed PyNEXUS summaries
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/real-openpytea.yml'
+      - 'src/ptxlens/openpytea_doe.py'
+      - 'data/source_registry/pynexus_wp5_2023.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  openpytea:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e . 'OpenPyTEA==3.2.2'
+      - name: Run model with real 2023 PyNEXUS summaries, DOE published costs, 8% analyst sensitivity
+        run: |
+          mkdir -p outputs/real_doe_capital
+          python - <<'PY'
+          from ptxlens.openpytea_doe import run_registry
+          results=run_registry("data/source_registry/pynexus_wp5_2023.json",
+              cost_usd2022_kw=2000,
+              discount_rate=0.08,
+              out_file="outputs/real_doe_capital/openpytea_doe_2000usd_kw_8pct.json")
+          for r in results:
+              print(r["scenario"],"OpenPyTEA actually executed",
+                    r["openpytea_version"],
+                    "capital-only USD2022/kg:",r["openpytea_capital_only_usd2022_per_kg"])
+              print("cross-check USD2022/kg:",r["independent_discounted_cashflow_usd2022_per_kg"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: actual-openpytea-doe-source-capital-only-e-es
+          path: outputs/real_doe_capital/
+          retention-days: 90
+          if-no-files-found: error
