@@ -1,0 +1,16 @@
+{
+  "product_system_id": null,
+  "product_system_name": null,
+  "impact_method_id": null,
+  "impact_method_name": null,
+  "database_name": null,
+  "database_version": null,
+  "database_license": null,
+  "database_provider": null,
+  "reference_flow_amount_kg_h2": 1,
+  "parameter_mapping": {
+    "electricity_grid_kwh_per_kg": "replace_actual_system_grid_parameter",
+    "electricity_wind_kwh_per_kg": "replace_actual_system_wind_parameter"
+  },
+  "ipc_port": 8080
+}
