@@ -1,0 +1,88 @@
+{
+  "first_modelled_reference_service_is_not_original_full_contract": true,
+  "full_original_2023_demand_total_kg": 18250000.0,
+  "full_system_native_BAFU_GWP_or_TEA_available": false,
+  "independent_full_service_witness_sha256": {
+    "max_inventory": "62f89d2325d97ead7883f007eafb9c676a751712a41ecba551c7bde7faac6c5e",
+    "usable_service": "3563e4b37084d70c07b1ae6a44942ed7e3bdecaf8944eb1e94ad0cb9b9ec327e"
+  },
+  "laboratory_or_vendor_equipment_validation": false,
+  "matched_service_E_vs_EplusS_LCA_or_TEA_comparison_eligible": false,
+  "modes": {
+    "max_inventory": {
+      "cases": {
+        "E": {
+          "complete_project_annual_cost_eur": null,
+          "minimum_additional_modelled_H2_shortfall_lower_bound_kg": 65860.37818773676,
+          "minimum_additional_modelled_H2_shortfall_upper_bound_kg": 66524.31653871367,
+          "minimum_positive_shortfall_proven": true,
+          "native_full_plant_GWP_kgCO2e": null,
+          "original_full_demand_shortfall_lower_bound_kg": 1980581.0608110002,
+          "original_full_demand_shortfall_upper_bound_kg": 1981244.999161977,
+          "proof_basis": "HiGHS MILP dual bound plus independently audited feasible incumbent",
+          "source_stageA_uncorrected_feasible_incumbent_shortfall_kg": 66524.31653871367,
+          "zero_shortfall_feasible_and_optimal_proven": false
+        },
+        "E_plus_S": {
+          "complete_project_annual_cost_eur": null,
+          "minimum_additional_modelled_H2_shortfall_lower_bound_kg": 0.0,
+          "minimum_additional_modelled_H2_shortfall_upper_bound_kg": 0.0,
+          "minimum_positive_shortfall_proven": false,
+          "native_full_plant_GWP_kgCO2e": null,
+          "original_full_demand_shortfall_lower_bound_kg": 1914720.6826232634,
+          "original_full_demand_shortfall_upper_bound_kg": 1914720.6826232634,
+          "proof_basis": "independently audited full-hourly-service zero-shortfall witness; Stage A nonnegative slack",
+          "source_stageA_uncorrected_feasible_incumbent_shortfall_kg": 2307.4129202561912,
+          "zero_shortfall_feasible_and_optimal_proven": true
+        }
+      },
+      "eligible_for_direct_20t_vs_40t_cost_or_GWP_comparison": false,
+      "mathematically_proven_unequal_delivery_service": true,
+      "service_equivalence_option_requires_sourced_backup_or_common_target": true
+    },
+    "usable_service": {
+      "cases": {
+        "E": {
+          "complete_project_annual_cost_eur": null,
+          "minimum_additional_modelled_H2_shortfall_lower_bound_kg": 3718.7443495468883,
+          "minimum_additional_modelled_H2_shortfall_upper_bound_kg": 3720.3710020919516,
+          "minimum_positive_shortfall_proven": true,
+          "native_full_plant_GWP_kgCO2e": null,
+          "original_full_demand_shortfall_lower_bound_kg": 1918439.4269728104,
+          "original_full_demand_shortfall_upper_bound_kg": 1918441.0536253555,
+          "proof_basis": "HiGHS MILP dual bound plus independently audited feasible incumbent",
+          "source_stageA_uncorrected_feasible_incumbent_shortfall_kg": 3720.3710020919516,
+          "zero_shortfall_feasible_and_optimal_proven": false
+        },
+        "E_plus_S": {
+          "complete_project_annual_cost_eur": null,
+          "minimum_additional_modelled_H2_shortfall_lower_bound_kg": 0.0,
+          "minimum_additional_modelled_H2_shortfall_upper_bound_kg": 0.0,
+          "minimum_positive_shortfall_proven": false,
+          "native_full_plant_GWP_kgCO2e": null,
+          "original_full_demand_shortfall_lower_bound_kg": 1914720.6826232634,
+          "original_full_demand_shortfall_upper_bound_kg": 1914720.6826232634,
+          "proof_basis": "independently audited full-hourly-service zero-shortfall witness; Stage A nonnegative slack",
+          "source_stageA_uncorrected_feasible_incumbent_shortfall_kg": 0.0,
+          "zero_shortfall_feasible_and_optimal_proven": true
+        }
+      },
+      "eligible_for_direct_20t_vs_40t_cost_or_GWP_comparison": false,
+      "mathematically_proven_unequal_delivery_service": true,
+      "service_equivalence_option_requires_sourced_backup_or_common_target": true
+    }
+  },
+  "original_E_modelled_source_shortfall_before_pressure_kg": 1914720.6826232634,
+  "pressure_screen_research_only": true,
+  "reference_E_delivered_hourly_target_total_kg": 16335279.317376737,
+  "reference_profile_fingerprint_sha256": "0b5f5eadddf3f87b882f3b824fb0f75f0d33e3f2279588c411467d1573e6029c",
+  "schema_version": "ptxflex.f3_2023_pressure_adequacy_reconciled.v1",
+  "source_original_E_zip_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+  "source_original_EplusS_zip_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+  "stageA_certificate_input_sha256": {
+    "max_inventory_E": "da03e2cef59b6332e5fc83a1fd3f1e35baa38cf0902717570a2269aa0df3442d",
+    "max_inventory_E_plus_S": "7b0bb7f681213809ae926bd693e736e28a423b9836fc3db811d9ecedb4aa1237",
+    "usable_service_E": "880ff1f71b9db4a1c3ffe5b21f031d108be86a19bfbfe5bb8317493e6ddf098b",
+    "usable_service_E_plus_S": "6c5fb38a0c5665c8f4a8963f948afae445caa22545bb449392ee38f82b57322b"
+  }
+}
