@@ -41,8 +41,26 @@ def test_real_native_lca_examples_are_valid_but_not_full_or_matched(path):
 
 
 def test_original_unequal_service_cannot_be_called_matched_comparison():
-    with pytest.raises(ScientificContractError,match="not explicitly validated for equal H2 service"):
+    with pytest.raises(ScientificContractError,match="not explicitly validated for equal operating H2 service"):
         comparable_pair(example(E),example(ES))
+
+
+def test_original_source_input_price_and_weather_demand_hashes_must_be_pinned():
+    for field in ("market_price_input_sha256","wind_available_input_sha256","hourly_demand_input_sha256"):
+        d=example(E)
+        d["source"][field]="f"*64
+        with pytest.raises(ScientificContractError,match="price/weather/demand series SHA mismatch"):
+            validate_exchange(d)
+
+
+def test_operational_and_environmental_comparison_have_separate_gates():
+    a=example(E)
+    b=example(ES)
+    assert a["claims"]["matched_operational_service_verified"] is False
+    assert b["claims"]["matched_operational_service_verified"] is False
+    for domain in ("operational","environmental"):
+        with pytest.raises(ScientificContractError,match="not explicitly validated for equal operating H2 service"):
+            comparable_pair(a,b,domain=domain)
 
 
 def test_source_sha_tampering_is_rejected():
