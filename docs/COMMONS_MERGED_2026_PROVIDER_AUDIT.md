@@ -41,11 +41,12 @@ The code traverses defaultProvider UUIDs from the actual 1 kg PEM process and ch
 | Unique reachable upstream processes | 1,005 |
 | Technosphere input exchanges examined | 3,511 |
 | Exchanges without explicit default provider | **695** |
+| **Distinct unresolved input-flow UUIDs** | **265** |
 | Missing exchanges with **no** same-flow output supplier in archive | **683** |
 | Missing exchanges with **one** same-flow supplier candidate | **6** |
 | Missing exchanges with **multiple** same-flow supplier candidates | **6** |
 
-These counts are input **exchanges**, not 695 different materials or 695 necessarily significant environmental contributors. However, incomplete chains can silently omit real burdens. Twelve exchange-level candidates are potentially repairable from providers with matching flow UUIDs; **none has passed process/year/region/units/LCIA review**. The other 683 unresolved exchanges currently lack same-flow suppliers in the downloaded archive, so automatic default-provider selection cannot fix them merely by changing a preference.
+These are **695 upstream exchanges involving 265 distinct unresolved flow UUIDs**, not 695 different materials or 695 necessarily significant environmental contributors. Frequency is not a contribution-to-GWP ranking; a physically small but GWP-intensive input may matter more than a frequently referenced flow. However, incomplete chains can silently omit real burdens. Twelve exchange-level candidates are potentially repairable from providers with matching flow UUIDs; **none has passed process/year/region/units/LCIA review**. The other 683 unresolved exchanges currently lack same-flow suppliers in the downloaded archive, so automatic default-provider selection cannot fix them merely by changing a preference.
 
 Five near-source critical missing exchanges, from actual JSON-LD source IDs:
 
@@ -56,6 +57,8 @@ Five near-source critical missing exchanges, from actual JSON-LD source IDs:
 | Activated carbon | \`889db3d1-a55e-3c24-984e-ee23c829f41a\` | No identical source output; similar US carbon process may be a proxy with different flow identity |
 | Electronic component, unspecified | \`d1940a7c-9f2e-3eef-84f7-9ef2d4442d29\` | Construction/BOP background not connected |
 | Silica gel | \`5c53eb4a-3f9f-4a70-8225-f174953c2911\` | Construction/plant process missing |
+
+The complete CI audit produces two CSVs: **695 unresolved exchange rows** and **265 distinct unresolved source flow UUIDs**, sorted by the number of upstream exchange references. Frequently referenced unlinked flows include reclaimed water (47), PVC (20), LPG (20), asphalt (20), zinc (20), copper (20), cast iron (20), residual oil (20), ammonium nitrate (20) and natural gas (20). These are **triage frequency counts only**, not a substitute for contribution/uncertainty analysis.
 
 **No automated graph completion has occurred.** The [full unresolved exchange CSV](https://github.com/Open-Energy-Methods/PtXLens/actions/workflows/commons-public.yml) produced by the on-demand workflow and its unique flow summary preserve every gap by original consumer UUID, input flow UUID, possible supplier IDs and explicit \`verified_linked=False\`. Never fill these with guessed substitutes or zero GWP.
 
