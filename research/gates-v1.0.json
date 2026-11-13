@@ -19,7 +19,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Master plan and ADR mirrored; long-term original evidence escrow and independent source register audit remain.",
+      "current_evidence_status": "v1.0 master/12 ADRs mirrored; initial authentic source hashes, original 2023 PyNEXUS stage A/B registry and BAFU v1.1 references preserved; original evidence escrow and scientific signoff still pending.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null
@@ -34,10 +34,15 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Schema, source-pinned E/E+S examples, cross-field test suite passed locally in CI; cross-repo hash matching gate not yet CI-automated.",
+      "current_evidence_status": "Identical Git source-blob contract/schema in both repos, E/E+S scoped native examples, negative evidence tests and release-gate tests pass; cross-repo programmatic version/hash enforcement and external review pending.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "contracts/ptx-exchange-v1.schema.json",
+        "tests/test_exchange_contract_v1.py",
+        "tests/test_research_gates_v1.py"
+      ]
     },
     {
       "id": "F1",
@@ -49,10 +54,13 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "E-only original input source importer passes; E/E+S original full provenance and source wind/price comparisons require new CI.",
+      "current_evidence_status": "SUCCESS: 2023 original PyNEXUS E/E+S total 17520 hours independently audited; source Stage B SHA, original price, demand, wind sequences and annual H2/settlement reproduced, common historical input confirmed; independent scientific signoff and source escrow pending.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43497912940"
+      ]
     },
     {
       "id": "F2",
@@ -63,11 +71,15 @@
       ],
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
-      "status": "blocked",
-      "current_evidence_status": "No verified 20/40t physical pressure-duty specification or vessel BOM.",
+      "status": "in_progress",
+      "current_evidence_status": "Official CoolProp 8.0.0 EOS/isentropic compressor source-library foundation PASS (15 dedicated property/physical QA tests); 20/40t usable-vs-nominal mass, tank pressures, manufacturer BOM, auxiliary/cooler/leak source and physical validation OPEN. Screening pressure grid is NOT approved tank design.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43498612013",
+        "src/ptxflex/hydrogen_physics.py"
+      ]
     },
     {
       "id": "L1",
