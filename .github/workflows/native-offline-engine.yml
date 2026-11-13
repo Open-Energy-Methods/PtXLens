@@ -1,0 +1,59 @@
+name: Build downloadable OPEN-SOURCE offline native openLCA engine (no LCIs)
+on:
+  workflow_dispatch:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/native-offline-engine.yml'
+      - 'native-openlca/**'
+permissions:
+  contents: read
+jobs:
+  open-source-engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+          cache-dependency-path: native-openlca/pom.xml
+      - name: Compile actual GreenDelta openLCA 2.7 native tools
+        run: |
+          mvn --batch-mode -ntp -f native-openlca/pom.xml -DskipTests package
+      - name: Copy all genuine openLCA runtime JAR dependencies for private local LCA
+        run: |
+          mkdir -p native-openlca/offline/lib native-openlca/offline/classes
+          mvn --batch-mode -ntp -f native-openlca/pom.xml \
+            dependency:copy-dependencies -DincludeScope=runtime \
+            -DoutputDirectory="$PWD/native-openlca/offline/lib"
+          cp -a native-openlca/target/classes/. native-openlca/offline/classes/
+      - name: Create Java 25 reduced runtime (Redistributable Temurin)
+        run: |
+          "$JAVA_HOME/bin/jlink" \
+            --add-modules java.se,jdk.unsupported,jdk.crypto.ec,jdk.charsets \
+            --strip-debug --no-header-files --no-man-pages \
+            --output native-openlca/offline/jre
+          native-openlca/offline/jre/bin/java -version
+      - name: Package only source-licensed compiled engine, never the BAFU data
+        run: |
+          echo "Bundling native GreenDelta openLCA 2.7.0, Temurin 25, and runtime dependencies for private on-premises analysis." > native-openlca/offline/README.txt
+          echo "The BAFU raw .zolca and ecoSpold processes are NOT included. Data remain user-local." >> native-openlca/offline/README.txt
+          cat > native-openlca/offline/run-private-bafu-audit.sh <<'SH'
+          #!/bin/sh
+          set -eu
+          BASE="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+          test "$#" -eq 2 || { echo 'usage: run-private-bafu-audit.sh /private/source.zolca /new/local/db/folder' >&2; exit 2; }
+          "$BASE/jre/bin/java" -Xmx5g -cp "$BASE/classes:$BASE/lib/*" \
+            org.openenergymethods.ptxlens.BafuZolcaAudit "$1" "$2"
+          SH
+          chmod +x native-openlca/offline/run-private-bafu-audit.sh
+          du -sh native-openlca/offline native-openlca/offline/lib native-openlca/offline/jre
+      - uses: actions/upload-artifact@v4
+        with:
+          name: opensource-offline-openlca2-7-java25-executable-no-licensed-database
+          path: native-openlca/offline/
+          retention-days: 7
+          if-no-files-found: error
