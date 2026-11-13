@@ -72,14 +72,17 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Verified original PyNEXUS 20/40t MAX STOCK (not usable H2), 30bar PEM/20bar pipeline, source loss, 10t start/end. CoolProp 8 EOS; 25 physical/source-vessel tests passed. Published Type I-IV Table 2 physical reference volume and empty vessel mass scenarios; supplier/vendor design and pressure/cooling/transient model still missing.",
+      "current_evidence_status": "Source-grounded 2023 original PyNEXUS 20/40t max H2 stock, 30bar PEM/20bar pipeline; actual Type I 200bar study Table2 EOS 313K gas heel and vessel counts; RVO/LBST 80% compressor/90% motor two-stage conservative 30->200bar electric duty. 40 dedicated physics/optimization tests pass. Source paper pressure absolute/gauge conversion, vendor BOM, cooler/temperature transients, pressure drops and actual compressor map/certification remain unverified; F2 gate NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
       "work_evidence": [
         "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43502681218",
         "docs/F2_PUBLISHED_STORAGE_PRESSURE_SWING_AUDIT.md",
-        "src/ptxflex/storage_reference_vessels.py"
+        "src/ptxflex/storage_reference_vessels.py",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43514524449",
+        "docs/F3_2023_PHYSICAL_200BAR_FEASIBILITY_SOURCE_AUDIT.md",
+        "src/ptxflex/pressure_storage_duty.py"
       ]
     },
     {
@@ -92,13 +95,15 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Published Type I/II/III/IV reference vessel empty mass and gas heel available as noncertified physical sensitivity. Actual BAFU v1 high-pressure tank process is vehicle composite PER KG H2 CAPACITY (despite unit kg); NOT a per-kg empty steel vessel provider. Correct L1 manufacturer BOM, v1.1 supplier check and full installed costs/impacts still absent.",
+      "current_evidence_status": "Source Table2 physically screened Type I 200bar banks E 803/902 and E+S 1605/1804 vessels (gross/usable), 313K. PtXLens authentic original BAFU v1 composite vehicle tank per kg H2 capacity NOT compatible as kg empty Type I steel; valid source-derived evidence-import L1 checks pass, full native v1.1 supplier/source grade, manufacturer component BOM and installed machinery still missing.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
       "work_evidence": [
         "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/docs/L1_BAFU_STATIONARY_H2_TANK_PROVIDER_UNIT_AUDIT.md",
-        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/F2_PUBLISHED_STORAGE_PRESSURE_SWING_AUDIT.md"
+        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/F2_PUBLISHED_STORAGE_PRESSURE_SWING_AUDIT.md",
+        "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/data/results/F3_2023_original_pressure_screen_PtXLens_L1_source_bridge.json",
+        "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/src/ptxlens/l1_pressure_source_bridge.py"
       ]
     },
     {
@@ -111,14 +116,18 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "PASS: New independently audited original-source 2023 E/ES 8760h HiGHS MILP pilot matched *exactly the SAME ORIGINAL E hourly delivered H2 schedule* 16.335M kg; optimized annual signed wholesale €25.7489m vs €24.6070m with best-bound interval. This was IDEAL original numeric stock, not physically pressure-limited usable H2, compression/purity/equipment or full 50t/day original demand. Full F3 gate NOT PASSED.",
+      "current_evidence_status": "2023 original source 8760h E/ES fixed equal E-delivered hourly service (16.3353 Mt) IDEAL pilot passed earlier. New physically screened Type I 200bar (313K,20bar heel, RVO conservative compressor power) E 20t INFEASIBLE under original max-stock and also 20t usable reinterpretation; E+S 40t feasible with 2,030-2,058 MWh compression. NO valid physically matched E/ES cost comparison, no whole-plant GWP superiority. Dedicated Stage A minimum ADDITIONAL unserved H2 optimization underway. Full F3 gate NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
       "work_evidence": [
         "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43505154927",
         "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/data/results/F3_original2023_E_ES_ideal_matched_hourly_H2_annual_verified.json",
-        "src/ptxflex/f3_matched_ideal_benchmark.py"
+        "src/ptxflex/f3_matched_ideal_benchmark.py",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43514524449",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43515507811",
+        "docs/F3_2023_PHYSICAL_200BAR_FEASIBILITY_SOURCE_AUDIT.md",
+        "src/ptxflex/f3_pressure_adequacy.py"
       ]
     },
     {
@@ -132,7 +141,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "BAFU 2026 v1.1 reference and scoped E/E+S native GWP executed, but incremental storage, pressure, losses and product matching missing.",
+      "current_evidence_status": "Authentic BAFU v1.1 source-relinked 30bar PEM reference/scoped 2023 E and E+S native LCIA already verified; FULL physically matched storage climate comparison blocked because Type I source-specific E is infeasible at same hourly service and supplier-matched stationary vessel/compressor manufacturing inventory not verified. Never replace infeasible E with ideal-case cost/GWP.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null
@@ -224,7 +233,7 @@
     "original_historical_E_EplusS_service_matched": false,
     "additive_storage_BOM_validated": false,
     "independent_scientific_peer_review_passed": false,
-    "note": "Original existing E/E+S results remained unequal. NEW F3 ideal-stock pilot has identical E-delivered hourly service and source inputs, but physical pressure/missing tank equipment and full 50t/day demand still prevent v1.0 matched plant comparison. L1 BAFU tank source-unit mismatch prohibits applying its impacts to empty steel mass."
+    "note": "Original historical E/E+S unequal. Re-optimized IDEAL stock had equal E-delivered service but source-specified physical Type I 200bar cases expose E 20t infeasibility with EOS residual heel and RVO charging compression, while E+S 40t passes. Stage A minimum additional unserved H2 is next. Infeasible E has no valid matched physical system wholesale cost or environmental comparison. No plant v1 gates passed."
   },
   "source_and_licensing_guardrails": {
     "original_PyNEXUS_frozen": true,
