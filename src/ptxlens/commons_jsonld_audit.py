@@ -139,14 +139,16 @@ def audit(archive_path, repository='commons_merged'):
     if ipcc is None or ar6 is None or ar6.get("name")!="AR6-100":
         raise ValueError("original version-pinned IPCC AR6-100 method/category missing")
     cf=ar6.get("impactFactors") or []
-    if len(cf)!=134:
-        raise ValueError("unexpected original AR6-100 number of published characterization factors")
+    if repository=="commons_merged" and len(cf)!=134:
+        raise ValueError("unexpected original process-only AR6-100 factor count "+str(len(cf)))
+    if repository=="commons_merged_hybrid" and not 100<=len(cf)<=2000:
+        raise ValueError("invalid independent Hybrid AR6-100 factor count "+str(len(cf)))
     cf_types=Counter(
         (flows.get(refid(k.get("flow")),{}).get("flowType","UNKNOWN"))
         for k in cf if isinstance(k,dict)
     )
-    if cf_types.get("ELEMENTARY_FLOW",0)!=134:
-        raise ValueError("AR6-100 characterization factors do not all reference valid elementary flows")
+    if cf_types.get("ELEMENTARY_FLOW",0)!=len(cf):
+        raise ValueError("AR6-100 factors do not all reference verified elementary flows, count "+str(cf_types))
     method_verification={"ipcc_method_uuid":ipcc["@id"],"ipcc_method_name":ipcc.get("name"),
                          "ar6_100_category_uuid":ar6["@id"],
                          "characterization_factor_count":len(cf),
