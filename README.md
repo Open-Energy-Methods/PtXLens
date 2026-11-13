@@ -24,7 +24,7 @@ The **official Swiss Federal Office for the Environment (BAFU:2026 v1) public AP
 
 Using frozen original 8,760-hour PyNEXUS E and E+S dispatch ZIPs, we executed a second independent **BAFU-published-factor electricity-supply component sensitivity**, with source-verified NL high-voltage grid and legacy offshore-wind factors: **5.522554 (E)** and **5.455317 (E+S)** kgCO2e/kg modelled delivered H2. Four of the eight published PEM stack material categories also have source-matched mass-based BAFU reference factors, resulting in strictly **partial material components** only (0.002613 and 0.002559 kgCO2e/kg model H2). Titanium metal production, virgin activated carbon, Nafion precursor, and iridium-bearing concentrate **do not have technology-equivalent verified suppliers**; they were never given zero GWP. [Successful original data CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43443319012).
 
-**These are NOT complete H2 cradle-to-gate LCA results.** The official API exposes pre-calculated BAFU process impact factors, not the native process supplier graph. **Historical preliminary stage:** the BAFU:2026 original native v1.1 zolca was subsequently supplied with user authorization and executed locally; see the latest section above. A validated local source-archive verifier and real openLCA 2.7 native BAFU zolca provider-audit program are prepared for a legally supplied copy. [Exact source, 30bar PEM benchmark references, methods, limitations and local execution](docs/BAFU_2026_REAL_SOURCE_AND_NATIVE_INTEGRATION.md).
+**These are NOT complete H2 cradle-to-gate LCA results.** The official API exposes pre-calculated BAFU process impact factors, not the native process supplier graph. **Historical preliminary stage:** the BAFU:2026 original native v1.1 zolca was subsequently supplied with user authorization and executed locally; see the latest section above. The local source-archive verifier and the real openLCA 2.7 native BAFU import, supplier graph checks and numerical calculations have since all executed successfully on the authorized v1.1 copy. [Exact source, 30bar PEM benchmark references, methods, limitations and local execution](docs/BAFU_2026_REAL_SOURCE_AND_NATIVE_INTEGRATION.md).
 
 
 
@@ -55,7 +55,7 @@ Read [the actual background database / missing-provider research audit](docs/COM
 | OpenPyTEA 3.2.2 + DOE 2024-source 2022-USD electrolyser installed CAPEX | **Passed: capital only** | [real OpenPyTEA execution + independently reconstructed cashflows](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43418299360) |
 | 2023 Dutch energy-supply GWP (historical dispatch, sourced lifecycle factors) | **Passed — electricity supply only** | [real-data LCA results & methods](docs/LCA_2023_METHODS_RESULTS.md), [17,520-hour CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43424086998) |
 | Published PEM 1MW stack materials foreground + declared model allocation | **Passed — LCI only** | [1MW stack 2024 thesis source](data/lci/pem_stack_kanz_2024_1mw.json), [CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43425080024) |
-| openLCA 2 connected process database, real linked providers and LCIA GWP100 | **Blocked** | [exact execution and database requirements](docs/OPENLCA_EXECUTION.md) |
+| Native openLCA provider-linked BAFU v1.1 reference, E and E+S 30bar PEM GWP100 | **Passed — scoped native LCA** | [actual calculations and limitations](docs/BAFU_2026_V11_NATIVE_2023_DUTCH_E_ES_VERIFIED.md); complete additional storage/compression and matched-service comparison still pending |
 | Complete, comparable and source-normalized hydrogen LCOH | **Blocked** | wind, storage, grid tariffs, complete OPEX, currency-year and project-service boundary |
 | Full life-cycle-emissions-constrained MILP / Pareto front | **Not yet demonstrated** | Future verified frontier work |
 
@@ -88,7 +88,7 @@ The GitHub Actions workflows perform these real-source retrievals automatically 
 
 OpenPyTEA executes in separate CI against the SHA-pinned original-source **derived register**. The executable source is [src/ptxlens/openpytea_doe.py](src/ptxlens/openpytea_doe.py), with matching independently audited present-value cashflows; [original source register](data/source_registry/pynexus_wp5_2023.json).
 
-For a *genuine* openLCA LCIA, first import a real background process inventory and GWP100 method and build a connected, audited hydrogen foreground. Then run the actual [IPC procedure](docs/OPENLCA_EXECUTION.md) using an openLCA desktop database. There is no fake numerical footprint fallback.
+**Native openLCA LCIA is now executed:** the authorized BAFU v1.1 process database and exact `IPCC 2021 GWP 100` method produced the reference and E/E+S scoped numerical results above, with zero unlinked product/waste exchanges. [Older IPC procedure](docs/OPENLCA_EXECUTION.md) remains available; native Java execution was used here to solve the large matrix with the real UMFPACK sparse solver. Full plant-specific storage/compression and matched-service physical boundaries remain unresolved.
 
 ## Scope and safety
 
