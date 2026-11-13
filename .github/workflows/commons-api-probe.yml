@@ -23,7 +23,7 @@ jobs:
       - name: Query real material provider records in FLCAC Commons Merged
         run: |
           mkdir -p outputs/commons_probe
-          python -m ptxlens.commons_probe --output outputs/commons_probe/api_raw_observations.json
+          python -m ptxlens.commons_probe --all --output outputs/commons_probe/api_raw_observations.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
