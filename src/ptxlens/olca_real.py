@@ -50,7 +50,7 @@ def validate_openlca_contract(config):
         raise ValueError("must map both grid and wind electricity parameters")
     if any(not isinstance(v,str) or not v.strip() for v in params.values()):
         raise ValueError("openLCA parameter names must be nonempty")
-    if params[expected.pop()] == params[next(iter(expected))]:
+    if params["electricity_grid_kwh_per_kg"] == params["electricity_wind_kwh_per_kg"]:
         raise ValueError("grid/wind parameters must be separate")
     port = config.get("ipc_port",8080)
     if isinstance(port,bool) or not isinstance(port,int) or not 1 <= port <= 65535:
@@ -70,7 +70,7 @@ def run_actual_openlca(summary, config):
         import olca_ipc as ipc
         import olca_schema as o
     except ImportError as exc:
-        raise RuntimeError("install Python 3.12+ and pip install 'olca-ipc>=2.7,<3'") from exc
+        raise RuntimeError("install Python 3.12+ and pip install 'olca-ipc==2.6.3'") from exc
     client = ipc.Client(port=settings.get("ipc_port",8080))
     systems = client.get_descriptors(o.ProductSystem)
     methods = client.get_descriptors(o.ImpactMethod)
@@ -123,6 +123,8 @@ def run_actual_openlca(summary, config):
     return {
         "schema_version":"ptxlens.openlca_calculated.v0.1",
         "execution_status":"CALCULATED_BY_LIVE_OPENLCA_IPC",
+        "claim_level":"openLCA IPC calculated but foreground provider completeness NOT automatically established",
+        "is_full_cradle_to_gate_lca":False,
         "openlca_ipc_version":importlib.metadata.version("olca-ipc"),
         "source_observed_archive_sha256":summary["archive_sha256"],
         "scenario":summary["scenario"],
