@@ -1,53 +1,32 @@
-"""Live, source-only BAFU:2026 IPCC-2021 GWP100 process candidate register.
+"""Complete, source-versioned BAFU:2026 IPCC GWP100 catalogue from Swiss FOEN OGD.
 
-The Swiss FOEN OGD GraphQL service exposes BAFU per-process ALREADY
-CALCULATED impact scores. These are **not** elementary flow inventories or
-evidence of a linked hydrogen product system. Candidate hits must be reviewed
-for geography, technology, reference product and unit; never fill a missing
-provider's impact from an unrelated name.
+The official API has no offset pagination or substring filter. Partition by
+the first hexadecimal character of each PROCESS UUID (16 disjoint windows).
+Retrieve only source 2026 v1 / IPCC2021 / GWP100, validate every row, then
+perform transparent local case-insensitive process-name discovery.
+
+IMPORTANT: BAFU online responses are **pre-characterized per-process LCA
+results**, NOT source foreground exchanges or a native openLCA product system.
+A name match is a CANDIDATE, never a confirmed provider.
 """
 from __future__ import annotations
 
+import csv
 from datetime import datetime, timezone
 import hashlib
 import json
+import math
 from pathlib import Path
+import re
 import time
 
-from .bafu_ogd import ENDPOINT, EXPECTED_VERSION, QUERY_NAMED, request, save_json
+from .bafu_ogd import ENDPOINT, EXPECTED_VERSION, request, save_json
 
-FILTER_TYPE="EconomyConsumption_Lca_LciaResults_Filter"
 METHOD="IPCC 2021"
 CATEGORY="GWP 100"
-TERMS=[
-    ("metals.titanium","%titanium%"),
-    ("metals.aluminium","%aluminium%"),
-    ("metals.stainless_steel","%stainless%steel%"),
-    ("metals.copper","%copper%"),
-    ("membrane.nafion","%nafion%"),
-    ("membrane.tetrafluoroethylene","%tetrafluoroethylene%"),
-    ("membrane.ptfe","%polytetrafluoroethylene%"),
-    ("carbon.activated","%activated%carbon%"),
-    ("metals.iridium","%iridium%"),
-    ("metals.platinum","%platinum%"),
-    ("water.deionised","%deionis%"),
-    ("water.deionized","%deioniz%"),
-    ("water.purification","%water%purif%"),
-    ("electricity.offshore_wind","%electricity%wind%offshore%"),
-    ("electricity.grid","%electricity%medium%voltage%"),
-    ("gas.hydrogen_compression","%hydrogen%compress%"),
-    ("storage.hydrogen","%hydrogen%stor%"),
-    ("equipment.electrolyzer","%electrolys%"),
-    ("equipment.electrolyser","%electrolyz%"),
-    ("plant.electronics","%electronics%"),
-    ("plant.silica","%silica%gel%"),
-]
-FIELD_NAMES=[
-    "version","uuid","processName","location","referenceUnit","impactMethod",
-    "impactCategory","impactCategoryUnit","value","isSingleScore","category",
-    "lastDatasetUpdateYear","sourceStudy","sourceStudyAuthor"
-]
-GRAPHQL="""query BafuCandidates($where: EconomyConsumption_Lca_LciaResults_Filter, $limit:Int) {
+WINDOWS="0123456789abcdef"
+LIMIT=10000
+GRAPHQL="""query BafuGwp($where: EconomyConsumption_Lca_LciaResults_Filter, $limit:Int) {
   economy_consumption {
     lca {
       lcia_results(where:$where,limit:$limit) {
@@ -58,100 +37,185 @@ GRAPHQL="""query BafuCandidates($where: EconomyConsumption_Lca_LciaResults_Filte
     }
   }
 }"""
+UUID_RE=re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+FIELDS=("version","uuid","processName","location","referenceUnit",
+        "impactMethod","impactCategory","impactCategoryUnit","value",
+        "isSingleScore","category","lastDatasetUpdateYear","sourceStudy","sourceStudyAuthor")
+
+# Search strings reflect source input classes, not assumed process IDs.
+TARGETS={
+  "stack.titanium":("titanium",),
+  "stack.aluminium":("aluminium","aluminum"),
+  "stack.stainless_steel":("stainless steel","chromium steel","steel, chromium"),
+  "stack.copper":("copper",),
+  "stack.membrane":("nafion","tetrafluoroethylene","polytetrafluoroethylene","ptfe"),
+  "stack.activated_carbon":("activated carbon",),
+  "stack.iridium":("iridium",),
+  "stack.platinum":("platinum",),
+  "water.deionized":("deionized","deionised","ion-exchange water","water, ultrapure"),
+  "water.purification":("water purification","water treatment","reverse osmosis"),
+  "electricity.offshore_wind":("offshore wind","wind power plant, offshore","wind turbine, offshore"),
+  "electricity.market":("electricity, medium voltage","electricity, high voltage","electricity, low voltage"),
+  "hydrogen.compress":("hydrogen compression","compressor, hydrogen"),
+  "hydrogen.storage":("hydrogen storage","hydrogen tank","pressure vessel"),
+  "equipment.electrolyser":("electrolyser","electrolyzer","electrolysis"),
+  "bop.electronics":("electronics","electronic component"),
+  "bop.silica":("silica gel",),
+  "bop.heat_exchanger":("heat exchanger",),
+}
+CITATION="Database of the Swiss Federal Administration, BAFU:2026, Federal Office for the Environment, 2026"
 
 
-def probe_filter():
-    r=request(QUERY_NAMED,{"name":FILTER_TYPE})
-    t=r["data"].get("__type")
-    if not isinstance(t,dict) or t.get("kind")!="INPUT_OBJECT":
-        # Most GraphQL gateways have introspection introspecting inputFields; if not, fail.
-        raise ValueError("actual BAFU impact results where-filter type not present")
-    return t
+def _validate(row):
+    if not isinstance(row,dict):
+        raise ValueError("unexpected non-object BAFU source record")
+    if (row.get("version")!=EXPECTED_VERSION or row.get("impactMethod")!=METHOD
+            or row.get("impactCategory")!=CATEGORY):
+        raise ValueError("mixed source version or characterization method")
+    uuid=row.get("uuid")
+    if not isinstance(uuid,str) or not UUID_RE.fullmatch(uuid):
+        raise ValueError("invalid source process UUID")
+    name=row.get("processName")
+    if not isinstance(name,str) or not name.strip():
+        raise ValueError("source process name absent")
+    score=row.get("value")
+    if isinstance(score,bool) or not isinstance(score,(float,int)) or not math.isfinite(score):
+        raise ValueError("source GWP factor absent/nonfinite")
+    if row.get("isSingleScore") is True:
+        raise ValueError("source unexpectedly flags IPCC GWP100 as weighted single-score")
+    if not row.get("referenceUnit") or not row.get("impactCategoryUnit"):
+        raise ValueError("source units absent")
+    return uuid
 
 
-def discover_candidates(*, terms=TERMS, delay=.30, max_hits=300):
-    # This request is only an API availability test; provider matching itself
-    # is done from actual source rows and never automatically approved.
-    results=[]
-    for category,pattern in terms:
-        where={"version":{"_eq":EXPECTED_VERSION},
-               "impactMethod":{"_eq":METHOD},
-               "impactCategory":{"_eq":CATEGORY},
-               "processName":{"_ilike":pattern}}
-        resp=request(GRAPHQL,variables={"where":where,"limit":max_hits})
+def retrieve_catalogue(*, windows=WINDOWS, delay=.2, require_all_windows=True):
+    """Partition by uuid startswith to obey BAFU max 10000 rows/query.
+
+    Only source UUIDs validated as lowercase RFC format are included. Full
+    catalogue asserts all 16 source UUID prefixes were queried once.
+    """
+    if not isinstance(windows,str) or len(set(windows))!=len(windows) or any(w not in WINDOWS for w in windows):
+        raise ValueError("invalid UUID partition specification")
+    if require_all_windows and windows!=WINDOWS:
+        raise ValueError("partial windows must not be advertised as complete 2026 BAFU catalogue")
+    by_uuid={}
+    provenance=[]
+    for prefix in windows:
+        where={
+            "version":{"_eq":EXPECTED_VERSION},
+            "impactMethod":{"_eq":METHOD},
+            "impactCategory":{"_eq":CATEGORY},
+            "uuid":{"_startswith":prefix}
+        }
+        response=request(GRAPHQL,{"where":where,"limit":LIMIT})
         try:
-            rows=resp["data"]["economy_consumption"]["lca"]["lcia_results"]
+            rows=response["data"]["economy_consumption"]["lca"]["lcia_results"]
         except (KeyError,TypeError) as exc:
-            raise ValueError(f"source BAFU LCIA response did not contain results for {category}") from exc
-        if not isinstance(rows,list):
-            raise ValueError("expected genuine source row list")
-        if len(rows)>=max_hits:
-            raise ValueError(f"{category} hit cap {max_hits}; needs narrowed source query")
-        cleaned=[]
-        for rec in rows:
-            if not isinstance(rec,dict):raise ValueError("non-object BAFU source process")
-            if rec.get("version")!=EXPECTED_VERSION or rec.get("impactMethod")!=METHOD or rec.get("impactCategory")!=CATEGORY:
-                raise ValueError("mixed version/method/category; reject impact results")
-            if rec.get("isSingleScore") is True:
-                raise ValueError("GWP 100 returned as unexpected single score")
-            if not (isinstance(rec.get("value"),(float,int)) and
-                    isinstance(rec.get("uuid"),str) and
-                    len(rec["uuid"])>=20 and
-                    isinstance(rec.get("processName"),str) and rec["processName"]):
-                raise ValueError("invalid BAFU source impact/process metadata")
-            cleaned.append({
-               **rec,
-               "target_material_or_process_category":category,
-               "manually_verified_provider_link":False,
-               "foreground_linked_in_openlca":False,
-               "process_name_is_not_product_flow":True,
-               "geography_and_conversion_review_required":True
-            })
-        results.append({"term_key":category,"source_query_pattern":pattern,
-                        "rows":cleaned,"candidate_count":len(cleaned),
-                        "raw_response_sha256":resp["raw_sha256"]})
-        time.sleep(delay)
-    return {
-       "schema_version":"ptxlens.bafu2026_actual_precharacterized_process_candidates.v0.1",
-       "queried_at_utc":datetime.now(timezone.utc).isoformat(),
-       "source_endpoint":ENDPOINT,
-       "source_documentation":"https://data.bafu.admin.ch/en/dataproduct-economy-consumption-lca",
-       "source_citation":"Database of the Swiss Federal Administration, BAFU:2026, Federal Office for the Environment, 2026",
-       "source_license":"Swiss FOEN OGD: Open use. Must provide source. Separate Nexus LCI database use terms apply to full zolca download.",
-       "database_version":EXPECTED_VERSION,"method":METHOD,"category":CATEGORY,
-       "is_actual_openlca_foreground_calculation":False,
-       "is_2023_netherlands_validated_lca":False,
-       "source_rows":results,
-       "available_candidate_process_records":sum(x["candidate_count"] for x in results),
-       "verified_foreground_provider_links":0,
-       "warnings":[
-           "Per-process LCIA values already include BAFU supplier chain according to publisher; do not combine with a linked process provider or count twice.",
-           "BAFU process reference unit and location may not match the actual source-input flow for a PEM stack.",
-           "BAFU source factor is not an hourly Dutch grid carbon emission factor and must not be treated as such.",
-           "No zero emission impact is imputed for absent process query results.",
-           "Material mass LCI and product gate, BoP, storage, compression, service-matched comparisons still need validation.",
-       ]
+            raise ValueError(f"BAFU source missing actual LCIA results for UUID prefix {prefix}") from exc
+        if not isinstance(rows,list) or len(rows)>=LIMIT:
+            raise ValueError("source response unexpectedly capped at 10000 records: finer split required")
+        for row in rows:
+            uuid=_validate(row)
+            if not uuid.startswith(prefix):
+                raise ValueError(f"source returned UUID outside filter partition {prefix}")
+            if uuid in by_uuid:
+                raise ValueError(f"duplicate source UUID/method GWP factor across official partitions: {uuid}")
+            by_uuid[uuid]=row
+        provenance.append({"uuid_prefix":prefix,"response_rows":len(rows),
+                           "raw_json_response_sha256":response["raw_sha256"]})
+        if delay:time.sleep(delay)
+    if require_all_windows and len(by_uuid)<8000:
+        raise ValueError("too few records for fully indexed 2026 database; possible missing API coverage")
+    return by_uuid,provenance
+
+
+def select_candidates(all_rows):
+    out={}
+    for group,needles in TARGETS.items():
+        matches=[]
+        for r in all_rows.values():
+            name=r["processName"].casefold()
+            if any(needle in name for needle in needles):
+                matches.append({
+                    **r,
+                    "target_foreground_group":group,
+                    "search_needle_used":[s for s in needles if s in name],
+                    "is_candidate_name_match_only":True,
+                    "verified_actual_provider_flow_id":None,
+                    "verified_matching_unit_process_provider":False,
+                    "verified_appropriate_2023_nl_geography":False,
+                    "approved_for_hydrogen_lca":False,
+                })
+        out[group]=sorted(matches,key=lambda r:(r["processName"].casefold(),r["location"] or "",r["uuid"]))
+    return out
+
+
+def write_catalogue(csv_file, candidate_json, source_manifest, *,
+                    windows=WINDOWS, delay=.2):
+    paths=[Path(csv_file),Path(candidate_json),Path(source_manifest)]
+    if any(p.exists() for p in paths):
+        raise FileExistsError("never overwrite source result")
+    full,source_provenance=retrieve_catalogue(windows=windows,delay=delay,
+                                            require_all_windows=windows==WINDOWS)
+    candidates=select_candidates(full)
+    for p in paths:p.parent.mkdir(parents=True,exist_ok=True)
+    with paths[0].open("w",encoding="utf-8",newline="") as h:
+        w=csv.DictWriter(h,fieldnames=FIELDS)
+        w.writeheader()
+        w.writerows(full[k] for k in sorted(full))
+    csv_hash=hashlib.sha256(paths[0].read_bytes()).hexdigest()
+    cand={
+        "schema_version":"ptxlens.bafu_2026_official_real_process_candidates.v0.2",
+        "source":ENDPOINT,
+        "version":EXPECTED_VERSION,"method":METHOD,"category":CATEGORY,
+        "citation":CITATION,
+        "is_native_linked_product_system":False,
+        "approved_provider_count":0,
+        "candidate_matches":candidates,
+        "warnings":[
+            "Names are not sufficient to identify production providers; check process reference flow, geography, upstream boundaries, units and licence.",
+            "Supplier GWP100 results are already calculated for their original BAFU product system: do NOT combine with background-linked openLCA without avoiding double count.",
+            "BAFU:2026 version uses updated published reference data, not actual 2023 Dutch electricity marginal intensities.",
+            "No PEM stack input, water, compression or storage flow was assigned zero burden for lack of supplier."
+        ]
     }
-
-
-def main(argv=None):
-    import argparse
-    p=argparse.ArgumentParser()
-    p.add_argument("--output",required=True,type=Path)
-    p.add_argument("--max-hits",type=int,default=300)
-    p.add_argument("--scope",choices=["pilot","all"],default="pilot")
-    args=p.parse_args(argv)
-    if not 1<=args.max_hits<=2000:raise ValueError("max hits range 1-2000")
-    terms=TERMS if args.scope=="all" else TERMS[:4]+TERMS[9:12]
-    out=discover_candidates(terms=terms,max_hits=args.max_hits)
-    save_json(out,args.output)
-    for result in out["source_rows"]:
-        print(json.dumps({"term":result["term_key"],"count":result["candidate_count"],
-                          "sample":[{"id":r["uuid"],"name":r["processName"],
-                                     "location":r["location"],"unit":r["referenceUnit"],
-                                     "GWP_kgco2e_per_reference_unit":r["value"]}
-                                    for r in result["rows"][:4]]},ensure_ascii=False))
+    save_json(cand,paths[1])
+    manifest={
+        "schema_version":"ptxlens.bafu_2026_complete_gwp100_source_manifest.v0.2",
+        "verified_at_utc":datetime.now(timezone.utc).isoformat(),
+        "endpoint":ENDPOINT,
+        "documentation":"https://data.bafu.admin.ch/en/dataproduct-economy-consumption-lca",
+        "citation":CITATION,
+        "licence":"Swiss FOEN OGD: Open use. Must provide source.",
+        "database_version":EXPECTED_VERSION,
+        "impact_method":METHOD,"impact_category":CATEGORY,
+        "uuid_partitions_attempted":windows,
+        "all_16_hex_partitions_covered":windows==WINDOWS,
+        "provider_records":len(full),
+        "catalogue_sha256":csv_hash,
+        "source_query_partition_hashes":source_provenance,
+        "candidate_counts":{k:len(v) for k,v in candidates.items()},
+        "confirmed_native_openlca_product_system_completeness":False,
+        "bafu_zolca_database_imported":False,
+    }
+    save_json(manifest,paths[2])
+    return manifest
 
 
 if __name__=="__main__":
-    main()
+    import argparse
+    p=argparse.ArgumentParser()
+    p.add_argument("--csv",required=True,type=Path)
+    p.add_argument("--candidates",required=True,type=Path)
+    p.add_argument("--manifest",required=True,type=Path)
+    p.add_argument("--pilot",action="store_true",
+                   help="Query 2 UUID partitions only; cannot claim complete coverage")
+    a=p.parse_args()
+    m=write_catalogue(a.csv,a.candidates,a.manifest,
+        windows="0a" if a.pilot else WINDOWS)
+    print(json.dumps({"source":m["endpoint"],"version":m["database_version"],
+                      "full_16_windows":m["all_16_hex_partitions_covered"],
+                      "retrieved_real_process_records":m["provider_records"],
+                      "candidate_counts":m["candidate_counts"],
+                      "approved_provider_links":0},
+                     sort_keys=True,ensure_ascii=False))
