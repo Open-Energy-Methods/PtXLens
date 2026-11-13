@@ -1,6 +1,6 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
-**Research status (13 Nov 2026): real-data provenance and a genuine OpenPyTEA cost-component calculation completed; full LCOH and process-based LCA not yet completed.** The original source PyNEXUS model is unchanged.
+**Research status (13 Nov 2026): real-data provenance, genuine OpenPyTEA capital calculation, and a reproducible, published-factor electricity-supply life-cycle GWP screening completed; full LCOH and provider-linked process-based cradle-to-gate LCA not yet completed.** The original source PyNEXUS model is unchanged.
 
 ## Executed work, not mock data
 
@@ -9,11 +9,15 @@
 | Dutch 2023 A44 wholesale price, 8760 real UTC hours | **Passed** | [live Fraunhofer/SMARD API CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43417523516) |
 | Frozen PyNEXUS 2023 E and E+S archives, 17520 Stage B hours | **Passed** | [original ZIP re-download, hashes and numerical audit](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43418772493) |
 | OpenPyTEA 3.2.2 + DOE 2024-source 2022-USD electrolyser installed CAPEX | **Passed: capital only** | [real OpenPyTEA execution + independently reconstructed cashflows](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43418299360) |
+| 2023 Dutch energy-supply GWP (historical dispatch, sourced lifecycle factors) | **Passed — electricity supply only** | [real-data LCA results & methods](docs/LCA_2023_METHODS_RESULTS.md), [17,520-hour CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43424086998) |
+| Published PEM 1MW stack materials foreground + declared model allocation | **Passed — LCI only** | [1MW stack 2024 thesis source](data/lci/pem_stack_kanz_2024_1mw.json), [CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43425080024) |
 | openLCA 2 connected process database, real linked providers and LCIA GWP100 | **Blocked** | [exact execution and database requirements](docs/OPENLCA_EXECUTION.md) |
 | Complete, comparable and source-normalized hydrogen LCOH | **Blocked** | wind, storage, grid tariffs, complete OPEX, currency-year and project-service boundary |
 | Full life-cycle-emissions-constrained MILP / Pareto front | **Not yet demonstrated** | Future verified frontier work |
 
 Actual OpenPyTEA 2022-USD **electrolyser capital-only** results in the published $2000/kW installed cost case and a separate *analyst* 8% rate are **$1.55815/kg** (E) and **$1.52603/kg** (E+S). The scenarios have *different* delivered H2. These costs **exclude** electricity, storage and other plant components; they are **not LCOH**. DOE system electricity consumption and the simplified PyNEXUS electrolyser performance are distinct technology assumptions.
+
+The 2023 source-based electricity-supply GWP is **6.74243** (E) and **6.65815** (E+S) kgCO2e/kg *modelled* delivered H2, based on official Dutch 2023 grid and UNECE offshore-wind reference factors; it is **not** a complete H2 product LCA or native openLCA calculation. [Exact methodology, scope, source citations, hourly audit and omissions](docs/LCA_2023_METHODS_RESULTS.md).
 
 Read [real-source detailed evidence and acceptance gates](docs/REAL_DATA_EVIDENCE.md).
 
