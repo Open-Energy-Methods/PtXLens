@@ -1,0 +1,215 @@
+{
+  "schema_version": "oem.ptx.science-gates.v1.0",
+  "plan_path": "docs/PROGRAMME_MASTER_PLAN_v1.0.md",
+  "decision_log": "docs/DECISION_REGISTER_v1.0.md",
+  "created_utc_date": "2026-11-13",
+  "statuses": [
+    "blocked",
+    "in_progress",
+    "verified",
+    "not_started"
+  ],
+  "status_explanation": "verified means full acceptance gate, not mere CI green. A partially executed valid native calculation may remain in_progress for full plant scope.",
+  "work_packages": [
+    {
+      "id": "P0",
+      "title": "Scientific provenance and governance",
+      "owner": "Both",
+      "depends_on": [],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "in_progress",
+      "current_evidence_status": "Master plan and ADR mirrored; long-term original evidence escrow and independent source register audit remain.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "P1",
+      "title": "Shared typed product and evidence exchange contract",
+      "owner": "Both",
+      "depends_on": [
+        "P0"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "in_progress",
+      "current_evidence_status": "Schema, source-pinned E/E+S examples, cross-field test suite passed locally in CI; cross-repo hash matching gate not yet CI-automated.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "F1",
+      "title": "Reproduce historical 2023 E and E+S hydrogen source",
+      "owner": "PtXFlex",
+      "depends_on": [
+        "P1"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "in_progress",
+      "current_evidence_status": "E-only original input source importer passes; E/E+S original full provenance and source wind/price comparisons require new CI.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "F2",
+      "title": "Real-gas pressure, usable H2 storage, compressors",
+      "owner": "PtXFlex",
+      "depends_on": [
+        "F1"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "blocked",
+      "current_evidence_status": "No verified 20/40t physical pressure-duty specification or vessel BOM.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "L1",
+      "title": "Equipment manufacturing and storage BOM sourcing",
+      "owner": "PtXLens",
+      "depends_on": [
+        "F2"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "blocked",
+      "current_evidence_status": "Native BAFU supplier exists but empty vessel mass/design/replacement inventory unknown.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "F3",
+      "title": "Matched-service annual hydrogen dispatch",
+      "owner": "PtXFlex",
+      "depends_on": [
+        "F2"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "blocked",
+      "current_evidence_status": "Original service unequal; common delivery target and reliability require 8760h optimized physical dispatch.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "L2",
+      "title": "Complete 2023 Dutch source-linked H2 LCA",
+      "owner": "PtXLens",
+      "depends_on": [
+        "L1",
+        "F3"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "in_progress",
+      "current_evidence_status": "BAFU 2026 v1.1 reference and scoped E/E+S native GWP executed, but incremental storage, pressure, losses and product matching missing.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "L3",
+      "title": "Full source-consistent H2 TEA",
+      "owner": "PtXLens",
+      "depends_on": [
+        "L1",
+        "F3"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "in_progress",
+      "current_evidence_status": "Executed DOE 2022 USD capital-only OpenPyTEA; full EU lifecycle cost/economic basis not yet sourced or integrated.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "F4",
+      "title": "Physically verified CO2-to-methanol operations",
+      "owner": "PtXFlex",
+      "depends_on": [
+        "F2"
+      ],
+      "required_for_hydrogen_core_v1": false,
+      "required_for_full_methanol_v1": true,
+      "status": "in_progress",
+      "current_evidence_status": "Existing four-hour synthetic MILP checks math; source-derived methanol/CO2 physical assumptions and external validation absent.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "L4",
+      "title": "Methanol product-gate native LCA and LCOM",
+      "owner": "PtXLens",
+      "depends_on": [
+        "F4",
+        "L2",
+        "L3"
+      ],
+      "required_for_hydrogen_core_v1": false,
+      "required_for_full_methanol_v1": true,
+      "status": "blocked",
+      "current_evidence_status": "Requires CO2 source and feedstock allocation, process utilities, manufacturing equipment and actual methanol gate.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "X1",
+      "title": "Integrated matched-service cost/GWP optimization",
+      "owner": "Both",
+      "depends_on": [
+        "L2",
+        "L3",
+        "F4",
+        "L4"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "blocked",
+      "current_evidence_status": "No source-valid coupled optimization frontier; no circular reuse of unreviewed process factors permitted.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    },
+    {
+      "id": "X2",
+      "title": "Robustness, independent review and versioned release",
+      "owner": "Both",
+      "depends_on": [
+        "X1"
+      ],
+      "required_for_hydrogen_core_v1": true,
+      "required_for_full_methanol_v1": true,
+      "status": "blocked",
+      "current_evidence_status": "No v1.0 science release; exploratory math and source screenings remain separate.",
+      "gate_result": "NOT_PASSED",
+      "acceptance_evidence": [],
+      "last_scientific_review": null
+    }
+  ],
+  "release_readiness": {
+    "hydrogen_core_v1_allowed": false,
+    "full_methanol_v1_allowed": false,
+    "latest_verified_scoped_h2_native_lca": true,
+    "original_historical_E_EplusS_service_matched": false,
+    "additive_storage_BOM_validated": false,
+    "independent_scientific_peer_review_passed": false,
+    "note": "This is a preregistered research status board, not a public release assertion."
+  },
+  "source_and_licensing_guardrails": {
+    "original_PyNEXUS_frozen": true,
+    "original_source_archive_expiry_date": "2026-12-24",
+    "authorized_BAFU_2026_v11_raw_inventory_private": true,
+    "no_synthetic_numerical_research_claims": true
+  }
+}
