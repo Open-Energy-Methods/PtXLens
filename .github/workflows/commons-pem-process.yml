@@ -1,10 +1,5 @@
 name: Inspect real USLCI 1kg PEM H2 process and provider UUIDs
 on:
-  push:
-    branches: [feat/wp0-screening-core]
-    paths:
-      - '.github/workflows/commons-pem-process.yml'
-      - 'src/ptxlens/commons_process.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -13,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     env:
-      LCA_COMMONS_API_KEY: ${{ secrets.LCA_COMMONS_API_KEY || 'DEMO_KEY' }}
+      LCA_COMMONS_API_KEY: ${{ secrets.LCA_COMMONS_API_KEY }}
     steps:
+      - name: Require user's personal free API key (never use DEMO_KEY for automated workflows)
+        run: |
+          test -n "$LCA_COMMONS_API_KEY" || { echo "Set LCA_COMMONS_API_KEY in repository Actions secrets (free key from api.data.gov)"; exit 1; }
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
