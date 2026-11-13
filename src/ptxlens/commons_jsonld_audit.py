@@ -159,6 +159,7 @@ def audit(archive_path):
         "missing_provider_candidate_counts":repair_candidates,
         "first_five_nearest_unlinked_product_inputs":errors[:5],
         "upstream_error_samples":errors[:45],
+        "upstream_unresolved_exchange_records":errors,
         "provider_graph_closed":len(errors)==0,
         "ready_for_cradle_to_gate_nl_lca":False,
         "assumptions_and_caveats":[
