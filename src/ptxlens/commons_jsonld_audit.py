@@ -12,18 +12,22 @@ from pathlib import Path
 import zipfile
 
 PEM_ID="f00a298a-295f-4fbc-b463-45f8e96f018b"
-KNOWN_SHA="1ded185617d4de67f8ed6933c473a68d65c232dd738779179e8559a31dfd056d"
+KNOWN_SHA_BY_REPO={
+    "commons_merged": "1ded185617d4de67f8ed6933c473a68d65c232dd738779179e8559a31dfd056d",
+    "commons_merged_hybrid": "68112d3b17eb12f552f597b06d79627d6f1413c68a641c3268d384788853e6e6",
+}
+KNOWN_SHA=KNOWN_SHA_BY_REPO["commons_merged"]
 
 
 def refid(data):
     return data.get("@id") if isinstance(data,dict) else None
 
 
-def load_models(path):
+def load_models(path, repository='commons_merged'):
     path=Path(path)
     content=path.read_bytes()
     digest=hashlib.sha256(content).hexdigest()
-    if digest!=KNOWN_SHA:
+    if repository not in KNOWN_SHA_BY_REPO or digest!=KNOWN_SHA_BY_REPO[repository]:
         raise ValueError(f"Commons source ZIP sha mismatch, unreviewed edition: {digest}")
     entities={}
     with zipfile.ZipFile(path) as archive:
@@ -43,8 +47,8 @@ def load_models(path):
     return entities,digest
 
 
-def audit(archive_path):
-    e,digest=load_models(archive_path)
+def audit(archive_path, repository='commons_merged'):
+    e,digest=load_models(archive_path, repository)
     ps=e["processes"]
     flows=e.get("flows",{})
     methods=e.get("lcia_methods",{}) or e.get("impact_methods",{})
@@ -163,7 +167,8 @@ def audit(archive_path):
     return {
         "schema_version":"ptxlens.commons_merged_actual_provider_graph.v0.1",
         "source_archive_sha256":digest,
-        "source_repository":"Federal_LCA_Commons/commons_merged",
+        "source_repository":"Federal_LCA_Commons/"+repository,
+        "methodological_model":"USEEIO v2 hybrid bridges included" if repository=="commons_merged_hybrid" else "process LCI without USEEIO",
         "source_reference_process_uuid":PEM_ID,
         "source_reference_process_name":source.get("name"),
         "source_reference_process_location":(source.get("location") or {}).get("name"),
@@ -198,8 +203,9 @@ if __name__=="__main__":
     p=argparse.ArgumentParser()
     p.add_argument("--archive",required=True)
     p.add_argument("--output",required=True)
+    p.add_argument("--repository",choices=sorted(KNOWN_SHA_BY_REPO),default="commons_merged")
     args=p.parse_args()
-    result=audit(args.archive)
+    result=audit(args.archive,args.repository)
     out=Path(args.output)
     if out.exists():raise FileExistsError("refusing to overwrite provider audit")
     out.parent.mkdir(parents=True,exist_ok=True)
