@@ -47,3 +47,25 @@ original BAFU vehicle-composite tank process is a suitable proxy for
 manufacturing the published Type I steel storage bank.
 
 [Coordinated PtXFlex checkpoint](https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/F3_2023_STAGE_A_CERTIFIED_SHORTFALL_BOUNDS.md).
+
+## Source-verified Stage A correction — 14 November 2026
+
+The 2023 source-locked Stage A certificate workflow
+[passed all four jobs](https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43524738270).
+An independent pressure-screened 8,760-hour E+S fixed-service witness
+[passed for both storage definitions](https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43525385492).
+
+- **20t E (maximum inventory):** proven additional modelled shortage
+  between 65,860.378 and 66,524.317 kg H2; numerical optimum not fully closed.
+- **20t E (usable capacity):** between 3,718.744 and 3,720.371 kg H2;
+  positive minimum proven, numerical optimum not fully closed.
+- **40t E+S (both definitions):** independent zero-additional-shortfall
+  full-year dispatch proven feasible. The earlier 2,307.413 kg maximum-inventory
+  Stage A result is a *suboptimal incumbent*, not unavoidable shortage.
+
+**LCA decision remains BLOCKED:** these source-based screen systems do
+not satisfy equivalent hourly hydrogen service. Both original industrial
+full-demand service and source-vessel manufacturing, compressor/cooler,
+native material process links, and harmonized complete TEA remain open.
+The intake contract still requires a registered SHA-256 of the *derived*
+upstream JSON file before accepting its contents as source evidence.
