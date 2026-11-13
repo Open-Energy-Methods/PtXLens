@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/bafu-open-api.yml'
       - 'src/ptxlens/bafu_ogd.py'
+      - 'src/ptxlens/bafu_candidates.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,6 +23,20 @@ jobs:
         run: |
           mkdir -p outputs/bafu_ogd
           python -m ptxlens.bafu_ogd --output outputs/bafu_ogd/official_schema_and_provider_provenance.json
+      - name: Query actual BAFU 2026 IPCC GWP100 material and water processes
+        run: |
+          python -m ptxlens.bafu_candidates --scope pilot --max-hits 300 \
+            --output outputs/bafu_ogd/real_process_candidates.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("outputs/bafu_ogd/real_process_candidates.json")
+          x=json.loads(p.read_text())
+          assert x['database_version']=='BAFU:2026 v1'
+          assert x['method']=='IPCC 2021' and x['category']=='GWP 100'
+          assert x['verified_foreground_provider_links']==0
+          print('authentic source matched process records',x['available_candidate_process_records'])
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
