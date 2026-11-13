@@ -1,5 +1,13 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+### 13 November 2026: original BAFU storage-supplier functional-unit correction
+
+**A major LCA mismatch was found in the genuine BAFU:2026 v1 source XML.** The process \`High pressure hydrogen storage tank\` (UUID \`b4739ad2-aa38-368d-8ada-63f5417c8b55\`) is a **vehicle composite tank** described per **kg hydrogen capacity**, with >10 kg raw composite/metal inputs per reference unit despite the exported generic unit \`kg\`. It is **not** a valid per-kg empty Type I stationary steel-vessel manufacturing provider. [Source-unit and technology audit](docs/L1_BAFU_STATIONARY_H2_TANK_PROVIDER_UNIT_AUDIT.md) · [derived source evidence](data/results/BAFU2026_v1_storage_tank_source_unit_mismatch_audit.json). The native BAFU v1.1 equivalent must still be verified; no new tank impact has been silently assigned or added as zero.
+
+**Upstream matched-service operations:** PtXFlex independently solved 2023 **8,760-hour identical hourly E-delivered hydrogen** scenarios, with ideal storage wholesale cost €25.7489m (E) vs €24.6070m (E+S), but **the physically additional 20t storage construction, compressor/cooling, and full original daily demand are not included**. [F3 verified ideal pilot report](https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/F3_2023_MATCHED_H2_IDEAL_PILOT_VERIFIED.md). This does **not** update or supersede the two earlier incomplete native BAFU scores.
+
+
+
 ## Coordinated scientific v1.0 — adopted research programme
 
 **Start here:** [shared v1.0 master plan](docs/PROGRAMME_MASTER_PLAN_v1.0.md) · [scientific decisions and change control](docs/DECISION_REGISTER_v1.0.md) · [12-WP release evidence status](research/gates-v1.0.json) · [versioned shared exchange schema](contracts/ptx-exchange-v1.schema.json) (byte-identical with PtXFlex).
