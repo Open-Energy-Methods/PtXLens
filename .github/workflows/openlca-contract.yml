@@ -1,0 +1,31 @@
+name: Verify official openLCA IPC Python API and fail-closed LCA database contract
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/openlca-contract.yml'
+      - 'src/ptxlens/olca_real.py'
+      - 'tests/test_openlca_contract.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  actual-ipc-api-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]' 'olca-ipc==2.6.3'
+      - run: python -m pytest -q tests/test_openlca_contract.py
+      - name: Document exact gate status
+        run: |
+          python - <<'PY'
+          import importlib.metadata
+          print("official installed Python IPC", importlib.metadata.version("olca-ipc"))
+          print("no openLCA desktop/server or real LCI database is connected in this runner")
+          print("no native LCIA has been run, no lifecycle emissions fabricated")
+          PY
