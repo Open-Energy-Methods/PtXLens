@@ -72,8 +72,8 @@ def test_wrong_source_derived_artifact_sha_rejected():
 @pytest.mark.parametrize("mode",["max_inventory","usable_service"])
 def test_independent_reference_vessel_count_ceiling_is_not_arbitrary(mode):
     x=copy.deepcopy(read_current())
-    x["cases"][mode]["E_plus_S"]["vessels"]+=1
-    x["cases"][mode]["E_plus_S"]["empty_reference_vessel_mass_kg"]+=2400
+    x["cases"][mode]["E_plus_S"]["vessels"]+=2
+    x["cases"][mode]["E_plus_S"]["empty_reference_vessel_mass_kg"]+=4800
     # Preserve the rounded per-vessel gas heel; failure must be the
     # independently checked count, not the earlier trivial mass relation.
     e=x["cases"][mode]["E"]
