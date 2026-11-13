@@ -23,19 +23,21 @@ jobs:
         run: |
           mkdir -p outputs/bafu_ogd
           python -m ptxlens.bafu_ogd --output outputs/bafu_ogd/official_schema_and_provider_provenance.json
-      - name: Query actual BAFU 2026 IPCC GWP100 material and water processes
+      - name: Query real BAFU 2026 IPCC GWP100 provider catalogue (source UUID partition pilot)
         run: |
-          python -m ptxlens.bafu_candidates --scope pilot --max-hits 300 \
-            --output outputs/bafu_ogd/real_process_candidates.json
+          python -m ptxlens.bafu_candidates --pilot \
+            --csv outputs/bafu_ogd/bafu_2026_actual_process_catalogue.csv \
+            --candidates outputs/bafu_ogd/material_provider_candidates.json \
+            --manifest outputs/bafu_ogd/material_provider_provenance.json
           python - <<'PY'
           import json
           from pathlib import Path
-          p=Path("outputs/bafu_ogd/real_process_candidates.json")
-          x=json.loads(p.read_text())
-          assert x['database_version']=='BAFU:2026 v1'
-          assert x['method']=='IPCC 2021' and x['category']=='GWP 100'
-          assert x['verified_foreground_provider_links']==0
-          print('authentic source matched process records',x['available_candidate_process_records'])
+          m=json.loads(Path("outputs/bafu_ogd/material_provider_provenance.json").read_text())
+          assert m['database_version']=='BAFU:2026 v1'
+          assert m['impact_method']=='IPCC 2021' and m['impact_category']=='GWP 100'
+          assert m['all_16_hex_partitions_covered'] is False
+          print("real, published candidate processes",m['provider_records'])
+          print("actual candidate match counts",m['candidate_counts'])
           PY
       - uses: actions/upload-artifact@v4
         if: always()
