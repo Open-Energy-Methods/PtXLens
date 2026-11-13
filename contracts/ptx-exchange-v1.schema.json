@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/contracts/ptx-exchange-v1.schema.json",
   "title": "Open Energy Methods Power-to-X cross-repository scientific evidence exchange v1",
-  "description": "Single authoritative schema, mirrored byte-for-byte in PtXFlex and PtXLens; JSON Schema checks shape; cross-field scientific assertions must run validate_exchange.",
+  "description": "Single authoritative schema, mirrored byte-for-byte in PtXFlex and PtXLens; JSON Schema checks shape; cross-field scientific assertions must run validate_exchange. Verified source hourly market/wind/demand hashes and separate operational-matching vs full environmental-comparison booleans are mandatory in v1.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -107,7 +107,10 @@
         "original_source_archive_sha256",
         "source_year",
         "hour_count",
-        "native_source_license_reviewed"
+        "native_source_license_reviewed",
+        "market_price_input_sha256",
+        "wind_available_input_sha256",
+        "hourly_demand_input_sha256"
       ],
       "properties": {
         "source_repository": {
@@ -157,6 +160,39 @@
           "type": [
             "string",
             "null"
+          ]
+        },
+        "market_price_input_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "wind_available_input_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hourly_demand_input_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
           ]
         }
       }
@@ -576,7 +612,8 @@
         "native_lca_executed",
         "matched_service_comparison_eligible",
         "comparative_superiority_claim",
-        "industrial_validation"
+        "industrial_validation",
+        "matched_operational_service_verified"
       ],
       "properties": {
         "original_study_observed_plant": {
@@ -586,7 +623,8 @@
           "type": "boolean"
         },
         "matched_service_comparison_eligible": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Complete matched-service environmental/cost comparison only after full BOM, native LCA, source method and financial accounting. NOT just matched H2 operations."
         },
         "comparative_superiority_claim": {
           "type": "boolean"
@@ -596,6 +634,10 @@
         },
         "claim_notes": {
           "type": "string"
+        },
+        "matched_operational_service_verified": {
+          "type": "boolean",
+          "description": "Physically equivalent hourly delivery service passed operating/pressure/quality audit; separate from complete environmentally comparable plant."
         }
       }
     }
