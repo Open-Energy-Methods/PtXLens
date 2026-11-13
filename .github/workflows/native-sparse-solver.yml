@@ -1,0 +1,44 @@
+name: Acquire official GPL UMFPACK sparse solver for private BAFU calculations
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/native-sparse-solver.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acquire-solver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: Fetch real GreenDelta UMFPACK Linux-x64 binary from Maven Central
+        run: |
+          mkdir -p offline_umfpack/
+          mvn --batch-mode -ntp \
+            dependency:copy \
+            -Dartifact=org.openlca:olca-native-umfpack-linux-x64:0.0.2 \
+            -DoutputDirectory="$PWD/offline_umfpack/"
+          ls -lh offline_umfpack/
+      - name: Record special GPL obligations for optional sparse solver
+        run: |
+          cat > offline_umfpack/README_GPL_LICENSE.txt <<'TXT'
+          Optional GPL-licensed UMFPACK sparse solver for private LCA.
+          Upstream source: https://github.com/GreenDelta/olca-native
+          Native UMFPACK implements GPLv2/3; original GreenDelta desktop
+          application does not bundle this optional library for license reasons.
+          This independent research tooling is not a claim that UMFPACK is
+          included in the MPL-licensed openLCA application.
+          Full source and original licensing: GreenDelta/olca-native.
+          TXT
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-optional-gpl-umfpack-linux-x64-native-sparse-solver
+          path: offline_umfpack/
+          retention-days: 7
+          if-no-files-found: error
