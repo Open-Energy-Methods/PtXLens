@@ -52,7 +52,9 @@ def audit(archive_path):
     suppliers={}
     for proc in ps.values():
         for exchange in proc.get("exchanges",[]):
-            if exchange.get("isInput") is False and exchange.get("isQuantitativeReference"):
+            # Any output (including co-products) can supply a product flow.
+            # Restricting to quantitative reference falsely rejects valid co-product suppliers.
+            if exchange.get("isInput") is False:
                 suppliers.setdefault(refid(exchange.get("flow")),[]).append(proc["@id"])
     source=ps[PEM_ID]
     q=deque([PEM_ID])
@@ -93,9 +95,26 @@ def audit(archive_path):
     if q:
         errors.append({"issue":"GRAPH_LIMIT_REACHED","count_unvisited":len(q)})
     # Record *all* native impact-method names, not an assumed IPCC label.
-    method_names=[{"id":k,"name":m.get("name"),
-                   "category_uuid_count":len(m.get("impactCategories") or [])}
-                  for k,m in methods.items()]
+    method_names=[]
+    method_categories=[]
+    for uuid,m in methods.items():
+        category_refs=m.get("impactCategories") or []
+        entry={"id":uuid,"name":m.get("name"),
+               "category_uuid_count":len(category_refs)}
+        for category in category_refs:
+            category_id=refid(category)
+            actual=categories.get(category_id)
+            factor_list=(actual or {}).get("impactFactors") or []
+            referenced=sum(bool(refid(f.get("flow")) in flows) for f in factor_list if isinstance(f,dict))
+            method_categories.append({
+                "method_name":m.get("name"),
+                "category_id":category_id,
+                "category_name":(actual or {}).get("name") or category.get("name"),
+                "number_characterization_factors":len(factor_list),
+                "factors_referencing_available_elementary_flows":referenced,
+                "in_archive":actual is not None,
+            })
+        method_names.append(entry)
     first_inputs=[]
     for x in source.get("exchanges",[]):
         if x.get("isInput") is True:
@@ -122,6 +141,7 @@ def audit(archive_path):
                   "missing_or_incompatible_provider_links":len(errors)},
         "first_process_actual_source_inputs":first_inputs,
         "available_impact_methods":method_names,
+        "impact_method_category_characterization_coverage":method_categories,
         "upstream_errors_by_type":dict(Counter(row["issue"] for row in errors)),
         "upstream_error_samples":errors[:45],
         "provider_graph_closed":len(errors)==0,
