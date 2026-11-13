@@ -28,12 +28,12 @@ public final class NativeBafuCalculation {
     private static final String GWP_CATEGORY = "GWP 100";
 
     public static void main(String[] args) throws Exception {
-        if (args.length < 1 || args.length > 2)
+        if (args.length < 1 || args.length > 3)
             throw new IllegalArgumentException("usage: <existing-private-BAFU-Derby-directory> [actual BAFU process uuid]");
         File folder=Path.of(args[0]).toAbsolutePath().toFile();
         if (!Derby.isDerbyFolder(folder))
             throw new IllegalArgumentException("provided folder is not a restored native openLCA Derby database");
-        String processUuid = args.length==2 ? args[1] : H2_30_BAR_CH;
+        String processUuid = args.length>=2 ? args[1] : H2_30_BAR_CH;
 
         try (var db = new Derby(folder)) {
             if (db.getDescriptors(Process.class).size() < 11000)
@@ -51,6 +51,16 @@ public final class NativeBafuCalculation {
             }
             if (method == null)
                 throw new IllegalStateException("native BAFU IPCC 2021 method absent");
+            System.out.println("PTXLENS_NATIVE_BAFU_SELECTED_METHOD_CATEGORIES_BEGIN");
+            for(var category: method.impactCategories) {
+                System.out.println("PTXLENS_NATIVE_BAFU_METHOD_CATEGORY\t"
+                  + category.name.replace('\t',' ')+"\t"+category.refId);
+            }
+            System.out.println("PTXLENS_NATIVE_BAFU_SELECTED_METHOD_CATEGORIES_END");
+            if(args.length==3 && "--inspect-method-only".equals(args[2])) {
+                System.out.println("PTXLENS_NATIVE_BAFU_INSPECTION_ONLY\ttrue");
+                return;
+            }
 
             var linker=new LinkingConfig()
                 .preferredType(LinkingConfig.PreferredType.UNIT_PROCESS);
@@ -95,7 +105,12 @@ public final class NativeBafuCalculation {
                     throw new IllegalStateException("native engine did not produce impacts");
                 boolean found=false;
                 for(var impact:result.getTotalImpacts()) {
-                    if(GWP_CATEGORY.equals(impact.impact().name)) {
+                    String impactName=impact.impact().name;
+                    System.out.println("PTXLENS_NATIVE_BAFU_IMPACT_CATEGORY_VALUE\t"
+                       + impactName.replace('\t',' ') + "\t" + impact.value());
+                    if(GWP_CATEGORY.equalsIgnoreCase(impactName) ||
+                        (impactName.toLowerCase(Locale.ROOT).contains("gwp") &&
+                         impactName.toLowerCase(Locale.ROOT).contains("100"))) {
                         double value=impact.value();
                         if (!Double.isFinite(value))
                             throw new IllegalStateException("nonfinite original native GWP100");
