@@ -1,0 +1,603 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/contracts/ptx-exchange-v1.schema.json",
+  "title": "Open Energy Methods Power-to-X cross-repository scientific evidence exchange v1",
+  "description": "Single authoritative schema, mirrored byte-for-byte in PtXFlex and PtXLens; JSON Schema checks shape; cross-field scientific assertions must run validate_exchange.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "study_id",
+    "scenario_id",
+    "research_question",
+    "analysis_scope",
+    "evidence_status",
+    "source",
+    "functional_unit",
+    "storage",
+    "annual_flows",
+    "impact",
+    "economics",
+    "claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "oem.ptx.exchange.v1.0"
+    },
+    "study_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenario_id": {
+      "enum": [
+        "E",
+        "E_plus_S",
+        "H2_baseline",
+        "MeOH_baseline",
+        "MeOH_storage"
+      ]
+    },
+    "research_question": {
+      "enum": [
+        "H2_storage",
+        "CO2_to_methanol"
+      ]
+    },
+    "analysis_scope": {
+      "enum": [
+        "original_unmatched_baseline",
+        "scoped_bafu_reference",
+        "matched_service_h2",
+        "methanol_exploratory",
+        "methanol_validated"
+      ]
+    },
+    "evidence_status": {
+      "enum": [
+        "observed_inputs_with_modelled_operations",
+        "literature_parameterized_scenario",
+        "source_reconstructed_native_LCIA",
+        "external_plant_validated"
+      ]
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "functional_unit": {
+      "$ref": "#/$defs/product_gate"
+    },
+    "storage": {
+      "$ref": "#/$defs/storage"
+    },
+    "annual_flows": {
+      "$ref": "#/$defs/annual_flows"
+    },
+    "impact": {
+      "$ref": "#/$defs/impact"
+    },
+    "economics": {
+      "$ref": "#/$defs/economics"
+    },
+    "claims": {
+      "$ref": "#/$defs/claims"
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "reproducibility_artifact_uri": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_repository",
+        "source_kind",
+        "original_source_archive_sha256",
+        "source_year",
+        "hour_count",
+        "native_source_license_reviewed"
+      ],
+      "properties": {
+        "source_repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_kind": {
+          "enum": [
+            "observed_weather_market_plus_modelled_hydrogen",
+            "literature_model",
+            "synthetic_test"
+          ]
+        },
+        "original_source_archive_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "source_year": {
+          "type": "integer",
+          "minimum": 2000,
+          "maximum": 2100
+        },
+        "hour_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9000
+        },
+        "native_source_license_reviewed": {
+          "type": "boolean"
+        },
+        "market_source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code_commit_sha": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "source_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "product_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product",
+        "unit",
+        "gate_name",
+        "pressure_bar",
+        "purity_mol_fraction",
+        "service_profile_sha256",
+        "same_service_as_comparator"
+      ],
+      "properties": {
+        "product": {
+          "enum": [
+            "H2",
+            "CH3OH"
+          ]
+        },
+        "unit": {
+          "const": "kg"
+        },
+        "gate_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pressure_bar": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "purity_mol_fraction": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "service_profile_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "same_service_as_comparator": {
+          "type": "boolean"
+        },
+        "quality_verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rated_h2_capacity_kg",
+        "usable_h2_capacity_kg",
+        "minimum_pressure_bar",
+        "maximum_pressure_bar",
+        "empty_equipment_mass_kg",
+        "equipment_mass_source_status",
+        "storage_electricity_kwh",
+        "inventory_losses_kg"
+      ],
+      "properties": {
+        "rated_h2_capacity_kg": {
+          "type": "number",
+          "minimum": 0
+        },
+        "usable_h2_capacity_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minimum_pressure_bar": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "maximum_pressure_bar": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "empty_equipment_mass_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "equipment_mass_source_status": {
+          "enum": [
+            "missing",
+            "provisional_sourced",
+            "verified_engineering_BOM"
+          ]
+        },
+        "storage_electricity_kwh": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inventory_losses_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "physical_vessel_design_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "annual_flows": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "h2_modelled_delivered_kg",
+        "electricity_grid_mwh",
+        "electricity_wind_mwh",
+        "h2_unserved_kg",
+        "co2_feed_kg",
+        "methanol_delivered_kg"
+      ],
+      "properties": {
+        "h2_modelled_delivered_kg": {
+          "type": "number",
+          "minimum": 0
+        },
+        "electricity_grid_mwh": {
+          "type": "number",
+          "minimum": 0
+        },
+        "electricity_wind_mwh": {
+          "type": "number",
+          "minimum": 0
+        },
+        "h2_unserved_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "co2_feed_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "methanol_delivered_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "electricity_compressor_mwh": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "electricity_boP_mwh": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "water_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_database",
+        "source_database_version",
+        "method",
+        "category",
+        "gwp100_kgco2e_per_product_kg",
+        "impact_status",
+        "full_plant_boundary",
+        "unlinked_material_product_inputs",
+        "source_method_evidence"
+      ],
+      "properties": {
+        "source_database": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_database_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "category": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gwp100_kgco2e_per_product_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "impact_status": {
+          "enum": [
+            "not_calculated",
+            "electricity_component_only",
+            "scoped_native_lcia",
+            "full_boundary_candidate",
+            "reviewed_full_boundary"
+          ]
+        },
+        "full_plant_boundary": {
+          "type": "boolean"
+        },
+        "unlinked_material_product_inputs": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_method_evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "incremental_h2_storage_equipment_included": {
+          "type": "boolean"
+        }
+      }
+    },
+    "economics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cost_model_status",
+        "currency",
+        "price_year",
+        "discount_rate_fraction",
+        "full_levelized_cost_per_delivered_kg"
+      ],
+      "properties": {
+        "cost_model_status": {
+          "enum": [
+            "not_calculated",
+            "capital_only",
+            "partial_operating",
+            "full_DCF_candidate",
+            "reviewed_full_DCF"
+          ]
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]{3}$"
+        },
+        "price_year": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 2000,
+              "maximum": 2100
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "discount_rate_fraction": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "full_levelized_cost_per_delivered_kg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original_study_observed_plant",
+        "native_lca_executed",
+        "matched_service_comparison_eligible",
+        "comparative_superiority_claim",
+        "industrial_validation"
+      ],
+      "properties": {
+        "original_study_observed_plant": {
+          "type": "boolean"
+        },
+        "native_lca_executed": {
+          "type": "boolean"
+        },
+        "matched_service_comparison_eligible": {
+          "type": "boolean"
+        },
+        "comparative_superiority_claim": {
+          "type": "boolean"
+        },
+        "industrial_validation": {
+          "type": "boolean"
+        },
+        "claim_notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
