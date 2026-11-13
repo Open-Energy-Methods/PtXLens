@@ -4,6 +4,8 @@ on:
     branches: [feat/wp0-screening-core]
     paths:
       - '.github/workflows/commons-hybrid.yml'
+      - 'src/ptxlens/commons_jsonld_audit.py'
+      - 'src/ptxlens/commons_gaps.py'
   workflow_dispatch:
 permissions:
   contents: read
