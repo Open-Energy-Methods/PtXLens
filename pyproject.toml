@@ -9,7 +9,8 @@ description = "Auditable PtX TEA/GWP screening"
 requires-python = ">=3.10"
 
 [project.optional-dependencies]
-dev = ["pytest>=7"]
+dev = ["pytest>=7", "jsonschema>=4.21,<5"]
+contracts = ["jsonschema>=4.21,<5"]
 lca = ["lxml>=5"]
 
 [project.scripts]
