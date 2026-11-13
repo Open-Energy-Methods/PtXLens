@@ -68,6 +68,48 @@ def validate_l1_bridge(obj):
                     raise PhysicallyIncompatibleEvidence("physically screened E+S charge energy missing")
         if source_cases["E_plus_S"]["vessels"]<=source_cases["E"]["vessels"]:
             raise PhysicallyIncompatibleEvidence("40t bank cannot have fewer source vessels than 20t")
+    # Independent dimensional and cross-case audit: a source-model capacity
+    # (kg H2) is never a vessel-manufacturing quantity (kg equipment).
+    # The published Type I reference has 1.8 m3 internal free volume and
+    # 2400 kg empty vessel mass. Count is a ceiling of a continuous bank;
+    # both source cases use the SAME vessel reference, T and P.
+    for mode,source_cases in obj["cases"].items():
+        E=source_cases["E"]
+        ES=source_cases["E_plus_S"]
+        if E["vessels"]<=0 or ES["vessels"]<=0:
+            raise PhysicallyIncompatibleEvidence("nonpositive source vessel count")
+        heel_per_vessel_E=E["gas_heel_kg"]/E["vessels"]
+        heel_per_vessel_ES=ES["gas_heel_kg"]/ES["vessels"]
+        # The recorded 2023 bridge rounds source EOS heel to 0.001 kg.
+        # Do not allow technology/pressure/temperature drift to masquerade
+        # as a 20-versus-40t effect.
+        if not math.isclose(heel_per_vessel_E,heel_per_vessel_ES,
+                            rel_tol=0,abs_tol=2e-6):
+            raise PhysicallyIncompatibleEvidence("inconsistent EOS heel per vessel across 20/40t")
+        if not 0.5<heel_per_vessel_E<10.0:
+            raise PhysicallyIncompatibleEvidence("impossible Type I 200bar 20bar residual gas mass")
+        if not ES["vessels"] in (2*E["vessels"]-1,2*E["vessels"]):
+            raise PhysicallyIncompatibleEvidence("vessel count violates doubled 20/40t bank ceiling")
+        if not math.isclose(ES["empty_reference_vessel_mass_kg"]-E["empty_reference_vessel_mass_kg"],
+                            (ES["vessels"]-E["vessels"])*2400.,abs_tol=1e-7):
+            raise PhysicallyIncompatibleEvidence("incremental vessel equipment mass closure failed")
+        if mode=="max_inventory":
+            # Ceiling test: 20t <= N*mmax, but (N-1)*mmax < 20t.
+            # Because only EOS heel is in this bridge, recover mmax from
+            # the paired count and the exact source original 20/40t bounds.
+            # Existence of a common mmax in both count intervals is required.
+            low=max(20000./E["vessels"],40000./ES["vessels"])
+            high=min(20000./(E["vessels"]-1),40000./(ES["vessels"]-1))
+        else:
+            low=max(20000./E["vessels"],40000./ES["vessels"])
+            high=min(20000./(E["vessels"]-1),40000./(ES["vessels"]-1))
+        if low>=high:
+            raise PhysicallyIncompatibleEvidence("no common reference vessel capacity satisfies both source ceil counts")
+    if obj["source_compressor_charge_electrical_kwh_per_kg"]<=0 or not math.isfinite(obj["source_compressor_charge_electrical_kwh_per_kg"]):
+        raise PhysicallyIncompatibleEvidence("nonfinite source compressor electrical work")
+    # Explicit product/provider mismatch, not a missing-zero impact.
+    if obj["original_BAFU_v1_composite_vehicle_tank_product_process_uuid"]!="b4739ad2-aa38-368d-8ada-63f5417c8b55":
+        raise PhysicallyIncompatibleEvidence("unverified BAFU vehicle-composite supplier identity")
     if not obj["native_BAFU_v11_process_inspected_for_this_physical_design"] and not obj["original_BAFU_vehicle_tank_compatible_with_TypeI_steel_reference"]:
         return obj
     raise PhysicallyIncompatibleEvidence("source-native provider compatibility unresolved")
