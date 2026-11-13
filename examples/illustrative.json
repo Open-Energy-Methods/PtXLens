@@ -1,0 +1,89 @@
+{
+  "schema_version": "ptxlens.dispatch.v0.1",
+  "scenario_id": "INVENTED-FOUR-HOUR-TEST",
+  "evidence": {
+    "kind": "synthetic"
+  },
+  "metadata": {
+    "currency": "EUR",
+    "price_year": 2024,
+    "dt_hours": 1,
+    "annualization_factor": 2190,
+    "annualization_basis": "invented four-hour cycle repeated 2190 times, NOT an observed or representative 2023 year",
+    "gwp_method_statement": "invented kgCO2e/MWh factors; not a published LCIA method"
+  },
+  "economics": {
+    "capex_eur": {
+      "electrolyser": 1000000,
+      "bop": 200000
+    },
+    "replacement_cost_eur_by_year": {
+      "10": 100000
+    },
+    "discount_rate": 0.07,
+    "lifetime_years": 20,
+    "fixed_opex_eur_year": 20000,
+    "variable_opex_eur_kg": 0.05,
+    "wind_value_eur_mwh": 35,
+    "wind_cost_basis": "hypothetical opportunity value; no wind CAPEX included"
+  },
+  "environment": {
+    "embodied_kgco2e": {
+      "electrolyser": 100000
+    },
+    "replacement_kgco2e_by_year": {
+      "10": 10000
+    },
+    "other_upstream_kgco2e_kg_h2": 0.1
+  },
+  "hours": [
+    {
+      "wind_mwh": 1,
+      "grid_import_mwh": 0,
+      "grid_export_mwh": 0,
+      "h2_produced_kg": 21,
+      "h2_delivered_kg": 21,
+      "h2_unserved_kg": 0,
+      "grid_price_eur_mwh": 80,
+      "grid_gwp_kgco2e_mwh": 450,
+      "wind_gwp_kgco2e_mwh": 15,
+      "timestamp_utc": "2023-01-01T00:00:00Z"
+    },
+    {
+      "wind_mwh": 0,
+      "grid_import_mwh": 1,
+      "grid_export_mwh": 0,
+      "h2_produced_kg": 21,
+      "h2_delivered_kg": 21,
+      "h2_unserved_kg": 0,
+      "grid_price_eur_mwh": 60,
+      "grid_gwp_kgco2e_mwh": 400,
+      "wind_gwp_kgco2e_mwh": 15,
+      "timestamp_utc": "2023-01-01T01:00:00Z"
+    },
+    {
+      "wind_mwh": 0.5,
+      "grid_import_mwh": 0.5,
+      "grid_export_mwh": 0,
+      "h2_produced_kg": 21,
+      "h2_delivered_kg": 21,
+      "h2_unserved_kg": 0,
+      "grid_price_eur_mwh": -5,
+      "grid_gwp_kgco2e_mwh": 300,
+      "wind_gwp_kgco2e_mwh": 15,
+      "timestamp_utc": "2023-01-01T02:00:00Z"
+    },
+    {
+      "wind_mwh": 1,
+      "grid_import_mwh": 0,
+      "grid_export_mwh": 0,
+      "h2_produced_kg": 21,
+      "h2_delivered_kg": 21,
+      "h2_unserved_kg": 1,
+      "grid_price_eur_mwh": 90,
+      "grid_gwp_kgco2e_mwh": 500,
+      "wind_gwp_kgco2e_mwh": 15,
+      "timestamp_utc": "2023-01-01T03:00:00Z"
+    }
+  ]
+}
