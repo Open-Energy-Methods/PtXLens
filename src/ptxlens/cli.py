@@ -37,6 +37,15 @@ def main(argv=None):
     api.add_argument("--year",type=int,required=True)
     api.add_argument("--csv",type=Path,required=True)
     api.add_argument("--manifest",type=Path,required=True)
+    stack=commands.add_parser("pem-stack-lci")
+    stack.add_argument("source",type=Path,help="pinned PyNEXUS observed scenario ZIP")
+    stack.add_argument("--lci",type=Path,default=Path("data/lci/pem_stack_kanz_2024_1mw.json"))
+    stack.add_argument("--output",type=Path,required=True)
+    lca=commands.add_parser("lca-electricity-supply")
+    lca.add_argument("e_zip",type=Path)
+    lca.add_argument("es_zip",type=Path)
+    lca.add_argument("--output",type=Path,required=True)
+    lca.add_argument("--hourly-dir",type=Path)
     olca=commands.add_parser("openlca-run")
     olca.add_argument("source",type=Path,help="original pinned 2023 observed-price archive")
     olca.add_argument("--config",type=Path,required=True,help="actual connected openLCA model IDs and LCI database")
@@ -62,6 +71,18 @@ def main(argv=None):
         from .energy_charts import fetch_prices,write_prices
         report=write_prices(fetch_prices(args.year),args.csv,args.manifest)
         print(json.dumps(report,indent=2,sort_keys=True))
+    elif args.command=="pem-stack-lci":
+        from .pem_stack_lci import write_foreground
+        data=write_foreground(args.source,args.lci,args.output)
+        print(json.dumps({"scenario":data["scenario"],"status":"material LCI only",
+                          "stack_service_cycles":data["assumed_stack_service_cycles_in_30_years"],
+                          "material_count":len(data["lifecycle_material_inputs"])},indent=2))
+    elif args.command=="lca-electricity-supply":
+        from .lca_screen import write_results
+        data=write_results(args.e_zip,args.es_zip,args.output,args.hourly_dir)
+        print(json.dumps({"status":"source-verified electricity-supply GWP only",
+                          "E_kgco2e_per_kg_h2":data["E"]["gwp_kgco2e_per_kg_modelled_h2_delivered"],
+                          "ES_kgco2e_per_kg_h2":data["E_plus_S"]["gwp_kgco2e_per_kg_modelled_h2_delivered"]},indent=2))
     elif args.command=="openlca-run":
         from .olca_real import run_from_files
         report=run_from_files(args.source,args.config,args.output)
