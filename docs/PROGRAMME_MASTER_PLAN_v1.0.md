@@ -164,7 +164,9 @@ Uncertainty plan: classify **aleatory** weather/market (only one historical year
 
 ## 8. Integration contract and release traceability
 
-Shared exchange fields/semantics, implemented in both:
+**P1 implementation status:** initial identical schema + Python scientific validator now exist in both repos and reject unmatched/native LCA and capital-only-cost overclaims. It currently stores **source SHA, functional unit, rated storage capacity and source status, annual flow ledger, native impact status and finance claims**. The *target v1.0 contract* below additionally requires a content-addressed 8,760-hour flow artifact (rather than embedding arrays in every summary), equipment-list supplier UUIDs, physical pressure/quality certificates and full TEA/LCA contribution outputs. Those extensions remain P1 blockers; the current initial schema is not itself the complete v1 release interface.
+
+Target shared exchange fields/semantics:
 - \`schema_version\`, \`study_id\`, \`scenario_id\`, \`source_provenance\` (original ZIP sha256, solver commit, BAFU edition/method UUID);
 - \`functional_unit\` (product, kg, pressure bar, purity fraction, location/gate, service profile SHA), \`hourly\` (UTC intervals, power sources, grid/curtailment/PEM/compressor, H2 production/delivery/store/leak, optional methanol and CO2 with explicitly named dimensions);
 - \`equipment\` (kg hardware, original process provider UUID + reference unit, lifetime/replacement and manufacturing technology);
@@ -174,7 +176,9 @@ Shared exchange fields/semantics, implemented in both:
 
 **Critical identity:** \`m_\mathrm{H2,delivered}\` refers to product flowing over the boundary at the same delivered service/pressure/purity. \`m_\mathrm{tank}\` refers to empty equipment mass; \`m_\mathrm{stored}\` to instantaneous physical H2; \`m_\mathrm{tank,nominal}\` to rated H2 capacity; no implicit exchange is permitted.
 
-Cross-repo contract tests: byte-identical schema SHA, valid real-source-derived example passes, missing/unknown/null impact fails publication gate, changed functional-unit/service hash fails cross-case comparison, source process UUID and units do not autocorrect. Version \`1.x\` additions must be backward-compatible; all breaking schema changes require version 2 + ADR + migration.
+**Two comparison thresholds:** `matched_operational_service_verified` means both dispatch scenarios actually satisfy the same physical hourly product service (pressure, quality, demand profile and source series). `matched_service_comparison_eligible` is a *stronger* GWP/TEA claim that additionally requires full storage equipment/LCA cost scope and complete comparable financial/impact methods. Operational parity may be established first; no circular dependency on unavailable environmental inputs is allowed.
+
+Cross-repo contract tests: byte-identical schema SHA, valid real-source-derived example passes, missing/unknown/null impact fails publication gate, changed functional-unit/service hash and source-market/wind/demand SHA fail cross-case comparison, source process UUID and units do not autocorrect. Version \`1.x\` additions must be backward-compatible; all breaking schema changes require version 2 + ADR + migration.
 
 ## 9. Technical governance and anti-scope-creep procedure
 
