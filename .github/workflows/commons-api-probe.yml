@@ -1,0 +1,33 @@
+name: Live Federal LCA Commons provider discovery (real API, no guessed matches)
+on:
+  push:
+    branches: [feat/wp0-screening-core]
+    paths:
+      - '.github/workflows/commons-api-probe.yml'
+      - 'src/ptxlens/commons_probe.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  query-real-commons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      LCA_COMMONS_API_KEY: ${{ secrets.LCA_COMMONS_API_KEY || 'DEMO_KEY' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Query real material provider records in FLCAC Commons Merged
+        run: |
+          mkdir -p outputs/commons_probe
+          python -m ptxlens.commons_probe --output outputs/commons_probe/api_raw_observations.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-federal-commons-provider-api-evidence
+          path: outputs/commons_probe/
+          retention-days: 20
+          if-no-files-found: warn
