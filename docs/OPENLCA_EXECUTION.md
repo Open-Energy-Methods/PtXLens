@@ -28,7 +28,7 @@ Commands:
 
 ~~~bash
 python -m pip install -e .
-python -m pip install "olca-ipc>=2.7,<3"
+python -m pip install "olca-ipc==2.6.3"
 ptxlens openlca-run pynexus-wp5-e-2023.zip \
   --config /private/path/openlca_real_database.json \
   --output outputs/lca_real_E_result.json
