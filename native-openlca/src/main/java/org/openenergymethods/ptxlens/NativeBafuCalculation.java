@@ -28,7 +28,7 @@ import org.openlca.core.model.Process;
 public final class NativeBafuCalculation {
     private static final String H2_30_BAR_CH = "99a1af16-58cd-3f11-a877-c43d3c8e5d78";
     private static final String METHOD_NAME = "IPCC 2021";
-    private static final String GWP_CATEGORY = "GWP 100";
+    private static final String GWP_CATEGORY = "IPCC 2021 GWP 100";
 
     public static void main(String[] args) throws Exception {
         if (args.length < 1 || args.length > 3)
@@ -120,9 +120,7 @@ public final class NativeBafuCalculation {
                     String impactName=impact.impact().name;
                     System.out.println("PTXLENS_NATIVE_BAFU_IMPACT_CATEGORY_VALUE\t"
                        + impactName.replace('\t',' ') + "\t" + impact.value());
-                    if(GWP_CATEGORY.equalsIgnoreCase(impactName) ||
-                        (impactName.toLowerCase(Locale.ROOT).contains("gwp") &&
-                         impactName.toLowerCase(Locale.ROOT).contains("100"))) {
+                    if(GWP_CATEGORY.equals(impactName)) {
                         double value=impact.value();
                         if (!Double.isFinite(value))
                             throw new IllegalStateException("nonfinite original native GWP100");
