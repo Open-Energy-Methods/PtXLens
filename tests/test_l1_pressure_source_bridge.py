@@ -67,3 +67,43 @@ def test_wrong_source_derived_artifact_sha_rejected():
     x["upstream_derived_json_sha256"]="0"*64
     with pytest.raises(PhysicallyIncompatibleEvidence,match="unverified derived 2023"):
         validate_l1_bridge(x)
+
+
+@pytest.mark.parametrize("mode",["max_inventory","usable_service"])
+def test_independent_reference_vessel_count_ceiling_is_not_arbitrary(mode):
+    x=copy.deepcopy(read_current())
+    x["cases"][mode]["E_plus_S"]["vessels"]+=1
+    x["cases"][mode]["E_plus_S"]["empty_reference_vessel_mass_kg"]+=2400
+    # Preserve the rounded per-vessel gas heel; failure must be the
+    # independently checked count, not the earlier trivial mass relation.
+    e=x["cases"][mode]["E"]
+    es=x["cases"][mode]["E_plus_S"]
+    es["gas_heel_kg"]=round(es["vessels"]*e["gas_heel_kg"]/e["vessels"],3)
+    with pytest.raises(PhysicallyIncompatibleEvidence,match="vessel count violates"):
+        validate_l1_bridge(x)
+
+
+@pytest.mark.parametrize("mode",["max_inventory","usable_service"])
+def test_independent_heel_per_vessel_rejects_pressure_technology_drift(mode):
+    x=copy.deepcopy(read_current())
+    x["cases"][mode]["E_plus_S"]["gas_heel_kg"]+=10.
+    with pytest.raises(PhysicallyIncompatibleEvidence,match="inconsistent EOS heel"):
+        validate_l1_bridge(x)
+
+
+def test_independent_supplier_identity_must_match_original_native_process():
+    x=copy.deepcopy(read_current())
+    x["original_BAFU_v1_composite_vehicle_tank_product_process_uuid"]="0"*36
+    with pytest.raises(PhysicallyIncompatibleEvidence,match="supplier identity"):
+        validate_l1_bridge(x)
+
+
+def test_current_source_physical_bank_has_consistent_dimensional_closure():
+    x=read_current()
+    for mode in ("max_inventory","usable_service"):
+        e=x["cases"][mode]["E"]
+        es=x["cases"][mode]["E_plus_S"]
+        assert es["empty_reference_vessel_mass_kg"]-e["empty_reference_vessel_mass_kg"] == (es["vessels"]-e["vessels"])*2400
+        assert abs(e["gas_heel_kg"]/e["vessels"]-es["gas_heel_kg"]/es["vessels"])<2e-6
+        assert es["vessels"] in (2*e["vessels"]-1,2*e["vessels"])
+    assert x["native_storage_manufacturing_GWP_kgCO2e"] is None
