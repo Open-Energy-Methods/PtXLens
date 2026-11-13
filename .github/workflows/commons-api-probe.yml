@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/commons-api-probe.yml'
       - 'src/ptxlens/commons_probe.py'
+      - 'src/ptxlens/provider_coverage.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,6 +25,10 @@ jobs:
         run: |
           mkdir -p outputs/commons_probe
           python -m ptxlens.commons_probe --all --output outputs/commons_probe/api_raw_observations.json
+          python -m ptxlens.provider_coverage \
+            --source outputs/commons_probe/api_raw_observations.json \
+            --csv outputs/commons_probe/lci_provider_coverage.csv \
+            --manifest outputs/commons_probe/provider_coverage_manifest.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
