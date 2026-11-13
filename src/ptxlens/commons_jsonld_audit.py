@@ -94,6 +94,19 @@ def audit(archive_path):
             q.append(provider)
     if q:
         errors.append({"issue":"GRAPH_LIMIT_REACHED","count_unvisited":len(q)})
+    repair_candidates={"no_same_flow_output_process":0,
+                       "one_same_flow_output_process":0,
+                       "multiple_same_flow_output_processes":0}
+    for problem in errors:
+        if problem.get("issue")!="NO_EXPLICIT_DEFAULT_PROVIDER":
+            continue
+        options=len(problem.get("possible_matching_output_provider_uuids") or [])
+        if options==0:
+            repair_candidates["no_same_flow_output_process"]+=1
+        elif options==1:
+            repair_candidates["one_same_flow_output_process"]+=1
+        else:
+            repair_candidates["multiple_same_flow_output_processes"]+=1
     # Record *all* native impact-method names, not an assumed IPCC label.
     method_names=[]
     method_categories=[]
@@ -143,6 +156,8 @@ def audit(archive_path):
         "available_impact_methods":method_names,
         "impact_method_category_characterization_coverage":method_categories,
         "upstream_errors_by_type":dict(Counter(row["issue"] for row in errors)),
+        "missing_provider_candidate_counts":repair_candidates,
+        "first_five_nearest_unlinked_product_inputs":errors[:5],
         "upstream_error_samples":errors[:45],
         "provider_graph_closed":len(errors)==0,
         "ready_for_cradle_to_gate_nl_lca":False,
@@ -150,6 +165,7 @@ def audit(archive_path):
             "Full repository is open source/public but includes mixed contributed datasets and geographical limits.",
             "Source 2017 US PEM hydrogen at plant is not a 2023 NL plant and excludes anode drying/purification.",
             "A closed provider graph alone does not guarantee compatible LCIA characterization, flow coverage, allocation or completeness.",
+            "Same-flow UUID candidate suppliers are only a repair shortlist; do not link without validating coproduct allocation, geography, units, year and library provenance.",
             "This is graph auditing, not an executed openLCA LCIA."
         ],
     }
