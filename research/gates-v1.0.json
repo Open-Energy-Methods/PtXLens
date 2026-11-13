@@ -169,14 +169,12 @@
       "owner": "Both",
       "depends_on": [
         "L2",
-        "L3",
-        "F4",
-        "L4"
+        "L3"
       ],
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "blocked",
-      "current_evidence_status": "No source-valid coupled optimization frontier; no circular reuse of unreviewed process factors permitted.",
+      "current_evidence_status": "Hydrogen integrated frontier depends on full hydrogen native LCA + full H2 TEA; CO2/methanol frontier additionally requires F4/L4; neither stage complete.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null
@@ -204,7 +202,7 @@
     "original_historical_E_EplusS_service_matched": false,
     "additive_storage_BOM_validated": false,
     "independent_scientific_peer_review_passed": false,
-    "note": "This is a preregistered research status board, not a public release assertion."
+    "note": "Hydrogen core requires H2-only X1/L2/L3 and independent review; full methanol requires separate F4/L4 gates. No results are presently release ready."
   },
   "source_and_licensing_guardrails": {
     "original_PyNEXUS_frozen": true,
