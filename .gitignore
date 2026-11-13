@@ -6,3 +6,10 @@ outputs/
 *.db
 *.sqlite
 .env
+
+# Source-licensed raw background LCIs: never commit or redistribute
+*.zolca
+*.spold
+*.ecospold
+bafu-licensed-databases/
+private-lci/
