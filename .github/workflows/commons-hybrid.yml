@@ -1,0 +1,44 @@
+name: Acquire 2026 Commons Merged Hybrid (USEEIO) for honest provider gap comparison
+on:
+  push:
+    branches: [feat/wp0-screening-core]
+    paths:
+      - '.github/workflows/commons-hybrid.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  obtain-hybrid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Download original public Commons Merged Hybrid, including distinct USEEIO model
+        run: |
+          mkdir -p /tmp/commons_hybrid outputs/commons_hybrid
+          python -m ptxlens.commons_public \
+            --repository commons_merged_hybrid \
+            --archive /tmp/commons_hybrid/original_2026_hybrid.jsonld.zip \
+            --manifest outputs/commons_hybrid/authentic_source_provenance.json
+      - name: Confirm genuine original source metadata and avoid content redistribution
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          m=json.loads(pathlib.Path("outputs/commons_hybrid/authentic_source_provenance.json").read_text())
+          assert m["repository"]=="commons_merged_hybrid"
+          assert len(m["download_sha256"])==64
+          assert m["member_count"]>10000
+          print("hybrid source SHA256",m["download_sha256"])
+          print("hybrid archive entries",m["member_count"])
+          print("Hybrid has USEEIO v2 financial bridges: not identical to process LCI or Dutch inputs")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: commons-merged-hybrid-2026-authentic-source-manifest-only
+          path: outputs/commons_hybrid/
+          retention-days: 90
+          if-no-files-found: error
