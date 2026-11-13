@@ -23,6 +23,17 @@ jobs:
           mkdir -p outputs/commons_pem_process
           python -m ptxlens.commons_process \
             --output outputs/commons_pem_process/real_uslci_pem_1kg_process_audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("outputs/commons_pem_process/real_uslci_pem_1kg_process_audit.json").read_text())
+          q=x["mass_and_stoichiometry_source_check"]
+          print("source oxygen, kg per kg H2:",q["original_source_oxygen_output_kg"])
+          print("theoretical source oxygen, kg:",q["theoretical_oxygen_kg_for_source_h2"])
+          print("full-LCA mass QA gate:",q["elemental_stoichiometry_reconciled"])
+          assert q["elemental_stoichiometry_reconciled"] is False
+          assert q["blocks_complete_product_lca"] is True
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
