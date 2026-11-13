@@ -1,0 +1,50 @@
+name: Live Netherlands 2023 energy market source
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/real-price.yml'
+      - 'src/ptxlens/energy_charts.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  energy-charts-2023:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PtXLens
+        run: python -m pip install -e .
+      - name: Retrieve all observed hourly 2023 NL day-ahead prices
+        run: |
+          mkdir -p outputs/real_nl_2023
+          ptxlens fetch-nl-prices --year 2023 \
+            --csv outputs/real_nl_2023/nl_2023_hourly_eur_mwh.csv \
+            --manifest outputs/real_nl_2023/energy_charts_source_manifest.json
+      - name: Assert recorded 8760 UTC hours, no interpolation, source attribution
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,pathlib
+          p=pathlib.Path("outputs/real_nl_2023")
+          rows=list(csv.DictReader((p/"nl_2023_hourly_eur_mwh.csv").open()))
+          m=json.loads((p/"energy_charts_source_manifest.json").read_text())
+          assert len(rows)==8760==m["row_count"]
+          assert m["source_license_note"] and m["market_zone"]=="NL"
+          assert hashlib.sha256((p/"nl_2023_hourly_eur_mwh.csv").read_bytes()).hexdigest()==m["csv_sha256"]
+          print("Data source:",m["provider"])
+          print("Source URL:",m["source_url"])
+          print("Source license:",m["source_license_note"])
+          print("Hours:",len(rows),"first UTC",rows[0],"last UTC",rows[-1])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: energy-charts-nl-2023-8760h-source-verified
+          path: outputs/real_nl_2023/
+          retention-days: 90
+          if-no-files-found: error
