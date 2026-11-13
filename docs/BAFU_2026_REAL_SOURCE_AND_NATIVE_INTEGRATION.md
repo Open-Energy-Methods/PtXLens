@@ -1,3 +1,5 @@
+> **Correction — tank provider, audited from original source:** the original BAFU v1 high-pressure tank process is a vehicle composite model described per kg hydrogen capacity despite its exported unit `kg`; it is NOT a source for multiplying by kg empty stationary steel vessel mass. Full v1.1 provider equivalence and physical stationary tank foreground remain unresolved. See [L1 source-unit audit](L1_BAFU_STATIONARY_H2_TANK_PROVIDER_UNIT_AUDIT.md).
+
 > **Archived preliminary assessment (superseded 13 November 2026):** The authorized **BAFU v1.1 native openLCA .zolca** was subsequently supplied, imported locally and calculated with GreenDelta openLCA 2.7 using actual IPCC 2021 GWP100. Original Swiss 30bar PEM = **5.541965562 kgCO₂e/kg H₂**, native 2023 Dutch source-based E = **6.148174396**, E+S = **6.076552654**, with **zero unlinked product/waste exchanges**. This earlier document's statements that the original native database is unavailable or that the native result is unexecuted are now obsolete. The remaining unresolved system boundary is **additional E+S storage equipment, compression/losses, modernization of offshore reference, matched delivery service and physically comparable plant scope**. The current authoritative results are in [BAFU 2026 v1.1 native verified E/E+S](BAFU_2026_V11_NATIVE_2023_DUTCH_E_ES_VERIFIED.md).
 
 # BAFU:2026 v1 — real-source Dutch PtXLens integration and native openLCA gates
@@ -34,7 +36,7 @@ Full source and candidate code: [bafu_candidates.py](../src/ptxlens/bafu_candida
 | Offshore wind supply | xx Electricity, at wind power plant 2MW, offshore | OCE | MJ | **Legacy 2 MW model, not actual modern Dutch turbine** |
 | Deionised water | Water, deionised, water balance MoeK 2013 | NL | kg | Supplier factor available; 9–10 L/kg H2 only literature assumption |
 | Hydrogen process gate | Hydrogen production, gaseous, 30 bar, PEM electrolysis, grid | CH | kg | Published reference process, not Dutch 2023 original |
-| Hydrogen storage equipment | High pressure hydrogen storage tank | GLO | kg tank | Needs actual physical vessel design and tank mass |
+| Hydrogen storage equipment | High pressure hydrogen storage tank, original BAFU process b4739ad2... | GLO | **kg (underlying source says per kg H₂ capacity)** | **STOP: vehicle composite reference with carbon fibre/epoxy, NOT per kg empty Type I steel vessel**; see [original-source audit](L1_BAFU_STATIONARY_H2_TANK_PROVIDER_UNIT_AUDIT.md) |
 | Pipeline hydrogen delivery | PEM electrolysis from grid and distributed by pipeline | CH | kg H2 | Different boundary; not automatically combinable with electrolysis + compression |
 
 The exact real process UUID, name, geography and units are verified by code in [bafu_real_screen.py](../src/ptxlens/bafu_real_screen.py), and published factors are read from the actual Swiss API catalogue, never written as assumed numeric constants.
