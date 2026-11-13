@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/commons-public.yml'
       - 'src/ptxlens/commons_public.py'
+      - 'src/ptxlens/commons_jsonld_audit.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,6 +25,11 @@ jobs:
           python -m ptxlens.commons_public \
             --archive /tmp/flcac_database/Commons_Merged_2026.jsonld.zip \
             --manifest outputs/commons_public/source_sha256_manifest.json
+      - name: Audit true 1kg PEM hydrogen provider graph and IPCC LCIA method inventory
+        run: |
+          python -m ptxlens.commons_jsonld_audit \
+            --archive /tmp/flcac_database/Commons_Merged_2026.jsonld.zip \
+            --output outputs/commons_public/actual_upstream_provider_graph_and_methods.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
