@@ -6,6 +6,7 @@ on:
       - '.github/workflows/commons-public.yml'
       - 'src/ptxlens/commons_public.py'
       - 'src/ptxlens/commons_jsonld_audit.py'
+      - 'src/ptxlens/commons_gaps.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -30,6 +31,28 @@ jobs:
           python -m ptxlens.commons_jsonld_audit \
             --archive /tmp/flcac_database/Commons_Merged_2026.jsonld.zip \
             --output outputs/commons_public/actual_upstream_provider_graph_and_methods.json
+      - name: Export ALL unresolved upstream exchanges and group by exact source flow UUID
+        run: |
+          python -m ptxlens.commons_gaps \
+            --source outputs/commons_public/actual_upstream_provider_graph_and_methods.json \
+            --by-exchange outputs/commons_public/unlinked_provider_exchanges.csv \
+            --by-flow outputs/commons_public/unlinked_provider_flows.csv
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          root=Path("outputs/commons_public")
+          d=json.loads((root/"actual_upstream_provider_graph_and_methods.json").read_text())
+          with (root/"unlinked_provider_exchanges.csv").open() as f:
+              exchanges=list(csv.DictReader(f))
+          with (root/"unlinked_provider_flows.csv").open() as f:
+              flows=list(csv.DictReader(f))
+          assert len(exchanges)==d["counts"]["missing_or_incompatible_provider_links"]
+          assert all(row["verified_linked"]=="False" for row in exchanges)
+          assert len(flows)>0
+          print("real unlinked source exchanges",len(exchanges))
+          print("unique incomplete source flow UUIDs",len(flows))
+          print("possible self-contained same-flow suppliers",d["missing_provider_candidate_counts"])
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
