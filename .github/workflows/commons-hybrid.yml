@@ -36,6 +36,25 @@ jobs:
           print("hybrid archive entries",m["member_count"])
           print("Hybrid has USEEIO v2 financial bridges: not identical to process LCI or Dutch inputs")
           PY
+      - name: Audit hybrid upstream provider graph (using authentic USEEIO bridges)
+        run: |
+          python -m ptxlens.commons_jsonld_audit \
+            --repository commons_merged_hybrid \
+            --archive /tmp/commons_hybrid/original_2026_hybrid.jsonld.zip \
+            --output outputs/commons_hybrid/actual_hybrid_provider_graph.json
+          python -m ptxlens.commons_gaps \
+            --source outputs/commons_hybrid/actual_hybrid_provider_graph.json \
+            --by-exchange outputs/commons_hybrid/hybrid_unlinked_exchanges.csv \
+            --by-flow outputs/commons_hybrid/hybrid_unlinked_flows.csv
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("outputs/commons_hybrid/actual_hybrid_provider_graph.json").read_text())
+          print("Hybrid original source UUID count",x["counts"]["processes"])
+          print("Hybrid unresolved upstream exchanges",x["counts"]["missing_or_incompatible_provider_links"])
+          print("Hybrid provider gaps",x["missing_provider_candidate_counts"])
+          print("US USEEIO financial bridge estimates must NOT be called process-only LCIA")
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: commons-merged-hybrid-2026-authentic-source-manifest-only
