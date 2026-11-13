@@ -56,7 +56,7 @@ def openpytea_doe_capital(case, *, cost_usd2022_kw, discount_rate):
         "working_capital":0,
         "fp":0,
         "loc_factor":1.0,
-        "capex_ramp":[0.0],
+        "capex_ramp":[1.0],
         "production_ramp":[1.0]*30,
         "operator_hourly_rate":{"rate":0},
         "operators_per_shift":0,
