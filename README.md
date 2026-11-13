@@ -1,5 +1,15 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## BAFU:2026 — Swiss official full GWP100 process catalogue and Dutch original E/E+S work
+
+The **official Swiss Federal Office for the Environment (BAFU:2026 v1) public API** has been queried live for all **11,947 real process-reference IPCC 2021 GWP100 results** over 16 complete UUID partitions. Records include exact source UUIDs, names, country, units, edition and source provenance. [Successful full source ingest](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43441882303).
+
+Using frozen original 8,760-hour PyNEXUS E and E+S dispatch ZIPs, we executed a second independent **BAFU-published-factor electricity-supply component sensitivity**, with source-verified NL high-voltage grid and legacy offshore-wind factors: **5.522554 (E)** and **5.455317 (E+S)** kgCO2e/kg modelled delivered H2. Four of the eight published PEM stack material categories also have source-matched mass-based BAFU reference factors, resulting in strictly **partial material components** only (0.002613 and 0.002559 kgCO2e/kg model H2). Titanium metal production, virgin activated carbon, Nafion precursor, and iridium-bearing concentrate **do not have technology-equivalent verified suppliers**; they were never given zero GWP. [Successful original data CI](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43443319012).
+
+**These are NOT complete H2 cradle-to-gate LCA results.** The official API exposes pre-calculated BAFU process impact factors, not the native process supplier graph. The separately downloadable BAFU:2026 Nexus zolca requires the downloader's terms acceptance and is NOT yet present. A validated local source-archive verifier and real openLCA 2.7 native BAFU zolca provider-audit program are prepared for a legally supplied copy. [Exact source, 30bar PEM benchmark references, methods, limitations and local execution](docs/BAFU_2026_REAL_SOURCE_AND_NATIVE_INTEGRATION.md).
+
+
+
 ## Native openLCA 2.7.0 engine actually executed
 
 GreenDelta's genuine openLCA **2.7.0** native Java engine has imported the unmodified SHA-verified Federal Commons Merged (2026) ZIP, constructed the real USLCI reference PEM product system (2,516 source processes, 3,077 linked supply exchanges) and run its native IPCC AR6-100 LCIA calculation. [Successful Java kernel run](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43435190584).
