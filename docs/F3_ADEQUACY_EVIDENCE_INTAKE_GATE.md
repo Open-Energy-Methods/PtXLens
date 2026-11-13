@@ -35,9 +35,17 @@ supersede its earlier independently solved zero-shortfall fixed-service case.
 
 ## Remaining evidence
 
-No official new PtXFlex shortage certificate has yet been imported or
-registered as independently approved evidence in this repository.
-Synthetic contract tests are unit tests, not real 2023 scenario outputs.
+**Registered source evidence imported on 14 November 2026.**
+The real 2023 six-artifact source verification
+[passed in PtXFlex](https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43526250517).
+The reconciled derived JSON was registered unchanged in
+[`data/results/F3_2023_reconciled_research_evidence.json`](../data/results/F3_2023_reconciled_research_evidence.json)
+with SHA-256 `5dead18cfa0c3fecf15562f423e01044bcc6ad4ba4f5212dfb44a010b0d1a0d3`.
+The [independent PtXLens bridge](../src/ptxlens/f3_reconciled_source_bridge.py)
+and source-locked regression tests now verify its physical/mathematical
+shortage interpretation. This is an original-source-based numerical study,
+not a measured plant or a native incremental-storage LCA.
+Synthetic contract tests remain explicitly distinct from the real study.
 
 **Next:** after PtXFlex reconciles its E+S feasible witness and completes
 the source-run certificate, register the certified artifact SHA and workflow
