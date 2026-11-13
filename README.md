@@ -1,4 +1,14 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
+
+## Native openLCA 2.7.0 engine actually executed
+
+GreenDelta's genuine openLCA **2.7.0** native Java engine has imported the unmodified SHA-verified Federal Commons Merged (2026) ZIP, constructed the real USLCI reference PEM product system (2,516 source processes, 3,077 linked supply exchanges) and run its native IPCC AR6-100 LCIA calculation. [Successful Java kernel run](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43435190584).
+
+**This is an executed diagnostic, NOT a complete or valid Dutch cradle-to-gate footprint**: native auto-linking still leaves **681 nonzero product inputs unlinked**, and the original 2017 U.S. process has a source oxygen-output mass-balance discrepancy (12 kg O2 plus 1 kg H2 out versus 9 kg water in). Its diagnostic 77.616 kg CO2e/kg reference H2 is **not** an approved research finding. An additional real-data Hybrid (USEEIO v2) import reduces original source default-provider gaps only from 695 to 672 and introduces monetary IO assumptions.
+
+Read [complete native execution, IPCC method and supplier-validation evidence](docs/NATIVE_OPENLCA_DIAGNOSTIC_AND_FULL_LCA_GATES.md). No fake GWP coefficients or generic missing-provider=zero treatment are accepted as a completed PtXLens study.
+
+
 ## Commons Merged real-background audit — November 2026
 
 The **authentic Federal LCA Commons Merged 2026 openLCA JSON-LD archive** (51,012,635 bytes, SHA256 `1ded185617d4de67f8ed6933c473a68d65c232dd738779179e8559a31dfd056d`) is now reproducibly downloadable without an API key. The actual 1 kg PEM-hydrogen USLCI unit process and IPCC **AR6-100 method with 134 matching characterization-flow references** were identified. The exact supplier graph still has **695 unresolved upstream input exchanges (683 without any same-flow output supplier; 12 with candidate suppliers requiring review)**, including deionized water and PEM-stack precursor flows. **Native openLCA cradle-to-gate LCIA remains blocked; no full GWP value is claimed.**
