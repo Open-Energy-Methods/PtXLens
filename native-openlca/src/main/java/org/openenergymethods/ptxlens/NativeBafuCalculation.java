@@ -6,6 +6,9 @@ import java.util.Locale;
 
 import org.openlca.core.database.Derby;
 import org.openlca.core.math.SystemCalculator;
+import org.openlca.core.matrix.solvers.MatrixSolver;
+import org.openlca.nativelib.NativeLib;
+import org.openlca.nativelib.Module;
 import org.openlca.core.matrix.ProductSystemBuilder;
 import org.openlca.core.matrix.linking.LinkingConfig;
 import org.openlca.core.model.CalculationSetup;
@@ -34,6 +37,15 @@ public final class NativeBafuCalculation {
         if (!Derby.isDerbyFolder(folder))
             throw new IllegalArgumentException("provided folder is not a restored native openLCA Derby database");
         String processUuid = args.length>=2 ? args[1] : H2_30_BAR_CH;
+        boolean onlyMethod = args.length==3 && "--inspect-method-only".equals(args[2]);
+        boolean useSparse = args.length==3 && !onlyMethod;
+        if(useSparse) {
+            NativeLib.loadFrom(Path.of(args[2]).toAbsolutePath().toFile());
+            System.out.println("PTXLENS_UMFPACK_NATIVE_LOADED\t" + NativeLib.isLoaded(Module.UMFPACK));
+            System.out.println("PTXLENS_UMFPACK_NATIVE_LIBRARY_ROOT\tlocal-only");
+            if (!NativeLib.isLoaded(Module.UMFPACK))
+                throw new IllegalStateException("UMFPACK is not loaded; refuse impractical fallback dense solver");
+        }
 
         try (var db = new Derby(folder)) {
             if (db.getDescriptors(Process.class).size() < 11000)
@@ -57,7 +69,7 @@ public final class NativeBafuCalculation {
                   + category.name.replace('\t',' ')+"\t"+category.refId);
             }
             System.out.println("PTXLENS_NATIVE_BAFU_SELECTED_METHOD_CATEGORIES_END");
-            if(args.length==3 && "--inspect-method-only".equals(args[2])) {
+            if(onlyMethod) {
                 System.out.println("PTXLENS_NATIVE_BAFU_INSPECTION_ONLY\ttrue");
                 return;
             }
@@ -99,7 +111,7 @@ public final class NativeBafuCalculation {
             var setup=CalculationSetup.of(productSystem)
                 .withImpactMethod(method)
                 .withAmount(1.0);
-            var result=new SystemCalculator(db).calculate(setup);
+            var result=(useSparse ? new SystemCalculator(db).withSolver(MatrixSolver.get()) : new SystemCalculator(db)).calculate(setup);
             try {
                 if(!result.hasImpacts())
                     throw new IllegalStateException("native engine did not produce impacts");
