@@ -42,7 +42,7 @@ def generate(outdir):
        "axes.edgecolor":"#77818b","axes.labelcolor":"#26313a",
        "xtick.color":"#42505c","ytick.color":"#42505c",
        "grid.color":"#dae1e6","grid.alpha":.7,"grid.linewidth":.7,
-       "svg.fonttype":"none","figure.facecolor":"white",
+       "svg.fonttype":"none","svg.hashsalt":"OEM-PTX-2026-01-L3A-2023-source","figure.facecolor":"white",
        "axes.facecolor":"white","savefig.facecolor":"white",
     })
 
@@ -60,7 +60,7 @@ def generate(outdir):
         fig.text(.085,.032,"Source: 2023 original F3-C 8,760-hour equal-H2 operating model; SHA-locked PtXLens L3-A. Financial scenarios are illustrative.",fontsize=8.1,color="#7e8b94",ha="left")
         svg=outdir/(base+".svg")
         png=outdir/(base+".png")
-        fig.savefig(svg,format="svg",metadata={"Title":base,"Creator":"PtXLens L3-A; source-verified 2023 F3-C, hypothetical DCF"})
+        fig.savefig(svg,format="svg",metadata={"Title":base,"Creator":"PtXLens L3-A; source-verified 2023 F3-C, hypothetical DCF","Date":"2026-11-14"})
         fig.savefig(png,format="png",dpi=175)
         plt.close(fig)
         ET.parse(svg)
