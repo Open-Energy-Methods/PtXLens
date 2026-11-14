@@ -14,7 +14,7 @@ from ptxlens.f3d_external_year_independent_review import (
 def fixture(year=2024,mode="usable_service"):
     hours=8784 if year==2024 else 8760
     alpha=0.85 if mode=="usable_service" else 0.83
-    target=alpha*50000/24.
+    target=(50000./24.)*alpha
     h2=hours*target
     digest=hashlib.sha256(struct.pack("<d",target)*hours).hexdigest()
     p={"EOS_hourly_mass_bounds_imply_pressure_limits":True,
