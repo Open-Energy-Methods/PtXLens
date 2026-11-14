@@ -199,3 +199,39 @@ def test_cross_repo_handoff_frozen_primary_sources_reject_physically_unfunded_20
     monkeypatch.setattr(m,"MANIFEST",mfile)
     with pytest.raises(m.InvalidIncrementalCashflow,match="falsely claims"):
         m.read_verified_inputs()
+
+
+
+def test_actual_cross_repository_ptxflex_2023_wholesale_only_handoff_is_required_and_SHA_locked():
+    m.read_verified_inputs()
+    p=m.ROOT/"data/results/L3_A_PtXFlex_2023_source_hourly_equal_service_wholesale_only_financial_handoff.json"
+    assert m.digest(p)=="0de22f7ff566dc50101b085366e47ef9965d545dca1dfa9bca3dd6d115274829"
+    x=json.loads(p.read_text(encoding="utf-8"))
+    assert x["schema_version"]=="ptxflex.l3a_2023_8760hour_e_vs_es_real_eur_wholesale_annual_evidence_handoff.v1"
+    assert x["true_plant_vendor_financial_result_or_full_LCOH_permitted"] is False
+    assert set(x["distinct_source_capacity_interpretations"])==set(m.MODES)
+    for mode,v in x["distinct_source_capacity_interpretations"].items():
+        assert v["source_2023_wholesale_difference_is_NOT_2026_future_revenue_forecast"] is True
+        assert v["vendor_installed_actual_INCREMENTAL_CAPEX_eur"] is None
+        assert v["true_extra_annual_OPEX_and_maintenance_eur"] is None
+
+
+def test_corrupt_ptxflex_cross_repository_cash_flow_handoff_cannot_enter_L3A(
+        tmp_path,monkeypatch):
+    # Other original source hashes and the manifest remain authentic so only
+    # the distinct PtXFlex producer handoff is changed and must be rejected.
+    src=tmp_path/"data/results"
+    src.mkdir(parents=True)
+    for name in (
+        "F3_C_2023_source_real_gas_equal_H2_hour_E_vs_ES_Lens_operational_bridge.json",
+        "F2_L1_2023_source_incremental_20t_to_40t_stationary_typeI_200bar_BOM_SCOPE_NOT_complete_native_LCI.json",
+        "L3_A_PtXFlex_2023_source_hourly_equal_service_wholesale_only_financial_handoff.json",
+    ):
+        (src/name).write_bytes((m.ROOT/"data/results"/name).read_bytes())
+    p=src/"L3_A_PtXFlex_2023_source_hourly_equal_service_wholesale_only_financial_handoff.json"
+    altered=json.loads(p.read_text())
+    altered["distinct_source_capacity_interpretations"]["max_inventory"]["vendor_installed_actual_INCREMENTAL_CAPEX_eur"]=0.
+    p.write_text(json.dumps(altered))
+    monkeypatch.setattr(m,"ROOT",tmp_path)
+    with pytest.raises(m.InvalidIncrementalCashflow,match="PtXFlex original-source financial handoff file SHA mismatch"):
+        m.read_verified_inputs()
