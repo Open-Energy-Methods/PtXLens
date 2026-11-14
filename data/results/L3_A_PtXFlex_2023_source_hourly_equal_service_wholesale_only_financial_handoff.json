@@ -1,0 +1,50 @@
+{
+  "distinct_source_capacity_interpretations": {
+    "max_inventory": {
+      "2023_wholesale_only_annual_saving_eur": 1124332.2692838833,
+      "approved_full_source_steel_PandID_BAUF_LCIA": null,
+      "original_E_modelled_feasible_not_maximum_same_hourly_H2_hash": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16",
+      "registered_source_mode": "max_inventory",
+      "same_hourly_reduced_modelled_H2_kg_year": 16268755.000838026,
+      "source_2023_wholesale_difference_is_NOT_2026_future_revenue_forecast": true,
+      "source_cross_repo_input_hand_off_ONLY": true,
+      "source_literature_extra_empty_typeI_200bar_vessel_count": 802,
+      "source_literature_extra_empty_typeI_200bar_vessel_equipment_mass_kg": 1924800,
+      "source_original_year": 2023,
+      "source_solver_proved_annual_wholesale_saving_bounds_eur": [
+        1124318.0341703668,
+        1124348.1152239852
+      ],
+      "true_extra_annual_OPEX_and_maintenance_eur": null,
+      "unserved_original_full_H2_contract_kg_year": 1981244.9991619736,
+      "vendor_installed_actual_INCREMENTAL_CAPEX_eur": null,
+      "verified_future_site_market_prices_forecast": null
+    },
+    "usable_service": {
+      "2023_wholesale_only_annual_saving_eur": 1103463.7287309095,
+      "approved_full_source_steel_PandID_BAUF_LCIA": null,
+      "original_E_modelled_feasible_not_maximum_same_hourly_H2_hash": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+      "registered_source_mode": "usable_service",
+      "same_hourly_reduced_modelled_H2_kg_year": 16331558.946374645,
+      "source_2023_wholesale_difference_is_NOT_2026_future_revenue_forecast": true,
+      "source_cross_repo_input_hand_off_ONLY": true,
+      "source_literature_extra_empty_typeI_200bar_vessel_count": 902,
+      "source_literature_extra_empty_typeI_200bar_vessel_equipment_mass_kg": 2164800,
+      "source_original_year": 2023,
+      "source_solver_proved_annual_wholesale_saving_bounds_eur": [
+        1103461.953575272,
+        1103474.6249283515
+      ],
+      "true_extra_annual_OPEX_and_maintenance_eur": null,
+      "unserved_original_full_H2_contract_kg_year": 1918441.0536253545,
+      "vendor_installed_actual_INCREMENTAL_CAPEX_eur": null,
+      "verified_future_site_market_prices_forecast": null
+    }
+  },
+  "model_hydrogen_data_year": 2023,
+  "programme": "OEM-PTX-2026-01",
+  "schema_version": "ptxflex.l3a_2023_8760hour_e_vs_es_real_eur_wholesale_annual_evidence_handoff.v1",
+  "source_registered_F2_200bar_313K_empty_shell_sha256": "1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47",
+  "source_registered_F3C_2023_original_sha256": "dddd07d5c0a3d4f276e80af44e28cf3cfdbc93421107fb5d9e39843a0d1d90e2",
+  "true_plant_vendor_financial_result_or_full_LCOH_permitted": false
+}
