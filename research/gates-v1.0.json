@@ -99,7 +99,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Source-based Type I 200bar bank reference vessel count/empty mass and existing original BAFU composite vehicle-tank process unit incompatibility have been audited. Additional potential pressure-regulating customer station and supply route components now listed against EIGA DOC15/21, PED and Hynetwork 2026 prospective references; no actual site, manufacturer BOM/material grades, full compressor/cooler/backup equipment LCI or full native source provider mapping. L1 NOT PASSED.",
+      "current_evidence_status": "Source-based Type I 200bar bank reference vessel count/empty mass and existing original BAFU composite vehicle-tank process unit incompatibility have been audited. Additional potential pressure-regulating customer station and supply route components now listed against EIGA DOC15/21, PED and Hynetwork 2026 prospective references; no actual site, manufacturer BOM/material grades, full compressor/cooler/backup equipment LCI or full native source provider mapping. L1 NOT PASSED. Additional official Hynetwork 2026 Exit Terms confirm network operator is not an H2 merchant/supply guarantor, and exit CDS pressure, composition, firm hourly molecule supply, real site and source-compatible installed equipment remain missing; not a source of zero GWP or zero cost.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
@@ -122,7 +122,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Verified 2023 real-source 8760h pressure-screen E+S 40t zero additional E-reference service shortage (both gross/usable), while E 20t minimum EXTRA shortage is proven positive: gross 65,860.378–66,524.317 kg and usable 3,718.744–3,720.371 kg; exact E global minima not proven. Six original-source artifacts independently reconciled SHA 5dead18cfa0c3fecf15562f423e01044bcc6ad4ba4f5212dfb44a010b0d1a0d3. Source 8760h positive shortage timing preserved in two SHA-pinned sparse outputs, 176/91 hours. Physically site-connected external H2 source unknown. 2026 Hynetwork network entry pressure is NOT 2023 customer exit pressure or supply availability; prospective 2026 source design basis, no contract, hydraulic peak flow, gas grade, installed BOM, GWP or DCF. F3 matched service full physical gate NOT PASSED.",
+      "current_evidence_status": "2026-11-14: Independently reviewed original PyNEXUS annual config shows 52.5N,3.5E are offshore ERA5 weather-grid coordinates, NOT an industrial hydrogen delivery site. Hynetwork Exit Terms v2.0 p4 clause2.1.2 explicitly deny gas procurement/supply guarantee. Exit Annex12 p3 permits open-pipe or a separately agreed reduced customer exit pressure in the signed CDS; 30–50bar(g) network operating range cannot prove 20bar(a) customer node. Thus TWO independent agreements are required: actual network exit CDS/technical capacity AND merchant H2 molecules+shipper nomination/quality/firm supply. Original source-based 8760h F3 topup peak gross 1029.028kg/h (~40.462MW HHV using HNS CSA 12.74MJ/Nm3 and0.09kg/Nm3) or usable183.609kg/h (~7.220MW HHV); these are incremental source feasible-incumbent shortage flows NOT a customer's total booked exit capacity or physical supplier rating. Synthetic 8760h pressure/flow/quality/outage negative controls independently pass CI, but actual site, contracts and complete BOM, native BAFU impacts and discounted EUR DCF remain null. F3 full matched service and v1 release NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
@@ -140,7 +140,12 @@
         "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43575627251",
         "data/results/F3_2023_reconciled_research_evidence.json",
         "data/results/F3_2023_2026_prospective_h2_delivery_architecture.json",
-        "docs/F3_PROSPECTIVE_H2_BACKUP_SYSTEM_DESIGN_BASIS_v1.md"
+        "docs/F3_PROSPECTIVE_H2_BACKUP_SYSTEM_DESIGN_BASIS_v1.md",
+        "https://github.com/abhijith-sivaprasadan/PyNEXUS/blob/main/configs/annual.yaml",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43577251078",
+        "data/results/F3_2023_shortage_2026_HNS_exit_and_supplier_boundary_control.json",
+        "research/f3_h2_exit_and_supplier_source_evidence_v1.json",
+        "docs/F3_HNS_EXIT_AND_SUPPLIER_SEPARATE_CONTRACTS_v1.md"
       ]
     },
     {
@@ -154,7 +159,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Authentic BAFU 2026 v1.1 scoped E/E+S native LCIA retains original source-only scope, NOT full matched service. 20t E physically screened reference shortage positive, E+S 40t zero; actual sourced external backup and source-specific pressure/purity/flow, upstream H2 production/transport emissions and Type I pressure storage/BoP manufacturing still missing. No completed native incremental backup GWP, ISO-comparative interpretation or equal-service full lifecycle LCA. L2 NOT PASSED.",
+      "current_evidence_status": "Authentic BAFU 2026 v1.1 scoped E/E+S native LCIA retains original source-only scope, NOT full matched service. 20t E physically screened reference shortage positive, E+S 40t zero; actual sourced external backup and source-specific pressure/purity/flow, upstream H2 production/transport emissions and Type I pressure storage/BoP manufacturing still missing. No completed native incremental backup GWP, ISO-comparative interpretation or equal-service full lifecycle LCA. L2 NOT PASSED. Additional official Hynetwork 2026 Exit Terms confirm network operator is not an H2 merchant/supply guarantor, and exit CDS pressure, composition, firm hourly molecule supply, real site and source-compatible installed equipment remain missing; not a source of zero GWP or zero cost.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
@@ -174,7 +179,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Original DOE 2022 USD capital-only TEA and real 2023 hourly market input experiments are separate partial evidence. A real backup source H2 supply contract, site-capacity tariff, installed pressure-control/compressor/storage BOM, lifetime cost, downtime, replacements and source EUR price-year DCF remain unverified. No full equal-service plant LCOH/cost delta. L3 NOT PASSED.",
+      "current_evidence_status": "Original DOE 2022 USD capital-only TEA and real 2023 hourly market input experiments are separate partial evidence. A real backup source H2 supply contract, site-capacity tariff, installed pressure-control/compressor/storage BOM, lifetime cost, downtime, replacements and source EUR price-year DCF remain unverified. No full equal-service plant LCOH/cost delta. L3 NOT PASSED. Additional official Hynetwork 2026 Exit Terms confirm network operator is not an H2 merchant/supply guarantor, and exit CDS pressure, composition, firm hourly molecule supply, real site and source-compatible installed equipment remain missing; not a source of zero GWP or zero cost.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
@@ -253,7 +258,7 @@
     "original_historical_E_EplusS_service_matched": false,
     "additive_storage_BOM_validated": false,
     "independent_scientific_peer_review_passed": false,
-    "note": "The original 2023 E/E+S cases have unequal H2 service. Independently reconciled source-pressure screened 2023 Stage A and fixed-hourly witnesses prove E 20t requires a positive minimum ADDITIONAL shortfall in both bank interpretations (gross 65,860.378–66,524.317 kg; usable 3,718.744–3,720.371 kg), while E+S 40t has a zero minimum. Source-verified 8760h sparse H2 shortage timing and prospectively screened 2026 hydrogen network/trailer hardware pathways now exist but are not an actual 2023 site supply. No customer-exit pressure, source supplier, product grade, manufacturing inventory, cost, network connection or backup availability is validated. Hence no physically equal H2 delivery in E/E+S has been demonstrated, no matched-cost/native GWP superiority and neither 2026 programme release gate may pass. Original private evidence escrow remains open."
+    "note": "Official Hynetwork 2026 Exit Agreement clause2.1.2: transport operator DOES NOT procure/guarantee gas. Original 2023 PyNEXUS 52.5N/3.5E is offshore wind-weather grid NOT industrial hydrogen end-use customer. 2026 Hynetwork Exit Annex12: contract-specific fixed lower exit pressure possible; 30-50bar(g) operating is not 20bar(a) delivery. Actual separately sourced H2 purchase/shipping AND signed HNS customer Exit/CDS are both missing. Source-based E 20t additional H2 shortage positive for both gross/usable; E+S zero 2023 original-E-reference shortfall under physical screen. 8760h supplier synthetic mathematical controls and HHV capacity (incremental 40.462/7.220MW) pass CI but do NOT constitute physical supplier or full matched service. P0 archive, L1/2/3 native BAFU + DCF, F3 and methanol remain NOT PASSED."
   },
   "source_and_licensing_guardrails": {
     "original_PyNEXUS_frozen": true,
