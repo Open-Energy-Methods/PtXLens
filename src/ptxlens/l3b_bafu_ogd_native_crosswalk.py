@@ -37,41 +37,43 @@ DISALLOWED_ALIAS="h2_high_pressure_tank"
 # Process-token groups are SEARCH leads, not approved supplier substitutions.
 # A 'kg' reference alone cannot prove a finished equipment or raw metal mass.
 SEARCH_GROUPS={
-    "low_alloy_steel":{"terms":("steel, low-alloyed","low-alloy steel","steel, unalloyed"),"reference_units":("kg",)},
-    "stainless_steel":{"terms":("chromium steel 18/8","stainless steel"),"reference_units":("kg",)},
-    "structural_steel":{"terms":("steel, low-alloyed","structural steel","reinforcing steel"),"reference_units":("kg",)},
-    "metal_forming":{"terms":("steel rolling","sheet rolling","metal working","steel forging","machining, steel"),"reference_units":("kg",)},
+    "low_alloy_steel":{"terms":("steel, low-alloyed, at plant","low-alloy steel","steel, unalloyed"),"reference_units":("kg",)},
+    "stainless_steel":{"terms":("chromium steel 18/8, at plant","chromium steel 18/8, primary production","chromium steel 18/8, recycling share","chromium steel 18/8, secondary production"),"reference_units":("kg",)},
+    "structural_steel":{"terms":("steel, low-alloyed, at plant","reinforcing steel, at plant","structural steel"),"reference_units":("kg",)},
+    "steel_metal_forming":{"terms":("chromium steel product manufacturing","steel product manufacturing","sheet rolling, chromium steel","steel forging"),"reference_units":("kg",)},
+    "metal_pipes_not_H2_qualified":{"terms":("pipe, stainless steel","steel pipe, black, primed"),"reference_units":("kg",)},
     "copper":{"terms":("copper, at regional storage","copper, at plant"),"reference_units":("kg",)},
     "aluminium":{"terms":("aluminium, primary, at plant","aluminium alloy"),"reference_units":("kg",)},
     "electricity":{"terms":("electricity, high voltage, at grid","electricity, medium voltage"),"reference_units":("MJ","kWh")},
-    "concrete":{"terms":("concrete, normal","concrete, at plant","cement, portland"),"reference_units":("kg","m3")},
-    "steel_recycling":{"terms":("steel, recycling","steel scrap","steel, secondary"),"reference_units":("kg",)},
+    "concrete":{"terms":("concrete, normal, at plant","precast concrete, standard concrete, at plant"),"reference_units":("m3",)},
+    "secondary_steel_feedstock_NOT_EoL_credit":{"terms":("chromium steel 18/8, secondary production","chromium steel 18/8, recycling share"),"reference_units":("kg",)},
+    "steel_waste_treatment_NOT_recycling_credit":{"terms":("disposal, pipe, stainless steel","disposal, reinforcing steel","disposal, steel pipe"),"reference_units":("kg",)},
     "road_freight":{"terms":("transport, freight, lorry","transport, lorry"),"reference_units":("t*km","tonne kilometre")},
-    "manufacturing_heat":{"terms":("heat, natural gas","heat, industrial"),"reference_units":("MJ","kWh")},
+    "industrial_heat":{"terms":("heat, natural gas, at industrial furnace","heat, natural gas, at heat plant"),"reference_units":("MJ",)},
 }
 # Every item is a COST/LCA FOREGROUND EQUIPMENT class. The process search
 # groups point only to potential SUBCOMPONENT material/processing providers.
 # They are not direct native process links for a complete plant assembly.
 BOM_STAGE_GROUPS={
- "typeI_200bar_bare_reference_vessels":("low_alloy_steel","stainless_steel","metal_forming","electricity"),
- "steel_alloy_material_grade_and_inclusions":("low_alloy_steel","stainless_steel","metal_forming"),
- "rack_frames_and_anchors":("structural_steel","metal_forming","electricity"),
- "high_pressure_headers_and_interconnects":("stainless_steel","metal_forming"),
+ "typeI_200bar_bare_reference_vessels":("low_alloy_steel","stainless_steel","steel_metal_forming","electricity"),
+ "steel_alloy_material_grade_and_inclusions":("low_alloy_steel","stainless_steel","steel_metal_forming"),
+ "rack_frames_and_anchors":("structural_steel","steel_metal_forming","secondary_steel_feedstock_NOT_EoL_credit","electricity"),
+ "high_pressure_headers_and_interconnects":("stainless_steel","steel_metal_forming","metal_pipes_not_H2_qualified"),
  "isolation_valves_and_actuators":("stainless_steel","copper","aluminium","electricity"),
- "non_return_valves_and_filters":("stainless_steel","metal_forming"),
- "pressure_relief_and_vent_stack":("stainless_steel","metal_forming"),
- "pressure_regulation_delivery_header":("stainless_steel","copper","metal_forming"),
- "compressor_recips_and_seals":("stainless_steel","low_alloy_steel","metal_forming"),
+ "non_return_valves_and_filters":("stainless_steel","steel_metal_forming"),
+ "pressure_relief_and_vent_stack":("stainless_steel","steel_metal_forming"),
+ "pressure_regulation_delivery_header":("stainless_steel","copper","steel_metal_forming"),
+ "compressor_recips_and_seals":("stainless_steel","low_alloy_steel","steel_metal_forming"),
  "compressor_motor_drive_VFD":("copper","aluminium","electricity"),
  "intercooler_aftercooler_heat_exchange":("stainless_steel","aluminium","copper"),
  "cooling_pumps_and_fans":("low_alloy_steel","copper","aluminium"),
- "gas_quality_dryer_and_sample_system":("stainless_steel","metal_forming"),
+ "gas_quality_dryer_and_sample_system":("stainless_steel","steel_metal_forming"),
  "pressure_temperature_flow_metering":("stainless_steel","copper"),
  "hydrogen_leak_detection_ESD_ATEX":("copper","stainless_steel","electricity"),
  "civil_foundations_and_construction":("concrete","structural_steel","road_freight"),
- "inspections_fatigue_cycle_testing":("electricity","manufacturing_heat"),
+ "inspections_fatigue_cycle_testing":("electricity","industrial_heat"),
  "installation_and_transport":("road_freight","electricity"),
- "decommission_and_EOL":("steel_recycling","road_freight","electricity"),
+ "decommission_and_EOL":("steel_waste_treatment_NOT_recycling_credit","road_freight","electricity"),
 }
 assert set(BOM_STAGE_GROUPS)==EXPECTED_DOC_BOM
 UUID=re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
