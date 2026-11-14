@@ -58,6 +58,14 @@ Source-registered [cross-repo L3-A manifest](https://github.com/Open-Energy-Meth
 
 ---
 
+## 14 November 2026 — F3-D source wind×0.90 independent LP feasibility resolved; real 2022/2024 input gate prepared (ADR-016A)
+
+**After ADR-016's initial original 2023 8×2 HiGHS MILP study**, source-matched F3-C 8,760-hour, identical E/E+S per-mode H₂ service was investigated under **wind available electricity MW ×0.90**. All four HiGHS **LP relaxations** of the original model (gross E and E+S; usable E and E+S), retaining every original electricity/H₂/pressure/terminal/PEM/ramp constraint, relaxing only unit commitment and storage binaries to [0,1], and using a zero-cost feasibility objective, returned **status 2 (infeasible)**. LP feasible set supersets the original MILP feasible set: therefore the original **mathematical model** cannot meet this exact hourly H₂ target with −10% source wind, subject to numerical solver tolerances. **No simulated matched-service E−E+S savings value is valid**, and the result does **not** certify infeasibility of a real industrial hydrogen installation. [PtXFlex authentic original-source diagnostic CI](https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43603396526), [PtXLens independently source-verified LP evidence](https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43603733878), [ADR-016A](DECISION_REGISTER_v1.0.md) and [revised F3-D/L3-B full methods](F3_D_L3_B_INTEGRATED_SOURCE_ROBUSTNESS_ECONOMIC_AND_BAFU_METHODS_v1.md) all preserve the chronology.
+
+A separate source intake [SOP](F3_D_2022_2024_REAL_PROVIDER_DATA_PRIVATE_INGESTION_AND_PROVENANCE_SOP_v1.md), [source-first admission code](https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/src/ptxflex/f3d_external_observed_year_private_intake.py), [2022/2024 raw source evidence ledger](../research/F3_D_ALTERNATIVE_OBSERVED_2022_2024_ENTSOE_ERA5_PRIVATE_SOURCE_ADMISSION_v1.json) and negative tests are implemented. **2022 = 8,760 UTC hours; 2024 = 8,784 UTC hours including leap day.** Real source must be authorized Dutch ENTSO-E A44 and offshore 52.5N/3.5E ERA5 100m u/v with source 120m original turbine wind farm conversion and first a **verified independent recreation of the original 2023 source hour hashes**. Both 2022 and 2024 observed-year pair flags remain **false** because no provider raw data, token/license accepted retrieval or independent production-physics model were obtained. Existing 2023 MILP 8,760h limit still must be extended to handle 2024. Source history/methanol and real plant/cost/LCA release remain **NOT_PASSED**.
+
+---
+
 ## 1. Research charter and preregistered hypotheses
 
 ### RQ-H2 — Marginal value of physical hydrogen storage
