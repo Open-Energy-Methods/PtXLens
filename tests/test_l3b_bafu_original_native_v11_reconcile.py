@@ -30,6 +30,7 @@ def synthetic_private_native_table(tmp_path,*,found=True):
                 "quantitative_flow_UUID":uuid if found else "NULL",
                 "quantitative_flow_name":name if found else "NULL",
                 "quantitative_ref_unit":unit if found else "NULL",
+                "quantitative_ref_flow_type":"PRODUCT_FLOW" if found else "NULL",
             })
     return path
 
@@ -47,6 +48,16 @@ def test_synthetically_missing_native_process_does_not_gain_fake_reference_flow(
     path=synthetic_private_native_table(tmp_path,found=False)
     records=m.parse_private_native_table(path)
     assert all(r["quantitative_flow_UUID"]=="NULL" for r in records.values())
+
+
+def test_native_waste_reference_does_not_convert_to_material_product_flow(tmp_path):
+    path=synthetic_private_native_table(tmp_path)
+    content=path.read_text()
+    path.write_text(content.replace("PRODUCT_FLOW","WASTE_FLOW",1))
+    records=m.parse_private_native_table(path)
+    assert any(x["quantitative_ref_flow_type"]=="WASTE_FLOW" for x in records.values())
+    # Syntactically valid source metadata is only a candidate; native
+    # product-system suitability still needs crosswalk role and source review.
 
 
 def test_original_source_absent_is_nonnegotiable_even_if_fake_table_claims_valid_SHA(tmp_path):
