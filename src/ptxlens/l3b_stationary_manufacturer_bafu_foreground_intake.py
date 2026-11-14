@@ -259,3 +259,31 @@ def validate_private_evidence(doc, private_root):
         "P0_two_independent_private_backups_restored":False,
         "full_L3_B_economic_and_environmental_release_ALLOWED":False,
     }
+
+def main(argv=None):
+    import argparse
+    a=argparse.ArgumentParser(description=__doc__)
+    mode=a.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--make-blank-mode",choices=MODES)
+    mode.add_argument("--audit-private-manifest")
+    a.add_argument("--private-evidence-root")
+    a.add_argument("--output",required=True)
+    args=a.parse_args(argv)
+    out=Path(args.output)
+    require(not out.exists(),"will not overwrite supplier or original research evidence")
+    if args.make_blank_mode:
+        result=blank_source_questionnaire(args.make_blank_mode)
+    else:
+        require(args.private_evidence_root is not None,
+                "private evidence directory required for checking original supplier bytes")
+        result=validate_private_evidence(
+            json.loads(Path(args.audit_private_manifest).read_text(encoding="utf-8")),
+            args.private_evidence_root)
+    out.parent.mkdir(parents=True,exist_ok=True)
+    out.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+"\\n",encoding="utf-8")
+    print("L3-B stationary manufacturer / native BAFU evidence",result["mode"],
+          "NOT actual OEM installed quote, complete native LCA, LCOH or v1.0")
+
+
+if __name__=="__main__":
+    main()
