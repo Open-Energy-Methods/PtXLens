@@ -231,12 +231,23 @@ def main(argv=None):
     parser.add_argument("--catalogue",required=True)
     parser.add_argument("--manifest",required=True)
     parser.add_argument("--output",required=True)
+    parser.add_argument("--native-uuid-list",help="export public candidate IDs for private original v1.1 native replay")
     a=parser.parse_args(argv)
     target=Path(a.output)
     need(not target.exists(),"do not overwrite source crosswalk")
+    if a.native_uuid_list:
+        need(not Path(a.native_uuid_list).exists(),"do not overwrite native ID input")
     result=crosswalk(a.mode,a.catalogue,a.manifest)
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+    if a.native_uuid_list:
+        ids={c["uuid"] for group in result["public_v1_groups"].values()
+             for c in group["possibly_relevant_processes_not_native_approved"]}
+        ids|={PROCESSES[alias][0] for alias in (*FINGERPRINTS,DISALLOWED_ALIAS)}
+        need(len(ids)<=250,"native original DB candidate set must not exceed 250")
+        out_ids=Path(a.native_uuid_list)
+        out_ids.parent.mkdir(parents=True,exist_ok=True)
+        out_ids.write_text(chr(10).join(sorted(ids))+chr(10),encoding="utf-8")
     print("Official BAFU v1 process identifiers registered",result["source_official_catalogue_process_count"],
           "; class candidates",sum(v["presented_candidate_count"] for v in result["public_v1_groups"].values()),
           "; native v1.1 qualified supplier links=0. Full station GWP STOP.")
