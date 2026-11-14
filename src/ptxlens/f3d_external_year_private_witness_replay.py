@@ -238,7 +238,7 @@ def review_private_witness(witness_path,source_report_path,source_price_csv,sour
          "private calendar/source hourly data cannot be matched by SHA with aggregate report")
     selected=report["E_price_blind_identical_model_H2_service_selection"]
     alpha=selected["selected_fraction_50t_per_day"]
-    need(max(abs(x-alpha*50000/24.) for x in target)<1e-10,
+    need(max(abs(x-(50000./24.)*alpha) for x in target)<1e-10,
          "source H2 customer hours changed from independently reported flat 50t/day fraction")
     cases=witness.get("cases",{})
     need(set(cases)=={"E","E_plus_S"},"original source E/E+S private witnesses missing")
