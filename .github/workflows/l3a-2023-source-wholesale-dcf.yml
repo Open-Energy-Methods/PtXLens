@@ -6,6 +6,8 @@ on:
       - 'src/ptxlens/l3a_source_wholesale_dcf.py'
       - 'src/ptxlens/l3a_sensitivity_figures.py'
       - 'tests/test_l3a_source_wholesale_dcf.py'
+      - 'tests/test_l3a_figure_reproducibility.py'
+      - 'research/L3_A_2023_reproducible_sensitivity_figure_SHA_register_v1.json'
       - 'research/L3_A_2023_source_locked_incremental_wholesale_DCF_handoff_v1.json'
       - '.github/workflows/l3a-2023-source-wholesale-dcf.yml'
   workflow_dispatch:
@@ -34,6 +36,7 @@ jobs:
       - name: Render professional original source-registered sensitivity illustrations PNG and SVG
         run: |
           python -m ptxlens.l3a_sensitivity_figures --output-dir outputs/figures
+          python -m pytest -q tests/test_l3a_figure_reproducibility.py
       - name: Scientific non-admissibility gate and emit auditable full source output plus compact downstream certificate
         run: |
           python - <<'PY'
