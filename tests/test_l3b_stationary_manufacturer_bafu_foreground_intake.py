@@ -73,7 +73,7 @@ def test_private_datasheet_sha_and_200bara_vs_barg_conversion(tmp_path):
 def test_vendor_source_mutation_and_unknown_class_fail_closed(tmp_path):
     q=m.blank_source_questionnaire("usable_service")
     v=add_private_vessel_source(q,tmp_path)
-    v["source_doc_sha256"]="a"*64
+    v["source_doc_sha256"]="0"*63+"1"
     with pytest.raises(m.StationarySourceEvidenceError,match="hash mismatch"):
         m.validate_private_evidence(q,tmp_path)
     q=m.blank_source_questionnaire("usable_service")
