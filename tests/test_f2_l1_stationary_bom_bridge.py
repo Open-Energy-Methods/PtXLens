@@ -52,7 +52,8 @@ def test_two_capacity_semantics_use_actual_CoolProp_313K_bank_design_not_298K_re
     assert p["reference_20bar_to_200bar_pressure_swing_extra_usable_H2_kg"]>0
     assert p["unquantified_equipment_scope_item_count"]==18
     assert set(p["unquantified_equipment_scope_ids_sorted"])==bridge.MISSING_IDS
-    assert p["source_common_H2_hourly_target_SHA256"]==bridge.compare_one_mode(mode)["reference_common_hourly_H2_float64_sha256"] if False else True
+    from ptxlens.f3c_common_service_bridge import compare_one_mode
+    assert p["source_common_H2_hourly_target_SHA256"]==compare_one_mode(mode)["reference_common_hourly_H2_float64_sha256"]
     assert p["native_compatible_BAFU2026_v11_typeI_manufacturing_LCI"] is None
     assert p["installed_incremental_2023_eur_cost_discounted_or_NPV"] is None
     assert not p["full_equipment_GWP_or_H2_LCOH_eligible"]
