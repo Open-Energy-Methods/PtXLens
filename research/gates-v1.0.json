@@ -19,13 +19,16 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Original 2023 PyNEXUS E/E+S and A44 source SHA registry verified in historical CI. New scripts/preserve_pynexus_evidence.py plus independently tested two-private-location cryptographic recovery check, but NO verified user-selected lawful long-term primary+independent secondary source escrow or external scientific/license review exists. Original archival date 2026-12-24 is registry-noted, not live reverified. P0 gate NOT PASSED.",
+      "current_evidence_status": "Live GitHub API verification 2026-11-14: original frozen PyNEXUS E (artifact 12612294862), E+S (12613045475) and original A44 market XML (12610917985) are currently NOT expired. Expiry timestamps UTC 2026-12-24 E 20:18:09, E+S 20:21:57, A44 19:24:29 (earliest). The three original source artifacts are NOT yet verified in lawful user-controlled private primary and independently physically reviewed recoverable secondary media, with complete archive SHA/ZIP CRC and external scientific/rights review; no original raw provider source is public in this programme. Source archive dates are live verified, private recovery not; P0 NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
       "work_evidence": [
         "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/SOURCE_ESCROW_2023_PRIVATE.md",
-        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/scripts/verify_private_pynexus_recovery.py"
+        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/scripts/verify_private_pynexus_recovery.py",
+        "research/P0_2023_PyNEXUS_original_actions_artifacts_live_status_2026-11-14.json",
+        "https://github.com/abhijith-sivaprasadan/PyNEXUS/actions/runs/40229852457",
+        "https://github.com/abhijith-sivaprasadan/PyNEXUS/actions/runs/40225702504"
       ]
     },
     {
@@ -258,7 +261,7 @@
     "original_historical_E_EplusS_service_matched": false,
     "additive_storage_BOM_validated": false,
     "independent_scientific_peer_review_passed": false,
-    "note": "Official Hynetwork 2026 Exit Agreement clause2.1.2: transport operator DOES NOT procure/guarantee gas. Original 2023 PyNEXUS 52.5N/3.5E is offshore wind-weather grid NOT industrial hydrogen end-use customer. 2026 Hynetwork Exit Annex12: contract-specific fixed lower exit pressure possible; 30-50bar(g) operating is not 20bar(a) delivery. Actual separately sourced H2 purchase/shipping AND signed HNS customer Exit/CDS are both missing. Source-based E 20t additional H2 shortage positive for both gross/usable; E+S zero 2023 original-E-reference shortfall under physical screen. 8760h supplier synthetic mathematical controls and HHV capacity (incremental 40.462/7.220MW) pass CI but do NOT constitute physical supplier or full matched service. P0 archive, L1/2/3 native BAFU + DCF, F3 and methanol remain NOT PASSED."
+    "note": "Official Hynetwork 2026 Exit Agreement clause2.1.2: transport operator DOES NOT procure/guarantee gas. Original 2023 PyNEXUS 52.5N/3.5E is offshore wind-weather grid NOT industrial hydrogen end-use customer. 2026 Hynetwork Exit Annex12: contract-specific fixed lower exit pressure possible; 30-50bar(g) operating is not 20bar(a) delivery. Actual separately sourced H2 purchase/shipping AND signed HNS customer Exit/CDS are both missing. Source-based E 20t additional H2 shortage positive for both gross/usable; E+S zero 2023 original-E-reference shortfall under physical screen. 8760h supplier synthetic mathematical controls and HHV capacity (incremental 40.462/7.220MW) pass CI but do NOT constitute physical supplier or full matched service. P0 archive, L1/2/3 native BAFU + DCF, F3 and methanol remain NOT PASSED. GitHub original source Actions artifacts live verified available on 2026-11-14 but expire 2026-12-24 (first A44 19:24:29Z); private lawful independent escrow not yet verified."
   },
   "source_and_licensing_guardrails": {
     "original_PyNEXUS_frozen": true,
