@@ -88,8 +88,8 @@ def reconcile(crosswalk_json,original_zolca,native_process_tsv):
         elif x["native_process_found"]=="false":
             status="ABSENT_IN_NATIVE_V11"
             absent+=1
-        elif x["native_process_name"]!=c["process_name"] or
-             x["quantitative_ref_unit"]!=c["reference_unit"]:
+        elif (x["native_process_name"]!=c["process_name"] or
+              x["quantitative_ref_unit"]!=c["reference_unit"]):
             status="V1_TO_NATIVE_V11_REFERENCE_NAME_OR_UNIT_REVISION_NEEDS_REVIEW"
             changed+=1
         else:
