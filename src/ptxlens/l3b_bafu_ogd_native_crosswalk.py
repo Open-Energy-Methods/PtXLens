@@ -138,6 +138,9 @@ def discover_candidates(index,*,max_per_group=8):
         for row in index.values():
             name=row["processName"].casefold()
             unit=row["referenceUnit"]
+            # Waste-disposal activity is not newly manufactured material.
+            if group!="steel_waste_treatment_NOT_recycling_credit" and name.startswith(("disposal,","waste treatment,","treatment,","incineration,")):
+                continue
             matched=[token for token in rule["terms"] if token in name]
             if not matched or unit not in rule["reference_units"]:
                 continue
