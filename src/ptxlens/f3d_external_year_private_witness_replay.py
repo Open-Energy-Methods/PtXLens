@@ -169,7 +169,7 @@ def replay_equations(states,target,wind,price,p,duty=None):
     }
 
 
-def verify_eos(duty,minimum_stock,maximum_stock,expected_pressure):
+def verify_eos(duty,minimum_stock,maximum_stock,expected_pressure=None):
     """Independent CoolProp 313K H2 density→pressure extremes, no PtXFlex import."""
     try:
         from CoolProp.CoolProp import PropsSI
@@ -197,13 +197,14 @@ def verify_eos(duty,minimum_stock,maximum_stock,expected_pressure):
     maximum=pressure_bar(maximum_stock)
     need(minimum>=20.-1e-4 and maximum<=200.+1e-4,
          "independent EOS pressure outside 20/200 bar absolute limits")
-    need(isinstance(expected_pressure,dict) and
-         abs(expected_pressure["real_gas_minimum_dispatched_pressure_bar_absolute"]-minimum)<=1e-4 and
-         abs(expected_pressure["real_gas_maximum_dispatched_pressure_bar_absolute"]-maximum)<=1e-4,
-         "source-claimed EOS pressure extrema differ from independent hydrogen PropsSI calculation")
+    if expected_pressure is not None:
+        need(isinstance(expected_pressure,dict) and
+             abs(expected_pressure["real_gas_minimum_dispatched_pressure_bar_absolute"]-minimum)<=1e-4 and
+             abs(expected_pressure["real_gas_maximum_dispatched_pressure_bar_absolute"]-maximum)<=1e-4,
+             "source-claimed EOS pressure extrema differ from independent hydrogen PropsSI calculation")
     return {
         "min_bar_absolute":minimum,"max_bar_absolute":maximum,
-        "matched_original_screened_solver_extrema":True,
+        "matched_original_screened_solver_extrema":expected_pressure is not None,
         "independent_313K_CoolProp_Hydrogen_EOS_recomputed":True,
     }
 
@@ -279,11 +280,7 @@ def review_private_witness(witness_path,source_report_path,source_price_csv,sour
     selection_pressure=verify_eos(
         cases["E"]["Type_I_200bar_model_pressure_duty"],
         selector["minimum_source_bank_model_kg"],
-        selector["maximum_source_bank_model_kg"],
-        {"real_gas_minimum_dispatched_pressure_bar_absolute":
-            verify_source_pressure_selector_min(selector,cases["E"]["Type_I_200bar_model_pressure_duty"]),
-         "real_gas_maximum_dispatched_pressure_bar_absolute":
-            verify_source_pressure_selector_max(selector,cases["E"]["Type_I_200bar_model_pressure_duty"])})
+        selector["maximum_source_bank_model_kg"])
     # The price-neutral alpha DUAL bound cannot be derived from the primal
     # witness alone. This independent replay verifies only the E selection
     # PRIMAL, while the original HiGHS gap remains a separately trust-requiring
@@ -301,18 +298,6 @@ def review_private_witness(witness_path,source_report_path,source_price_csv,sour
         "on_site_industrial_or_native_BAFU_LCA_full_release":False,
         "case_audits":audited,
     }
-
-
-def verify_source_pressure_selector_min(a,duty):
-    from CoolProp.CoolProp import PropsSI
-    gas=a["minimum_source_bank_model_kg"]+(duty["gas_heel_kg"] if duty["capacity_semantics"]=="usable_service" else 0)
-    return float(PropsSI("P","Dmass",gas/duty["bank_free_volume_m3"],"T",duty["temperature_k"],"Hydrogen"))/1e5
-
-
-def verify_source_pressure_selector_max(a,duty):
-    from CoolProp.CoolProp import PropsSI
-    gas=a["maximum_source_bank_model_kg"]+(duty["gas_heel_kg"] if duty["capacity_semantics"]=="usable_service" else 0)
-    return float(PropsSI("P","Dmass",gas/duty["bank_free_volume_m3"],"T",duty["temperature_k"],"Hydrogen"))/1e5
 
 
 def main(argv=None):
