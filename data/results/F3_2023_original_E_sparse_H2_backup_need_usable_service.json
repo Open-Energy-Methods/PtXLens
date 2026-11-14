@@ -1,0 +1,392 @@
+{
+  "actual_supplier_capacity_and_quality_pressure_checked": false,
+  "capacity_semantics": "usable_service",
+  "event_count": 87,
+  "external_supply_EUR_per_kg": null,
+  "external_supply_kgCO2e_per_kg": null,
+  "full_LCA_TEA_qualified": false,
+  "modelled_additional_annual_topup_for_feasible_incumbent_kg": 3720.371002091906,
+  "modelled_need_not_actual_hydrogen_supplier_delivery": true,
+  "numeric_zero_clamping_threshold_kg_h": 1e-05,
+  "original_E_delivered_target_kg": 16335279.317376737,
+  "original_source_year": 2023,
+  "positive_H2_topup_needed_kg_by_0_based_source_hour": [
+    {
+      "additional_modelled_H2_kg": 71.84523272886905,
+      "hour_index_0_based": 495
+    },
+    {
+      "additional_modelled_H2_kg": 138.21781784577843,
+      "hour_index_0_based": 654
+    },
+    {
+      "additional_modelled_H2_kg": 8.201089148475035,
+      "hour_index_0_based": 832
+    },
+    {
+      "additional_modelled_H2_kg": 28.717619415322815,
+      "hour_index_0_based": 869
+    },
+    {
+      "additional_modelled_H2_kg": 62.38575087626691,
+      "hour_index_0_based": 948
+    },
+    {
+      "additional_modelled_H2_kg": 132.69183952169976,
+      "hour_index_0_based": 1009
+    },
+    {
+      "additional_modelled_H2_kg": 14.423421784131378,
+      "hour_index_0_based": 1257
+    },
+    {
+      "additional_modelled_H2_kg": 34.592804222095026,
+      "hour_index_0_based": 1292
+    },
+    {
+      "additional_modelled_H2_kg": 62.31136520655332,
+      "hour_index_0_based": 1414
+    },
+    {
+      "additional_modelled_H2_kg": 3.550341494694379,
+      "hour_index_0_based": 1440
+    },
+    {
+      "additional_modelled_H2_kg": 3.7923597967387193,
+      "hour_index_0_based": 1447
+    },
+    {
+      "additional_modelled_H2_kg": 66.37284754716359,
+      "hour_index_0_based": 1475
+    },
+    {
+      "additional_modelled_H2_kg": 32.394759739474694,
+      "hour_index_0_based": 1502
+    },
+    {
+      "additional_modelled_H2_kg": 47.48756849771149,
+      "hour_index_0_based": 1583
+    },
+    {
+      "additional_modelled_H2_kg": 48.15316018325848,
+      "hour_index_0_based": 1617
+    },
+    {
+      "additional_modelled_H2_kg": 44.44758429094861,
+      "hour_index_0_based": 1677
+    },
+    {
+      "additional_modelled_H2_kg": 71.12278245580467,
+      "hour_index_0_based": 1866
+    },
+    {
+      "additional_modelled_H2_kg": 34.812088915023395,
+      "hour_index_0_based": 2247
+    },
+    {
+      "additional_modelled_H2_kg": 5.000746332392737,
+      "hour_index_0_based": 2310
+    },
+    {
+      "additional_modelled_H2_kg": 51.05140775580708,
+      "hour_index_0_based": 2323
+    },
+    {
+      "additional_modelled_H2_kg": 1.6266525458363887,
+      "hour_index_0_based": 2374
+    },
+    {
+      "additional_modelled_H2_kg": 57.664504653570475,
+      "hour_index_0_based": 2539
+    },
+    {
+      "additional_modelled_H2_kg": 31.861978355333186,
+      "hour_index_0_based": 2540
+    },
+    {
+      "additional_modelled_H2_kg": 11.179953089381408,
+      "hour_index_0_based": 2675
+    },
+    {
+      "additional_modelled_H2_kg": 32.40628776259126,
+      "hour_index_0_based": 2708
+    },
+    {
+      "additional_modelled_H2_kg": 1.709511232856915,
+      "hour_index_0_based": 2711
+    },
+    {
+      "additional_modelled_H2_kg": 83.53430258286701,
+      "hour_index_0_based": 2764
+    },
+    {
+      "additional_modelled_H2_kg": 58.14522313280713,
+      "hour_index_0_based": 2824
+    },
+    {
+      "additional_modelled_H2_kg": 125.04054966019964,
+      "hour_index_0_based": 3007
+    },
+    {
+      "additional_modelled_H2_kg": 1.1501348185893434,
+      "hour_index_0_based": 3067
+    },
+    {
+      "additional_modelled_H2_kg": 0.6098238611924387,
+      "hour_index_0_based": 3069
+    },
+    {
+      "additional_modelled_H2_kg": 81.05727283179868,
+      "hour_index_0_based": 3090
+    },
+    {
+      "additional_modelled_H2_kg": 8.695516170722385,
+      "hour_index_0_based": 3217
+    },
+    {
+      "additional_modelled_H2_kg": 71.17415862292248,
+      "hour_index_0_based": 3256
+    },
+    {
+      "additional_modelled_H2_kg": 12.93263337537951,
+      "hour_index_0_based": 3445
+    },
+    {
+      "additional_modelled_H2_kg": 114.49192539503429,
+      "hour_index_0_based": 3510
+    },
+    {
+      "additional_modelled_H2_kg": 183.60901388726026,
+      "hour_index_0_based": 3754
+    },
+    {
+      "additional_modelled_H2_kg": 123.84894617638338,
+      "hour_index_0_based": 3755
+    },
+    {
+      "additional_modelled_H2_kg": 17.088191821062537,
+      "hour_index_0_based": 3768
+    },
+    {
+      "additional_modelled_H2_kg": 37.95676123216552,
+      "hour_index_0_based": 3798
+    },
+    {
+      "additional_modelled_H2_kg": 0.1395552931755486,
+      "hour_index_0_based": 3802
+    },
+    {
+      "additional_modelled_H2_kg": 19.912313959359153,
+      "hour_index_0_based": 3994
+    },
+    {
+      "additional_modelled_H2_kg": 5.624984003099443,
+      "hour_index_0_based": 4044
+    },
+    {
+      "additional_modelled_H2_kg": 47.10984205934528,
+      "hour_index_0_based": 4074
+    },
+    {
+      "additional_modelled_H2_kg": 1.5949399053638196,
+      "hour_index_0_based": 4084
+    },
+    {
+      "additional_modelled_H2_kg": 3.8850915533624253,
+      "hour_index_0_based": 4089
+    },
+    {
+      "additional_modelled_H2_kg": 20.19750126272072,
+      "hour_index_0_based": 4110
+    },
+    {
+      "additional_modelled_H2_kg": 35.14837470794146,
+      "hour_index_0_based": 4149
+    },
+    {
+      "additional_modelled_H2_kg": 45.042443827672685,
+      "hour_index_0_based": 4244
+    },
+    {
+      "additional_modelled_H2_kg": 15.434796232375101,
+      "hour_index_0_based": 4313
+    },
+    {
+      "additional_modelled_H2_kg": 9.932269795245535,
+      "hour_index_0_based": 4491
+    },
+    {
+      "additional_modelled_H2_kg": 16.444834723881428,
+      "hour_index_0_based": 4503
+    },
+    {
+      "additional_modelled_H2_kg": 32.24241662025702,
+      "hour_index_0_based": 4528
+    },
+    {
+      "additional_modelled_H2_kg": 25.738592052119966,
+      "hour_index_0_based": 4570
+    },
+    {
+      "additional_modelled_H2_kg": 28.44331088407307,
+      "hour_index_0_based": 4769
+    },
+    {
+      "additional_modelled_H2_kg": 31.100173351172657,
+      "hour_index_0_based": 4942
+    },
+    {
+      "additional_modelled_H2_kg": 44.568267758240154,
+      "hour_index_0_based": 5202
+    },
+    {
+      "additional_modelled_H2_kg": 7.507093971350059,
+      "hour_index_0_based": 5207
+    },
+    {
+      "additional_modelled_H2_kg": 105.07973477187774,
+      "hour_index_0_based": 5298
+    },
+    {
+      "additional_modelled_H2_kg": 50.5615694305709,
+      "hour_index_0_based": 5444
+    },
+    {
+      "additional_modelled_H2_kg": 79.52119060708112,
+      "hour_index_0_based": 5500
+    },
+    {
+      "additional_modelled_H2_kg": 82.92554501974575,
+      "hour_index_0_based": 5557
+    },
+    {
+      "additional_modelled_H2_kg": 37.28019783400981,
+      "hour_index_0_based": 5663
+    },
+    {
+      "additional_modelled_H2_kg": 3.6705465316234944,
+      "hour_index_0_based": 5798
+    },
+    {
+      "additional_modelled_H2_kg": 33.644318982027755,
+      "hour_index_0_based": 5814
+    },
+    {
+      "additional_modelled_H2_kg": 37.65241043845623,
+      "hour_index_0_based": 5924
+    },
+    {
+      "additional_modelled_H2_kg": 0.6530410062320642,
+      "hour_index_0_based": 6072
+    },
+    {
+      "additional_modelled_H2_kg": 28.020398867341555,
+      "hour_index_0_based": 6073
+    },
+    {
+      "additional_modelled_H2_kg": 27.49174697841398,
+      "hour_index_0_based": 6135
+    },
+    {
+      "additional_modelled_H2_kg": 12.610661786401813,
+      "hour_index_0_based": 6215
+    },
+    {
+      "additional_modelled_H2_kg": 6.141492259664119,
+      "hour_index_0_based": 6227
+    },
+    {
+      "additional_modelled_H2_kg": 17.431978069821895,
+      "hour_index_0_based": 6337
+    },
+    {
+      "additional_modelled_H2_kg": 127.99773825416696,
+      "hour_index_0_based": 6466
+    },
+    {
+      "additional_modelled_H2_kg": 0.9319640324721467,
+      "hour_index_0_based": 6467
+    },
+    {
+      "additional_modelled_H2_kg": 143.06350141611682,
+      "hour_index_0_based": 6545
+    },
+    {
+      "additional_modelled_H2_kg": 31.16310801808288,
+      "hour_index_0_based": 6586
+    },
+    {
+      "additional_modelled_H2_kg": 53.978085793628026,
+      "hour_index_0_based": 6760
+    },
+    {
+      "additional_modelled_H2_kg": 23.023319071763808,
+      "hour_index_0_based": 6778
+    },
+    {
+      "additional_modelled_H2_kg": 31.78472246167729,
+      "hour_index_0_based": 6832
+    },
+    {
+      "additional_modelled_H2_kg": 8.945301516176258,
+      "hour_index_0_based": 6932
+    },
+    {
+      "additional_modelled_H2_kg": 7.946608589854088,
+      "hour_index_0_based": 7094
+    },
+    {
+      "additional_modelled_H2_kg": 12.247374466794952,
+      "hour_index_0_based": 7110
+    },
+    {
+      "additional_modelled_H2_kg": 36.00682052553626,
+      "hour_index_0_based": 7138
+    },
+    {
+      "additional_modelled_H2_kg": 24.80898772043968,
+      "hour_index_0_based": 7178
+    },
+    {
+      "additional_modelled_H2_kg": 9.197920733585761,
+      "hour_index_0_based": 7283
+    },
+    {
+      "additional_modelled_H2_kg": 8.446650244481399,
+      "hour_index_0_based": 7573
+    },
+    {
+      "additional_modelled_H2_kg": 9.401190728379994,
+      "hour_index_0_based": 7584
+    },
+    {
+      "additional_modelled_H2_kg": 12.682025801305258,
+      "hour_index_0_based": 7683
+    },
+    {
+      "additional_modelled_H2_kg": 56.35437886845354,
+      "hour_index_0_based": 7807
+    },
+    {
+      "additional_modelled_H2_kg": 86.17575010275883,
+      "hour_index_0_based": 7986
+    },
+    {
+      "additional_modelled_H2_kg": 106.10799023604443,
+      "hour_index_0_based": 8338
+    }
+  ],
+  "positive_hours": 91,
+  "reference_delivery_is_original_E_modelled_not_full_18_25Mt_contract": true,
+  "schema_version": "ptxflex.f3_2023_sparse_modelled_backup_hourly_need.v1",
+  "source_2026_network_not_observed_2023_H2_supply": true,
+  "source_8760_hourly_count": 8760,
+  "source_hour_index_is_zero_based_and_not_fabricated_date_time": true,
+  "source_incumbent_max_rolling_24h_kg": 324.5461518847062,
+  "source_incumbent_peak_kg_h": 183.60901388726026,
+  "source_model_E_plus_S_zip_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+  "source_model_E_zip_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+  "source_registered_stageB_derived_summary_sha256": "d893c6388f14d276b2ef5d4bff4b6c8057dd252067f307f83b9baafcfa1e5308",
+  "source_stageA_artifact_zip_sha256": "18dec140df7cab63dd9cae8836e3f23fd2dcfb0370acd48db0e36e6af81813cd",
+  "zero_kg_h_at_all_hours_not_listed": true
+}
