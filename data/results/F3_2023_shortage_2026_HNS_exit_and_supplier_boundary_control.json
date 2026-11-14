@@ -1,0 +1,198 @@
+{
+  "Hynetwork_CSA_HHV_kWh_kg": 39.32098765432099,
+  "all_scenarios_ARE_MATHEMATICAL_synthetic_no_buffer_tests": true,
+  "comparative_E_vs_ES_matched_service_permitted": false,
+  "full_EUR2023_system_DCF": null,
+  "model_year": 2023,
+  "modes": {
+    "max_inventory": {
+      "2023_source_mode": "max_inventory",
+      "actual_connection_total_peak_HHV_kWh_h": null,
+      "incremental_topup_HNS_CSA_study_form_HHV_kWh_h": 40462.39346156839,
+      "mathematical_boundary_cases": {
+        "BELOW_PEAK_FLOW_ONE_HALF": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 64,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 47894.342211999676,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 64,
+          "unmet_h2_kg": 18629.974326713822
+        },
+        "EXACT_PEAK_FLOW_20BARA_PERFECT_UPTIME": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 66524.31653871357,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "ALL_MODEL_HOURS_MATHEMATICALLY_COVERED_NOT_PHYSICALLY_CERTIFIED",
+          "unmet_h2_hours": 0,
+          "unmet_h2_kg": 0.0
+        },
+        "EXIT_OR_SUPPLIER_OFFLINE_AT_PEAK_HOUR": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 1
+          },
+          "delivered_h2_kg": 65495.28863592329,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 1,
+          "unmet_h2_kg": 1029.0279027902793
+        },
+        "LOW_PRESSURE_AT_CUSTOMER_NODE": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 176,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 0.0,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 176,
+          "unmet_h2_kg": 66524.31653871357
+        },
+        "PRODUCT_QUALITY_FAILED_AT_PEAK_HOUR": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 1,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 65495.28863592329,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 1,
+          "unmet_h2_kg": 1029.0279027902793
+        }
+      },
+      "max_2023_incumbent_replacement_H2_kg_h": 1029.0279027902793,
+      "no_actual_h2_supplier_8760h_series": "NOT_ASSESSABLE_NO_SUPPLIER_HOURLY_SERIES",
+      "source_2023_hourly_shortage_SHA256": "9acefa605c878e19f369f57cd94519fc9dd926beda284135529b7d89ce31208e",
+      "source_annual_additional_modelled_H2_kg": 66524.31653871357
+    },
+    "usable_service": {
+      "2023_source_mode": "usable_service",
+      "actual_connection_total_peak_HHV_kWh_h": null,
+      "incremental_topup_HNS_CSA_study_form_HHV_kWh_h": 7219.687768283012,
+      "mathematical_boundary_cases": {
+        "BELOW_PEAK_FLOW_ONE_HALF": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 10,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 3338.267014363645,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 10,
+          "unmet_h2_kg": 382.1039877282604
+        },
+        "EXACT_PEAK_FLOW_20BARA_PERFECT_UPTIME": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 3720.371002091905,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "ALL_MODEL_HOURS_MATHEMATICALLY_COVERED_NOT_PHYSICALLY_CERTIFIED",
+          "unmet_h2_hours": 0,
+          "unmet_h2_kg": 0.0
+        },
+        "EXIT_OR_SUPPLIER_OFFLINE_AT_PEAK_HOUR": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 1
+          },
+          "delivered_h2_kg": 3536.7619882046447,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 1,
+          "unmet_h2_kg": 183.60901388726026
+        },
+        "LOW_PRESSURE_AT_CUSTOMER_NODE": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 91,
+            "product_quality_rejected_hours": 0,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 0.0,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 91,
+          "unmet_h2_kg": 3720.371002091905
+        },
+        "PRODUCT_QUALITY_FAILED_AT_PEAK_HOUR": {
+          "condition_hours": {
+            "insufficient_customer_station_flow_hours": 0,
+            "insufficient_supplier_flow_hours": 0,
+            "insufficient_transport_nominated_flow_hours": 0,
+            "low_customer_product_pressure_hours": 0,
+            "product_quality_rejected_hours": 1,
+            "supplier_or_exit_connection_offline_hours": 0
+          },
+          "delivered_h2_kg": 3536.7619882046447,
+          "full_lca_tea_eligible": false,
+          "physical_supplier_verified": false,
+          "result": "SYNTHETIC_ASSUMPTIONS_SHOW_INSUFFICIENT_FLOW_OR_PRODUCT_QUALIFICATION",
+          "unmet_h2_hours": 1,
+          "unmet_h2_kg": 183.60901388726026
+        }
+      },
+      "max_2023_incumbent_replacement_H2_kg_h": 183.60901388726026,
+      "no_actual_h2_supplier_8760h_series": "NOT_ASSESSABLE_NO_SUPPLIER_HOURLY_SERIES",
+      "source_2023_hourly_shortage_SHA256": "9c66837c105e5c17e2fbdceb50250a2ea7940ac0a2a321a08ffec8cf81622999",
+      "source_annual_additional_modelled_H2_kg": 3720.371002091906
+    }
+  },
+  "native_BAFU_full_comparative_GWP": null,
+  "network_operator_does_not_guarantee_hydrogen_supply": true,
+  "no_scenario_proves_supplier_availability_hydraulics_or_certified_end_use_quality": true,
+  "original_ERA5_wind_location_not_a_real_H2_customer_exit_location": true,
+  "schema_version": "ptxflex.f3_2023_H2_shortage_vs_prospective_contractual_supply_thresholds.v1",
+  "source_2026_Hynetwork_operator_terms_are_not_actual_2023_gas_supply": true,
+  "supplier_contract_exit_connection_contract_both_missing": true
+}
