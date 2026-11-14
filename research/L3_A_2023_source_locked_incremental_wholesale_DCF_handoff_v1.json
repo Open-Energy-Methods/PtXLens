@@ -1,0 +1,87 @@
+{
+  "schema_version": "oem.ptx.l3a_2023_physical_hourly_service_wholesale_savings_handoff.v1",
+  "programme": "OEM-PTX-2026-01",
+  "checkpoint_date_utc": "2026-11-14",
+  "original_modelled_hydrogen_source_year": 2023,
+  "money_basis": "2023 EUR; assuming repeat 2023 real purchasing power in future years is purely hypothetical, NOT a forecast",
+  "discounting_basis": "end of year real 2023 EUR, t0 initial capital; untaxed unlevered incremental DCF only",
+  "f3c_sha256": "dddd07d5c0a3d4f276e80af44e28cf3cfdbc93421107fb5d9e39843a0d1d90e2",
+  "f2_typeI_bom_sha256": "1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47",
+  "f3c_path": "data/results/F3_C_2023_source_real_gas_equal_H2_hour_E_vs_ES_Lens_operational_bridge.json",
+  "f2_path": "data/results/F2_L1_2023_source_incremental_20t_to_40t_stationary_typeI_200bar_BOM_SCOPE_NOT_complete_native_LCI.json",
+  "original_2023_E_zip_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+  "original_2023_ES_zip_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+  "strict_modes": [
+    "max_inventory",
+    "usable_service"
+  ],
+  "allowed_as_economic_source": "only equal-hourly modelled 2023 net wholesale grid electricity settlement savings with HiGHS solver dual bounds",
+  "scenario_grid_analyst_selected_NOT_vendor_estimates": {
+    "life_years": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "real_discount_rates": [
+      0,
+      0.03,
+      0.05,
+      0.08,
+      0.12
+    ],
+    "repeat_2023_savings_factors": [
+      0.25,
+      0.5,
+      0.75,
+      1,
+      1.25,
+      1.5
+    ],
+    "constant_annual_incremental_opex_2023_eur": [
+      0,
+      250000,
+      500000
+    ],
+    "hypothetical_replacement_event_year": 10,
+    "hypothetical_replacement_cost_2023_eur": 1000000,
+    "benchmark_life_years": 20,
+    "benchmark_real_discount_rate": 0.08,
+    "default_terminal_salvage_eur": 0,
+    "default_terminal_decommission_eur": 0
+  },
+  "not_qualified_claims": {
+    "global_maximum_H2_service": false,
+    "original_full_18250000kg_contract_satisfied": false,
+    "field_measured_plant_wholesale_savings": false,
+    "2023_market_replay_validated_future_annual_saving": false,
+    "actual_installed_station_BOM_complete": false,
+    "actual_vendor_capex_known": false,
+    "actual_incremental_opex_known": false,
+    "actual_replacement_and_residual_known": false,
+    "tax_depreciation_insurance_and_financing_included": false,
+    "full_H2_LCOH_computed": false,
+    "native_BAFU_matched_full_GWP_computed": false,
+    "commercial_investment_preference_proven": false
+  },
+  "method_references": [
+    {
+      "url": "https://www.hydrogen.energy.gov/program-areas/systems-analysis/h2a-analysis/h2a-production",
+      "publisher": "US DOE H2A",
+      "scope": "full hydrogen DCF methodology reference; not an assertion this is a complete H2A model"
+    },
+    {
+      "url": "https://www.energy.gov/cmei/fuels/articles/guidance-filling-out-detailed-h2a-production-case-study",
+      "publisher": "US DOE H2A governing equations",
+      "scope": "NPV cash flows and zero-NPV approach"
+    },
+    {
+      "url": "https://www.atap.gov.au/tools-techniques/cost-benefit-analysis/3-step-2-identify-the-benefits-and-costs",
+      "publisher": "ATAP",
+      "scope": "real versus nominal rate must match real versus nominal cash flow"
+    }
+  ],
+  "source_research_release_full_v1_allowed": false
+}
