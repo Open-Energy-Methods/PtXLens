@@ -19,10 +19,14 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "v1.0 master/12 ADRs mirrored; initial authentic source hashes, original 2023 PyNEXUS stage A/B registry and BAFU v1.1 references preserved; original evidence escrow and scientific signoff still pending.",
+      "current_evidence_status": "Original 2023 PyNEXUS E/E+S and A44 source SHA registry verified in historical CI. New scripts/preserve_pynexus_evidence.py plus independently tested two-private-location cryptographic recovery check, but NO verified user-selected lawful long-term primary+independent secondary source escrow or external scientific/license review exists. Original archival date 2026-12-24 is registry-noted, not live reverified. P0 gate NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/SOURCE_ESCROW_2023_PRIVATE.md",
+        "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/scripts/verify_private_pynexus_recovery.py"
+      ]
     },
     {
       "id": "P1",
@@ -95,7 +99,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Source Table2 physically screened Type I 200bar banks E 803/902 and E+S 1605/1804 vessels (gross/usable), 313K. PtXLens authentic original BAFU v1 composite vehicle tank per kg H2 capacity NOT compatible as kg empty Type I steel; valid source-derived evidence-import L1 checks pass, full native v1.1 supplier/source grade, manufacturer component BOM and installed machinery still missing.",
+      "current_evidence_status": "Source-based Type I 200bar bank reference vessel count/empty mass and existing original BAFU composite vehicle-tank process unit incompatibility have been audited. Additional potential pressure-regulating customer station and supply route components now listed against EIGA DOC15/21, PED and Hynetwork 2026 prospective references; no actual site, manufacturer BOM/material grades, full compressor/cooler/backup equipment LCI or full native source provider mapping. L1 NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
@@ -103,7 +107,9 @@
         "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/docs/L1_BAFU_STATIONARY_H2_TANK_PROVIDER_UNIT_AUDIT.md",
         "https://github.com/Open-Energy-Methods/PtXFlex/blob/feat/milp-methanol-baseline/docs/F2_PUBLISHED_STORAGE_PRESSURE_SWING_AUDIT.md",
         "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/data/results/F3_2023_original_pressure_screen_PtXLens_L1_source_bridge.json",
-        "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/src/ptxlens/l1_pressure_source_bridge.py"
+        "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/src/ptxlens/l1_pressure_source_bridge.py",
+        "research/f3_backup_physical_source_register_v1.json",
+        "data/results/F3_2023_2026_prospective_h2_delivery_architecture.json"
       ]
     },
     {
@@ -116,7 +122,7 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "2023 original source 8760h E/ES fixed equal E-delivered hourly service (16.3353 Mt) IDEAL pilot passed earlier. New physically screened Type I 200bar (313K,20bar heel, RVO conservative compressor power) E 20t INFEASIBLE under original max-stock and also 20t usable reinterpretation; E+S 40t feasible with 2,030-2,058 MWh compression. NO valid physically matched E/ES cost comparison, no whole-plant GWP superiority. Dedicated Stage A minimum ADDITIONAL unserved H2 optimization underway. Full F3 gate NOT PASSED.",
+      "current_evidence_status": "Verified 2023 real-source 8760h pressure-screen E+S 40t zero additional E-reference service shortage (both gross/usable), while E 20t minimum EXTRA shortage is proven positive: gross 65,860.378–66,524.317 kg and usable 3,718.744–3,720.371 kg; exact E global minima not proven. Six original-source artifacts independently reconciled SHA 5dead18cfa0c3fecf15562f423e01044bcc6ad4ba4f5212dfb44a010b0d1a0d3. Source 8760h positive shortage timing preserved in two SHA-pinned sparse outputs, 176/91 hours. Physically site-connected external H2 source unknown. 2026 Hynetwork network entry pressure is NOT 2023 customer exit pressure or supply availability; prospective 2026 source design basis, no contract, hydraulic peak flow, gas grade, installed BOM, GWP or DCF. F3 matched service full physical gate NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
       "last_scientific_review": null,
@@ -127,7 +133,14 @@
         "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43514524449",
         "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43515507811",
         "docs/F3_2023_PHYSICAL_200BAR_FEASIBILITY_SOURCE_AUDIT.md",
-        "src/ptxflex/f3_pressure_adequacy.py"
+        "src/ptxflex/f3_pressure_adequacy.py",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43526250517",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43527327817",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43574828823",
+        "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43575627251",
+        "data/results/F3_2023_reconciled_research_evidence.json",
+        "data/results/F3_2023_2026_prospective_h2_delivery_architecture.json",
+        "docs/F3_PROSPECTIVE_H2_BACKUP_SYSTEM_DESIGN_BASIS_v1.md"
       ]
     },
     {
@@ -141,10 +154,14 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Authentic BAFU v1.1 source-relinked 30bar PEM reference/scoped 2023 E and E+S native LCIA already verified; FULL physically matched storage climate comparison blocked because Type I source-specific E is infeasible at same hourly service and supplier-matched stationary vessel/compressor manufacturing inventory not verified. Never replace infeasible E with ideal-case cost/GWP.",
+      "current_evidence_status": "Authentic BAFU 2026 v1.1 scoped E/E+S native LCIA retains original source-only scope, NOT full matched service. 20t E physically screened reference shortage positive, E+S 40t zero; actual sourced external backup and source-specific pressure/purity/flow, upstream H2 production/transport emissions and Type I pressure storage/BoP manufacturing still missing. No completed native incremental backup GWP, ISO-comparative interpretation or equal-service full lifecycle LCA. L2 NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "data/results/F3_2023_2026_prospective_h2_delivery_architecture.json",
+        "research/f3_backup_physical_source_register_v1.json"
+      ]
     },
     {
       "id": "L3",
@@ -157,10 +174,13 @@
       "required_for_hydrogen_core_v1": true,
       "required_for_full_methanol_v1": true,
       "status": "in_progress",
-      "current_evidence_status": "Executed DOE 2022 USD capital-only OpenPyTEA; full EU lifecycle cost/economic basis not yet sourced or integrated.",
+      "current_evidence_status": "Original DOE 2022 USD capital-only TEA and real 2023 hourly market input experiments are separate partial evidence. A real backup source H2 supply contract, site-capacity tariff, installed pressure-control/compressor/storage BOM, lifetime cost, downtime, replacements and source EUR price-year DCF remain unverified. No full equal-service plant LCOH/cost delta. L3 NOT PASSED.",
       "gate_result": "NOT_PASSED",
       "acceptance_evidence": [],
-      "last_scientific_review": null
+      "last_scientific_review": null,
+      "work_evidence": [
+        "data/results/F3_2023_2026_prospective_h2_delivery_architecture.json"
+      ]
     },
     {
       "id": "F4",
