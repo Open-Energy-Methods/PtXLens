@@ -23,7 +23,7 @@ jobs:
       - name: Install verifiable scientific calculation and native SVG figure requirements
         run: |
           python -m pip install -e '.[dev]'
-          python -m pip install 'matplotlib>=3.8,<4' 'numpy>=1.26,<3'
+          python -m pip install 'matplotlib==3.11.2' 'numpy==2.5.4'
       - name: Independent mathematical finance unit checks, source-hash original E ES and F2 BOP
         run: |
           python -m pytest -q tests/test_l3a_source_wholesale_dcf.py tests/test_f3c_common_service_bridge.py tests/test_f2_l1_stationary_bom_bridge.py
