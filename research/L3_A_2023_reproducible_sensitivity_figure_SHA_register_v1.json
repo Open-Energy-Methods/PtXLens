@@ -1,0 +1,43 @@
+{
+  "schema_version": "ptxlens.l3a_2023_source_locked_economic_sensitivity_svg_vector_figures.v1",
+  "programme": "OEM-PTX-2026-01",
+  "data_source_year": 2023,
+  "generated_in_CI": "https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43587771649",
+  "independently_repeated_identical_SVGs_in_CI": "https://github.com/Open-Energy-Methods/PtXLens/actions/runs/43587753920",
+  "source_f3c_sha256": "dddd07d5c0a3d4f276e80af44e28cf3cfdbc93421107fb5d9e39843a0d1d90e2",
+  "source_f2_sha256": "1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47",
+  "full_research_sensitivity_json_sha256": "142a1eac14b946c8b491a92991ab9b6cd21dd3dd0b5f9c0018b43666cd9165ba",
+  "code_path": "src/ptxlens/l3a_sensitivity_figures.py",
+  "matplotlib_version": "3.11.2",
+  "numpy_version": "2.5.4",
+  "python_version": "3.12",
+  "fixed_svg_hashsalt": "OEM-PTX-2026-01-L3A-2023-source",
+  "fixed_svg_metadata_creation_date": "2026-11-14",
+  "plot_interpretation": "purely hypothetical 2023-real-EUR CAPEX/OPEX break-even contours, conditional 2023 wholesale repeating; no commercial plant, future price forecast, manufacturer CAPEX or actual LCOH",
+  "same_real_service_duty_within_mode_only": true,
+  "figure_svg_files": {
+    "discount_lifetime": {
+      "path": "docs/figures/l3a/L3A_2023_conditional_CAPEX_ceiling_vs_discount_and_life.svg",
+      "sha256": "3f372166ce35c5615e0f1fb631d1bda2b42a74e5af2fa1a3091ca092eae8df84",
+      "meaning": "Real discount 0–15%, 10/20/30y, within each separate H2 service mode, zero further station operating cost"
+    },
+    "opex_capex": {
+      "path": "docs/figures/l3a/L3A_2023_conditional_annual_OPEX_vs_installed_CAPEX_frontier.svg",
+      "sha256": "5da5e57684149d2afe6214084a6e8bd0f84992a1f7f11c6e9f77f72755485ce6",
+      "meaning": "20y/8% maximum hypothetical annual incremental operating cost vs initial installed CAPEX, each source mode separately"
+    },
+    "max_inventory": {
+      "path": "docs/figures/l3a/L3A_2023_max_inventory_wholesale_persistence_and_OPEX_scenarios.svg",
+      "sha256": "d48fc50a989b7e295532ad4bed31d287d2a180c2e38ab8ef789243a9678e3164",
+      "meaning": "Gross 20t to40t source common H2 16.269m kg, hypothetical year-by-year 2023 wholesale persistence 0..1.6 and 0/250k/500k real EUR OPEX"
+    },
+    "usable_service": {
+      "path": "docs/figures/l3a/L3A_2023_usable_service_wholesale_persistence_and_OPEX_scenarios.svg",
+      "sha256": "f84e0f3d232d325aa78cd679e081f18a1444c1a686be727ebd15987e608cd857",
+      "meaning": "Usable 20t to40t separate source common H2 16.332m kg, hypothetical year-by-year 2023 wholesale persistence 0..1.6 and 0/250k/500k real EUR OPEX"
+    }
+  },
+  "png_previews_saved_in_CI_artifacts_not_public_repo": true,
+  "actual_vendor_lifetime_project_DCF_calculated": false,
+  "complete_GWP_LCOH_or_full_2023_h2_contract": false
+}
