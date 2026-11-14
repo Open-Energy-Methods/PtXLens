@@ -79,13 +79,13 @@ def check_result(record):
          0<alpha<=1+1e-8 and alpha<=ub+1e-7 and
          ub<=1+1e-2 and 0<=gap<=1e-6,
          "price-neutral maximal H2 service not integer-bound certified")
-    expected_h2_per_hour=alpha*50000./24.
+    expected_h2_per_hour=(50000./24.)*alpha
     expected_annual=hours*expected_h2_per_hour
     need(finite(selected.get("modelled_E_flat_h2_service_kg_per_hour")) and
          abs(selected["modelled_E_flat_h2_service_kg_per_hour"]-expected_h2_per_hour)<1e-8 and
          finite(selected.get("modelled_E_annual_h2_service_kg")) and
          abs(selected["modelled_E_annual_h2_service_kg"]-expected_annual)<0.005 and
-         selected.get("original_nominal_h2_demand_kg")==hours*50000./24.,
+         selected.get("original_nominal_h2_demand_kg")==hours*(50000./24.),
          "annual delivery vs 50 tonne/day leap-year contract reconciliation failed")
     target_hash=_float64_target_hash(expected_h2_per_hour,hours)
     need(selected.get("selected_h2_target_float64_sha256")==target_hash,
