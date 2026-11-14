@@ -253,7 +253,7 @@
     "original_historical_E_EplusS_service_matched": false,
     "additive_storage_BOM_validated": false,
     "independent_scientific_peer_review_passed": false,
-    "note": "Original historical E/E+S unequal. Re-optimized IDEAL stock had equal E-delivered service but source-specified physical Type I 200bar cases expose E 20t infeasibility with EOS residual heel and RVO charging compression, while E+S 40t passes. Stage A minimum additional unserved H2 is next. Infeasible E has no valid matched physical system wholesale cost or environmental comparison. No plant v1 gates passed."
+    "note": "The original 2023 E/E+S cases have unequal H2 service. Independently reconciled source-pressure screened 2023 Stage A and fixed-hourly witnesses prove E 20t requires a positive minimum ADDITIONAL shortfall in both bank interpretations (gross 65,860.378–66,524.317 kg; usable 3,718.744–3,720.371 kg), while E+S 40t has a zero minimum. Source-verified 8760h sparse H2 shortage timing and prospectively screened 2026 hydrogen network/trailer hardware pathways now exist but are not an actual 2023 site supply. No customer-exit pressure, source supplier, product grade, manufacturing inventory, cost, network connection or backup availability is validated. Hence no physically equal H2 delivery in E/E+S has been demonstrated, no matched-cost/native GWP superiority and neither 2026 programme release gate may pass. Original private evidence escrow remains open."
   },
   "source_and_licensing_guardrails": {
     "original_PyNEXUS_frozen": true,
