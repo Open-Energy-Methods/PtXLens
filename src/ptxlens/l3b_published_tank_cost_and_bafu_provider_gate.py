@@ -113,8 +113,8 @@ def evaluate_cost_source_boundaries():
         source_cost=n*p["source_nominal_tank_capacity_h2_kg_per_vessel"]*p["specific_cost_eur_per_kg_h2_rated_nominal"]
         scenario=l3["source_F3C_modes"][mode]
         require(scenario["additional_literature_empty_vessel_equipment_kg_NOT_steel_foreground"]==source_empty and
-                scenario["true_project_incremental_NPV_eur"] if False else True,
-                "unsafe L3-A source economic case")
+                scenario["zero_extra_cost_CAPEX_ceiling_implies_no_real_storage_design"] is True,
+                "L3-A 2023 original reference empty vessel mass or economic source scope mismatch")
         require(l3["true_project_incremental_NPV_eur"] is None and
                 l3["complete_LCOH_eur_per_kg_H2"] is None and
                 scenario["zero_extra_cost_CAPEX_ceiling_implies_no_real_storage_design"] is True,
