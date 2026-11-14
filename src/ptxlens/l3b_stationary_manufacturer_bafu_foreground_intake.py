@@ -111,6 +111,7 @@ def blank_source_questionnaire(mode):
               "database":"BAFU:2026 v1.1",
               "unit_matching_verified":False,
               "process_uuid":None,
+              "reference_flow_uuid":None,
               "exchange_reference_unit":None,
               "process_product_name_and_geography":None,
               "original_process_dataset_sha256":None,
@@ -134,7 +135,7 @@ def blank_source_questionnaire(mode):
         "lines":lines,
     }
 
-def validate_private_evidence(doc, private_root):
+def validate_private_evidence(doc, private_root, *, native_v11_identity_review=None):
     """Validate genuine quote/datasheet bytes for each declared supplied item.
 
     Return source traceability/coverage counts, never a procurement quote
@@ -233,12 +234,31 @@ def validate_private_evidence(doc, private_root):
         require(mapping.get("process_uuid")!=FORBIDDEN_BAFU_VEHICLE_PROCESS,
                 "vehicle composite tank H2-capacity LCI is not stationary steel kg")
         if status=="OEM_AND_NATIVE_BAFU_MAPPING_REVIEWED":
+            # A manually entered UUID and a checked reviewer box are NOT
+            # evidence of native BAFU material provider or reference-unit
+            # identity. Require actual independently produced source original
+            # v1.1 crosswalk certificate from the 135MB local .zolca replay.
+            from .l3b_bafu_original_native_v11_reconcile import (
+                REVIEW_SCHEMA as NATIVE_REVIEW_SCHEMA, NATIVE_SHA as NATIVE_V11_SHA,
+            )
+            require(isinstance(native_v11_identity_review,dict) and
+                    native_v11_identity_review.get("schema_version")==NATIVE_REVIEW_SCHEMA and
+                    native_v11_identity_review.get("source_private_BAFU_v11_original_zolca_SHA256")==NATIVE_V11_SHA,
+                    "actual original v1.1 native ID/unit source review certificate required")
+            native_row=native_v11_identity_review.get("reference_processes",{}).get(
+                mapping.get("process_uuid"))
+            require(isinstance(native_row,dict) and
+                    native_row.get("identity_review_status")==
+                      "ORIGINAL_NATIVE_V11_PROCESS_AND_QUANTITATIVE_REFERENCE_ID_VERIFIED_ONLY",
+                    "proposed background supplier lacks native original v1.1 process identity")
             require(mapping.get("unit_matching_verified") is True and
-                    mapping.get("exchange_reference_unit") in ("kg","kWh","tonne_kilometre","item") and
-                    isinstance(mapping.get("process_uuid"),str) and mapping["process_uuid"] and
+                    isinstance(mapping.get("process_uuid"),str) and
+                    mapping.get("reference_flow_uuid")==native_row.get("native_v11_reference_flow_uuid") and
+                    mapping.get("exchange_reference_unit")==native_row.get("native_v11_reference_flow_unit") and
+                    native_row.get("native_v11_reference_flow_type")=="PRODUCT_FLOW" and
                     mapping.get("independent_reviewer_approved") is True and
                     row.get("independent_external_reviewer_signoff") is True,
-                    "native BAFU process, reference unit or independent review missing")
+                    "native BAFU original quantitative-reference flow/unit or independent review missing")
             mapped_count+=1
     # IMPORTANT: A supplied filled template alone does not perform native LCIA
     # or prove that a quote covers the actual buildable system.
@@ -267,6 +287,8 @@ def main(argv=None):
     mode.add_argument("--make-blank-mode",choices=MODES)
     mode.add_argument("--audit-private-manifest")
     a.add_argument("--private-evidence-root")
+    a.add_argument("--native-v11-identity-review",
+                   help="private original BAFU v1.1 process/reference-flow identity audit JSON")
     a.add_argument("--output",required=True)
     args=a.parse_args(argv)
     out=Path(args.output)
@@ -278,7 +300,9 @@ def main(argv=None):
                 "private evidence directory required for checking original supplier bytes")
         result=validate_private_evidence(
             json.loads(Path(args.audit_private_manifest).read_text(encoding="utf-8")),
-            args.private_evidence_root)
+            args.private_evidence_root,
+            native_v11_identity_review=(json.loads(Path(args.native_v11_identity_review).read_text(encoding="utf-8"))
+                                        if args.native_v11_identity_review else None))
     out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+"\\n",encoding="utf-8")
     print("L3-B stationary manufacturer / native BAFU evidence",result["mode"],
