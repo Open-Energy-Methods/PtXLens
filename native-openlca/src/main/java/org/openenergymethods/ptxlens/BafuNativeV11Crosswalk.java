@@ -14,6 +14,7 @@ import java.util.zip.ZipFile;
 
 import org.openlca.core.database.Derby;
 import org.openlca.core.model.Process;
+import org.openlca.core.model.FlowType;
 
 /**
  * First-party native BAFU:2026 v1.1 QUANTITATIVE REFERENCE IDENTITY replay.
@@ -112,7 +113,7 @@ public final class BafuNativeV11Crosswalk {
         StringBuilder lines=new StringBuilder();
         lines.append("schema_version\toriginal_zolca_SHA256\tprocess_UUID\tnative_process_found")
              .append("\tnative_process_name\tquantitative_flow_UUID\tquantitative_flow_name")
-             .append("\tquantitative_ref_unit\n");
+             .append("\tquantitative_ref_unit\tquantitative_ref_flow_type\n");
         int missing=0,verified=0;
         try(Derby db=new Derby(dest)) {
             int count=db.getDescriptors(Process.class).size();
@@ -121,7 +122,7 @@ public final class BafuNativeV11Crosswalk {
             for(String id:ids) {
                 var process=db.get(Process.class,id);
                 if(process==null){
-                    lines.append(FORMAT+"\t"+inputSHA+"\t"+id+"\tfalse\tNULL\tNULL\tNULL\tNULL\n");
+                    lines.append(FORMAT+"\t"+inputSHA+"\t"+id+"\tfalse\tNULL\tNULL\tNULL\tNULL\tNULL\n");
                     missing++;
                     continue;
                 }
@@ -134,7 +135,8 @@ public final class BafuNativeV11Crosswalk {
                      .append(clean(process.name)).append("\t")
                      .append(reference.flow.refId).append("\t")
                      .append(clean(reference.flow.name)).append("\t")
-                     .append(clean(reference.unit.name)).append("\n");
+                     .append(clean(reference.unit.name)).append("\t")
+                     .append(reference.flow.flowType==null ? "UNKNOWN" : reference.flow.flowType.name()).append("\n");
                 verified++;
             }
         }
