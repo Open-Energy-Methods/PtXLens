@@ -82,6 +82,8 @@ def reconcile(crosswalk_json,original_zolca,native_process_tsv):
     verified=0
     changed=0
     absent=0
+    waste_ids={c["uuid"] for c in w["public_v1_groups"]["steel_waste_treatment_NOT_recycling_credit"]
+               ["possibly_relevant_processes_not_native_approved"]}
     for uid,c in sorted(candidates.items()):
         x=rows[uid]
         if uid==FORBIDDEN_BAFU_VEHICLE_PROCESS:
@@ -91,11 +93,7 @@ def reconcile(crosswalk_json,original_zolca,native_process_tsv):
             absent+=1
         elif (x["native_process_name"]!=c["process_name"] or
               x["quantitative_ref_unit"]!=c["reference_unit"] or
-              (x["quantitative_ref_flow_type"]!="PRODUCT_FLOW" and
-               not any(g=="steel_waste_treatment_NOT_recycling_credit" and
-                       any(cand["uuid"]==uid for cand in bucket["possibly_relevant_processes_not_native_approved"])
-                       for g,bucket in w["public_v1_groups"].items()))):
-
+              (x["quantitative_ref_flow_type"]=="WASTE_FLOW" and uid not in waste_ids)):
             status="V1_TO_NATIVE_V11_REFERENCE_NAME_OR_UNIT_REVISION_NEEDS_REVIEW"
             changed+=1
         else:
