@@ -117,3 +117,78 @@ def test_supplier_quotes_require_actual_currency_year_and_scope(tmp_path):
     line["supplier_quote"]["year"]=None
     with pytest.raises(m.StationarySourceEvidenceError,match="monetary year"):
         m.validate_private_evidence(q,tmp_path)
+
+
+def test_fake_manufacturer_reviewer_checkboxes_do_not_bypass_original_native_v11_evidence(tmp_path):
+    q=m.blank_source_questionnaire("max_inventory")
+    line=add_private_vessel_source(q,tmp_path)
+    line["scope_status"]="OEM_AND_NATIVE_BAFU_MAPPING_REVIEWED"
+    line["supplier_quote"].update({
+        "currency":"EUR","year":2026,
+        "scope_installed_or_ex_works":"INSTALLED",
+        "net_price_excl_tax":1.0,
+    })
+    line["OEM_foreground"]["raw_input_material_bill_kg_by_grade"]={"synthetic_test_grade":1000.}
+    line["BAFU_mapping"].update({
+        "unit_matching_verified":True,
+        "process_uuid":"fc9385f8-fe2d-3399-b663-4b66e5062a3f",
+        "reference_flow_uuid":"11111111-2222-3333-4444-555555555555",
+        "exchange_reference_unit":"kg",
+        "independent_reviewer_approved":True,
+    })
+    line["independent_external_reviewer_signoff"]=True
+    with pytest.raises(m.StationarySourceEvidenceError,match="actual original v1.1"):
+        m.validate_private_evidence(q,tmp_path)
+    fake_review={
+        "schema_version":"ptxlens.L3B_BAFU2026_original_v11_quantitative_reference_candidate_REVIEW_NOT_provider_map.v1",
+        "source_private_BAFU_v11_original_zolca_SHA256":"0"*64,
+        "reference_processes":{},
+    }
+    with pytest.raises(m.StationarySourceEvidenceError,match="actual original v1.1"):
+        m.validate_private_evidence(q,tmp_path,native_v11_identity_review=fake_review)
+    # This is a deliberately fabricated synthetic review receipt; only the
+    # production reconciler may genuinely create a source-attested one.
+    fake_review["source_private_BAFU_v11_original_zolca_SHA256"] = (
+        "e63b7e7ef5cde04bfe1176a783a55b5f72e2b73f42c36632b6150af39d348c4c"
+    )
+    fake_review["reference_processes"]={
+        line["BAFU_mapping"]["process_uuid"]:{
+            "identity_review_status":"ABSENT_IN_NATIVE_V11",
+            "native_v11_reference_flow_uuid":"11111111-2222-3333-4444-555555555555",
+            "native_v11_reference_flow_unit":"kg",
+            "native_v11_reference_flow_type":"PRODUCT_FLOW",
+        }}
+    with pytest.raises(m.StationarySourceEvidenceError,match="lacks native original"):
+        m.validate_private_evidence(q,tmp_path,native_v11_identity_review=fake_review)
+
+
+def test_native_process_reference_flow_kg_vs_MJ_not_silently_interchangeable(tmp_path):
+    q=m.blank_source_questionnaire("max_inventory")
+    row=add_private_vessel_source(q,tmp_path)
+    row["scope_status"]="OEM_AND_NATIVE_BAFU_MAPPING_REVIEWED"
+    row["supplier_quote"].update({"currency":"EUR","year":2026,
+                                  "scope_installed_or_ex_works":"EX_WORKS",
+                                  "net_price_excl_tax":1.0})
+    row["OEM_foreground"]["raw_input_material_bill_kg_by_grade"]={"synthetic_test_grade":1000.}
+    uid="fc9385f8-fe2d-3399-b663-4b66e5062a3f"
+    row["BAFU_mapping"].update({
+        "process_uuid":uid,
+        "reference_flow_uuid":"11111111-2222-3333-4444-555555555555",
+        "exchange_reference_unit":"kg","unit_matching_verified":True,
+        "independent_reviewer_approved":True,
+    })
+    row["independent_external_reviewer_signoff"]=True
+    simulated_native_receipt={
+       "schema_version":"ptxlens.L3B_BAFU2026_original_v11_quantitative_reference_candidate_REVIEW_NOT_provider_map.v1",
+       "source_private_BAFU_v11_original_zolca_SHA256":
+            "e63b7e7ef5cde04bfe1176a783a55b5f72e2b73f42c36632b6150af39d348c4c",
+       "reference_processes":{uid:{
+          "identity_review_status":"ORIGINAL_NATIVE_V11_PROCESS_AND_QUANTITATIVE_REFERENCE_ID_VERIFIED_ONLY",
+          "native_v11_reference_flow_uuid":"11111111-2222-3333-4444-555555555555",
+          "native_v11_reference_flow_unit":"MJ",
+          "native_v11_reference_flow_type":"PRODUCT_FLOW",
+       }}
+    }
+    with pytest.raises(m.StationarySourceEvidenceError,match="reference flow/unit"):
+        m.validate_private_evidence(
+            q,tmp_path,native_v11_identity_review=simulated_native_receipt)
