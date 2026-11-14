@@ -159,7 +159,7 @@ def source_mode(mode,doc,original_f3c):
        "incremental_total_manufacturing_and_installed_mass_kg":None,
        "incremental_BOP_manifold_compressor_cooler_mass_kg":None,
        "manufacturer_stationary_module_mass_kg":None,
-       "reference_helium_or_gas_heel_kg_that_is_not_manufacturing_mass":inc["incremental_heel_gas_stock_kg"],
+       "reference_hydrogen_gas_heel_kg_not_manufacturing_mass":inc["incremental_heel_gas_stock_kg"],
        "reference_20bar_to_200bar_pressure_swing_extra_usable_H2_kg":inc["extra_hydrogen_working_capacity_due_to_ceiling_kg"],
        "unquantified_equipment_scope_item_count":len(MISSING_IDS),
        "unquantified_equipment_scope_ids_sorted":sorted(MISSING_IDS),
