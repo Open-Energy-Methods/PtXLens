@@ -164,6 +164,42 @@ def read_verified_inputs():
             "actual_opex_replacement_disposal_schedules_eur":None,
             "source_full_LCOH_or_2026_native_BAFU_GWP":None
         }
+    # Independent original PtXFlex economic handoff: a separate producer
+    # checks the SAME original hourly F3C and F2 source JSON and serialises
+    # only the 2023-wholesale hardware source boundary.  This new L3-A
+    # consumer MUST reject it if its bytes or case content diverge.
+    handoff_path=ROOT/"data/results/L3_A_PtXFlex_2023_source_hourly_equal_service_wholesale_only_financial_handoff.json"
+    handoff_expected="0de22f7ff566dc50101b085366e47ef9965d545dca1dfa9bca3dd6d115274829"
+    require(digest(handoff_path)==handoff_expected,
+            "PtXFlex original-source financial handoff file SHA mismatch")
+    handoff=json.loads(handoff_path.read_text(encoding="utf-8"))
+    require(handoff.get("schema_version")==
+            "ptxflex.l3a_2023_8760hour_e_vs_es_real_eur_wholesale_annual_evidence_handoff.v1" and
+            handoff.get("model_hydrogen_data_year")==2023 and
+            handoff.get("source_registered_F3C_2023_original_sha256")==F3C_SHA and
+            handoff.get("source_registered_F2_200bar_313K_empty_shell_sha256")==F2_SHA and
+            handoff.get("true_plant_vendor_financial_result_or_full_LCOH_permitted") is False,
+            "original PyNEXUS source production cashflow boundary is not authentic")
+    source_modes=handoff.get("distinct_source_capacity_interpretations")
+    require(isinstance(source_modes,dict) and set(source_modes)==set(MODES),
+            "original PtXFlex source economic handoff has wrong H2 capacity semantics")
+    for mode in MODES:
+        original=source_modes[mode];actual=cases[mode]
+        require(original.get("registered_source_mode")==mode and
+            original.get("original_E_modelled_feasible_not_maximum_same_hourly_H2_hash")==
+                actual["frozen_8760hour_H2_service_float64_sha256"] and
+            abs(original.get("same_hourly_reduced_modelled_H2_kg_year",0)-
+                actual["source_2023_annual_equal_hour_modelled_H2_kg"])<.002 and
+            abs(original.get("2023_wholesale_only_annual_saving_eur",0)-
+                actual["source_2023_net_grid_wholesale_annual_saving_eur"])<1e-4 and
+            original.get("source_solver_proved_annual_wholesale_saving_bounds_eur")==
+                actual["source_2023_net_grid_wholesale_solver_saving_interval_eur"] and
+            original.get("source_literature_extra_empty_typeI_200bar_vessel_equipment_mass_kg")==
+                actual["reference_incremental_empty_vessel_equipment_mass_kg"] and
+            original.get("vendor_installed_actual_INCREMENTAL_CAPEX_eur") is None and
+            original.get("true_extra_annual_OPEX_and_maintenance_eur") is None and
+            original.get("source_2023_wholesale_difference_is_NOT_2026_future_revenue_forecast") is True,
+            "original PtXFlex source equipment+H2-2023 financial export disagrees with independent PtXLens")
     return m,cases
 
 
