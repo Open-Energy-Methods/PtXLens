@@ -1,0 +1,141 @@
+{
+  "schema_version": "oem.ptx.f3_NL_h2_connection_supplier_independent_evidence.v1",
+  "programme": "OEM-PTX-2026-01",
+  "review_utc_date": "2026-11-14",
+  "historical_2023_input_and_2026_network_supply_are_not_contemporaneous_plant_observations": true,
+  "original_PyNEXUS_annual_config": {
+    "source_url": "https://github.com/abhijith-sivaprasadan/PyNEXUS/blob/main/configs/annual.yaml",
+    "original_ERA5_wind_resource_location": {
+      "lat": 52.5,
+      "lon": 3.5,
+      "description": "Approximate offshore North Sea resource grid; NOT actual industrial H2 customer/electrolyser or delivery connection"
+    },
+    "industrial_H2_delivered_site_lat_lon": null,
+    "industrial_H2_customer_name_or_address": null,
+    "industrial_site_connection_status": "UNDEFINED_IN_SOURCE",
+    "source_hourly_model_window": "2023-01-01 to 2023-12-31 (8760 sequential model hours)",
+    "modelled_not_metered_hydrogen": true,
+    "weather_grid_not_a_pipeline_connection_coordinate": true
+  },
+  "commercial_and_technical_roles": {
+    "hynetwork_network_operator": "Hynetwork Services B.V.",
+    "hynetwork_is_not_H2_molecule_supply_guarantor": true,
+    "supplier_or_shipper_is_distinct_from_network_operator": true,
+    "requires_independent_signed_network_exit_connection_and_signed_H2_purchase_shipping_contract": true,
+    "network_access_contract_alone_proves_no_guaranteed_gas": true
+  },
+  "official_operator_sources": [
+    {
+      "id": "hns_exit_general_2026",
+      "publisher": "Hynetwork Services B.V.",
+      "date": "2026-06-25",
+      "title": "General Terms and Conditions Connection Exit version 2.0",
+      "url": "https://www.hynetwork.nl/sites/hynetwork/files/2026-07/general-terms-and-conditions-connection-exit.pdf",
+      "locator": "page 4 clause 2.1.2; page 7-8 clause 4.1; page 9 clause 5.3",
+      "finding": "HNS does not produce/procure gas and does not guarantee gas security of supply. Exit quality/pressure depend on Annexes 3, 12 and actual contract; HNS may close connection at low-pressure boundary.",
+      "customer_specific_contract_available": false
+    },
+    {
+      "id": "hns_exit_annex12_2026",
+      "publisher": "Hynetwork Services B.V.",
+      "date": "2026-06-25",
+      "title": "Connection Exit Annex 12 Pressure Specification version 2.0",
+      "url": "https://www.hynetwork.nl/sites/hynetwork/files/2026-07/general-terms-and-conditions-connection-exit-annex-12-pressure-specification.pdf",
+      "locator": "page 3 sections 2 and 3",
+      "finding": "Published 30-50bar(g) temporary system operating envelope; customer exit may use open-pipe network pressure or reduced fixed delivery pressure which must be specified in Contract Data Sheet. No universal minimum 20bar(a) delivered to customer.",
+      "customer_specific_contract_available": false
+    },
+    {
+      "id": "hns_exit_annex3_2026",
+      "publisher": "Hynetwork Services B.V.",
+      "date": "2026-06-25",
+      "title": "Connection Exit Annex 3 Quality and Temperature Specifications version 2.0",
+      "url": "https://www.hynetwork.nl/sites/hynetwork/files/2026-07/general-terms-and-conditions-connection-exit-annex-3-quality-and-temperature-specifications.pdf",
+      "locator": "page 3 section 2",
+      "finding": "Connection quality/temperature specifications are those published by competent authority and may change; no end-use-specific impurity acceptance demonstrated.",
+      "customer_specific_contract_available": false
+    },
+    {
+      "id": "hns_exit_annex4_example_2026",
+      "publisher": "Hynetwork Services B.V.",
+      "date": "2026-06-25",
+      "title": "Connection Exit Annex 4 Pressure and Temperature Safety — example 8 bar delivery pressure",
+      "url": "https://www.hynetwork.nl/sites/hynetwork/files/2026-07/general-terms-and-conditions-connection-exit-annex-4-pressure-safety-and-temperature-safety-example-8-bar-delivery-pressure.pdf",
+      "locator": "title and page 3 definitions of bar(g) up/downstream; safety mechanism figures",
+      "finding": "Example of a reduced fixed-pressure connection/safety architecture, NOT evidence of actual 8bar pressure at a site, nor a guaranteed 20bar(a) product gate.",
+      "customer_specific_contract_available": false
+    },
+    {
+      "id": "hns_csa_0126",
+      "publisher": "Hynetwork Services B.V.",
+      "date": "2026-01",
+      "title": "Connection Study Agreement template v01.26 Annex A",
+      "url": "https://www.hynetwork.nl/media/t4xd5jjx/connection-study-agreement-template-v0126-with-1-signature-field.pdf",
+      "locator": "Annex A page 1; CSA body pp. 1-3 clauses 2 and 6",
+      "finding": "Requires exit/entry selection, actual customer site GPS/address and projected capacity by year in kWh/h based on 100% H2 HHV12.74 MJ/Nm3 and density0.090kg/Nm3. Template does not prove connection or tariff, and requires a site party/contractual commitments.",
+      "customer_specific_contract_available": false
+    },
+    {
+      "id": "hns_connection_process_2026",
+      "publisher": "Hynetwork Services B.V.",
+      "date": "2026",
+      "title": "Hynetwork Contracts—customer study and connection stages",
+      "url": "https://www.hynetwork.nl/en/contracts",
+      "locator": "EOI/NDA, CSA, investment/connection agreement sections",
+      "finding": "Study/connection processes are not automatically available to independent computational researchers without legal site counterpart; no application has been made.",
+      "customer_specific_contract_available": false
+    },
+    {
+      "id": "hns_connection_policy_2026",
+      "publisher": "Hynetwork Services B.V.",
+      "date": "2026",
+      "title": "Connection policy for the hydrogen network",
+      "url": "https://www.hynetwork.nl/en/business/become-a-customer/connection-policy",
+      "locator": "Cluster prioritization, connection fee and maintenance fee sections",
+      "finding": "HNS prioritizes industrial clusters, one-off connection fee plus recurrent maintenance charge; actual project capacity, tariff and fee remain unknown.",
+      "customer_specific_contract_available": false
+    }
+  ],
+  "supplier_market_scope_only_not_an_offer": [
+    {
+      "name": "Nobian and Air Products in Rotterdam",
+      "published": "2026-08-26",
+      "url": "https://www.nobian.com/news/nobian-and-air-products-sign-long-term-agreement-for-rfnbo-compliant-hydrogen",
+      "evidence": "Public supplier-customer deal for third-party H2; certified origin and a producer volume are not available incremental site capacity or guaranteed purity/pressure for PyNEXUS",
+      "available_to_PyNEXUS": null,
+      "site_contract_or_price": null
+    },
+    {
+      "name": "Holland Hydrogen 1 / Hynetwork producer connection",
+      "published": "2026-03-16",
+      "url": "https://www.gasunie.nl/en/news/first-major-hydrogen-plant-connected-to-dutch-hydrogen-network",
+      "evidence": "Evidence that a producer connection exists in Rotterdam 2026, not an offtaker or a contracted merchant backup source at unnamed plant",
+      "available_to_PyNEXUS": null,
+      "site_contract_or_price": null
+    },
+    {
+      "name": "Air Products Rotterdam liquid H2 facility",
+      "published": "2026-04-01",
+      "url": "https://www.portofrotterdam.com/en/news-and-press-releases/major-progress-air-products-new-liquid-hydrogen-facility",
+      "evidence": "Announced construction and prospective 2027 operation, NOT operating supply in 2026/2023 or a priced gaseous pipeline backstop",
+      "available_to_PyNEXUS": null,
+      "site_contract_or_price": null
+    }
+  ],
+  "hynetwork_connection_study_annex_A_HHV_MJ_per_Nm3": 12.74,
+  "hynetwork_connection_study_annex_A_density_kg_per_Nm3": 0.09,
+  "hynetwork_study_HHV_kWh_per_kg_derived": 39.32098765432099,
+  "study_HHV_is_energy_conversion_not_hydrogen_supply_entitlement": true,
+  "contract_peak_capacity_kWh_per_hour_requires_correct_total_connection_flow_not_automatically_incremental_backstop": true,
+  "source_required_original_model_delivery_pressure_bar_absolute": 20,
+  "original_2023_actual_site_connection_existing": null,
+  "original_2023_Hynetwork_network_available_to_site": false,
+  "original_2023_Hynetwork_linkage_cannot_be_claimed": true,
+  "2026_any_customer_exit_pressure_specified_for_this_study": null,
+  "2026_any_customer_exit_gas_quality_guaranteed_for_end_use": null,
+  "2026_any_supplier_year_round_firm_flow_to_site": null,
+  "2026_any_site_specific_supplier_GWP_kgCO2e_per_kg": null,
+  "2026_any_site_specific_backup_cost_EUR_per_kg": null,
+  "original_source_raw_weather_and_market_bytes_stored_here": false,
+  "comparative_full_lifecycle_E_vs_ES_admissible": false
+}
