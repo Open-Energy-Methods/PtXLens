@@ -25,7 +25,7 @@ NATIVE_SCHEMA="ptxlens.BAFU2026_original_v11_native_quantitative_reference_ident
 REVIEW_SCHEMA="ptxlens.L3B_BAFU2026_original_v11_quantitative_reference_candidate_REVIEW_NOT_provider_map.v1"
 HEADERS=("schema_version","original_zolca_SHA256","process_UUID",
          "native_process_found","native_process_name","quantitative_flow_UUID",
-         "quantitative_flow_name","quantitative_ref_unit")
+         "quantitative_flow_name","quantitative_ref_unit","quantitative_ref_flow_type")
 
 def parse_private_native_table(path):
     evidence={}
@@ -45,12 +45,13 @@ def parse_private_native_table(path):
                      UUID.fullmatch(row["quantitative_flow_UUID"]) and
                      row.get("native_process_name") not in ("NULL",None,"") and
                      row.get("quantitative_flow_name") not in ("NULL",None,"") and
-                     row.get("quantitative_ref_unit") not in ("NULL",None,""),
+                     row.get("quantitative_ref_unit") not in ("NULL",None,"") and
+                     row.get("quantitative_ref_flow_type") in ("PRODUCT_FLOW","WASTE_FLOW"),
                      "native quantitative reference product identity incomplete")
             else:
                 need(all(row.get(k)=="NULL" for k in (
                     "native_process_name","quantitative_flow_UUID",
-                    "quantitative_flow_name","quantitative_ref_unit")),
+                    "quantitative_flow_name","quantitative_ref_unit","quantitative_ref_flow_type")),
                     "missing native provider erroneously contains product reference")
             evidence[uid]=row
             need(len(evidence)<=250,"native candidate manifest exceeds source review cap")
@@ -89,7 +90,12 @@ def reconcile(crosswalk_json,original_zolca,native_process_tsv):
             status="ABSENT_IN_NATIVE_V11"
             absent+=1
         elif (x["native_process_name"]!=c["process_name"] or
-              x["quantitative_ref_unit"]!=c["reference_unit"]):
+              x["quantitative_ref_unit"]!=c["reference_unit"] or
+              (x["quantitative_ref_flow_type"]!="PRODUCT_FLOW" and
+               not any(g=="steel_waste_treatment_NOT_recycling_credit" and
+                       any(cand["uuid"]==uid for cand in bucket["possibly_relevant_processes_not_native_approved"])
+                       for g,bucket in w["public_v1_groups"].items()))):
+
             status="V1_TO_NATIVE_V11_REFERENCE_NAME_OR_UNIT_REVISION_NEEDS_REVIEW"
             changed+=1
         else:
@@ -102,6 +108,7 @@ def reconcile(crosswalk_json,original_zolca,native_process_tsv):
             "native_v11_reference_flow_uuid":x["quantitative_flow_UUID"] if x["native_process_found"]=="true" else None,
             "native_v11_reference_flow_name":x["quantitative_flow_name"] if x["native_process_found"]=="true" else None,
             "native_v11_reference_flow_unit":x["quantitative_ref_unit"] if x["native_process_found"]=="true" else None,
+            "native_v11_reference_flow_type":x["quantitative_ref_flow_type"] if x["native_process_found"]=="true" else None,
             "identity_review_status":status,
             "OEM_site_material_process_functional_equivalence_certified":False,
             "supplier_default_provider_or_all_upstream_exchanges_approved":False,
