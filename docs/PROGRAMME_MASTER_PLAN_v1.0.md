@@ -8,6 +8,22 @@
 
 > **DO NOT CONFLATE:** a published input; observed 2023 market/weather; PyNEXUS-modelled H2 production; user-selected scenario assumptions; independent numerical verification; externally validated physical plant operation; and native BAFU LCIA are six different evidence types. Each output must identify which it uses. Original PyNEXUS remains frozen. No invented measurements, impact factors, vendor costs or industrial validation.
 
+## 14 November 2026 methodological milestone (sub-gate, not revision of v1.0 criteria)
+
+The original 2023 model E 20t pressure-screen failed the original E-delivered hourly H₂ target under two independent bank-inventory interpretations, so a full-service original-target E/E+S cost comparison is inadmissible. To advance **F3-C** without inventing 2023 H₂ purchases, a **source-archived feasible E Stage A** 8,760h shortage is subtracted hour-by-hour from original modelled E-delivered H₂. Both source E20t and E+S40t are independently re-optimized against the same **SHA-registered physically screened *reduced* 8,760h hydrogen service**, within each separate inventory semantics, with original market/wind, Type I 200bar(a), 20bar(a) end withdrawal, compressor power and source inventory. Source SHA, hourly physical residual, MIP gap and provider data legal separation are independent controls. See [ADR-013](DECISION_REGISTER_v1.0.md#adr-013--adopt-constructive-reduced-common-h₂-service-for-a-pressure-screened-2023-f3-c-operating-benchmark), [primary method/results](F3_C_2023_PHYSICAL_COMMON_HOURLY_SERVICE_VERIFIED.md) and [independent PtXLens bridge](https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/docs/F3_C_INDEPENDENT_MATCHED_SERVICE_SOURCE_LCIA_TEA_STOP.md).
+
+**Subgate F3-C PASSED numerically:** original 2023 source SHA and 8,760h real-gas-screened four MILPs all pass solver gap 1e-6 and independent energy/H₂/pressure/cost audit. Gross mode source exact common annual H₂ service 16,268,755.001kg; E+S modelled **€1,124,332.269** lower **net wholesale grid settlement** with deterministic optimizer bracket [€1,124,318.034; €1,124,348.115]. Usable bank interpretation independent target 16,331,558.946kg; E+S €1,103,463.729 lower modelled settlement with optimizer bracket [€1,103,461.954; €1,103,474.625]. **Do not compare the two modes with different hourly functional services or interpret solver gap bounds as equipment/price uncertainty.** This common service is one **feasible incumbent** and not mathematically proven globally largest; full original 18.25mkg contract remains unmet.
+
+**Remaining programme critical path unchanged:**
+- **P0**: private user-controlled lawful permanent source ZIP recovery plus independent second physical backup and source licence. Original GitHub Actions E/ES/A44 source artifacts verified live available on Nov 14 but first expire **24 Dec 2026 19:24:29 UTC**; not archived privately by the programme.
+- **F2/L1**: actual buildable manufacturer source Type I bank incremental 20t storage plus associated compressor/cooling/valves/safety, pressure-relevant BOM and audited mass/cost, with relevant geographic inventory.
+- **L2/L3**: source-native BAFU 2026 v1.1 life-cycle engineering and complete discounted EUR cash flows matched to the same H₂ pressure/purity/hourly service with uncertainty. 2023 8760h *wholesale* difference is not LCOH or environmental benefit.
+- **Scientific review/release**: preserve all missing terms as null/NOT_PASSED, original source modelled H₂ is not metered, 2026 NL network is not a real 2023 supplier. F3 overall, L1, L2, L3, P0, hydrogen and methanol **v1.0 remain blocked** pending accepted evidence.
+
+This record tracks a completed *substudy*, not a relaxation of the original acceptance gates or a new v1.0 product claim.
+
+---
+
 ## 1. Research charter and preregistered hypotheses
 
 ### RQ-H2 — Marginal value of physical hydrogen storage
