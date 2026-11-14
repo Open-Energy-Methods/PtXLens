@@ -1,0 +1,140 @@
+{
+  "schema_version": "oem.ptx.f3_backup_physical_source_register.v1",
+  "programme": "OEM-PTX-2026-01",
+  "review_date_utc": "2026-11-14",
+  "study_scope": "2023 Netherlands source-weather/market modelled H2 dispatch; prospective 2026+ external H2 supply concept; NOT actual 2023 availability",
+  "source_of_original_shortfall": "data/results/F3_2023_reconciled_research_evidence.json",
+  "source_case_semantics": [
+    "max_inventory",
+    "usable_service"
+  ],
+  "source_references": [
+    {
+      "id": "hynetwork_2026_transport_pressure",
+      "publisher": "Hynetwork Services",
+      "title": "General Terms and Conditions Transport Annex 7 Pressure Specification",
+      "date": "2026-06-25",
+      "url": "https://www.hynetwork.nl/sites/hynetwork/files/2026-07/general-terms-and-conditions-transport-annex-7-pressure-specification.pdf",
+      "locator": "Annex 7, section 2 and clauses 2.1/2.2, page 3",
+      "source_class": "operator_general_transport_terms",
+      "finding": "Temporary network operational 30-50 bar(g), possible future 46.2-66.2 bar(g); wording requires pressure sufficient to ENTER the network; NOT a customer exit pressure guarantee",
+      "site_specific_contract": false
+    },
+    {
+      "id": "hynetwork_2026_transport_quality",
+      "publisher": "Hynetwork Services",
+      "title": "General Terms and Conditions Transport Annex 2 Quality and Temperature Specifications",
+      "date": "2026-06-25",
+      "url": "https://www.hynetwork.nl/sites/hynetwork/files/2026-07/general-terms-and-conditions-transport-annex-2-quality-and-temperature-specifications.pdf",
+      "locator": "Annex 2, section 2, page 3",
+      "source_class": "operator_general_transport_terms",
+      "finding": "Gas at connection must meet competent-authority specification as amended; this annex does not itself guarantee end-use-grade delivery purity",
+      "site_specific_contract": false
+    },
+    {
+      "id": "hynetwork_2026_connection_process",
+      "publisher": "Hynetwork Services",
+      "title": "Contracts and connection process",
+      "date": "accessed 2026-11-14",
+      "url": "https://www.hynetwork.nl/en/contracts",
+      "locator": "Connection Study Agreement and Investment Agreement sections",
+      "source_class": "operator_customer_connection_process",
+      "finding": "EOI/NDA followed by CSA study and then IA/connection process are not evidence that a hypothetical site is connected",
+      "site_specific_contract": false
+    },
+    {
+      "id": "gasunie_rotterdam_2026",
+      "publisher": "Gasunie",
+      "title": "Inauguration of first national hydrogen network section, Rotterdam",
+      "date": "2026-05-20",
+      "url": "https://www.gasunie.nl/en/news/king-willem-alexander-and-minister-van-veldhoven-inaugurate-first-section-of-the-national-hydrogen-network",
+      "locator": "News release 20 May 2026",
+      "source_class": "operator_infrastructure_status",
+      "finding": "32-km first section completed in Rotterdam in 2026; no evidence of specific PyNEXUS site connection or 2023 supply",
+      "site_specific_contract": false
+    },
+    {
+      "id": "eiga_15_21",
+      "publisher": "European Industrial Gases Association",
+      "title": "DOC 15/21 Gaseous Hydrogen Installations",
+      "date": "2021",
+      "url": "https://www.eiga.eu/uploads/documents/DOC015.pdf",
+      "locator": "Section 10 Storage installations at consumer sites; 10.1 Flow description; Sections 5, 11 and 14",
+      "source_class": "industry_safety_guideline",
+      "finding": "Pressure reducing station, isolation, relief, check, vent/purge, instrumentation, safety and testing expected for physical hydrogen consumer installation; not project certification",
+      "site_specific_contract": false
+    },
+    {
+      "id": "doe_tube_trailer",
+      "publisher": "US Department of Energy",
+      "title": "Hydrogen Tube Trailers",
+      "date": "accessed 2026-11-14",
+      "url": "https://www.energy.gov/cmei/fuels/hydrogen-tube-trailers",
+      "locator": "Trailer payload and pressure overview",
+      "source_class": "non_eu_reference_logistics",
+      "finding": "Approx 380 kg steel, composite 560-900 kg cited; US reference not a Dutch vendor certified available payload, does not account for delivery pressure/heel",
+      "site_specific_contract": false
+    },
+    {
+      "id": "iso_14687_2025",
+      "publisher": "ISO",
+      "title": "ISO 14687:2025 Hydrogen fuel quality — Product specification",
+      "date": "2025-02",
+      "url": "https://www.iso.org/standard/82660.html",
+      "locator": "Scope; industrial/stationary/vehicular applications; product quality",
+      "source_class": "international_product_quality_standard",
+      "finding": "Application-specific product quality must be selected; no generic purity automatically guarantees acceptance for undefined H2 end use",
+      "site_specific_contract": false
+    },
+    {
+      "id": "ped_2014_68",
+      "publisher": "European Commission",
+      "title": "Pressure Equipment Directive 2014/68/EU",
+      "date": "2014-05-15",
+      "url": "https://single-market-economy.ec.europa.eu/sectors/pressure-equipment-and-gas-appliances/pressure-equipment-sector/pressure-equipment-directive_en",
+      "locator": "Scope of stationary pressure equipment over 0.5 bar and conformity assessment",
+      "source_class": "eu_regulatory_requirement",
+      "finding": "Pressure equipment requires appropriate conformity assessment, does not itself verify design",
+      "site_specific_contract": false
+    },
+    {
+      "id": "asme_b31_12_2023",
+      "publisher": "ASME",
+      "title": "B31.12-2023 Hydrogen Piping and Pipelines",
+      "date": "2023",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/b31-12-hydrogen-piping-pipelines",
+      "locator": "Scope of hydrogen piping and pipelines",
+      "source_class": "engineering_code_reference",
+      "finding": "Hydrogen piping engineering reference; local Dutch/EU conformity obligations must still be evaluated",
+      "site_specific_contract": false
+    }
+  ],
+  "source_reference_safety": {
+    "source_table_is_not_a_site_connection_approval": true,
+    "operator_30_to_50_barg_is_network_entry_not_verified_customer_exit": true,
+    "2026_network_infrastructure_must_not_be_relabelled_observed_2023_supply": true,
+    "operator_quality_annex_does_not_prove_downstream_product_grade": true,
+    "us_trailer_payload_benchmark_not_dutch_certified_deliverable_mass": true,
+    "industrial_physical_design_validation_still_required": true
+  },
+  "fixed_dispatch_model_delivery_pressure_bar_absolute": 20,
+  "pipeline_entry_network_gauge_reference_min_bar_g": 30,
+  "pipeline_entry_network_gauge_reference_max_bar_g": 50,
+  "pipeline_reference_not_exit_guarantee": true,
+  "reference_atmospheric_pressure_bar_for_unit_conversion_only": 1.01325,
+  "reference_atmospheric_pressure_is_analyst_illustrative_not_measured": true,
+  "us_doe_composite_trailer_benchmark_max_nominal_payload_kg": 900,
+  "us_doe_composite_nominal_payload_not_actual_usable_at_20bar": true,
+  "site_connection_and_contract": null,
+  "2023_site_transport_availability": null,
+  "customer_guaranteed_min_exit_pressure_bar_absolute": null,
+  "regulator_and_pipe_min_pressure_drop_bar": null,
+  "customer_guaranteed_flow_kg_h": null,
+  "external_hydrogen_product_impurity_vector": null,
+  "externally_sourced_h2_specific_GWP_kgCO2e_per_kg": null,
+  "external_supply_cost_EUR2023_per_kg": null,
+  "backup_station_material_BOM_and_end_of_life": null,
+  "supplier_reliability_and_time_indexed_availability": null,
+  "matched_service_end_use_qualified": false,
+  "comparative_native_LCIA_and_full_EUR_DCF_allowed": false
+}
