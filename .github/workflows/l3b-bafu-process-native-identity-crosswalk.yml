@@ -1,0 +1,87 @@
+name: L3-B source-verified public BAFU v1 process candidates and native v1.1 crosswalk readiness
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/l3b_bafu_ogd_native_crosswalk.py'
+      - 'tests/test_l3b_bafu_ogd_native_crosswalk.py'
+      - 'native-openlca/src/main/java/org/openenergymethods/ptxlens/BafuNativeV11Crosswalk.java'
+      - '.github/workflows/l3b-bafu-process-native-identity-crosswalk.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  crosswalk_contract_tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest -q tests/test_l3b_bafu_ogd_native_crosswalk.py tests/test_l3b_stationary_manufacturer_bafu_foreground_intake.py
+  original_ogd_catalogue_crosswalk:
+    needs: crosswalk_contract_tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Fetch entire 11,947-process OFFICIAL Swiss FOEN BAFU 2026 v1 IPCC GWP100 source catalogue
+        run: |
+          set -euo pipefail
+          mkdir -p outputs/l3b
+          python -m ptxlens.bafu_candidates \
+            --csv outputs/l3b/OGD_BAFU_2026v1_original_11947_process_metadata.csv \
+            --candidates outputs/l3b/OGD_BAFU_v1_original_preliminary_search.json \
+            --manifest outputs/l3b/OGD_BAFU_v1_original_catalogue_source_SHA_manifest.json
+      - name: Build separately documented gross and usable stationary 19-class crosswalk, all mapping approvals zero
+        run: |
+          set -euo pipefail
+          python -m ptxlens.l3b_bafu_ogd_native_crosswalk \
+            --mode max_inventory \
+            --catalogue outputs/l3b/OGD_BAFU_2026v1_original_11947_process_metadata.csv \
+            --manifest outputs/l3b/OGD_BAFU_v1_original_catalogue_source_SHA_manifest.json \
+            --output outputs/l3b/L3B_gross_BAFU_v1_candidates_NOT_v11_native.json \
+            --native-uuid-list outputs/l3b/L3B_v1_original_candidate_process_UUIDs_for_private_native_replay.txt
+          python -m ptxlens.l3b_bafu_ogd_native_crosswalk \
+            --mode usable_service \
+            --catalogue outputs/l3b/OGD_BAFU_2026v1_original_11947_process_metadata.csv \
+            --manifest outputs/l3b/OGD_BAFU_v1_original_catalogue_source_SHA_manifest.json \
+            --output outputs/l3b/L3B_usable_BAFU_v1_candidates_NOT_v11_native.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          results=[json.loads(Path(f'outputs/l3b/L3B_{name}_BAFU_v1_candidates_NOT_v11_native.json').read_text())
+                   for name in ('gross','usable')]
+          assert len(results)==2 and all(x['source_official_catalogue_process_count']==11947 for x in results)
+          assert all(x['native_v11_flow_tech_and_provider_mapping_approved_count']==0 for x in results)
+          assert all(x['unresolved_nonzero_foreground_classes_count']==19 for x in results)
+          assert all(x['full_GWP100_or_LCOH_or_investment_releasable'] is False for x in results)
+          assert results[0]['source_official_catalogue_raw_csv_sha256']==results[1]['source_official_catalogue_raw_csv_sha256']
+          print('Source original OGD metadata crosswalk passed; REAL NATIVE v1.1 material flows NOT YET AUTHENTICATED')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: BAFU-2026-v1-source-OGD-real-process-19-BOM-crosswalk-NOT-native-v11
+          path: outputs/l3b/
+          retention-days: 60
+          if-no-files-found: warn
+  native_v11_identity_executor_compiles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+          cache-dependency-path: native-openlca/pom.xml
+      - name: Compile original BAFU-v1.1 openLCA 2.7 native reference-flow identity tool without accessing licensed DB
+        run: mvn --batch-mode -ntp -f native-openlca/pom.xml compile
