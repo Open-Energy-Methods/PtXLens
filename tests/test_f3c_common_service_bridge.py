@@ -35,7 +35,8 @@ def test_2023_source_four_cases_are_immutable_and_matched_within_capacity_semant
         assert (z["EplusS_saving_interval_mip_bounds_eur"][0]
                 <=z["EplusS_2023_wholesale_saving_eur"]
                 <=z["EplusS_saving_interval_mip_bounds_eur"][1])
-        assert not z["original_source_initial_kg_differs_with_storage_capacity"]\n        assert z["original_source_E_start_inventory_kg"] == z["original_source_EplusS_start_inventory_kg"]
+        assert not z["original_source_initial_kg_differs_with_storage_capacity"]
+        assert z["original_source_E_start_inventory_kg"] == z["original_source_EplusS_start_inventory_kg"]
         assert not z["actual_economic_preference_or_full_plant_LCA_claim_permitted"]
         assert z["native_BAFU_2026_v1_1_full_physical_plant_GWP_kgCO2e"] is None
         assert z["installed_40t_vs_20t_CAPEX_and_discounted_lifetime_cashflow_eur"] is None
