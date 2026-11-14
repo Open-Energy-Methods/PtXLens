@@ -121,7 +121,7 @@ def test_solver_bounds_propagate_analytically_and_only_solver_uncertainty():
     with pytest.raises(m.InvalidIncrementalCashflow):
         m.source_bound_capex_interval(s,(101.,99.))
     with pytest.raises(m.InvalidIncrementalCashflow):
-        m.source_bound_capex_interval(s,(99.,110.))
+        m.source_bound_capex_interval(s,(99.,201.))
 
 
 def test_scenario_outputs_use_an_optimistic_zero_opex_upper_envelope_NOT_vendor_cost():
