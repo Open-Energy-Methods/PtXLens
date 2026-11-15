@@ -145,11 +145,13 @@ def test_zero_NPV_capex_and_opex_equivalence_and_negative_threshold():
     result=m.dcf(40.,a)
     assert result["negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible"] is True
     assert result["negative_opex_ceiling_means_no_nonnegative_OPEX_feasible"] is False
-    b=m.Scenario(years=5,discount_real=.05,capex=200.)
+    b=m.Scenario(years=5,discount_real=.05,capex=100.)
     baseline=m.dcf(40.,b)
     opex_star=baseline["break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur"]
-    assert m.dcf(40.,m.Scenario(years=5,discount_real=.05,
-                                capex=200.,opex=max(0.,opex_star)))["hypothetical_incremental_NPV_source_year_eur"]==pytest.approx(0,abs=1e-7) if opex_star>=0 else True
+    assert opex_star>0
+    solved=m.dcf(40.,m.Scenario(years=5,discount_real=.05,
+                                 capex=100.,opex=opex_star))
+    assert solved["hypothetical_incremental_NPV_source_year_eur"]==pytest.approx(0,abs=1e-7)
 
 
 def test_reported_cost_solver_interval_propagated_not_statistical_confidence():
