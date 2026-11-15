@@ -61,6 +61,18 @@ def check_result(record):
     need(record.get("provider_pair_source_2023_reconstruction_and_calendar_verified") is True and
          record.get("source_A44_and_ERA5_provider_original_files_held_private") is True,
          "source-pair admission metadata absent")
+    representation=record.get(
+        "year_wind_provider_representation","ORIGINAL_MONTHLY_CDS_ERA5_NETCDF")
+    if representation=="OFFICIAL_CDS_ARCO_GEOCHUNKED_REPACKAGED_ERA5_POINT_NOT_MONTHLY_CDS_NETCDF":
+        need(record.get("year_wind_original_monthly_CDS_NetCDF_not_ARCO") is False and
+             record.get("year_wind_ARCO_full_2023_original_CDS_8760h_calibration_required_and_source_checked") is True and
+             record.get("ERA5_2022_2024_source_may_be_repackaged_ARCO_not_original_monthly_CDS") is True,
+             "ARCO original source falsely labelled monthly CDS or not calibrated on full 2023")
+    else:
+        need(representation=="ORIGINAL_MONTHLY_CDS_ERA5_NETCDF" and
+             record.get("year_wind_original_monthly_CDS_NetCDF_not_ARCO",True) is True and
+             record.get("year_wind_ARCO_full_2023_original_CDS_8760h_calibration_required_and_source_checked",False) is False,
+             "unsupported annual source wind product, false native monthly source or unverified alternate data")
     ph=record.get("source_year_price_f64_sha256")
     wh=record.get("source_year_wind_f64_sha256")
     need(all(isinstance(x,str) and len(x)==64 and
@@ -148,6 +160,8 @@ def check_result(record):
         "selected_fraction_50t_per_day":alpha,
         "annual_modelled_hydrogen_kg":expected_annual,
         "source_price_SHA256":ph,"source_wind_SHA256":wh,
+        "year_wind_source_provider_representation":representation,
+        "ARCO_2023_original_full_year_cross_check_claim_independently_replayed_here":False,
         "paired_operational_savings_2022_or_2024_nominal_eur":calc_saving,
         "recalculated_solver_error_bound_eur":[calc_low,calc_high],
         "metadata_arithmetic_model_scope_review_passed":True,
@@ -170,7 +184,9 @@ def review_four_cases(files):
         gross=cases[(year,"max_inventory")]
         usable=cases[(year,"usable_service")]
         need(gross["source_price_SHA256"]==usable["source_price_SHA256"] and
-             gross["source_wind_SHA256"]==usable["source_wind_SHA256"],
+             gross["source_wind_SHA256"]==usable["source_wind_SHA256"] and
+             gross["year_wind_source_provider_representation"]==
+                 usable["year_wind_source_provider_representation"],
              "same historical year has unmatched original provider price/wind between mode cases")
     return {
         "schema_version":REVIEW,
