@@ -2,7 +2,23 @@ name: verification
 on:
   push:
     branches: [main, 'feat/**']
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'examples/**'
+      - 'pyproject.toml'
+      - '.github/workflows/ci.yml'
   pull_request:
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'examples/**'
+      - 'pyproject.toml'
+      - '.github/workflows/ci.yml'
+  workflow_dispatch:
+concurrency:
+  group: core-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   tests:
     runs-on: ubuntu-latest
