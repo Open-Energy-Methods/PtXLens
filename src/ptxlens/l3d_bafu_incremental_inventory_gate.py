@@ -134,36 +134,23 @@ def inspect_original(source_path=SOURCE):
     }
 
 def verify_future_complete_native_mapping(ledger):
-    """An explicit gate for a future actual native-mapped record.
+    """Do NOT infer native data integrity from a populated JSON mapping.
 
-    Never return True on mere presence of a BAFU database or steel mass
-    reference. Current 38 records intentionally cannot pass this gate.
+    A future implementation must reopen an exact, independently SHA-verified
+    licensed .zolca database and query real native process/provider UUIDs,
+    reference-product units, openLCA product system links and LCIA results.
+    Current metadata cannot prove any of those external facts. Always refuse
+    v1 certification until a separate native-provider replay implementation
+    is executed and independently validated.
     """
-    check(ledger.get("schema_version")==SCHEMA,
-          "unknown native-mapping readiness record")
-    items=ledger.get("ledger",[])
-    check(type(items) is list and len(items)==38,
-          "must include every BOM category under each inventory interpretation")
-    required=("independent_material_composition_or_manufacturer_mass_kg",
-              "fabrication_process_and_scrap_yield",
-              "native_BAFU_2026_dataset_process_UUID",
-              "native_BAFU_2026_provider_activity_UUID",
-              "native_BAFU_2026_reference_product_UUID",
-              "native_BAFU_2026_reference_unit",
-              "native_BAFU_2026_geography_and_vintage",
-              "native_BAFU_2026_exchange_coefficient")
-    for row in items:
-        check(all(row.get(f) is not None for f in required),
-              "cannot certify unresolved actual manufacturer equipment or native BAFU process: "+row["line_id"])
-        check(row.get("native_mapping_status")=="NATIVE_DATASET_SOURCE_VERIFIED_AND_OPENLCA_RUN",
-              "native source mapping cannot be promoted from unverified author text")
-        check(row.get("measured_or_verified_incremental_LCIA_GWP_kgCO2e") is not None,
-              "native independent LCIA physical result missing")
-    check(ledger.get("native_BAFU_2026_v11_all_38_foreground_links_connected") is True,
-          "not all native source foreground providers connected")
-    check(ledger.get("manufacturer_actual_installed_system_BOM_and_price_verified") is True,
-          "manufacturer source scope and cost still unknown")
-    return True
+    check(type(ledger) is dict and ledger.get("schema_version")==SCHEMA,
+          "unknown source version")
+    raise NativeInventoryBlocked(
+        "Native BAFU:2026 v1.1 database process/provider/reference exchange "
+        "replay and independent LCIA result verification are not implemented; "
+        "even fully populated declarative JSON alone cannot certify native LCA"
+    )
+
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
