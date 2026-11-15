@@ -123,3 +123,45 @@ def test_gross_usable_same_year_must_use_same_price_and_weather_history(tmp_path
             paths.append(p)
     with pytest.raises(ExternalYearReviewError,match="unmatched original"):
         review_four_cases(paths)
+
+
+def _synthetic_calibrated_arco_year(year=2024,mode="max_inventory"):
+    record=fixture(year,mode)
+    record["year_wind_provider_representation"]=(
+       "OFFICIAL_CDS_ARCO_GEOCHUNKED_REPACKAGED_ERA5_POINT_NOT_MONTHLY_CDS_NETCDF")
+    record["year_wind_original_monthly_CDS_NetCDF_not_ARCO"]=False
+    record["year_wind_ARCO_full_2023_original_CDS_8760h_calibration_required_and_source_checked"]=True
+    record["ERA5_2022_2024_source_may_be_repackaged_ARCO_not_original_monthly_CDS"]=True
+    return record
+
+
+def test_independent_scope_reviewer_labels_arco_as_repackaged_not_original_monthly_CDS():
+    record=_synthetic_calibrated_arco_year()
+    response=check_result(record)
+    assert "ARCO" in response["year_wind_source_provider_representation"]
+    assert response["ARCO_2023_original_full_year_cross_check_claim_independently_replayed_here"] is False
+
+
+def test_independent_scope_reviewer_refuses_wrongly_mislabeled_or_uncalibrated_ARCO():
+    record=_synthetic_calibrated_arco_year()
+    record["year_wind_original_monthly_CDS_NetCDF_not_ARCO"]=True
+    with pytest.raises(ExternalYearReviewError,match="ARCO original source falsely"):
+        check_result(record)
+    record=_synthetic_calibrated_arco_year()
+    record["year_wind_ARCO_full_2023_original_CDS_8760h_calibration_required_and_source_checked"]=False
+    with pytest.raises(ExternalYearReviewError,match="not calibrated on full 2023"):
+        check_result(record)
+
+
+def test_independent_review_rejects_mixed_source_representation_within_same_year(tmp_path):
+    paths=[]
+    for year in (2022,2024):
+        for mode in ("max_inventory","usable_service"):
+            record=(_synthetic_calibrated_arco_year(year,mode)
+                    if year==2022 and mode=="max_inventory"
+                    else fixture(year,mode))
+            p=tmp_path/f"synthetic_{year}_{mode}.json"
+            p.write_text(json.dumps(record))
+            paths.append(p)
+    with pytest.raises(ExternalYearReviewError,match="unmatched original"):
+        review_four_cases(paths)
