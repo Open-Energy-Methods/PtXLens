@@ -101,10 +101,14 @@ git pull --ff-only
 # blank OEM evidence questionnaire; NO private annual MILP solver work.
 .\scripts\F3D_Robustness_Local.ps1 -Phase L3EPrepare -Mode max_inventory
 
+# Rebuild all 7 public research candidates against original immutable sources,
+# byte-for-byte; does not stage or publish files.
+.\scripts\F3D_Robustness_Local.ps1 -Phase L3EAuditPublic -Mode max_inventory
+
 git status --short
 ~~~
 
-Outputs: PtXLens `data/results/L3E_2022_2024_H30_W090_EXOGENOUS_INCREMENTAL_DCF_FRONTIERS_NOT_VENDOR_NPV_v1.{json,md}`, `L3E_H30_W090_INCREMENTAL_STATIONARY_20t_to_40t_HARDWARE_AND_BAFU_FOREGROUND_NOT_LCIA_v1.{json,md}`, `L3E_H30_W090_2022_2024_SOURCE_ANNUAL_GRID_AND_COMPRESSOR_INVENTORY_NOT_LCIA_v1.{json,md}`. PtXFlex produces `data/results/F2L3E_H30_INCREMENTAL_20t_40t_TYPEI_OEM_BOM_COST_EVIDENCE_INTAKE_NOT_QUOTES_v1.json`. **Seven public-safe new outputs** are expected after passing local tests; do not use `git add .`, publish source private provider arrays, full-year source solver witness data, manufacturer quote files or signed confidential datasheets. Review result SHA/contents and scope before manually staging exact files.
+Outputs: PtXLens `data/results/L3E_2022_2024_H30_W090_EXOGENOUS_INCREMENTAL_DCF_FRONTIERS_NOT_VENDOR_NPV_v1.{json,md}`, `L3E_H30_W090_INCREMENTAL_STATIONARY_20t_to_40t_HARDWARE_AND_BAFU_FOREGROUND_NOT_LCIA_v1.{json,md}`, `L3E_H30_W090_2022_2024_SOURCE_ANNUAL_GRID_AND_COMPRESSOR_INVENTORY_NOT_LCIA_v1.{json,md}`. PtXFlex produces `data/results/F2L3E_H30_INCREMENTAL_20t_40t_TYPEI_OEM_BOM_COST_EVIDENCE_INTAKE_NOT_QUOTES_v1.json`. **Seven public-safe new outputs** are expected after passing local tests; do not use `git add .`, publish source private provider arrays, full-year source solver witness data, manufacturer quote files or signed confidential datasheets. Run the source-rebuilding [seven-output fail-closed scientific-publication audit](../src/ptxlens/l3e_publication_admission.py) and its [negative regression tests](../tests/test_l3e_publication_admission.py); review reported per-file SHA/contents and scope before manually staging exact files.
 
 The original 2022+2024 source results and earlier 115-pass/one-skip base regression do not change. **L3-E modules, newly added tests and seven prospective outputs are NOT YET executed on local Windows**; do not mark them scientifically verified until the full source-hash and negative tests pass.
 
