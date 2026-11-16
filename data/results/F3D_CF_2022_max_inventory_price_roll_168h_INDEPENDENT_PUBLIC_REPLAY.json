@@ -1,0 +1,50 @@
+{
+  "cases": {
+    "E": {
+      "independent_hourly_primal_SHA256": "8823e3605d2fa6619d5995eaa40b0c9c1e63dcade20ddc813db87c54f4783bb4",
+      "independent_max_mass_power_inventory_error": 2.67142838537973e-08,
+      "independent_pressure_max_bar_absolute": 199.76371417877095,
+      "independent_pressure_min_bar_absolute": 19.999999999999954,
+      "source_model_cost_eur": 16855597.99886319,
+      "source_original_hourly_primal_NOT_in_public_report": true,
+      "source_reported_MIP_relative_gap": 8.90487876119237e-07,
+      "source_reported_cost_lower_bound_eur": 16855582.989157543,
+      "status": "INDEPENDENT_FULL_YEAR_PRIMAL_AND_PRESSURE_COST_REPLAY_PASSED"
+    },
+    "E_plus_S": {
+      "independent_hourly_primal_SHA256": "ddea749ee1db986823ee770a71d370e59c057790e9cb67c81cc0986ee65067a1",
+      "independent_max_mass_power_inventory_error": 4.50820801323445e-09,
+      "independent_pressure_max_bar_absolute": 199.90348938075698,
+      "independent_pressure_min_bar_absolute": 19.99999999999999,
+      "source_model_cost_eur": 13882248.378764113,
+      "source_original_hourly_primal_NOT_in_public_report": true,
+      "source_reported_MIP_relative_gap": 4.829738578301261e-07,
+      "source_reported_cost_lower_bound_eur": 13882241.67400106,
+      "status": "INDEPENDENT_FULL_YEAR_PRIMAL_AND_PRESSURE_COST_REPLAY_PASSED"
+    }
+  },
+  "control_change": "one predeclared observed-year price OR modeled wind-output transformation; not a future market forecast",
+  "counterfactual_price_f64_SHA256": "052b60cbafe7bbf2b34edee743de933ed86b6dbfcf81c59e6c4bc7f4cf2d7efa",
+  "counterfactual_wind_power_f64_SHA256": "b5e6033bbfb3f776008191fe8f5e1e05b611b8598b55d88af835d74dc9e267b4",
+  "economic_result_null_if_any_unverified_or_infeasible": false,
+  "fixed_hydrogen_same_hour_kg_year": 11125436.758446652,
+  "fixed_original_price_blind_E_hydrogen_service_f64_SHA256": "1db32cba4cee3506bb9d1af9a69471baf6e5173522008a8567dd9332f52b9513",
+  "independent_cost_dual_or_LP_infeasibility_proof_completed": false,
+  "measured_site_or_manufacturer_or_BAFU_or_v1_0_validated": false,
+  "mode": "max_inventory",
+  "original_private_hourly_market_wind_H2_and_primal_arrays_NOT_in_public": true,
+  "original_provider_price_f64_SHA256": "1a5490fd607d6c786878ca56b5d82ce8568f62b5277bc201206f1e6761b04f28",
+  "original_provider_wind_f64_SHA256": "b5e6033bbfb3f776008191fe8f5e1e05b611b8598b55d88af835d74dc9e267b4",
+  "paired_E_minus_EplusS_nominal_operational_saving_eur": 2973349.620099077,
+  "paired_source_solver_reported_bound_interval_eur": [
+    2973334.610393429,
+    2973356.32486213
+  ],
+  "physical_original_full_year_primal_replay_passed_for_both": true,
+  "reference_original_public_four_case_Git_blob_sha1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+  "schema_version": "ptxlens.f3d_controlled_original_year_private_pair_independent_primal_replay.v1",
+  "source_calendar_hours": 8760,
+  "source_market_year_nominal_eur_not_inflation_adjusted": true,
+  "variant": "price_roll_168h",
+  "year": 2022
+}

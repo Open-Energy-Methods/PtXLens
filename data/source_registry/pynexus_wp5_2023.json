@@ -1,0 +1,65 @@
+{
+  "schema_version": "ptxlens.source_register.v0.1",
+  "creation_date": "2026-11-13",
+  "source_project": "https://github.com/abhijith-sivaprasadan/PyNEXUS",
+  "source_evidence_freeze_date": "2026-10-26",
+  "source_workflow_run": "https://github.com/abhijith-sivaprasadan/PyNEXUS/actions/runs/40229852457",
+  "source_provider": "Processed ENTSO-E NL A44 2023 observed day-ahead price; ERA5-derived 2023 wind; modelled dispatch, not measured H2 production",
+  "raw_market_source": {
+    "github_artifact_id": 12610917985,
+    "archive_name": "wp1-nl-a44-original-provider-xml-2023",
+    "archive_sha256": "bc1751b86a3fe712ac2713985c4e189c922a031bacb53a7bd8f422809ba24248",
+    "contains": "14 original A44 XML files plus raw_manifest.json",
+    "retrieved": "2026-11-13"
+  },
+  "base": {
+    "scenario": "E",
+    "github_artifact_id": 12612294862,
+    "archive_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+    "stage_b_sha256": "a029a1049641d06afaea9703a7ec5abd5a41994fc0874a93be15348a17efe999",
+    "price_csv_sha256": "2dfea4651fce314893201e7b08a4ae0ad24deef6b69ef85d81d9f54428f95bb2",
+    "hours": 8760,
+    "electrolyser_mw": 125,
+    "storage_kg": 20000,
+    "online_hours": 8722,
+    "delivered_h2_kg": 16335279.317376737,
+    "unserved_h2_kg": 1914720.6826232634,
+    "produced_h2_kg": 16340919.535390353,
+    "electrolyser_input_mwh": 774961.3661277184,
+    "grid_import_mwh": 300591.2538625492,
+    "grid_export_mwh": 36312.4408778917,
+    "net_wholesale_grid_settlement_eur2023": 25748968.928416774
+  },
+  "storage": {
+    "scenario": "E+S",
+    "github_artifact_id": 12613045475,
+    "archive_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+    "stage_b_sha256": "afd35107100dac5fba4f3b3bbaca65fe1631c61db002cb6cd0731225040d8d4b",
+    "price_csv_sha256": "2dfea4651fce314893201e7b08a4ae0ad24deef6b69ef85d81d9f54428f95bb2",
+    "hours": 8760,
+    "electrolyser_mw": 125,
+    "storage_kg": 40000,
+    "online_hours": 8708,
+    "delivered_h2_kg": 16679072.08788669,
+    "unserved_h2_kg": 1570927.9121133105,
+    "produced_h2_kg": 16690183.60694752,
+    "electrolyser_input_mwh": 791525.0706026762,
+    "grid_import_mwh": 302644.15636347805,
+    "grid_export_mwh": 21796.015148653623,
+    "net_wholesale_grid_settlement_eur2023": 27508060.360551137
+  },
+  "comparison": {
+    "additional_h2_delivered_kg": 343792.77050995454,
+    "additional_wholesale_grid_settlement_eur2023": 1759091.432134363,
+    "different_hydrogen_service": true,
+    "do_not_call_lcoh": true,
+    "does_not_include": "wind/electrolyser/storage asset costs, transmission tariffs, compression, H2 sales, financing, LCA"
+  },
+  "artifact_expires": "2026-12-24",
+  "fidelity_notes": [
+    "original archives recovered 2026-11-13; this registry is a human-readable derived index, not the complete source files",
+    "UTC row zero 2023-01-01T00:00:00Z is an archived assumption; source time alignment requires original-XML reconciliation",
+    "source scenario results are model-derived, not plant telemetry",
+    "original market price in 2023 EUR cannot be added directly to DOE 2022 USD without explicit conversion"
+  ]
+}

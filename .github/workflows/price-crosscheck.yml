@@ -1,0 +1,84 @@
+name: Cross-check live NL API against original archived market observations
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/price-crosscheck.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-2023:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Fetch full observed API price history with attribution and original ZIP
+        run: |
+          mkdir -p outputs/source_comparison
+          ptxlens fetch-nl-prices --year 2023 \
+            --csv outputs/source_comparison/energy_charts_nl_2023.csv \
+            --manifest outputs/source_comparison/fraunhofer_source.json
+          curl -fL --retry 3 --retry-all-errors \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/abhijith-sivaprasadan/PyNEXUS/actions/artifacts/12612294862/zip" \
+            -o /tmp/pynexus_original_E.zip
+      - name: Independently check 8760 observed hourly prices without resampling, rounding or fitting
+        run: |
+          python - <<'PY'
+          from datetime import datetime,timedelta,timezone
+          from hashlib import sha256
+          from pathlib import Path
+          import csv,io,json,math,zipfile
+          root=Path("outputs/source_comparison")
+          ref=list(csv.DictReader((root/"energy_charts_nl_2023.csv").open()))
+          with zipfile.ZipFile("/tmp/pynexus_original_E.zip") as z:
+              original=list(csv.DictReader(io.StringIO(z.read("E/stage_b.csv").decode("utf-8-sig"))))
+          assert len(ref)==len(original)==8760
+          start=datetime(2023,1,1,tzinfo=timezone.utc)
+          deltas=[]
+          for i,(api,src) in enumerate(zip(ref,original)):
+              expected=(start+timedelta(hours=i)).strftime("%Y-%m-%dT%H:%M:%SZ")
+              if api["timestamp_utc"]!=expected or int(src["timestep"])!=i:
+                  raise ValueError("UTC alignment/source timestep mismatch")
+              x,y=float(api["price_eur_mwh"]),float(src["electricity_price"])
+              if not math.isfinite(x) or not math.isfinite(y):
+                  raise ValueError("nonfinite source data")
+              deltas.append(abs(x-y))
+          max_abs=max(deltas)
+          mismatch_count=sum(d>1e-8 for d in deltas)
+          assert mismatch_count==0,(mismatch_count,max_abs)
+          manifest=json.loads((root/"fraunhofer_source.json").read_text())
+          report={
+              "schema_version":"ptxlens.independent_market_price_reconciliation.v0.1",
+              "source_1":"Fraunhofer ISE Energy-Charts / Bundesnetzagentur SMARD 2023 NL API",
+              "source_1_url":manifest["source_url"],
+              "source_1_raw_sha256":manifest["source_raw_json_sha256"],
+              "source_1_csv_sha256":manifest["csv_sha256"],
+              "source_1_license":manifest["source_license_note"],
+              "source_2":"Original frozen PyNEXUS 2023 E 8760h observed-price Stage B archive",
+              "source_2_original_archive_sha256":sha256(Path("/tmp/pynexus_original_E.zip").read_bytes()).hexdigest(),
+              "hour_count":8760,"timezone":"UTC","price_unit":"EUR/MWh",
+              "numerical_tolerance_eur_mwh":1e-8,"mismatch_count":mismatch_count,
+              "maximum_absolute_price_difference_eur_mwh":max_abs,
+              "warning":"Only verifies source electricity PRICE and 2023 hour alignment. Does not validate real plant performance, renewable origin certification, plant cost or hourly carbon."
+          }
+          (root/"price_series_cross_source_audit.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
+          print(json.dumps(report,indent=2,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-independent-nl-2023-full-hourly-price-reconciliation
+          path: outputs/source_comparison/
+          retention-days: 90
+          if-no-files-found: error

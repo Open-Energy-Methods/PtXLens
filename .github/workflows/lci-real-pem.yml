@@ -1,0 +1,62 @@
+name: Source-cited PEM stack material foreground inventory from real 2023 H2 dispatch
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/lci-real-pem.yml'
+      - 'data/lci/pem_stack_kanz_2024_1mw.json'
+      - 'src/ptxlens/pem_stack_lci.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  cited-stack-foreground:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest -q tests/test_pem_stack_lci.py
+      - name: Retrieve verified original 2023 E and E+S archives
+        run: |
+          mkdir -p /tmp/pynexus_original outputs/published_pem_lci
+          for pair in "12612294862 E.zip" "12613045475 ES.zip"; do
+            set -- $pair
+            curl -fL --retry 3 --retry-all-errors \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/abhijith-sivaprasadan/PyNEXUS/actions/artifacts/$1/zip" \
+              -o "/tmp/pynexus_original/$2"
+          done
+      - name: Create SOURCE-BASED material LCI with no invented provider LCIA
+        run: |
+          ptxlens pem-stack-lci /tmp/pynexus_original/E.zip \
+            --output outputs/published_pem_lci/2023_E_literature_reference_PEM_stack_lci.json
+          ptxlens pem-stack-lci /tmp/pynexus_original/ES.zip \
+            --output outputs/published_pem_lci/2023_ES_literature_reference_PEM_stack_lci.json
+          python - <<'PY'
+          import json,pathlib,math
+          folder=pathlib.Path("outputs/published_pem_lci")
+          for f in sorted(folder.glob("*.json")):
+              r=json.loads(f.read_text())
+              assert r["can_claim_cradle_to_gate_lca"] is False
+              assert r["climate_result"] is None
+              assert len(r["lifecycle_material_inputs"])==8
+              assert all(x["lcia_gwp100_kgco2e"] is None and
+                  x["provider_process_id"] is None for x in r["lifecycle_material_inputs"])
+              print(r["scenario"],"source-cited material count",len(r["lifecycle_material_inputs"]))
+              print("operating cycles over explicitly assumed 30y",r["assumed_stack_service_cycles_in_30_years"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-cited-pem-1mw-stack-inventory-and-2023-model-allocation
+          path: outputs/published_pem_lci/
+          retention-days: 90
+          if-no-files-found: error

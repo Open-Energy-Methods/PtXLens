@@ -1,0 +1,33 @@
+{
+  "schema_version": "ptxlens.BAFU2026_v1_original_high_pressure_tank_technological_mismatch.v0.1",
+  "source_original_sha256": "ebaab56717a6227b5eb271fcb4c86fb9db206115eb937fb0ec0b10d7accf26c7",
+  "source_reference_uuid": "b4739ad2-aa38-368d-8ada-63f5417c8b55",
+  "source_reference_name": "High pressure hydrogen storage tank",
+  "source_reference_unit": "kg",
+  "source_citation": "BAFU:2026 v1 original EcoSpold: process_b4739ad2-aa38-368d-8ada-63f5417c8b55.xml",
+  "source_local_subcategory": "road > Vehicle components > Energy storage > Hydrogen tank",
+  "source_general_comment_reference_basis": "Source explicitly describes a high-pressure tank LCI per 1 kg hydrogen, despite exported product unit kg.",
+  "source_documented_lifetime_years": 20,
+  "named_material_inputs_kg_per_ambiguous_reference_unit": {
+    "Steel, low-alloyed, at plant": 0.9,
+    "Chromium steel 18/8, at plant": 0.9,
+    "Carbon fiber, weaved, at factory": 7.14,
+    "Aluminium alloy, AlMg3, at plant": 0.6,
+    "Epoxy resin, liquid, at plant": 3.06
+  },
+  "material_inputs_sum_kg_per_ambiguous_reference_unit": 12.6,
+  "process_services_not_additional_equipment_mass": {
+    "Sheet rolling, copper": 0.9,
+    "Sheet rolling, aluminium": 0.6,
+    "Sheet rolling, chromium steel": 0.9
+  },
+  "product_and_application": "vehicle high-pressure composite tank, not a stationary Type I steel vessel",
+  "mass_basis_ambiguous_exported_unit": true,
+  "mapped_one_kg_source_to_one_kg_empty_vessel": false,
+  "source_can_be_used_as_native_GWP_per_kg_stationary_Type_I_steel": false,
+  "native_BAFU_v11_tank_provider_exchanges_verified": false,
+  "missing_equipment_impact_counted_as_zero": false,
+  "full_plant_E_or_ES_LCA_complete": false,
+  "original_source_data_redistributed": false,
+  "remaining_source_gate": "Inspect and match native BAFU v1.1 raw tank provider/functional unit and secure a physically equivalent per-kg-stationary steel vessel material-manufacturing inventory before climate impact characterization."
+}

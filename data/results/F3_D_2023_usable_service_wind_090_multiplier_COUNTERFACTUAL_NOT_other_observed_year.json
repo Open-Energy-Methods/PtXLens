@@ -1,0 +1,62 @@
+{
+  "E": {
+    "cannot_conclude_matched_service_preference": true,
+    "cost_modelled_counterfactual_eur2023": null,
+    "solver_dual_eur2023": null,
+    "solver_error_class": "SourceLockedDispatchError",
+    "solver_outcome": "NO_ACCEPTED_INCUMBENT_OR_FAILED_UNKNOWN",
+    "source_2023_hourly_H2_target_proven_feasible_under_this_wind_stress": null
+  },
+  "E_plus_S": {
+    "cannot_conclude_matched_service_preference": true,
+    "cost_modelled_counterfactual_eur2023": null,
+    "solver_dual_eur2023": null,
+    "solver_error_class": "SourceLockedDispatchError",
+    "solver_outcome": "NO_ACCEPTED_INCUMBENT_OR_FAILED_UNKNOWN",
+    "source_2023_hourly_H2_target_proven_feasible_under_this_wind_stress": null
+  },
+  "actual_incremental_non_grid_opex_eur": null,
+  "actual_new_2022_or_2024_observed_pairing": false,
+  "both_H2_source_cases_certified_MIP_gap_le_1e6": false,
+  "capacity_semantics": "usable_service",
+  "counterfactual_not_an_independently_verified_historical_weather_or_market_year": true,
+  "future_H2_supplier_storage_safety_and_delivered_quality_proven": false,
+  "manufacturer_fully_installed_20t_incremental_storage_CAPEX_eur": null,
+  "matched_native_BAFU_GWP_per_kg_H2": null,
+  "original_2023_hourly_E_feasible_common_H2_target_SHA256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+  "original_full_contract_H2_still_unserved_kg": 1918441.0536253545,
+  "original_source_ES_archive_SHA256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+  "original_source_E_archive_SHA256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+  "original_source_StageA_archive_SHA256": "18dec140df7cab63dd9cae8836e3f23fd2dcfb0370acd48db0e36e6af81813cd",
+  "paired_modelled_incremental_EplusS_wholesale_saving_eur2023_COUNTERFACTUAL_not_forecast": null,
+  "paired_modelled_source_HiGHS_error_saving_bounds_eur2023": null,
+  "physical_equipment_reference": "Type I paper reference 20-200bar absolute isothermal 313K, RVO compressor source 80/90 efficiency",
+  "programme": "OEM-PTX-2026-01",
+  "same_source_2023_h2_product_service_and_market_wind_for_E_ES": true,
+  "scenario_id": "wind_090_multiplier",
+  "schema_version": "ptxflex.f3d_2023_source_hourly_joint_price_wind_paired_equalH2_counterfactual_stress.v1",
+  "source_2023_input_price_and_wind_provenance": {
+    "counterfactual_wind_annual_mwh": 469887.27805686527,
+    "is_alternative_observed_price_or_wind_year": false,
+    "market_price_2023_redistributed": false,
+    "price_mean_2023_eur_per_mwh": 95.8177705479452,
+    "price_mean_scenario_eur_per_mwh": 95.8177705479452,
+    "scenario_price_float64_sha256": "e67f59598079303df0c51a553904d2352a939ed7439af73ccbfb3daab9d667b6",
+    "scenario_wind_float64_sha256": "328832ab9f6e37e4d9be58c8f54fe8f91dede65b16e726168163dde56e18254d",
+    "source_price_2023_float64_sha256": "e67f59598079303df0c51a553904d2352a939ed7439af73ccbfb3daab9d667b6",
+    "source_wind_2023_float64_sha256": "abbfea17224cd92f694ed26b7a179ef7e35fff5a5bb17c6ee060a674c1977717",
+    "source_wind_annual_mwh": 522096.9756187392
+  },
+  "source_full_original_2023_industrial_contract_kg": 18250000,
+  "source_observed_year": 2023,
+  "source_same_hourly_modelled_H2_year_kg": 16331558.946374645,
+  "source_stageA_shortage_constructive_not_globally_minimal": true,
+  "transformation_method": {
+    "causal_meaning": "systematically lower resource/PyNEXUS wind availability; may render exact original 2023 H2 target infeasible",
+    "id": "wind_090_multiplier",
+    "market_transform": "original 2023 price unchanged",
+    "weather_year_as_actual_other_year": false,
+    "wind_transform": "original 2023 ERA5-model wind available \u00d70.90 for each hour (not 2024 observed)"
+  },
+  "whole_plant_economic_GWP_and_v1_0_release_PASSED": false
+}

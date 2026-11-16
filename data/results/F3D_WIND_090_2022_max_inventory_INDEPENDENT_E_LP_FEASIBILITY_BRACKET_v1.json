@@ -1,0 +1,90 @@
+{
+  "EplusS_original_90pct_wind_MILP_feasible": true,
+  "actual_MILP_feasibility_transition_not_determined": true,
+  "analytic_necessary_inequality_infeasible_below_factor": 0.9828602781752124,
+  "analytic_necessary_inequality_nonviolation_above_factor": 0.9828602781984954,
+  "analytical_cut_report_SHA256": "702c3cd0b8382df73048b34b16e1e05fba4140fef54ece9fce85cc9406074e21",
+  "capacity_semantics": "max_inventory",
+  "independent_90pct_report_SHA256": "f2f74046f2af2a2aa6f2f1a3d0d758086225ab587f01f75f2f5e6e3a8f27cbc6",
+  "independent_E_original_relaxed_LP_boundary": {
+    "LP_feasible_does_not_prove_original_integer_MILP_feasible": true,
+    "actual_integer_E_feasible_factor_only_proven_at_1": 1.0,
+    "evaluated_factors_and_scalar_residuals_only": [
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.9914301390876061,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      },
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.9957150695438031,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      },
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.9978575347719015,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      },
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.9989287673859508,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      },
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.9994643836929754,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      },
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.9997321918464877,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      },
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.9998660959232438,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      },
+      {
+        "HiGHS_status": 2,
+        "actual_integer_E_dispatch_feasible": false,
+        "factor": 0.999933047961622,
+        "independent_LP_infeasibility_Farkas_dual_ray_computed": false,
+        "status": "SOURCE_MODEL_LP_INFEASIBLE_NO_FARKAS_RAY"
+      }
+    ],
+    "independent_Farkas_ray_produced": false,
+    "independent_LP_transition_bracket_width": 6.695203837803199e-05,
+    "largest_tested_independent_rebuilt_E_LP_infeasible_factor": 0.999933047961622,
+    "smallest_tested_independent_rebuilt_E_LP_feasible_factor": 1.0
+  },
+  "independent_original_full_wind_cost_LP_report_SHA256": "c3b662b25cdd9f3f9b419844a2a2f49f5c066b38e1060e6dd9eb9494c12c2381",
+  "independent_solver_uses_scipy_HiGHS_original_solver_family": true,
+  "native_BAFU_or_vendor_CAPEX_or_real_site_certified": false,
+  "original_90pct_pair_operating_economic_saving_eur": null,
+  "original_90pct_wind_E_MILP_infeasible_source_model": true,
+  "original_calendar_UTC_hours": 8760,
+  "original_source_100pct_wind_E_MILP_feasible": true,
+  "original_source_year": 2022,
+  "public_result_contains_no_hourly_input_or_primal_vectors": true,
+  "schema_version": "ptxlens.f3d_original_source_E_relaxed_LP_feasibility_wind_multiplier_bracket.v1",
+  "scientific_v1_0_release_allowed": false,
+  "source_four_case_original_Git_blob_sha1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+  "source_original_hourly_h2_f64_sha256": "1db32cba4cee3506bb9d1af9a69471baf6e5173522008a8567dd9332f52b9513",
+  "source_original_price_f64_sha256": "1a5490fd607d6c786878ca56b5d82ce8568f62b5277bc201206f1e6761b04f28",
+  "source_original_wind_electric_power_f64_sha256": "b5e6033bbfb3f776008191fe8f5e1e05b611b8598b55d88af835d74dc9e267b4"
+}

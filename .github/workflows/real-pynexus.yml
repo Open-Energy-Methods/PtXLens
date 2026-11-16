@@ -1,0 +1,58 @@
+name: Verify original PyNEXUS 2023 observed-price dispatch
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/real-pynexus.yml'
+      - 'src/ptxlens/observed.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-2023:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Retrieve original source archives via official GitHub Actions API
+        run: |
+          mkdir -p /tmp/pynexus-original outputs/verified_wp5
+          for pair in "12612294862 E.zip" "12613045475 ES.zip"; do
+            set -- $pair
+            curl -fL --retry 3 --retry-all-errors \
+              --connect-timeout 20 --max-time 120 \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/abhijith-sivaprasadan/PyNEXUS/actions/artifacts/$1/zip" \
+              -o "/tmp/pynexus-original/$2"
+          done
+      - name: Verify archival bytes, 17,520 hourly records and independently recomputed identities
+        run: |
+          ptxlens pynexus-compare \
+            /tmp/pynexus-original/E.zip /tmp/pynexus-original/ES.zip \
+            --output outputs/verified_wp5/source_2023_comparison.json
+          python - <<'PY'
+          import json, pathlib
+          x=json.loads(pathlib.Path("outputs/verified_wp5/source_2023_comparison.json").read_text())
+          print("E source",x["E"]["annual_delivered_h2_kg"],x["E"]["archive_sha256"])
+          print("E+S source",x["E_plus_S"]["annual_delivered_h2_kg"],x["E_plus_S"]["archive_sha256"])
+          print("Additional modeled H2 (kg)",x["delta_delivered_h2_kg"])
+          print("Additional wholesale settlement (EUR)",x["delta_net_wholesale_settlement_eur"])
+          assert abs(x["delta_delivered_h2_kg"]-343792.7705)<1e-2
+          assert abs(x["delta_net_wholesale_settlement_eur"]-1759091.4321)<1e-2
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audited-original-pynexus-2023-E-versus-ES
+          path: outputs/verified_wp5/
+          retention-days: 90
+          if-no-files-found: error

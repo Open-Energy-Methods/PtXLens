@@ -1,0 +1,127 @@
+name: L3-A — SHA-locked 2023 same-hour H2 wholesale-only DCF CAPEX/OPEX frontiers and scientific figures
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/l3a_source_wholesale_dcf.py'
+      - 'src/ptxlens/l3a_sensitivity_figures.py'
+      - 'tests/test_l3a_source_wholesale_dcf.py'
+      - 'tests/test_l3a_figure_reproducibility.py'
+      - 'research/L3_A_2023_reproducible_sensitivity_figure_SHA_register_v1.json'
+      - 'research/L3_A_2023_source_locked_incremental_wholesale_DCF_handoff_v1.json'
+      - '.github/workflows/l3a-2023-source-wholesale-dcf.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_2023_wholesale_saving_source_2023_real_eur_conditional_DCF:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install verifiable scientific calculation and native SVG figure requirements
+        run: |
+          python -m pip install -e '.[dev]'
+          python -m pip install 'matplotlib==3.11.2' 'numpy==2.5.4'
+      - name: Independent mathematical finance unit checks, source-hash original E ES and F2 BOP
+        run: |
+          python -m pytest -q tests/test_l3a_source_wholesale_dcf.py tests/test_f3c_common_service_bridge.py tests/test_f2_l1_stationary_bom_bridge.py
+      - name: Recompute all source-2023 operating cashflow scenario and HiGHS solver bound results
+        run: |
+          mkdir -p outputs
+          python -m ptxlens.l3a_source_wholesale_dcf --output outputs/L3_A_2023_matched_hour_source_only_wholesale_savings_DCF_CAPEX_OPEX_frontiers_NOT_full_LCOH.json
+      - name: Render professional original source-registered sensitivity illustrations PNG and SVG
+        run: |
+          python -m ptxlens.l3a_sensitivity_figures --output-dir outputs/figures
+          python -m pytest -q tests/test_l3a_figure_reproducibility.py
+      - name: Scientific non-admissibility gate and emit auditable full source output plus compact downstream certificate
+        run: |
+          python - <<'PY'
+          import base64,hashlib,json,math,pathlib,xml.etree.ElementTree as ET
+          p=pathlib.Path("outputs/L3_A_2023_matched_hour_source_only_wholesale_savings_DCF_CAPEX_OPEX_frontiers_NOT_full_LCOH.json")
+          raw=p.read_bytes()
+          x=json.loads(raw)
+          assert x["schema_version"]=="ptxlens.l3a_source2023_equal_hourly_h2_incremental_wholesale_only_DCF_frontier.v1"
+          assert x["fixed_source_F3C_sha256"]=="dddd07d5c0a3d4f276e80af44e28cf3cfdbc93421107fb5d9e39843a0d1d90e2"
+          assert x["fixed_source_F2_typeI_200bar_hardware_sha256"]=="1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47"
+          assert x["reference_money_basis"].startswith("2023 real EUR")
+          assert x["scientific_L3_full_release_PASSED"] is False
+          assert x["complete_hydrogen_whole_plant_LCOH"] is None
+          assert x["actual_installed_incremental_capex"] is None
+          assert x["actual_incremental_lifetime_NPV"] is None
+          assert x["native_full_2026_BAFU_stationary_typeI_GWP"] is None
+          assert x["annual_2023_historical_repeated_WHOLSALE_savings_model_NOT_reoptimized_for_future_prices"]
+          assert set(x["per_distinct_capacity_semantics"])=={"max_inventory","usable_service"}
+          assert x["source_hydrogen_plant_and_2026_supplier_not_real_validated_site"]
+          summary={
+            "schema_version":"ptxlens.l3a_source2023_conditional_wholesale_DCF_2mode_registered_numerical_summary.v1",
+            "programme":x["programme"],
+            "source_F3C_sha256":x["fixed_source_F3C_sha256"],
+            "source_F2_reference_BOM_sha256":x["fixed_source_F2_typeI_200bar_hardware_sha256"],
+            "full_sensitivity_source_result_sha256":hashlib.sha256(raw).hexdigest(),
+            "year_of_original_electricity_data_and_modelled_H2":2023,
+            "illustration_N_years":20,"illustration_real_discount_rate":0.08,
+            "illustration_source_2023_wholesale_repeat_factor":1,
+            "illustration_is_future_forecast":False,
+            "source_nonzero_incremental_opex_or_vendor_installed_price_verified":False,
+            "whole_plant_financial_economic_decision_permitted":False,
+            "native_matched_scope_BAFU_GWP_kgCO2e":None,
+            "true_project_incremental_NPV_eur":None,
+            "complete_LCOH_eur_per_kg_H2":None,
+            "source_F3C_modes":{}
+          }
+          for mode,v in x["per_distinct_capacity_semantics"].items():
+              a=v["conditional_20yr_8pct_zero_extra_cost_theoretical_capex_ceiling"]
+              demo=v["conditional_20yr_8pct_cost_and_replacement_sensitivity"]
+              assert len(a["year_1_to_20_cashflow_ledger"])==20
+              assert a["conditional_capex_ceiling_solver_bound_eur"][0]<=a["conditional_capex_ceiling_eur"]<=a["conditional_capex_ceiling_solver_bound_eur"][1]
+              assert demo["conditional_capex_ceiling_eur"]<a["conditional_capex_ceiling_eur"]
+              assert a["pv_hypothetical_opex_eur"]==0
+              assert a["pv_hypothetical_replacements_eur"]==0
+              assert a["conditional_assumed_installed_capex_eur"] is None
+              assert demo["conditional_assumed_installed_capex_eur"] is None
+              assert v["gwp_LCOH_and_true_investment_NPV"] is None
+              assert not v["complete_economic_release_allowed"]
+              summary["source_F3C_modes"][mode]={
+                "source_2023_samehour_h2_target_sha256":v["original_F3C_2023_8760hour_target_sha256"],
+                "equal_hour_modelled_H2_kg_per_year":v["source_2023_modelled_8760h_equal_delivery_hydrogen_kg"],
+                "2023_wholesale_annual_saving_eur_not_a_forecast":v["source_2023_wholesale_annual_savings_eur"],
+                "solver_saving_interval_eur":v["source_2023_wholesale_difference_solver_interval_eur"],
+                "additional_literature_empty_vessel_equipment_kg_NOT_steel_foreground":v["source_F2_reference_additional_empty_equipment_mass_kg"],
+                "no_extra_cost_hypothetical_capex_ceiling_eur":a["conditional_capex_ceiling_eur"],
+                "no_extra_cost_hypothetical_capex_solver_interval_eur":a["conditional_capex_ceiling_solver_bound_eur"],
+                "hypothetical_250k_EUR_annual_incremental_opex_1M_EUR_year10_replacement_capex_ceiling_eur":demo["conditional_capex_ceiling_eur"],
+                "zero_extra_cost_CAPEX_ceiling_implies_no_real_storage_design":True
+              }
+          figures=json.loads(pathlib.Path("outputs/figures/L3A_figures_manifest.json").read_text())
+          assert figures["input_result_l3a_recomputed_from_frozen_source"] is True
+          assert figures["actual_h2_storage_capex_OPEX_and_LCOH_available"] is False
+          assert len(figures["charts"])==4
+          for name,fig in figures["charts"].items():
+              svg=pathlib.Path(fig["svg_path"]);png=pathlib.Path(fig["png_path"])
+              assert svg.is_file() and png.is_file()
+              assert ET.parse(svg).getroot().tag.endswith("svg")
+              assert hashlib.sha256(svg.read_bytes()).hexdigest()==fig["svg_sha256"]
+              assert hashlib.sha256(png.read_bytes()).hexdigest()==fig["png_sha256"]
+          sp=pathlib.Path("outputs/L3_A_2023_same_service_2023_wholesale_DCF_break_even_summary_NOT_final_project.json")
+          sp.write_text(json.dumps(summary,indent=2,sort_keys=True,allow_nan=False)+"\n",encoding="utf-8")
+          sr=sp.read_bytes()
+          print("L3_A_SOURCE_FULL_SHA256="+hashlib.sha256(raw).hexdigest())
+          print("L3_A_SOURCE_FULL_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("L3_A_SUMMARY_SHA256="+hashlib.sha256(sr).hexdigest())
+          print("L3_A_SUMMARY_BASE64="+base64.b64encode(sr).decode("ascii"))
+          for name,fig in figures["charts"].items():
+              file=pathlib.Path(fig["svg_path"])
+              print("L3_A_SVG_"+name+"_SHA256="+fig["svg_sha256"])
+              print("L3_A_SVG_"+name+"_BASE64="+base64.b64encode(file.read_bytes()).decode("ascii"))
+          print("PASS: four source SHA/physical-mode registered L3-A CAPEX/OPEX finite DCF and 4 plotted scientific conditional scenarios. NOT a certified plant, future electricity price forecast, investment NPV or full LCOH.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: L3-A-2023-source-equal-hourly-H2-discounted-CAPEX-OPEX-frontiers-NOT-plant-LCOH
+          path: outputs/
+          if-no-files-found: error
+          retention-days: 90

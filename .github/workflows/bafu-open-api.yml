@@ -1,0 +1,49 @@
+name: Live Swiss BAFU 2026 official GWP API schema and provider discovery
+on:
+  push:
+    branches: [feat/wp0-screening-core]
+    paths:
+      - '.github/workflows/bafu-open-api.yml'
+      - 'src/ptxlens/bafu_ogd.py'
+      - 'src/ptxlens/bafu_candidates.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bafu-ogd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Real no-auth Swiss FOEN GraphQL schema and impact-factor namespace
+        run: |
+          mkdir -p outputs/bafu_ogd
+          python -m ptxlens.bafu_ogd --output outputs/bafu_ogd/official_schema_and_provider_provenance.json
+      - name: Retrieve complete real BAFU 2026 IPCC GWP100 process catalogue (16 UUID partitions)
+        run: |
+          python -m ptxlens.bafu_candidates \
+            --csv outputs/bafu_ogd/bafu_2026_actual_process_catalogue.csv \
+            --candidates outputs/bafu_ogd/material_provider_candidates.json \
+            --manifest outputs/bafu_ogd/material_provider_provenance.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path("outputs/bafu_ogd/material_provider_provenance.json").read_text())
+          assert m['database_version']=='BAFU:2026 v1'
+          assert m['impact_method']=='IPCC 2021' and m['impact_category']=='GWP 100'
+          assert m['all_16_hex_partitions_covered'] is True
+          assert m['provider_records']>8000
+          print("real, published candidate processes",m['provider_records'])
+          print("actual candidate match counts",m['candidate_counts'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: genuine-swiss-bafu-2026-public-api-evidence
+          path: outputs/bafu_ogd/
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,226 @@
+{
+  "certified_matched_source_year_scenarios_count": 6,
+  "full_2023_18p25mkg_industrial_contract_satisfied": false,
+  "full_true_hydrogen_LCOH_and_plant_preference": null,
+  "future_F3D_external_years_still_blocked": true,
+  "manufacturer_installed_extra_20t_typeI_storage_cost_eur": null,
+  "market_robustness_therefore_NOT_a_predictive_confidence_interval": true,
+  "native_BAFU2026_v11_exact_matched_source_LCIA_kgCO2e": null,
+  "original_observed_weather_and_market_year": 2023,
+  "price_wind_counterfactuals_NOT_observed_new_years": true,
+  "programme": "OEM-PTX-2026-01",
+  "rows": [
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": true,
+      "both_cases_solver_optimality_certified_to_1e6": true,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": 7136305.068362511,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": [
+        7136305.068362365,
+        7136404.041399204
+      ],
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": -397483.8352353163,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "20d594047a5729bf2c64b7dc4f3c36e97520bfb0ed35e559f4ce16bf84d3f265",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1124332.2692838833,
+      "relative_source_benefit_to_original_source2023": 0.646471202424454,
+      "signed_full_2023_hourly_H2_service_sha256": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": [
+        726848.4340485521,
+        726858.514670968
+      ],
+      "source_2023_counterfactual_stress_id": "price_circular_168h",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": 726848.434048567,
+      "source_capacity_semantics": "max_inventory",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": false
+    },
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": true,
+      "both_cases_solver_optimality_certified_to_1e6": true,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": 16787753.168041468,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": [
+        16787531.864882074,
+        16787869.864106834
+      ],
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": 585537.4720589854,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "81e562f6032e1602537e922adc217c307f214a435d0e65c1b0a538f925a08d01",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1124332.2692838833,
+      "relative_source_benefit_to_original_source2023": 1.5207868599483758,
+      "signed_full_2023_hourly_H2_service_sha256": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": [
+        1709847.2011272646,
+        1709881.6270948872
+      ],
+      "source_2023_counterfactual_stress_id": "price_centered_spread_150",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": 1709869.7413428687,
+      "source_capacity_semantics": "max_inventory",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": false
+    },
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": null,
+      "both_cases_solver_optimality_certified_to_1e6": false,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": null,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": null,
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": null,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "9eae6f2deb45d940019d549878f4ad8a27bd61c59a391f702ad1998e93c53b99",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1124332.2692838833,
+      "relative_source_benefit_to_original_source2023": null,
+      "signed_full_2023_hourly_H2_service_sha256": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": null,
+      "source_2023_counterfactual_stress_id": "wind_090_multiplier",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": null,
+      "source_capacity_semantics": "max_inventory",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": true
+    },
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": true,
+      "both_cases_solver_optimality_certified_to_1e6": true,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": 10100909.33210973,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": [
+        10100909.332109109,
+        10100924.867410604
+      ],
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": -95532.3426861316,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "6c6608bfb6cfb1a18523c6ca7cacd728d1cf350624458f0cd74d9ed8aacd2610",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1124332.2692838833,
+      "relative_source_benefit_to_original_source2023": 0.9150319302433803,
+      "signed_full_2023_hourly_H2_service_sha256": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": [
+        1028799.9265976883,
+        1028801.5089024603
+      ],
+      "source_2023_counterfactual_stress_id": "wind_110_multiplier",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": 1028799.9265977517,
+      "source_capacity_semantics": "max_inventory",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": false
+    },
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": true,
+      "both_cases_solver_optimality_certified_to_1e6": true,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": 7075144.223139072,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": [
+        7075144.223138888,
+        7075144.573116049
+      ],
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": -382844.66186184064,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "5a621e8384c2e4f1c29f71bba09f7444d4368456f0a5a95042caef3f7593c6ea",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1103463.7287309095,
+      "relative_source_benefit_to_original_source2023": 0.6530518839054645,
+      "signed_full_2023_hourly_H2_service_sha256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": [
+        720619.0668690503,
+        720619.1025149971
+      ],
+      "source_2023_counterfactual_stress_id": "price_circular_168h",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": 720619.0668690689,
+      "source_capacity_semantics": "usable_service",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": false
+    },
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": true,
+      "both_cases_solver_optimality_certified_to_1e6": true,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": 16505314.067524953,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": [
+        16505263.46882413,
+        16505498.580797667
+      ],
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": 577638.9663663283,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "68723ac550b4a1a093ec7172d7981f5d1782e5223ea6f262b32d83699a065810",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1103463.7287309095,
+      "relative_source_benefit_to_original_source2023": 1.5234779823988136,
+      "signed_full_2023_hourly_H2_service_sha256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": [
+        1681097.5415077955,
+        1681121.4881816208
+      ],
+      "source_2023_counterfactual_stress_id": "price_centered_spread_150",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": 1681102.6950972378,
+      "source_capacity_semantics": "usable_service",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": false
+    },
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": null,
+      "both_cases_solver_optimality_certified_to_1e6": false,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": null,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": null,
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": null,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "ff25a1fc99392e6997751ee8a3d82e2a9bc35a100348bd1fd68e2774ed030295",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1103463.7287309095,
+      "relative_source_benefit_to_original_source2023": null,
+      "signed_full_2023_hourly_H2_service_sha256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": null,
+      "source_2023_counterfactual_stress_id": "wind_090_multiplier",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": null,
+      "source_capacity_semantics": "usable_service",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": true
+    },
+    {
+      "both_E_ES_met_same_hourly_H2_target_if_certified": true,
+      "both_cases_solver_optimality_certified_to_1e6": true,
+      "conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis": 9764127.169908972,
+      "conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur": [
+        9764127.169908093,
+        9764146.01145841
+      ],
+      "difference_from_original_source2023_EplusS_wholesale_saving_eur": -108965.80924554169,
+      "full_2023_original_industrial_demand_satisfied": false,
+      "future_2023_model_difference_repeats_each_year_NOT_forecast": true,
+      "historical_source_file_sha256": "2325ecb23bf572ec8628720f6b865b8c85007adad44832ec0e54f0c868ce3dd6",
+      "independent_new_market_and_wind_year": false,
+      "manufacturer_CAPEX_EUR_or_site_LCOH_GWP": null,
+      "original_2023_F3C_reference_wholesale_EplusS_saving_eur": 1103463.7287309095,
+      "relative_source_benefit_to_original_source2023": 0.9012511182666032,
+      "signed_full_2023_hourly_H2_service_sha256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+      "source_2023_counterfactual_source_solver_saving_interval_eur": [
+        994497.9194852784,
+        994499.8385387957
+      ],
+      "source_2023_counterfactual_stress_id": "wind_110_multiplier",
+      "source_2023_counterfactual_wholesale_EplusS_saving_eur": 994497.9194853678,
+      "source_capacity_semantics": "usable_service",
+      "source_year": 2023,
+      "undetermined_is_not_mathematical_infeasibility": false
+    }
+  ],
+  "schema_version": "ptxlens.f3d_eight_source_2023_price_wind_counterfactuals_verified_numerical_operating_response.v1",
+  "scientific_v1_full_release_passed": false,
+  "source_2023_E_ES_2023_real_grid_wholesale_only_not_full_TEA_or_GWP": true,
+  "source_target_constructive_feasible_not_global_maximum": true,
+  "source_valid_original_2023_weekly_price_phase_change_and_spread_stress": true,
+  "source_wind_multiplier_090_110_does_not_physically_recalculate_ERA5_turbine_powers": true,
+  "unknown_result_short_wind_source_scenarios_count": 2,
+  "zero_independently_observed_new_2022_2024_price_wind_pairs_retrieved": true
+}

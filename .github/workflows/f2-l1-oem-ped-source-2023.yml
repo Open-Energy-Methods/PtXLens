@@ -1,0 +1,53 @@
+name: F2-L1 — independent genuine OEM 50L 330bar PED H2 cylinder foreground source cross-check
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/f2_l1_oem_PED_cylinder_bridge.py'
+      - 'tests/test_f2_l1_oem_PED_cylinder_bridge.py'
+      - 'research/F2_L1_INDEPENDENT_OEM_PED_50L_330BAR_H2_CYLINDER_AND_EN17533_SOURCE_v1.json'
+      - 'data/results/F2_L1_OEM_heisertec_PED_330bar_50L_85_5kg_source_200bar_313K_NOT_certified_BOM.json'
+      - '.github/workflows/f2-l1-oem-ped-source-2023.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source_real_vendor_stationary_PED_2023_research_not_physical_vendor_BOM:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify Type I reference 200bar vs heiserTEC true PED H2 50L 330bar 85.5kg and all missing native supplier-foreground controls
+        run: |
+          python -m pytest -q tests/test_f2_l1_oem_PED_cylinder_bridge.py tests/test_f2_l1_stationary_bom_bridge.py tests/test_f3c_common_service_bridge.py
+      - name: Emit cross-repo source-certified OEM/reference foreground separation proof
+        run: |
+          mkdir -p outputs
+          python - <<'PY'
+          import pathlib,hashlib,base64,json
+          from ptxlens.f2_l1_oem_PED_cylinder_bridge import generate_OEM_crosscheck
+          p=pathlib.Path("outputs/F2_L1_real_OEM_330bar_50L_PED_source_vs_IJHE_200bar_manufacturing_stop.json")
+          x=generate_OEM_crosscheck()
+          assert x["schema_version"]=="ptxlens.f2_l1_oem_330bar_PED_50L_vs_IJHE_200bar_typeI_reference_hardware_not_full_LCI.v1"
+          assert x["source_F2_OEM_50L_json_sha256"]=="9db1885bd42cc91049c4d2e7170aaf74782bf0d791ed88b877795e84fa4a8a57"
+          assert x["EN17533_2025_standards_for_cylinder_not_manifold_or_piping"]
+          assert not x["financial_and_climate_compare_release_eligible"]
+          for mode,v in x["scenarios"].items():
+              assert v["OEM_heisertec_330bar_PED_50L_reference_at_derated_200bara_313K_additional_empty_hardware_kg"]>2e6
+              assert v["full_native_BAFU2026_v11_co2e_kg"] is None
+              assert v["whole_plant_EUR2023_discounted_cost"] is None
+          p.write_text(json.dumps(x,sort_keys=True,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+          raw=p.read_bytes()
+          print("F2_L1_PTXLENS_OEM_SHA256="+hashlib.sha256(raw).hexdigest())
+          print("F2_L1_PTXLENS_OEM_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("PASS: true OEM PED cylinder / paper 200bar distinct sourced equipment, partial manufacturing mass only; native BAFU / full TEA blocked")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: F2-L1-PtXLens-EN17533-OEM-PED-330bar-source-LCI-NOT-complete
+          path: outputs/
+          retention-days: 90

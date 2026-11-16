@@ -1,0 +1,59 @@
+name: F3-D source-2023 eight-case original-sample robustness and two publication SVG figures
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/f3d_source_2023_robustness_figures.py'
+      - 'src/ptxlens/f3d_independent_2023_stress_finance_bridge.py'
+      - 'tests/test_f3d_independent_2023_stress_finance_bridge.py'
+      - '.github/workflows/f3d-2023-source-robustness-figures.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source_2023_ERA5_ENSTOE_2023_model_stress_plot_AND_financial_no_real_LCA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install -e '.[dev]'
+          python -m pip install 'matplotlib==3.11.2' 'numpy==2.5.4'
+      - name: Independently validate all 8 source-verified full-year 2023 market/wind price and matched E ES results before figure
+        run: |
+          python -m pytest -q tests/test_f3d_independent_2023_stress_finance_bridge.py
+      - name: Generate 2 reproducible source-derived financial sensitivity vector figures, no fabricated wind-10 financial bar
+        run: |
+          python -m ptxlens.f3d_source_2023_robustness_figures --output-dir outputs/figures
+      - name: Recompute figures independently and insist equal hashes
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib,base64
+          from ptxlens.f3d_source_2023_robustness_figures import generate
+          d=json.loads(pathlib.Path("outputs/figures/F3D_2023_counterfactual_sensitivity_figure_manifest.json").read_text())
+          assert d["schema_version"]=="ptxlens.f3d_original_2023_price_wind_source_eight_stress_timing_candles_vector_figures.v1"
+          assert d["source_observed_year"]==2023 and d["source_altered_2023_data_only"]
+          assert d["source_F3D_2023_PtXLens_reconciled_SCIENCE_RESULT_SHA256"]=="26b5abce70e0dc5f2274528c75ac4ef80f9b42d796e61f9b3365d83e9d05095b"
+          assert d["full_vendor_20t_station_storage_CAPEX"] is None
+          assert d["native_stationary_typeI_2026_BAFU_GWP"] is None
+          assert d["actual_20y_project_NPV_or_LCOH"] is None
+          assert len(d["figures"])==2
+          repeated=generate("outputs/verify")
+          for key,item in d["figures"].items():
+              ref=pathlib.Path("outputs/figures")/item["svg_filename"]
+              raw=ref.read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==item["svg_sha256"]
+              assert repeated["figures"][key]["svg_sha256"]==item["svg_sha256"]
+              assert item["unknown_wind_minus10pct_not_assumed_zero"]
+              print("F3_D_FIG_"+key+"_SHA256="+item["svg_sha256"])
+              print("F3_D_FIG_"+key+"_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("PASS: 2 source-2023 original transparent stress plots, source SHA, original 2023 regime and NO -10pct wind fabricated preference; repeated exact same byte image.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: F3-D-2023-authenticated-original-source-robustness-two-conditional-not-forecast-SVG
+          path: outputs/figures/
+          retention-days: 90

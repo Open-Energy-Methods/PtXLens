@@ -1,0 +1,83 @@
+name: 2023 Dutch electricity-supply LCA-screen using original observed-input model artifacts
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - '.github/workflows/lca-real-screen.yml'
+      - 'src/ptxlens/lca_screen.py'
+      - 'tests/test_lca_screen.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-2023-energy-lifecycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest -q tests/test_lca_screen.py
+      - name: Download registered original observed-input archives; no substitute fixtures
+        run: |
+          mkdir -p /tmp/original_wp5 outputs/real_lca_screen
+          for pair in "12612294862 E.zip" "12613045475 ES.zip"; do
+            set -- $pair
+            curl -fL --retry 3 --retry-all-errors \
+              --connect-timeout 20 --max-time 120 \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/abhijith-sivaprasadan/PyNEXUS/actions/artifacts/$1/zip" \
+              -o "/tmp/original_wp5/$2"
+          done
+      - name: Audit original source and calculate source-factor electricity-supply life-cycle GWP
+        run: |
+          python - <<'PY'
+          from ptxlens.lca_screen import write_results
+          r = write_results(
+              '/tmp/original_wp5/E.zip',
+              '/tmp/original_wp5/ES.zip',
+              'outputs/real_lca_screen/2023_nl_e_es_energy_supply_gwp.json',
+              'outputs/real_lca_screen/hourly',
+          )
+          for key in ('E','E_plus_S'):
+              s = r[key]
+              print(key, 'annual GWP kgCO2e:', s['reported_energy_supply_kgco2e'])
+              print(key, 'screening kgCO2e/kg MODELLED H2 delivered:',
+                    s['gwp_kgco2e_per_kg_modelled_h2_delivered'])
+              print(key, 'hourly model energy MWh', s['energy_mwh'])
+              assert s['claim_level'].endswith('NOT full product LCA or actual openLCA LCIA')
+              assert s['functional_unit_denominator_kg_h2'] > 0
+          assert r['matched_hydrogen_service'] is False
+          PY
+      - name: Independently reconstruct annual GWP from direct hourly CSV sums
+        run: |
+          python - <<'PY'
+          import csv, json, math, pathlib
+          root=pathlib.Path('outputs/real_lca_screen')
+          r=json.loads((root/'2023_nl_e_es_energy_supply_gwp.json').read_text())
+          for name in ('E','E_plus_S'):
+              rows=list(csv.DictReader((root/'hourly'/f'{name}_hourly_components.csv').open()))
+              assert len(rows)==8760
+              target=r[name]
+              pieces=target['gwp_kgco2e_by_source_category']
+              for col,v in pieces.items():
+                  actual=math.fsum(float(row[col]) for row in rows)
+                  assert math.isclose(actual,v,abs_tol=1e-4,rel_tol=1e-10),(col,actual,v)
+              total=math.fsum(float(row['h2_delivered_kg']) for row in rows)
+              assert math.isclose(total,target['functional_unit_denominator_kg_h2'],abs_tol=1e-4)
+          print('independent hourly GWP inventory reconstruction PASSED')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: actual-2023-dutch-source-electricity-supply-gwp-E-vs-ES
+          path: outputs/real_lca_screen/
+          retention-days: 90
+          if-no-files-found: error

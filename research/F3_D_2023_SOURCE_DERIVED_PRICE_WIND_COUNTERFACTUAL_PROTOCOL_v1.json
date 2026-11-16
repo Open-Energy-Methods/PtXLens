@@ -1,0 +1,79 @@
+{
+  "schema_version": "oem.ptx.f3d_source_2023_hourly_stress_protocol.v1",
+  "research_checkpoint_utc": "2026-11-14",
+  "programme": "OEM-PTX-2026-01",
+  "evidence_class": "original_2023_source_hourly_price_and_wind_provenance_plus_clearly_COUNTERFACTUAL_transformation",
+  "source_year": 2023,
+  "time_base": "8760 exact source UTC model hours, calendar 2023 not observed 2022/2024",
+  "observed_price_source": "ENTSO-E A44 original NL 2023 day-ahead; source PyNEXUS verified exact ZIP and historical hourly price data provider",
+  "observed_wind_source": "ERA5 2023 model-derived wind available at source historic 52.5N 3.5E offshore resource sampling coordinates, NOT a storage/industrial customer",
+  "source_zip_E_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+  "source_zip_EplusS_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+  "original_price_CSV_sha256": "2dfea4651fce314893201e7b08a4ae0ad24deef6b69ef85d81d9f54428f95bb2",
+  "stageA_modelled_h2_deficits": {
+    "max_inventory": {
+      "archive_zip_sha256": "6731bdaeeaa01a531f577150815dcf6638c15d21bc0ccee5e9ac0fa748ffe3c8",
+      "artifact_id": 14084348674,
+      "common_hourly_H2_float64_sha256": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16"
+    },
+    "usable_service": {
+      "archive_zip_sha256": "18dec140df7cab63dd9cae8836e3f23fd2dcfb0370acd48db0e36e6af81813cd",
+      "artifact_id": 14084937031,
+      "common_hourly_H2_float64_sha256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87"
+    }
+  },
+  "model_pressure_K": 313,
+  "source_project_pressure_min_bar_absolute": 20,
+  "source_project_pressure_max_bar_absolute": 200,
+  "checked_underlying_source_model": "full 8760h E/E+S original equal H2 service pressure-sieved HiGHS MILP with original PEM/load/ramp storage terminal and source compressor charge cost, preserve source initial/terminal 10t",
+  "independently_observed_new_price_or_wind_year_available": false,
+  "alternative_2022_2024_provider_files_independently_fetched_and_sha_verified": false,
+  "actual_site_market_forward_price_validated": false,
+  "scenario_catalog": [
+    {
+      "id": "price_circular_168h",
+      "market_transform": "2023 original price sequence re-indexed by +168h circular roll, exact original price marginal distribution",
+      "wind_transform": "original 2023 wind unchanged",
+      "weather_year_as_actual_other_year": false,
+      "causal_meaning": "break 2023 price-wind phase correlations while preserving empirical hourly price values; artificial timing counterfactual not 2023 real event"
+    },
+    {
+      "id": "price_centered_spread_150",
+      "market_transform": "median of original 2023 price +1.5*(original price-median), possible negative price preserved",
+      "wind_transform": "original 2023 wind unchanged",
+      "weather_year_as_actual_other_year": false,
+      "causal_meaning": "assumed higher within-year electricity price dispersion without a new observed year; not a statistical confidence bound"
+    },
+    {
+      "id": "wind_090_multiplier",
+      "market_transform": "original 2023 price unchanged",
+      "wind_transform": "original 2023 ERA5-model wind available ×0.90 for each hour (not 2024 observed)",
+      "weather_year_as_actual_other_year": false,
+      "causal_meaning": "systematically lower resource/PyNEXUS wind availability; may render exact original 2023 H2 target infeasible"
+    },
+    {
+      "id": "wind_110_multiplier",
+      "market_transform": "original 2023 price unchanged",
+      "wind_transform": "original 2023 ERA5-model wind available ×1.10 each hour, no turbine-rated-cap guarantee",
+      "weather_year_as_actual_other_year": false,
+      "causal_meaning": "systematically more energy availability, curtailment possible; not a re-run of wind-power curve on new 100m ERA5 velocities"
+    }
+  ],
+  "derived_source_hourly_arrays_not_committed": true,
+  "statistical_weather_model_uncertainty_confidence_bounds_claimed": false,
+  "price_and_wind_changes_preserve_original_2023_H2_hourly_target": true,
+  "E_ES_require_same_adjusted_2023_market_and_wind_each_hour": true,
+  "global_optimality_requirement": "SciPy HiGHS 1e-6 relative MIP gap source lower/feasible upper; if not attained label UNKNOWN certified preference",
+  "infeasibility_policy": "If either E or E+S cannot serve original identical H2 hour profile, report infeasibility independently, no numeric matched-service annual saving value",
+  "full_economic_plant_GWP_or_LCOH_releasable": false,
+  "source_docs": [
+    {
+      "title": "ENTSO-E 12.1D day-ahead market prices primary market source and API",
+      "url": "https://transparency.entsoe.eu/"
+    },
+    {
+      "title": "ERA5 original reanalysis hourly time-series data and licensing",
+      "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-timeseries"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "oem.ptx.exchange.v1.0",
+  "study_id": "OEM-PTX-2026-01",
+  "scenario_id": "E_plus_S",
+  "research_question": "H2_storage",
+  "analysis_scope": "scoped_bafu_reference",
+  "evidence_status": "source_reconstructed_native_LCIA",
+  "source": {
+    "source_repository": "abhijith-sivaprasadan/PyNEXUS",
+    "source_kind": "observed_weather_market_plus_modelled_hydrogen",
+    "original_source_archive_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+    "source_year": 2023,
+    "hour_count": 8760,
+    "native_source_license_reviewed": true,
+    "market_source_ref": "ENTSO-E NL A44 2023 observed, original registered PyNEXUS frozen archive",
+    "model_source_ref": "PyNEXUS WP5 E+S original 8760h modelled H2 + BAFU v1.1 native LCIA",
+    "code_commit_sha": null,
+    "source_notes": "No industrial H2 plant telemetry; the original weather/wind conversion and dispatch are simulated.",
+    "market_price_input_sha256": "2dfea4651fce314893201e7b08a4ae0ad24deef6b69ef85d81d9f54428f95bb2",
+    "wind_available_input_sha256": "a1c1443c49fa700d57038e008abd99f89c85d87e56a0fbd6141af37215e25520",
+    "hourly_demand_input_sha256": "1d35b2a2091a14998c3936819dac4edac0675319bd5b63553944c61a41943cd4"
+  },
+  "functional_unit": {
+    "product": "H2",
+    "unit": "kg",
+    "gate_name": "BAFU reference 30bar PEM H2 product gate, adapted to Netherlands 2023 modeled electricity",
+    "pressure_bar": 30,
+    "purity_mol_fraction": null,
+    "service_profile_sha256": null,
+    "same_service_as_comparator": false,
+    "quality_verified": false
+  },
+  "storage": {
+    "rated_h2_capacity_kg": 40000,
+    "usable_h2_capacity_kg": null,
+    "minimum_pressure_bar": null,
+    "maximum_pressure_bar": null,
+    "empty_equipment_mass_kg": null,
+    "equipment_mass_source_status": "missing",
+    "storage_electricity_kwh": null,
+    "inventory_losses_kg": null,
+    "physical_vessel_design_source": null
+  },
+  "annual_flows": {
+    "h2_modelled_delivered_kg": 16679072.08788836,
+    "electricity_grid_mwh": 302644.1563634776,
+    "electricity_wind_mwh": 488880.9142391963,
+    "h2_unserved_kg": 1570927.91211164,
+    "co2_feed_kg": null,
+    "methanol_delivered_kg": null,
+    "electricity_compressor_mwh": null,
+    "electricity_boP_mwh": null,
+    "water_kg": null
+  },
+  "impact": {
+    "source_database": "BAFU",
+    "source_database_version": "2026 v1.1",
+    "method": "IPCC 2021",
+    "category": "IPCC 2021 GWP 100",
+    "gwp100_kgco2e_per_product_kg": 6.0765526538929,
+    "impact_status": "scoped_native_lcia",
+    "full_plant_boundary": false,
+    "unlinked_material_product_inputs": 0,
+    "source_method_evidence": "docs/BAFU_2026_V11_NATIVE_2023_DUTCH_E_ES_VERIFIED.md",
+    "incremental_h2_storage_equipment_included": false
+  },
+  "economics": {
+    "cost_model_status": "capital_only",
+    "currency": "USD",
+    "price_year": 2022,
+    "discount_rate_fraction": 0.08,
+    "full_levelized_cost_per_delivered_kg": null
+  },
+  "claims": {
+    "original_study_observed_plant": false,
+    "native_lca_executed": true,
+    "matched_service_comparison_eligible": false,
+    "comparative_superiority_claim": false,
+    "industrial_validation": false,
+    "claim_notes": "Valid scoped BAFU v1.1 E+S native calculation, NOT including incremental 20t equipment or compression, NOT a matched-service comparison.",
+    "matched_operational_service_verified": false
+  },
+  "limitations": [
+    "Additional storage vessels, compressor/auxiliary energy, hydrogen loss and tank end-of-life not included.",
+    "Only reparameterized native 30bar BAFU reference with legacy offshore wind, not 2023 Dutch industrial plant telemetry.",
+    "Original E and E+S deliver different hydrogen services; no comparative superiority claim."
+  ],
+  "reproducibility_artifact_uri": "https://github.com/Open-Energy-Methods/PtXLens/blob/feat/wp0-screening-core/data/results/BAFU2026_v11_native_E_ES_2023_verified_summary.json"
+}

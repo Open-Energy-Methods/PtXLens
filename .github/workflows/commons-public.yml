@@ -1,0 +1,62 @@
+name: Acquire published public Commons Merged LCI without API keys
+on:
+  push:
+    branches: [feat/wp0-screening-core]
+    paths:
+      - '.github/workflows/commons-public.yml'
+      - 'src/ptxlens/commons_public.py'
+      - 'src/ptxlens/commons_jsonld_audit.py'
+      - 'src/ptxlens/commons_gaps.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Download actual public Commons Merged openLCA2 JSON-LD (no API key)
+        run: |
+          mkdir -p outputs/commons_public /tmp/flcac_database
+          python -m ptxlens.commons_public \
+            --archive /tmp/flcac_database/Commons_Merged_2026.jsonld.zip \
+            --manifest outputs/commons_public/source_sha256_manifest.json
+      - name: Audit true 1kg PEM hydrogen provider graph and IPCC LCIA method inventory
+        run: |
+          python -m ptxlens.commons_jsonld_audit \
+            --archive /tmp/flcac_database/Commons_Merged_2026.jsonld.zip \
+            --output outputs/commons_public/actual_upstream_provider_graph_and_methods.json
+      - name: Export ALL unresolved upstream exchanges and group by exact source flow UUID
+        run: |
+          python -m ptxlens.commons_gaps \
+            --source outputs/commons_public/actual_upstream_provider_graph_and_methods.json \
+            --by-exchange outputs/commons_public/unlinked_provider_exchanges.csv \
+            --by-flow outputs/commons_public/unlinked_provider_flows.csv
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          root=Path("outputs/commons_public")
+          d=json.loads((root/"actual_upstream_provider_graph_and_methods.json").read_text())
+          with (root/"unlinked_provider_exchanges.csv").open() as f:
+              exchanges=list(csv.DictReader(f))
+          with (root/"unlinked_provider_flows.csv").open() as f:
+              flows=list(csv.DictReader(f))
+          assert len(exchanges)==d["counts"]["missing_or_incompatible_provider_links"]
+          assert all(row["verified_linked"]=="False" for row in exchanges)
+          assert len(flows)>0
+          print("real unlinked source exchanges",len(exchanges))
+          print("unique incomplete source flow UUIDs",len(flows))
+          print("possible self-contained same-flow suppliers",d["missing_provider_candidate_counts"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-commons-merged-openlca-archive-provenance-only
+          path: outputs/commons_public/
+          retention-days: 90
+          if-no-files-found: warn

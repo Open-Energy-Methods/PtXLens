@@ -1,0 +1,46 @@
+{
+  "schema_version": "oem.ptx.original_PyNEXUS_GitHub_action_artifact_status.v1",
+  "checked_utc_date": "2026-11-14",
+  "queried_by": "GitHub API using authenticated repository access; source runs 40229852457 and 40225702504",
+  "note": "Source status is point-in-time. Actions artifacts are temporary and must be privately escrowed in lawful storage; this JSON contains metadata only, not the original source bytes.",
+  "source_repository": "abhijith-sivaprasadan/PyNEXUS",
+  "source_artifacts": [
+    {
+      "case": "E",
+      "artifact_id": 12612294862,
+      "workflow_run_id": 40229852457,
+      "name": "wp5-observed-full-year-E",
+      "size_bytes": 767808,
+      "expired": false,
+      "expires_at_UTC": "2026-12-24T20:18:09Z",
+      "verified_source_archive_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051"
+    },
+    {
+      "case": "E_plus_S",
+      "artifact_id": 12613045475,
+      "workflow_run_id": 40229852457,
+      "name": "wp5-observed-full-year-E+S",
+      "size_bytes": 775930,
+      "expired": false,
+      "expires_at_UTC": "2026-12-24T20:21:57Z",
+      "verified_source_archive_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9"
+    },
+    {
+      "case": "A44_original_market_provider_XML",
+      "artifact_id": 12610917985,
+      "workflow_run_id": 40225702504,
+      "name": "wp1-nl-a44-original-provider-xml-2023",
+      "size_bytes": 79058,
+      "expired": false,
+      "expires_at_UTC": "2026-12-24T19:24:29Z",
+      "verified_source_archive_sha256": "bc1751b86a3fe712ac2713985c4e189c922a031bacb53a7bd8f422809ba24248"
+    }
+  ],
+  "first_source_expiry_utc": "2026-12-24T19:24:29Z",
+  "all_three_currently_not_expired_on_check_date": true,
+  "all_three_original_bytes_already_in_user_owned_verified_private_storage": false,
+  "two_physically_independent_storage_restoration_verified": false,
+  "provider_data_reuse_and_public_redistribution_permission_independently_verified": false,
+  "none_of_raw_sources_published_in_repository": true,
+  "p0_complete": false
+}
