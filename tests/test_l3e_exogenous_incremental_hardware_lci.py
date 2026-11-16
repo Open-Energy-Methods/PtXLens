@@ -9,6 +9,7 @@ import pytest
 
 from ptxlens import l3e_exogenous_incremental_hardware_lci as m
 from ptxlens.l3d_bafu_incremental_inventory_gate import NativeInventoryBlocked
+from ptxlens.l3e_exogenous_incremental_dcf import MatchedStorageDCFError
 
 
 def test_real_source_BOM_19_lines_and_exogenous_service_source_locked():
@@ -73,7 +74,7 @@ def test_attempt_to_promote_filled_declarative_foreground_to_native_lcia_is_refu
     d=m.build()
     with pytest.raises(NativeInventoryBlocked,match="not implemented"):
         m.native_LCIA_release_check(d)
-    with pytest.raises(m.MatchedStorageDCFError):
+    with pytest.raises(MatchedStorageDCFError):
         m.native_LCIA_release_check({"schema_version":"other"})
 
 
