@@ -1,5 +1,15 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## 16 November 2026 — independently certified source-model 2022 90% wind infeasibility with an analytical 131h H2 shortfall
+
+**Executed local result:** 31 existing synthetic regression tests passed; the 2022 `max_inventory` 90%-original modeled-wind-electric-availability check independently reconstructed the original LP and returned E20t **infeasible**, while a second original-source-model constraint matrix independently verified the 40t E+S full-year integer-feasible case. More strongly, a *solver-independent necessary energy/storage interval inequality* found 18,669.0071kg H2 required from storage across **2022-04-30 18:00Z through 2022-05-06 05:00Z (end-exclusive; 131h)**, exceeding the full physical bank-inventory swing 17,786.0367kg by **882.9705kg** even under permissive idealized PEM/grid assumptions. This is a rigorous **source mathematical model** feasibility contradiction for E under the unchanged source H2 service and model/parameters—not a quantified real site shortage or annual failure probability. E+S source model cost €31.128728m nominal 2022 EUR under this scenario is **not** subtractable from an infeasible E; the matched-service saving is **NULL**, not 0.
+
+[Full physical proof and limitations](docs/F3D_2022_WIND_POWER_090_INDEPENDENT_INFEASIBILITY_SCIENTIFIC_RESULTS_v1.md) · [reconstructed feasibility LP and interval test](src/ptxlens/f3d_wind_reduction_independent_feasibility.py). The original independent feasibility JSON was generated locally and must be separately reviewed before publication.
+
+**Next mathematical sensitivity implemented but still unrun:** [safe source-hourly analytic wind-power factor lower-bound derivation](src/ptxlens/f3d_analytic_wind_feasibility_threshold.py), [synthetic monotonicity/source-provenance tests](tests/test_f3d_analytic_wind_feasibility_threshold.py), and `-Phase AnalyticWindBound` in [local research launcher](scripts/F3D_Robustness_Local.ps1). This locates where the generous necessary-condition low-wind cut **stops proving E infeasibility**; it does NOT establish E integer feasibility there or the actual project threshold. New tests and original-source analytic-bisection output await local execution. Real industrial plant, vendor equipment, exact branch-and-bound dual certificate, native BAFU LCIA and full scientific v1.0 remain **unverified**.
+
+---
+
 ## 16 November 2026 — F3-D 2022 fixed-H₂ wind-power reduction: feasibility, not a cost-savings case
 
 The 2022 `max_inventory` original source model with **90% of the original hourly PyNEXUS available wind ELECTRIC POWER** and **unchanged hourly 30.481t/day H₂ target** reported **E20t zero-cost LP-relaxed infeasible (HiGHS status 2)**, while **E+S40t full-year MILP completed (€31.128728m nominal 2022-EUR signed wholesale net grid cost)**. PtXLens independently replayed the E+S physical/EOS/cost witness and retained **NULL** E−E+S annual savings because the E model has no feasible cost value. This is a possible **feasibility-resilience benefit**, not a financial profit advantage, market forecast or real plant validation.
