@@ -38,6 +38,7 @@ $exogenousH30PeerReviewed=Join-Path $publicResults ("F3D_EXOGENOUS_{0}_{1}_H30_W
 $crossYearCompare=Join-Path $publicResults ("F3D_2022_2024_max_inventory_H30_W090_TWO_YEAR_MATCHED_SERVICE_ECONOMICS_v1.json")
 $l3eFrontiers=Join-Path $publicResults "L3E_2022_2024_H30_W090_EXOGENOUS_INCREMENTAL_DCF_FRONTIERS_NOT_VENDOR_NPV_v1.json"
 $l3eHardware=Join-Path $publicResults "L3E_H30_W090_INCREMENTAL_STATIONARY_20t_to_40t_HARDWARE_AND_BAFU_FOREGROUND_NOT_LCIA_v1.json"
+$l3eEnergy=Join-Path $publicResults "L3E_H30_W090_2022_2024_SOURCE_ANNUAL_GRID_AND_COMPRESSOR_INVENTORY_NOT_LCIA_v1.json"
 $l3eVendorIntake=Join-Path $FlexRoot "data\results\F2L3E_H30_INCREMENTAL_20t_40t_TYPEI_OEM_BOM_COST_EVIDENCE_INTAKE_NOT_QUOTES_v1.json"
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
@@ -61,6 +62,7 @@ if($Phase -eq "Status") {
   Write-Host ("2022-2024 admitted cross-year result exists: {0}" -f (Test-Path -LiteralPath $crossYearCompare -PathType Leaf))
   Write-Host ("L3-E source-locked conditional economics report exists: {0}" -f (Test-Path -LiteralPath $l3eFrontiers -PathType Leaf))
   Write-Host ("L3-E incremental hardware and BAFU admission scope exists: {0}" -f (Test-Path -LiteralPath $l3eHardware -PathType Leaf))
+  Write-Host ("L3-E source-replayed annual grid import/export and compressor inventory exists: {0}" -f (Test-Path -LiteralPath $l3eEnergy -PathType Leaf))
   Write-Host ("L3-E original F2 Type I vendor price intake report exists: {0}" -f (Test-Path -LiteralPath $l3eVendorIntake -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\exogenous_service_robustness\PRIVATE_F3D_EXOGENOUS_{0}_{1}_H30_W090_{2}.json" -f $Year,$Mode,$case)
@@ -89,6 +91,7 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_f3d_powershell_launcher_compatibility.py"),
     (Join-Path $LensRoot "tests\test_l3e_exogenous_incremental_dcf.py"),
     (Join-Path $LensRoot "tests\test_l3e_exogenous_incremental_hardware_lci.py"),
+    (Join-Path $LensRoot "tests\test_l3e_exogenous_operational_energy_inventory.py"),
     (Join-Path $FlexRoot "tests\test_f2l3e_exogenous_vendor_cost_intake.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
@@ -103,9 +106,11 @@ if($Phase -eq "L3EPrepare"){
     "--output-dir",$publicResults)
   Run $python @("-m","ptxlens.l3e_exogenous_incremental_hardware_lci",
     "--output-dir",$publicResults)
+  Run $python @("-m","ptxlens.l3e_exogenous_operational_energy_inventory",
+    "--output-dir",$publicResults)
   Run $python @("-m","ptxflex.f2l3e_exogenous_vendor_cost_intake",
     "--output",$l3eVendorIntake)
-  Write-Host "L3E source-locked hypothetical CAPEX/OPEX break-even and 19 category OEM/BAFU scope complete"
+  Write-Host "L3E source-locked CAPEX/OPEX frontiers, 19 category hardware/BAFU scope and original E/ES grid/compressor energy inventory complete"
   Write-Host "No manufacturer prices, material flows, native BAFU LCA, or investment viability accepted"
   Write-Host "Only manually review and stage PUBLIC report files after inspecting private data exclusions"
   return
