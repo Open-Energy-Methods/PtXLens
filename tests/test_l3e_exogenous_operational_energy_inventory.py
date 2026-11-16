@@ -74,7 +74,7 @@ def test_source_year_public_replay_integrity_blocks_changed_energy(tmp_path,monk
     genuine=m.source_file
     monkeypatch.setattr(m,"source_file",lambda year:
                         changed if year==2022 else genuine(year))
-    with pytest.raises(m.MatchedStorageDCFError,match="Git blob"):
+    with pytest.raises(MatchedStorageDCFError,match="Git blob"):
         m.build()
 
 
