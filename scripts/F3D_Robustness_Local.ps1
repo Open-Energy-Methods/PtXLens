@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -54,7 +54,8 @@ if($Phase -eq "Status") {
 if($Phase -eq "Test") {
   Run $python @("-m","pytest","-q",
     (Join-Path $FlexRoot "tests\test_f3d_external_year_controlled_counterfactual.py"),
-    (Join-Path $LensRoot "tests\test_f3d_source_year_independent_cost_lp_dual.py"))
+    (Join-Path $LensRoot "tests\test_f3d_source_year_independent_cost_lp_dual.py"),
+    (Join-Path $LensRoot "tests\test_f3d_lp_cf_public_consolidation.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -69,6 +70,18 @@ if($Phase -eq "IndependentLP"){
     "--LP-time-limit","$LPTimeLimit",
     "--output",$lpOutput)
   Write-Host ("Independent source-year relaxed LP result saved: {0}" -f $lpOutput)
+  return
+}
+if($Phase -eq "Consolidate"){
+  Need (Test-Path -LiteralPath $lpOutput -PathType Leaf) "Independent KKT LP review JSON missing; run -Phase IndependentLP"
+  Need (Test-Path -LiteralPath $pairOutput -PathType Leaf) "Independent original-hour price/wind reviewer JSON missing; run -Phase ReviewPair"
+  Run $python @("-m","ptxlens.f3d_lp_cf_public_consolidation",
+    "--original-public-source",$publicSource,
+    "--lp-review",$lpOutput,
+    "--counterfactual-review",$pairOutput,
+    "--output-dir",$publicResults)
+  Write-Host "Original independent KKT-LP saving interval and controlled price/wind result condensed into public 2-file report"
+  Write-Host "Inspect generated F3D_*_LP_CF_PUBLIC_v1 JSON+MD; DO NOT stage private source/witness folders"
   return
 }
 if($Phase -eq "SolvePair"){
