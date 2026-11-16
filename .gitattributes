@@ -1,0 +1,8 @@
+# Scientific evidence data use exact file-byte SHA-256 provenance links.
+# Preserve LF in working tree even on Windows with core.autocrlf=true.
+# Otherwise hash-linked LP -> independently replayed integer evidence can
+# break on a fresh checkout without any scientific input changing.
+data/results/F3D_*.json text eol=lf
+data/results/F3D_*.md text eol=lf
+
+# Keep the source-linked pre-publication validation protocols as plain text.
