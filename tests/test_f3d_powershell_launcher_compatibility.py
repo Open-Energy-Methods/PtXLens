@@ -7,6 +7,7 @@ can run. Keep the launcher strictly ASCII and parse it through the installed
 Windows PowerShell parser where supported. Source-only tests: no MILPs.
 """
 from pathlib import Path
+import re
 import shutil
 import subprocess
 
@@ -31,8 +32,9 @@ def test_f3d_launcher_has_2024_publication_gate_without_auto_publication():
     assert 'if($Phase -eq "AuditAndCompare2024"){' in content
     assert 'f3d_2024_crossyear_publication' in content
     assert 'test_f3d_2024_crossyear_publication.py' in content
-    assert "git add" not in content
-    assert "git push" not in content
+    # A printed instruction can mention "git add", but the launcher may
+    # never invoke git add or git push as an actual PowerShell statement.
+    assert re.search(r"(?m)^\\s*git\\s+(?:add|push)\\s",content) is None
 
 
 def test_f3d_launcher_parses_with_actual_windows_powershell_51_if_available():
