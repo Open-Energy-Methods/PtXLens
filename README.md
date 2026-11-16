@@ -1,5 +1,13 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## 16 November 2026 — F3-D 2022 fixed-H₂ wind-power reduction: feasibility, not a cost-savings case
+
+The 2022 `max_inventory` original source model with **90% of the original hourly PyNEXUS available wind ELECTRIC POWER** and **unchanged hourly 30.481t/day H₂ target** reported **E20t zero-cost LP-relaxed infeasible (HiGHS status 2)**, while **E+S40t full-year MILP completed (€31.128728m nominal 2022-EUR signed wholesale net grid cost)**. PtXLens independently replayed the E+S physical/EOS/cost witness and retained **NULL** E−E+S annual savings because the E model has no feasible cost value. This is a possible **feasibility-resilience benefit**, not a financial profit advantage, market forecast or real plant validation.
+
+[Independent LP reconstruction plus O(N) rigorous necessary storage/power energy-interval inequality checker](src/ptxlens/f3d_wind_reduction_independent_feasibility.py), [synthetic physical-condition and witness tests](tests/test_f3d_wind_reduction_independent_feasibility.py) and [research methodology and strict claim boundaries](docs/F3D_2022_WIND_POWER_090_FIXED_H2_FEASIBILITY_AND_INDEPENDENT_RECONSTRUCTION_v1.md) are now implemented. The new reviewer rebuilds the 2022 source LP independently rather than trusting the PtXFlex infeasible flag, and compares the source E+S incumbent to a second source model constraint matrix. If a direct contiguous low-wind energy-inventory deficit inequality is violated, that yields a solver-independent necessary-condition contradiction. If it does not, it is inconclusive. Same solver backend (SciPy/HiGHS), no native Farkas ray, no absolute commercial/site or BAFU claims. **New local tests and independent LP feasibility run are still pending.**
+
+---
+
 ## 16 November 2026 — first price-roll original-year review and stronger independent LP interpretation
 
 The local 2022/max_inventory 168h price circular shift E and E+S whole-year optimizations completed and were independently PtXLens primal-replayed to a sanitized local JSON. The independent reference-year relaxed LPs passed KKT/duality checks but **did not** prove source integer cost optima to 1e-6: E LP-to-integer relative gap 0.1251%, E+S gap 0.1756%. Separate valid independent LP lower bounds versus independently verified integer feasible original costs yield the conservative source-model original saving interval **EUR 3,872,262–3,945,607**, positive throughout. The shifted-price test source-model saving was approximately EUR 2.973350m instead of original EUR 3.905633m (-23.87%) based on terminal rounded perturbed costs; its exact reviewed result remains local until safely published.
