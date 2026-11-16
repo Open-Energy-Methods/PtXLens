@@ -379,9 +379,9 @@ def markdown(record):
         "certification, net grid tariffs and real offtake terms are UNKNOWN. "
         "A positive conditional CAPEX ceiling is not an observed project NPV.",
         "",
-        "The complete JSON contains **324** fully labelled hypothetical "
-        "discount-horizon-OPEX-repeat/degradation combinations, for each "
-        "source year separately, and source HiGHS reported COST-BOUND intervals "
+        "The complete JSON contains **324 TOTAL** fully labelled hypothetical "
+        "discount-horizon-OPEX-repeat/degradation combinations (162 in each "
+        "separate original source year), and source HiGHS reported COST-BOUND intervals "
         "that are NOT weather/market forecast uncertainty bands. "
         "It never averages 2022 and 2024 monetary values.",
         "",
