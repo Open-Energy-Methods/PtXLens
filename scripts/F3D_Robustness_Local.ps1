@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -32,6 +32,7 @@ $lpOutput=Join-Path $publicResults ("F3D_LP_{0}_{1}_independent_relaxed_cost_KKT
 $pairOutput=Join-Path $publicResults ("F3D_CF_{0}_{1}_{2}_INDEPENDENT_PUBLIC_REPLAY.json" -f $Year,$Mode,$Variant)
 $windLPOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_SOURCE_LP_FEASIBILITY_v1.json" -f $Year,$Mode)
 $analyticOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_ANALYTIC_FEASIBILITY_FACTOR_LOWER_BOUND_v1.json" -f $Year,$Mode)
+$LPBracketOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_E_LP_FEASIBILITY_BRACKET_v1.json" -f $Year,$Mode)
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
 }
@@ -48,6 +49,7 @@ if($Phase -eq "Status") {
   Write-Host ("Controlled pair independently reviewed output exists: {0}" -f (Test-Path -LiteralPath $pairOutput -PathType Leaf))
   Write-Host ("Independent wind-power feasibility review exists: {0}" -f (Test-Path -LiteralPath $windLPOutput -PathType Leaf))
   Write-Host ("Derived solver-free necessary-condition wind threshold bound exists: {0}" -f (Test-Path -LiteralPath $analyticOutput -PathType Leaf))
+  Write-Host ("Independent relaxed LP wind feasibility bracket exists: {0}" -f (Test-Path -LiteralPath $LPBracketOutput -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\counterfactuals\PRIVATE_F3D_CF_{0}_{1}_{2}_{3}.json" -f $Year,$Mode,$Variant,$case)
     Write-Host ("PRIVATE source model {0} result exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -61,7 +63,8 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_f3d_source_year_independent_cost_lp_dual.py"),
     (Join-Path $LensRoot "tests\test_f3d_lp_cf_public_consolidation.py"),
     (Join-Path $LensRoot "tests\test_f3d_wind_reduction_independent_feasibility.py"),
-    (Join-Path $LensRoot "tests\test_f3d_analytic_wind_feasibility_threshold.py"))
+    (Join-Path $LensRoot "tests\test_f3d_analytic_wind_feasibility_threshold.py"),
+    (Join-Path $LensRoot "tests\test_f3d_independent_wind_lp_bracket.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -103,6 +106,27 @@ if($Phase -eq "AnalyticWindBound"){
   Write-Host "Analytical energy-storage necessary-condition critical wind-factor lower bound exported"
   Write-Host "THIS IS NOT the actual original E model integer feasibility threshold"
   Write-Host ("Inspect scalar public output: {0}" -f $analyticOutput)
+  return
+}
+if($Phase -eq "IndependentWindLPBracket"){
+  Need ($Variant -eq "wind_power_090") "IndependentWindLPBracket requires the original preregistered 90pct electrical-wind scenario"
+  Need (Test-Path -LiteralPath $windLPOutput -PathType Leaf) "Missing independent 90pct source LP feasibility report"
+  Need (Test-Path -LiteralPath $analyticOutput -PathType Leaf) "Missing verified necessary storage-energy threshold bound; run -Phase AnalyticWindBound"
+  Need (Test-Path -LiteralPath $lpOutput -PathType Leaf) "Missing original k=1 independently reviewed E LP cost/feasibility witness; run -Phase IndependentLP"
+  # Exactly 8 additional full-year RELAXED LP feasibility solves.
+  # Each trial is independently source-model reconstructed and rejects
+  # numerical failures; no expensive annual integer MILP is repeated.
+  Run $python @("-m","ptxlens.f3d_independent_wind_lp_bracket",
+    "--year","$Year","--mode",$Mode,
+    "--private-root",$PrivateRoot,
+    "--public-source",$publicSource,
+    "--independent-wind-review",$windLPOutput,
+    "--analytic-wind-report",$analyticOutput,
+    "--reference-independent-cost-LP",$lpOutput,
+    "--steps","8","--time-limit","120",
+    "--output-dir",$publicResults)
+  Write-Host "Independent reconstructed E relaxed-LP bracketing complete; original integer wind threshold still UNKNOWN"
+  Write-Host ("Inspect the NEW public aggregate: {0}" -f $LPBracketOutput)
   return
 }
 if($Phase -eq "Consolidate"){
