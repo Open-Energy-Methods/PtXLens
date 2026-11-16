@@ -166,7 +166,12 @@ def test_no_missing_public_file_or_source_symlink_admitted(tmp_path):
     md.unlink()
     with pytest.raises(m.EvidenceReleaseError,match="absent"):
         m.audit(tmp_path,source)
-    md.symlink_to(source)
+    try:
+        md.symlink_to(source)
+    except OSError:
+        # Windows without Developer Mode/admin privileges may forbid symlink
+        # creation; missing-file protection has still been tested above.
+        pytest.skip("Windows does not permit non-administrator symlink creation")
     with pytest.raises(m.EvidenceReleaseError,match="symlink"):
         m.audit(tmp_path,source)
 
