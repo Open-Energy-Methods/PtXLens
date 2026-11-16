@@ -2,6 +2,12 @@
 
 **Status:** technical results from the locally executed independent PtXLens source replay, 16 November 2026. Numerical source original archived privately under PtX_PRIVATE_RESEARCH. No native manufacturer quote, BAFU process emissions or real industrial performance claim.
 
+## Methodological caveat: original H₂ service is E-selected maximal throughput
+
+The source model **selected the original approximately 30.481t/day reference by maximizing E-only constant hourly H₂ delivery under the same 2022 wind input**. Consequently, the original E architecture was tested at (or near, subject to the source selector's original MIP certification) a throughput feasibility limit. Its infeasibility under reduced wind is genuine for that **specific internally selected target**, but sensitivity close to 100% of original wind is partly **expected by the selection method**. It does not establish that E fails for a typical exogenous customer service of 25, 27.5 or 30t/day. The E+S feasible original-maximal-target contrast is model-valid but cannot, without further matched-service tests, be generalized to industrial reliability.
+
+The subsequent independent relaxed LP analysis found E still infeasible at **99.993304796% original wind electric-power availability**, with the original E integer witness feasible at **100%**. This is a tighter, source-model-conditional infeasibility lower bound than the earlier 98.286% analytical necessary-cut boundary. Neither is an empirically observed reliability threshold. See [predeclared exogenous-service research correction and design](F3D_MAXIMAL_H2_SERVICE_SELECTION_BIAS_AND_EXOGENOUS_ROBUSTNESS_PROTOCOL_v1.md).
+
 ## Research question
 
 Holding identical source-year 2022 original model H2 delivery at approximately **30.481 t/day** (price-blind uniform maximum service) and source NL ENTSO-E A44 hourly prices, can an E-only 20t nominal hydrogen storage bank or E+S 40t bank continue satisfying **all 8,760 hourly hydrogen targets** if source-PyNEXUS modelled available wind **electrical power** is multiplied by 0.9?
