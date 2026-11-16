@@ -3,6 +3,8 @@
 **Status: method committed; new 8-factor LP experiment not run locally.**
 Scope is Open-Energy-Methods PtXLens/PtXFlex, 2022 NL A44 price/Copernicus ERA5 ARCO single-location model, `max_inventory` stationary Type I screened 20t E and 40t E+S H₂ configurations.
 
+**Post-experiment status clarification, 16 November 2026:** the eight additional independently reconstructed original LP feasibility evaluations have now been completed locally with **48 regression tests passed**. They tightened the E relaxed-LP infeasible lower limit to wind electric-power multiplier **0.999933047961622**, while the original integer-feasible E source reference remains at **1.0**. All eight intermediate tested factors were LP-infeasible; there was **no independently identified new interior feasible LP point**. The original integer threshold is still UNKNOWN in **(0.999933047961622, 1.0]**. The following prespecified method remains useful as the accepted protocol; its original 'not run' header refers to the status before the local experiment. The target was E-selected near maximal service, so this is a **boundary-conditioned stress**, not a site-level reliability result. See [exogenous matched-service correction and follow-on](F3D_MAXIMAL_H2_SERVICE_SELECTION_BIAS_AND_EXOGENOUS_ROBUSTNESS_PROTOCOL_v1.md).
+
 ## Established independently before this experiment
 
 - Original E reference at **100% source-year wind electric POWER**: independently verified full-year original E integer primal feasible, meeting the immutable hourly price-neutral hydrogen functional unit.
