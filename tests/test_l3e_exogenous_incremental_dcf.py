@@ -129,7 +129,7 @@ def test_grid_complete_and_independent_historical_year_currency_domains():
     assert x["manufacturer_supplier_verified_incremental_all_in_CAPEX_eur"] is None
     assert x["scientific_v1_0_economic_gate_passed"] is False
     assert x["BAFU_native_v11_incremental_inventory_and_LCIA_verified"] is False
-    assert "vendor costs" in m.markdown(x).lower()
+    assert "NOT a manufacturer price" in m.markdown(x)
     assert "NOT" in m.markdown(x)
 
 
