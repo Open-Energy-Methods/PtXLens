@@ -1,5 +1,7 @@
 # F3-D — first independently replayed exogenous-service matched-architecture electricity comparison
 
+**Publication status update (16 November 2026):** all nine public-safe F3-D 2022 research data and Markdown artifacts were checked by the fail-closed `AuditPublic2022` stage, **94 regression tests passed, one optional Windows symlink regression test skipped**, all source/hash/paired-cost/data-volume gates passed, and the nine files were committed and pushed as PtXLens **936177a**. The working tree was clean following that push. The earlier wording below describing the outputs as *untracked* or the audit as *not yet run* refers to the original pre-publication checkpoint and has been superseded by this publication receipt. The underlying independent replay and original HiGHS solver-bounds scope are unchanged.
+
 **Evidence date:** 16 November 2026. **Scope:** 2022 original NL ENTSO-E A44 price and ERA5 ARCO/PyNEXUS model available wind ELECTRIC power; stationary 20–200-bar(a) Type I 20t E and 40t E+S nominal H₂ banks; source-model **max_inventory** capacity interpretation. The outcome is a frozen-model engineering result, **not** an observed operating plant or investment decision.
 
 ## Claim and original research design
