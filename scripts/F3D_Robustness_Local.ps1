@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024","L3EPrepare")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -36,6 +36,9 @@ $LPBracketOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_E_L
 $exogenousLPOutput=Join-Path $publicResults ("F3D_{0}_{1}_EXOGENOUS_H2_SOURCE_LP_FEASIBILITY_SCREEN_v1.json" -f $Year,$Mode)
 $exogenousH30PeerReviewed=Join-Path $publicResults ("F3D_EXOGENOUS_{0}_{1}_H30_W090_BOTH_INTEGER_INDEPENDENT_REPLAY_v1.json" -f $Year,$Mode)
 $crossYearCompare=Join-Path $publicResults ("F3D_2022_2024_max_inventory_H30_W090_TWO_YEAR_MATCHED_SERVICE_ECONOMICS_v1.json")
+$l3eFrontiers=Join-Path $publicResults "L3E_2022_2024_H30_W090_EXOGENOUS_INCREMENTAL_DCF_FRONTIERS_NOT_VENDOR_NPV_v1.json"
+$l3eHardware=Join-Path $publicResults "L3E_H30_W090_INCREMENTAL_STATIONARY_20t_to_40t_HARDWARE_AND_BAFU_FOREGROUND_NOT_LCIA_v1.json"
+$l3eVendorIntake=Join-Path $FlexRoot "data\results\F2L3E_H30_INCREMENTAL_20t_40t_TYPEI_OEM_BOM_COST_EVIDENCE_INTAKE_NOT_QUOTES_v1.json"
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
 }
@@ -56,6 +59,9 @@ if($Phase -eq "Status") {
   Write-Host ("Prespecified exogenous fixed-H2 service E/E+S LP screen exists: {0}" -f (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf))
   Write-Host ("Exogenous H30/W090 E+ES integer replay PUBLIC aggregate exists: {0}" -f (Test-Path -LiteralPath $exogenousH30PeerReviewed -PathType Leaf))
   Write-Host ("2022-2024 admitted cross-year result exists: {0}" -f (Test-Path -LiteralPath $crossYearCompare -PathType Leaf))
+  Write-Host ("L3-E source-locked conditional economics report exists: {0}" -f (Test-Path -LiteralPath $l3eFrontiers -PathType Leaf))
+  Write-Host ("L3-E incremental hardware and BAFU admission scope exists: {0}" -f (Test-Path -LiteralPath $l3eHardware -PathType Leaf))
+  Write-Host ("L3-E original F2 Type I vendor price intake report exists: {0}" -f (Test-Path -LiteralPath $l3eVendorIntake -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\exogenous_service_robustness\PRIVATE_F3D_EXOGENOUS_{0}_{1}_H30_W090_{2}.json" -f $Year,$Mode,$case)
     Write-Host ("PRIVATE exogenous H30 W090 integer witness {0} exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -80,8 +86,28 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_f3d_exogenous_h2_integer_independent_replay.py"),
     (Join-Path $LensRoot "tests\test_f3d_2022_public_evidence_admission.py"),
     (Join-Path $LensRoot "tests\test_f3d_2024_crossyear_publication.py"),
-    (Join-Path $LensRoot "tests\test_f3d_powershell_launcher_compatibility.py"))
+    (Join-Path $LensRoot "tests\test_f3d_powershell_launcher_compatibility.py"),
+    (Join-Path $LensRoot "tests\test_l3e_exogenous_incremental_dcf.py"),
+    (Join-Path $LensRoot "tests\test_l3e_exogenous_incremental_hardware_lci.py"),
+    (Join-Path $FlexRoot "tests\test_f2l3e_exogenous_vendor_cost_intake.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
+  return
+}
+if($Phase -eq "L3EPrepare"){
+  Need ($Mode -eq "max_inventory") "L3-E original source-year H30 matched service is only certified for max_inventory"
+  # No original hourly data, private solver witnesses or manufacturer quotes
+  # needed. Generates hypothetical conditional DCF frontiers and original
+  # source F2-linked 19-line hardware/BaFU and OEM quote intake placeholders.
+  Need (Test-Path -LiteralPath $crossYearCompare -PathType Leaf) "Source-independent 2022 and 2024 exogenous H30 W090 cross-year result missing"
+  Run $python @("-m","ptxlens.l3e_exogenous_incremental_dcf",
+    "--output-dir",$publicResults)
+  Run $python @("-m","ptxlens.l3e_exogenous_incremental_hardware_lci",
+    "--output-dir",$publicResults)
+  Run $python @("-m","ptxflex.f2l3e_exogenous_vendor_cost_intake",
+    "--output",$l3eVendorIntake)
+  Write-Host "L3E source-locked hypothetical CAPEX/OPEX break-even and 19 category OEM/BAFU scope complete"
+  Write-Host "No manufacturer prices, material flows, native BAFU LCA, or investment viability accepted"
+  Write-Host "Only manually review and stage PUBLIC report files after inspecting private data exclusions"
   return
 }
 Need (Test-Path -LiteralPath $PrivateRoot -PathType Container) "Original private source archive missing"
