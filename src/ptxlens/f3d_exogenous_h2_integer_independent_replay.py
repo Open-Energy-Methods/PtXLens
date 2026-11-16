@@ -103,8 +103,17 @@ def check_private_case(record,metadata,case,original_wind,price,target,params,du
     states=record.get("original_full_hourly_states_8var_PRIVATE")
     need(type(states) is list and len(states)==len(target),
          "original full-hourly PRIVATE 8-var solver states missing")
+    # The shared independent replay hashes exact original float64 values
+    # but deliberately accepts native Python numeric scalars, not np.float64.
+    # Converting a 1-D float64 array to a list preserves its values/ordering
+    # and original hourly H2 SHA256; it does NOT alter the MILP witness.
+    hourly_target=np.asarray(target,dtype=np.float64)
+    need(hourly_target.ndim==1 and hourly_target.size==len(states) and
+         np.isfinite(hourly_target).all() and
+         source_f64_vector_hash(hourly_target)==metadata["exogenous_H2_hourly_SHA256"],
+         "original exogenous H2 float64 source target changed before independent replay")
     audit=replay_equations(
-        states, target,
+        states, hourly_target.tolist(),
         [float(x)*WIND_FACTOR for x in original_wind],
         price, params,duty,
     )
