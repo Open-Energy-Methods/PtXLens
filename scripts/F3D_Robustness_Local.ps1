@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -35,6 +35,7 @@ $analyticOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_ANALYTIC_FEASIBI
 $LPBracketOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_E_LP_FEASIBILITY_BRACKET_v1.json" -f $Year,$Mode)
 $exogenousLPOutput=Join-Path $publicResults ("F3D_{0}_{1}_EXOGENOUS_H2_SOURCE_LP_FEASIBILITY_SCREEN_v1.json" -f $Year,$Mode)
 $exogenousH30PeerReviewed=Join-Path $publicResults ("F3D_EXOGENOUS_{0}_{1}_H30_W090_BOTH_INTEGER_INDEPENDENT_REPLAY_v1.json" -f $Year,$Mode)
+$crossYearCompare=Join-Path $publicResults ("F3D_2022_2024_max_inventory_H30_W090_TWO_YEAR_MATCHED_SERVICE_ECONOMICS_v1.json")
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
 }
@@ -54,6 +55,7 @@ if($Phase -eq "Status") {
   Write-Host ("Independent relaxed LP wind feasibility bracket exists: {0}" -f (Test-Path -LiteralPath $LPBracketOutput -PathType Leaf))
   Write-Host ("Prespecified exogenous fixed-H2 service E/E+S LP screen exists: {0}" -f (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf))
   Write-Host ("Exogenous H30/W090 E+ES integer replay PUBLIC aggregate exists: {0}" -f (Test-Path -LiteralPath $exogenousH30PeerReviewed -PathType Leaf))
+  Write-Host ("2022–2024 admitted cross-year result exists: {0}" -f (Test-Path -LiteralPath $crossYearCompare -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\exogenous_service_robustness\PRIVATE_F3D_EXOGENOUS_{0}_{1}_H30_W090_{2}.json" -f $Year,$Mode,$case)
     Write-Host ("PRIVATE exogenous H30 W090 integer witness {0} exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -76,7 +78,8 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_f3d_exogenous_service_lp_screen.py"),
     (Join-Path $FlexRoot "tests\test_f3d_exogenous_h2_integer_dispatch.py"),
     (Join-Path $LensRoot "tests\test_f3d_exogenous_h2_integer_independent_replay.py"),
-    (Join-Path $LensRoot "tests\test_f3d_2022_public_evidence_admission.py"))
+    (Join-Path $LensRoot "tests\test_f3d_2022_public_evidence_admission.py"),
+    (Join-Path $LensRoot "tests\test_f3d_2024_crossyear_publication.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -167,6 +170,22 @@ if($Phase -eq "AuditPublic2022"){
     "--original-public-source",$publicSource)
   Write-Host "All nine original-source public research files approved for manual git add ONLY"
   Write-Host "Review filenames, git diff --cached, scientific claims and private source exclusion BEFORE any push"
+  return
+}
+if($Phase -eq "AuditAndCompare2024"){
+  Need ($Year -eq 2024 -and $Mode -eq "max_inventory") "2024 source publication gate supports only exogenous H30 W090 2024 max_inventory"
+  Need (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf) "Original 2024 independently reviewed LP screen missing"
+  Need (Test-Path -LiteralPath $exogenousH30PeerReviewed -PathType Leaf) "Original 2024 independently replayed E/ES annual integer results missing"
+  # This validates nine independently admitted 2022 files PLUS three 2024
+  # original model scalar outputs. Never reads PRIVATE hourly provider/witness.
+  # Only AFTER all gates pass it generates two source-locked cross-year
+  # aggregates and prints five allowlisted publication candidates.
+  Run $python @("-m","ptxlens.f3d_2024_crossyear_publication",
+    "--results-dir",$publicResults,
+    "--original-public-source",$publicSource)
+  Write-Host "2024 LP+E/ES full-year source replay admitted and source-specific 2022–24 comparison derived"
+  Write-Host "Only THREE pre-existing 2024 output files plus TWO derived cross-year output files eligible for manual git stage"
+  Write-Host "No file has been automatically git-added, committed, pushed or published"
   return
 }
 if($Phase -eq "ExogenousH30SolvePair"){
