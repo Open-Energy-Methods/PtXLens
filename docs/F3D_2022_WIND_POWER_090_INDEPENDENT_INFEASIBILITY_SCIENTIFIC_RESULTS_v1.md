@@ -69,18 +69,18 @@ The new threshold script and its additional hermetic tests are committed, **not 
 
 ## Reproduce locally without new MILPs
 
-\`\`\`powershell
+```powershell
 cd C:\Users\prasa\OEM_Research\PtXLens
 git pull --ff-only
 
 .\scripts\F3D_Robustness_Local.ps1 -Phase Test
 
-.\scripts\F3D_Robustness_Local.ps1 \`
-  -Phase AnalyticWindBound \`
-  -Year 2022 \`
-  -Mode max_inventory \`
+.\scripts\F3D_Robustness_Local.ps1 `
+  -Phase AnalyticWindBound `
+  -Year 2022 `
+  -Mode max_inventory `
   -Variant wind_power_090
-\`\`\`
+```
 
 The original independent LP feasibility source check is already passed; the new calculation reads that immutable JSON, validates original private source hashes and hourly H2 target, reproduces the verified 131h witness, and publishes ONLY a scalar bound and text explanation, never provider hourly data or private primal dispatch.
 
