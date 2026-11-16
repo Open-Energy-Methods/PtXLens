@@ -9,6 +9,7 @@ import json
 import pytest
 
 from ptxlens import l3e_exogenous_operational_energy_inventory as m
+from ptxlens.l3e_exogenous_incremental_dcf import MatchedStorageDCFError
 
 
 def test_source_verified_both_years_annual_operational_energy_inventory():
