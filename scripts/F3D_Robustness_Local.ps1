@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024","L3EPrepare")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024","L3EPrepare","L3EAuditPublic")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -92,6 +92,7 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_l3e_exogenous_incremental_dcf.py"),
     (Join-Path $LensRoot "tests\test_l3e_exogenous_incremental_hardware_lci.py"),
     (Join-Path $LensRoot "tests\test_l3e_exogenous_operational_energy_inventory.py"),
+    (Join-Path $LensRoot "tests\test_l3e_publication_admission.py"),
     (Join-Path $FlexRoot "tests\test_f2l3e_exogenous_vendor_cost_intake.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
@@ -113,6 +114,19 @@ if($Phase -eq "L3EPrepare"){
   Write-Host "L3E source-locked CAPEX/OPEX frontiers, 19 category hardware/BAFU scope and original E/ES grid/compressor energy inventory complete"
   Write-Host "No manufacturer prices, material flows, native BAFU LCA, or investment viability accepted"
   Write-Host "Only manually review and stage PUBLIC report files after inspecting private data exclusions"
+  return
+}
+if($Phase -eq "L3EAuditPublic"){
+  Need ($Mode -eq "max_inventory") "L3-E public release audit source model supports only max_inventory"
+  Need (Test-Path -LiteralPath $l3eFrontiers -PathType Leaf) "First run -Phase L3EPrepare: financial scenarios missing"
+  Need (Test-Path -LiteralPath $l3eHardware -PathType Leaf) "First run -Phase L3EPrepare: hardware scope missing"
+  Need (Test-Path -LiteralPath $l3eEnergy -PathType Leaf) "First run -Phase L3EPrepare: annual grid energy inventory missing"
+  Need (Test-Path -LiteralPath $l3eVendorIntake -PathType Leaf) "First run -Phase L3EPrepare: PtXFlex original OEM questionnaire missing"
+  Run $python @("-m","ptxlens.l3e_publication_admission",
+    "--lens-results",$publicResults,
+    "--flex-results",(Join-Path $FlexRoot "data\results"))
+  Write-Host "Seven exact source-rebuilt safe files validated across both repositories"
+  Write-Host "Review all seven files before manual git stage: no private source, native BAFU or actual OEM cost qualification"
   return
 }
 Need (Test-Path -LiteralPath $PrivateRoot -PathType Container) "Original private source archive missing"
