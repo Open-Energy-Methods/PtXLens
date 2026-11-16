@@ -83,10 +83,6 @@ def load_year(year,matched):
         exports=number(c.get("independent_annual_grid_export_MWh"),"grid export MWh",minimum=0.)
         compressor=number(c.get("independent_annual_compression_MWh"),"compressor MWh",minimum=0.)
         cost=number(c.get("source_modelled_nominal_original_year_wholesale_eur"),"source cost")
-        need(abs(cost-(matched["source_annual_saving_eur"]+
-             data["E_plus_S"]["source_modelled_nominal_original_year_wholesale_eur"]
-             if case=="E" else cost))<.05,
-             "source original published wholesale price/historical economy changed")
         ledger[case]={
             "original_E_or_ES_hardware":case,
             "modelled_annual_grid_import_MWh":imports,
@@ -100,6 +96,10 @@ def load_year(year,matched):
             "modelled_compressor_kWh_per_kg_H2_WITHIN_system_load":1000.*compressor/h2,
             "actual_metered_site_electricity_data":False,
         }
+    need(abs(ledger["E"]["modelled_annual_signed_wholesale_electricity_settlement_nominal_year_EUR"]-
+                 ledger["E_plus_S"]["modelled_annual_signed_wholesale_electricity_settlement_nominal_year_EUR"]-
+                 matched["source_annual_saving_eur"])<.02,
+         "source original published E/ES annual signed wholesale cost pair changed")
     e=ledger["E"]
     s=ledger["E_plus_S"]
     def dlt(field):
