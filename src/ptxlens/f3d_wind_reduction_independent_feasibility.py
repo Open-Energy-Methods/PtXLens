@@ -28,7 +28,7 @@ from .f3d_source_year_independent_cost_lp_dual import (
     construct_lp, check_private_source, SOURCE_PUBLISHED_GIT_BLOB,
 )
 from .f3d_external_year_counterfactual_independent_review import (
-    independent_pair, PRIVATE_SOURCE_SCHEMA, CF_SCHEMA,
+    independent_pair, PRIVATE_SOURCE_SCHEMA, SCHEMA as CF_SCHEMA,
 )
 from .f3d_external_year_private_witness_replay import (
     expected_params, f64_hash, need,
