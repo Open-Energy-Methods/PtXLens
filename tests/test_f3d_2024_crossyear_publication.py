@@ -142,6 +142,24 @@ def fixture():
     return original,lp,integer_2024,pbase,old_audit,lp_sha
 
 
+def test_2024_fixture_price_fingerprint_is_scalar_and_json_roundtrippable():
+    """Regression for the 2024 price SHA shadowed by the integer result dict.
+
+    The earlier fixture used p2024 for both objects and created a circular
+    reference in the source metadata, failing 15 independent test cases
+    before the actual scientific admission logic could run.
+    """
+    source,lp,integer,old_integer,old_audit,lp_sha=fixture()
+    price_sha=source["cases"][1]["source_year_price_f64_sha256"]
+    assert price_sha=="3"*64
+    assert isinstance(price_sha,str)
+    assert lp["source_original_price_float64_SHA256"]==price_sha
+    assert integer["original_price_f64_SHA256"]==price_sha
+    assert integer["independent_LP_screen_bytes_SHA256"]==lp_sha
+    serialized=json.dumps(source,sort_keys=True,allow_nan=False)
+    assert json.loads(serialized)["cases"][1]["source_year_price_f64_sha256"]==price_sha
+
+
 def audit_fixture(monkeypatch,mutable=None):
     original,lp,integer,old_int,old_audit,lp_sha=fixture()
     if mutable:
