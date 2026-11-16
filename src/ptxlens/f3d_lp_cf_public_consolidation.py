@@ -172,9 +172,7 @@ def prose(r):
                   "confidence intervals. Vendor installed CAPEX/OPEX, "
                   "BAFU process inventory and whole-plant GWP and v1.0 remain "
                   "**unverified**."])
-    return "
-".join(lines)+"
-"
+    return "\n".join(lines)+"\n"
 
 def main(argv=None):
     parser=argparse.ArgumentParser()
@@ -183,9 +181,7 @@ def main(argv=None):
     parser.add_argument("--counterfactual-review",required=True,type=Path)
     parser.add_argument("--output-dir",required=True,type=Path)
     args=parser.parse_args(argv)
-    original_bytes=args.original_public_source.read_bytes().replace(b"
-",b"
-")
+    original_bytes=args.original_public_source.read_bytes().replace(b"\r\n",b"\n")
     git=hashlib.sha1(b"blob "+str(len(original_bytes)).encode()+b"\0"+original_bytes).hexdigest()
     check(git==PIN,"source 2022/2024 original Git blob changed")
     original=json.loads(original_bytes.decode("utf-8"))
@@ -199,8 +195,7 @@ def main(argv=None):
           "existing public output directory required")
     base=f"F3D_{report['year']}_{report['capacity_semantics']}_{report['variant']}_LP_CF_PUBLIC_v1"
     outputs=[
-        (target/(base+".json"),json.dumps(report,sort_keys=True,indent=2,allow_nan=False)+"
-"),
+        (target/(base+".json"),json.dumps(report,sort_keys=True,indent=2,allow_nan=False)+"\n"),
         (target/(base+".md"),prose(report)),
     ]
     for path,body in outputs:
@@ -208,8 +203,7 @@ def main(argv=None):
               path.read_text(encoding="utf-8")==body),"cannot overwrite different source review")
     for path,body in outputs:
         if not path.exists():
-            with path.open("x",encoding="utf-8",newline="
-") as out:out.write(body)
+            with path.open("x",encoding="utf-8",newline="\n") as out:out.write(body)
     print("F3D_INDEPENDENT_KKT_LP_SAVINGS_INTERVAL_AND_CF_READY",
           report["year"],report["capacity_semantics"],report["variant"],
           "no v1.0 or vendor/BAFU release")
