@@ -147,7 +147,8 @@ def audit_fixture(monkeypatch,mutable=None):
     if mutable:
         mutable(lp,integer,old_int,old_audit,original)
     records={m.LP_FILE:lp,m.INTEGER_FILE:integer}
-    monkeypatch.setattr(m.base,"source_blob_sha",lambda raw:m.base.SOURCE_PUBLISHED_GIT_BLOB)
+    sha_orig_for_test=m.base.SOURCE_PUBLISHED_GIT_BLOB
+    monkeypatch.setattr(m.base,"source_blob_sha",lambda raw: sha_orig_for_test)
     return m.audit_2024_and_compare(
         records,{m.LP_FILE:lp_sha},
         json.dumps(original).encode("utf-8"),old_audit,old_int)
