@@ -79,7 +79,8 @@ if($Phase -eq "Test") {
     (Join-Path $FlexRoot "tests\test_f3d_exogenous_h2_integer_dispatch.py"),
     (Join-Path $LensRoot "tests\test_f3d_exogenous_h2_integer_independent_replay.py"),
     (Join-Path $LensRoot "tests\test_f3d_2022_public_evidence_admission.py"),
-    (Join-Path $LensRoot "tests\test_f3d_2024_crossyear_publication.py"))
+    (Join-Path $LensRoot "tests\test_f3d_2024_crossyear_publication.py"),
+    (Join-Path $LensRoot "tests\test_f3d_powershell_launcher_compatibility.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
