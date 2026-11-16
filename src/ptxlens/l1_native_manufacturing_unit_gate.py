@@ -34,9 +34,9 @@ def audit_manufacturing_functional_unit(
     ):
         findings.append("missing/invalid lowercase SHA-256 source provenance")
     denominator = record.get("reference_flow_denominator")
-    if denominator not in SUPPORTED_DENOMINATORS:
+    if not isinstance(denominator, str) or denominator not in SUPPORTED_DENOMINATORS:
         findings.append("unknown inventory reference-flow denominator")
-    if required_denominator not in SUPPORTED_DENOMINATORS:
+    if not isinstance(required_denominator, str) or required_denominator not in SUPPORTED_DENOMINATORS:
         findings.append("unknown requested functional-unit denominator")
     elif denominator != required_denominator:
         findings.append("incompatible functional-unit denominator: no inferred conversion")
