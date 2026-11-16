@@ -37,6 +37,11 @@ def review(original,lp,cf):
     check(lp.get("source_hours")==({2022:8760,2024:8784}[year])
           and cf.get("source_calendar_hours")==({2022:8760,2024:8784}[year]),
           "UTC calendar or leap day missing")
+    check(original.get("schema_version")=="oem.ptx.f3d_2022_2024_public_source_aggregate_independent_replay.v1",
+          "unrecognized original public source evidence schema")
+    check(cf.get("variant") in ("price_roll_168h","price_spread_150pct",
+                             "wind_power_090","wind_power_110_capped"),
+          "controlled intervention not scientifically pre-registered")
     check(original.get("independent_year_mode_full_hourly_primal_E_EplusS_and_EOS_replay_passed") is True
           and original.get("independent_solver_dual_certificates_recomputed") is False
           and original.get("scientific_v1_0_release_allowed") is False,
