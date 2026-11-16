@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -33,6 +33,7 @@ $pairOutput=Join-Path $publicResults ("F3D_CF_{0}_{1}_{2}_INDEPENDENT_PUBLIC_REP
 $windLPOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_SOURCE_LP_FEASIBILITY_v1.json" -f $Year,$Mode)
 $analyticOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_ANALYTIC_FEASIBILITY_FACTOR_LOWER_BOUND_v1.json" -f $Year,$Mode)
 $LPBracketOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_E_LP_FEASIBILITY_BRACKET_v1.json" -f $Year,$Mode)
+$exogenousLPOutput=Join-Path $publicResults ("F3D_{0}_{1}_EXOGENOUS_H2_SOURCE_LP_FEASIBILITY_SCREEN_v1.json" -f $Year,$Mode)
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
 }
@@ -50,6 +51,7 @@ if($Phase -eq "Status") {
   Write-Host ("Independent wind-power feasibility review exists: {0}" -f (Test-Path -LiteralPath $windLPOutput -PathType Leaf))
   Write-Host ("Derived solver-free necessary-condition wind threshold bound exists: {0}" -f (Test-Path -LiteralPath $analyticOutput -PathType Leaf))
   Write-Host ("Independent relaxed LP wind feasibility bracket exists: {0}" -f (Test-Path -LiteralPath $LPBracketOutput -PathType Leaf))
+  Write-Host ("Prespecified exogenous fixed-H2 service E/E+S LP screen exists: {0}" -f (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\counterfactuals\PRIVATE_F3D_CF_{0}_{1}_{2}_{3}.json" -f $Year,$Mode,$Variant,$case)
     Write-Host ("PRIVATE source model {0} result exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -64,7 +66,8 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_f3d_lp_cf_public_consolidation.py"),
     (Join-Path $LensRoot "tests\test_f3d_wind_reduction_independent_feasibility.py"),
     (Join-Path $LensRoot "tests\test_f3d_analytic_wind_feasibility_threshold.py"),
-    (Join-Path $LensRoot "tests\test_f3d_independent_wind_lp_bracket.py"))
+    (Join-Path $LensRoot "tests\test_f3d_independent_wind_lp_bracket.py"),
+    (Join-Path $LensRoot "tests\test_f3d_exogenous_service_lp_screen.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -127,6 +130,23 @@ if($Phase -eq "IndependentWindLPBracket"){
     "--output-dir",$publicResults)
   Write-Host "Independent reconstructed E relaxed-LP bracketing complete; original integer wind threshold still UNKNOWN"
   Write-Host ("Inspect the NEW public aggregate: {0}" -f $LPBracketOutput)
+  return
+}
+if($Phase -eq "ExogenousServiceLPScreen"){
+  # Scientific next question: compare E and E+S under the same exogenously
+  # specified 25/27.5/30 t/day hourly H2 service, not E selected 30.48 t/day
+  # operated at its source-year E feasibility limit.
+  # Three wind factors x three contract levels x two models = 18 original
+  # hourly RELAXED LP feasibility solves. NOT integer/cost optimization.
+  Run $python @("-m","ptxlens.f3d_exogenous_service_lp_screen",
+    "--year","$Year","--mode",$Mode,
+    "--private-root",$PrivateRoot,
+    "--public-source",$publicSource,
+    "--time-limit","120",
+    "--output-dir",$publicResults)
+  Write-Host "Source-year independent exogenous 25/27.5/30 t/day E/E+S H2 LP screen complete"
+  Write-Host "Feasible relaxed LP does NOT establish integer feasibility; savings NULL"
+  Write-Host ("Inspect both scalar-only public model results: {0}" -f $exogenousLPOutput)
   return
 }
 if($Phase -eq "Consolidate"){
