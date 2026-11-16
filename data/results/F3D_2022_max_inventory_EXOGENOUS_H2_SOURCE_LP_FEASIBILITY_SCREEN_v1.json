@@ -1,0 +1,496 @@
+{
+  "capacity_semantics": "max_inventory",
+  "exogenous_delivery_schedules_selected_without_looking_at_stressed_wind_outcomes": true,
+  "nine_service_factor_pairs_two_architectures_LP_cells": [
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -17786.036660912694,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 2.000888343900442e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.9
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -35574.830436818025,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 2.3419488570652902e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.9
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.5,
+      "exogenous_H2_original_same_hourly_SHA256": "7f085b3e12a02950894a29dfbf3f3b3a7f29e737cec958b50d0e9cf83bd1d66b",
+      "exogenous_H2_tonnes_per_day": 25.0,
+      "exogenous_same_product_annual_H2_kg": 9125000.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 0.9,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -17786.036660912694,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 3.2741809263825417e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.95
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -35574.830436818025,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 3.0240698833949864e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.95
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.5,
+      "exogenous_H2_original_same_hourly_SHA256": "7f085b3e12a02950894a29dfbf3f3b3a7f29e737cec958b50d0e9cf83bd1d66b",
+      "exogenous_H2_tonnes_per_day": 25.0,
+      "exogenous_same_product_annual_H2_kg": 9125000.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 0.95,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -17786.036660912694,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 2.091837814077735e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 1.0
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -35574.830436818025,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 3.956301952712238e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 1.0
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.5,
+      "exogenous_H2_original_same_hourly_SHA256": "7f085b3e12a02950894a29dfbf3f3b3a7f29e737cec958b50d0e9cf83bd1d66b",
+      "exogenous_H2_tonnes_per_day": 25.0,
+      "exogenous_same_product_annual_H2_kg": 9125000.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 1.0,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -12595.504493890963,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 1.5234036254696548e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.9
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -30384.298269796294,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 4.001776687800884e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.9
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.55,
+      "exogenous_H2_original_same_hourly_SHA256": "964dece0509418d4605e308ab43fc5a44183d3cecc57a005c8ee3283e112d6e8",
+      "exogenous_H2_tonnes_per_day": 27.5,
+      "exogenous_same_product_annual_H2_kg": 10037500.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 0.9,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -12617.029829205378,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 1.5290879673557356e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.95
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -30405.82360511071,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 6.355094228638336e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.95
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.55,
+      "exogenous_H2_original_same_hourly_SHA256": "964dece0509418d4605e308ab43fc5a44183d3cecc57a005c8ee3283e112d6e8",
+      "exogenous_H2_tonnes_per_day": 27.5,
+      "exogenous_same_product_annual_H2_kg": 10037500.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 0.95,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -12634.012320558504,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 2.660272002685815e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 1.0
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -30422.806096463835,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 2.5011104298755527e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 1.0
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.55,
+      "exogenous_H2_original_same_hourly_SHA256": "964dece0509418d4605e308ab43fc5a44183d3cecc57a005c8ee3283e112d6e8",
+      "exogenous_H2_tonnes_per_day": 27.5,
+      "exogenous_same_product_annual_H2_kg": 10037500.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 1.0,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -1739.716600516158,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 4.715872137239785e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.9
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -19528.510376421487,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 2.660272002685815e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.9
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.6,
+      "exogenous_H2_original_same_hourly_SHA256": "caa2467bdd36b0cbdbf1bc09b75167cff1ef246506e0b958ee68e64c15614337",
+      "exogenous_H2_tonnes_per_day": 30.0,
+      "exogenous_same_product_annual_H2_kg": 10950000.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 0.9,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -2261.6040432387344,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 2.7284841053187847e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.95
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -20050.397819144066,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 5.206857167650014e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 0.95
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.6,
+      "exogenous_H2_original_same_hourly_SHA256": "caa2467bdd36b0cbdbf1bc09b75167cff1ef246506e0b958ee68e64c15614337",
+      "exogenous_H2_tonnes_per_day": 30.0,
+      "exogenous_same_product_annual_H2_kg": 10950000.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 0.95,
+      "source_year": 2022
+    },
+    {
+      "E_and_ES_original_integer_dispatch_both_certified": false,
+      "E_vs_EplusS_source_LP_status": "BOTH_RELAXED_LPS_FEASIBLE__INTEGER_STATUS_UNKNOWN",
+      "capacity_semantics": "max_inventory",
+      "cases": {
+        "E": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -2783.4914859613127,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 6.849631972727366e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 1.0
+        },
+        "E_plus_S": {
+          "HiGHS_LP_status_code": 0,
+          "LP_solver_family_independent": false,
+          "necessary_energy_inventory_cut_proved_infeasible": false,
+          "necessary_inventory_energy_deficit_minus_bank_swing_kg": -20572.285261866644,
+          "no_primal_Farkas_certificate": true,
+          "original_integer_MILP_feasible": null,
+          "real_site_or_vendor_capex_or_BAFU_LCIA_certified": false,
+          "source_E_or_EplusS_original_model_LP_status": "SOURCE_LP_PRIMAL_FEASIBLE_INTEGER_UNDETERMINED",
+          "source_equation_reconstructed_LP_primal_residuals_if_feasible": {
+            "actual_integer_E_dispatch_feasible": false,
+            "binary_unit_commitment_or_direction_verified": false,
+            "maximum_LP_primal_equality_residual": 5.1386450650170445e-11,
+            "maximum_LP_primal_inequality_violation": 2.2737367544323206e-13,
+            "maximum_LP_variable_bound_violation": 0.0
+          },
+          "source_matched_service_annual_cost_saving_eur": null,
+          "source_stress_wind_electric_power_multiplier": 1.0
+        }
+      },
+      "exogenous_H2_fraction_of_original_50t_day_reference": 0.6,
+      "exogenous_H2_original_same_hourly_SHA256": "caa2467bdd36b0cbdbf1bc09b75167cff1ef246506e0b958ee68e64c15614337",
+      "exogenous_H2_tonnes_per_day": 30.0,
+      "exogenous_same_product_annual_H2_kg": 10950000.0,
+      "matched_source_annual_E_minus_EplusS_cost_saving_eur": null,
+      "source_wind_power_multiplier": 1.0,
+      "source_year": 2022
+    }
+  ],
+  "original_integer_dispatch_or_matched_wholesale_savings_certified": false,
+  "original_selected_E_max_nominal_tonnes_day": 30.480648653278504,
+  "prespecified_exogenous_delivery_tonnes_day": [
+    25.0,
+    27.5,
+    30.0
+  ],
+  "real_site_or_manufacturer_or_native_BAFU_or_scientific_v1_0": false,
+  "same_H2_target_hourly_for_E_and_ES_at_every_wind_factor": true,
+  "schema_version": "ptxlens.f3d_original_year_exogenous_fixed_h2_service_pair_LP_screen.v1",
+  "source_calendar_UTC_hours": 8760,
+  "source_original_4_case_public_Git_blob_sha1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+  "source_original_E_max_selected_hourly_H2_float64_SHA256": "1db32cba4cee3506bb9d1af9a69471baf6e5173522008a8567dd9332f52b9513",
+  "source_original_price_float64_SHA256": "1a5490fd607d6c786878ca56b5d82ce8568f62b5277bc201206f1e6761b04f28",
+  "source_original_wind_power_float64_SHA256": "b5e6033bbfb3f776008191fe8f5e1e05b611b8598b55d88af835d74dc9e267b4",
+  "source_price_year_input_unchanged": true,
+  "source_wind_electric_power_multipliers": [
+    0.9,
+    0.95,
+    1.0
+  ],
+  "source_year": 2022
+}

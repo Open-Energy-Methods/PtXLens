@@ -1,0 +1,61 @@
+{
+  "E_and_ES_fully_independent_primal_mass_electricity_EOS_market_replay": true,
+  "actual_industrial_client_service_50t_day_unfulfilled": true,
+  "actual_site_or_manufacturer_or_BAFU_LCIA_or_scientific_v1_0_certified": false,
+  "capacity_semantics": "max_inventory",
+  "case_results": {
+    "E": {
+      "independent_EOS_max_absolute_bar": 199.7637141787709,
+      "independent_EOS_min_absolute_bar": 19.999999999999993,
+      "independent_annual_compression_MWh": 2304.802616188195,
+      "independent_annual_delivered_H2_kg": 10950000.0,
+      "independent_annual_grid_export_MWh": 125432.1725906729,
+      "independent_annual_grid_import_MWh": 230296.8263440029,
+      "independent_hourly_primal_SHA256": "9db8f9b4c1e11fd31e9ce05ec57a01d2e9fe587d54472be463c68824e6faf838",
+      "independent_integer_cost_dual_tree_proof": false,
+      "independent_source_max_physical_residual": 2.2989508368923868e-08,
+      "original_private_hourly_H2_wind_price_primal_vectors_NOT_in_public": true,
+      "source_modelled_nominal_original_year_wholesale_eur": 32160567.931485903,
+      "source_reported_relative_MIP_gap": 7.72930190967315e-07,
+      "source_reported_solver_cost_lower_bound_eur": 32160543.073611967,
+      "status": "INDEPENDENT_ORIGINAL_FULL_YEAR_INTEGER_PRIMAL_H2_ELECTRIC_EOS_REPLAY_PASSED"
+    },
+    "E_plus_S": {
+      "independent_EOS_max_absolute_bar": 199.90348938075695,
+      "independent_EOS_min_absolute_bar": 19.999999999999996,
+      "independent_annual_compression_MWh": 2737.443985778033,
+      "independent_annual_delivered_H2_kg": 10950000.0,
+      "independent_annual_grid_export_MWh": 116287.27121153612,
+      "independent_annual_grid_import_MWh": 222052.01336290283,
+      "independent_hourly_primal_SHA256": "99330e8c41cc3c44d2013a44f8dcf9fb5b16374b5968f6146965abea51cba44b",
+      "independent_integer_cost_dual_tree_proof": false,
+      "independent_source_max_physical_residual": 4.5215386990093975e-09,
+      "original_private_hourly_H2_wind_price_primal_vectors_NOT_in_public": true,
+      "source_modelled_nominal_original_year_wholesale_eur": 28878954.877419014,
+      "source_reported_relative_MIP_gap": 5.149459612147128e-07,
+      "source_reported_solver_cost_lower_bound_eur": 28878940.00631784,
+      "status": "INDEPENDENT_ORIGINAL_FULL_YEAR_INTEGER_PRIMAL_H2_ELECTRIC_EOS_REPLAY_PASSED"
+    }
+  },
+  "cost_lower_bound_source_reported_NOT_independent_dual_reconstruction": true,
+  "counterfactual_wind_090_f64_SHA256": "be284c167e85a00f6d74f21bee696e9e1504cd515a21a2ada08e85876ef5afe5",
+  "exogenous_fixed_hourly_hydrogen_service_f64_SHA256": "caa2467bdd36b0cbdbf1bc09b75167cff1ef246506e0b958ee68e64c15614337",
+  "independent_LP_screen_bytes_SHA256": "7f9bf6d0225c1d8a1fa89b116832f38d370235d7d49d07e29001700e2ea26cf9",
+  "matched_exogenous_hydrogen_service_tonnes_day": 30.0,
+  "matched_exogenous_service_annual_H2_kg": 10950000.0,
+  "matched_service_modelled_saving_eur_per_kg_H2": 0.2996906898691223,
+  "matched_service_modelled_wholesale_E_minus_ES_saving_source_eur": 3281613.054066889,
+  "matched_service_source_solver_reported_savings_lower_upper_eur": [
+    3281588.1961929537,
+    3281627.9251680635
+  ],
+  "original_hourly_provider_arrays_or_solver_witnesses_in_public": false,
+  "original_price_f64_SHA256": "1a5490fd607d6c786878ca56b5d82ce8568f62b5277bc201206f1e6761b04f28",
+  "original_source_year_eur_not_inflation_adjusted": true,
+  "original_wind_electric_power_f64_SHA256": "b5e6033bbfb3f776008191fe8f5e1e05b611b8598b55d88af835d74dc9e267b4",
+  "schema_version": "ptxlens.f3d_exogenous_H30_W090_both_integer_primal_independently_replayed.v1",
+  "source_original_E_selected_max_H2_tonnes_day": 30.480648653278507,
+  "source_original_four_case_public_Git_blob_sha1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+  "source_year": 2022,
+  "source_year_UTC_hours": 8760
+}
