@@ -34,7 +34,7 @@ def test_f3d_launcher_has_2024_publication_gate_without_auto_publication():
     assert 'test_f3d_2024_crossyear_publication.py' in content
     # A printed instruction can mention "git add", but the launcher may
     # never invoke git add or git push as an actual PowerShell statement.
-    assert re.search(r"(?m)^\\s*git\\s+(?:add|push)\\s",content) is None
+    assert re.search(r"(?m)^\s*git\s+(?:add|push)\s",content) is None
 
 
 def test_f3d_launcher_parses_with_actual_windows_powershell_51_if_available():
