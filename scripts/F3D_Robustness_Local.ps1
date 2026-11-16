@@ -55,7 +55,7 @@ if($Phase -eq "Status") {
   Write-Host ("Independent relaxed LP wind feasibility bracket exists: {0}" -f (Test-Path -LiteralPath $LPBracketOutput -PathType Leaf))
   Write-Host ("Prespecified exogenous fixed-H2 service E/E+S LP screen exists: {0}" -f (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf))
   Write-Host ("Exogenous H30/W090 E+ES integer replay PUBLIC aggregate exists: {0}" -f (Test-Path -LiteralPath $exogenousH30PeerReviewed -PathType Leaf))
-  Write-Host ("2022–2024 admitted cross-year result exists: {0}" -f (Test-Path -LiteralPath $crossYearCompare -PathType Leaf))
+  Write-Host ("2022-2024 admitted cross-year result exists: {0}" -f (Test-Path -LiteralPath $crossYearCompare -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\exogenous_service_robustness\PRIVATE_F3D_EXOGENOUS_{0}_{1}_H30_W090_{2}.json" -f $Year,$Mode,$case)
     Write-Host ("PRIVATE exogenous H30 W090 integer witness {0} exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -183,7 +183,7 @@ if($Phase -eq "AuditAndCompare2024"){
   Run $python @("-m","ptxlens.f3d_2024_crossyear_publication",
     "--results-dir",$publicResults,
     "--original-public-source",$publicSource)
-  Write-Host "2024 LP+E/ES full-year source replay admitted and source-specific 2022–24 comparison derived"
+  Write-Host "2024 LP+E/ES full-year source replay admitted and source-specific 2022-24 comparison derived"
   Write-Host "Only THREE pre-existing 2024 output files plus TWO derived cross-year output files eligible for manual git stage"
   Write-Host "No file has been automatically git-added, committed, pushed or published"
   return
