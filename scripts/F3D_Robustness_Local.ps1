@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -34,6 +34,7 @@ $windLPOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_SOURCE
 $analyticOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_ANALYTIC_FEASIBILITY_FACTOR_LOWER_BOUND_v1.json" -f $Year,$Mode)
 $LPBracketOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_E_LP_FEASIBILITY_BRACKET_v1.json" -f $Year,$Mode)
 $exogenousLPOutput=Join-Path $publicResults ("F3D_{0}_{1}_EXOGENOUS_H2_SOURCE_LP_FEASIBILITY_SCREEN_v1.json" -f $Year,$Mode)
+$exogenousH30PeerReviewed=Join-Path $publicResults ("F3D_EXOGENOUS_{0}_{1}_H30_W090_BOTH_INTEGER_INDEPENDENT_REPLAY_v1.json" -f $Year,$Mode)
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
 }
@@ -52,6 +53,11 @@ if($Phase -eq "Status") {
   Write-Host ("Derived solver-free necessary-condition wind threshold bound exists: {0}" -f (Test-Path -LiteralPath $analyticOutput -PathType Leaf))
   Write-Host ("Independent relaxed LP wind feasibility bracket exists: {0}" -f (Test-Path -LiteralPath $LPBracketOutput -PathType Leaf))
   Write-Host ("Prespecified exogenous fixed-H2 service E/E+S LP screen exists: {0}" -f (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf))
+  Write-Host ("Exogenous H30/W090 E+ES integer replay PUBLIC aggregate exists: {0}" -f (Test-Path -LiteralPath $exogenousH30PeerReviewed -PathType Leaf))
+  foreach($case in @("E","E_plus_S")){
+    $p=Join-Path $PrivateRoot ("results\exogenous_service_robustness\PRIVATE_F3D_EXOGENOUS_{0}_{1}_H30_W090_{2}.json" -f $Year,$Mode,$case)
+    Write-Host ("PRIVATE exogenous H30 W090 integer witness {0} exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
+  }
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\counterfactuals\PRIVATE_F3D_CF_{0}_{1}_{2}_{3}.json" -f $Year,$Mode,$Variant,$case)
     Write-Host ("PRIVATE source model {0} result exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -67,7 +73,9 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_f3d_wind_reduction_independent_feasibility.py"),
     (Join-Path $LensRoot "tests\test_f3d_analytic_wind_feasibility_threshold.py"),
     (Join-Path $LensRoot "tests\test_f3d_independent_wind_lp_bracket.py"),
-    (Join-Path $LensRoot "tests\test_f3d_exogenous_service_lp_screen.py"))
+    (Join-Path $LensRoot "tests\test_f3d_exogenous_service_lp_screen.py"),
+    (Join-Path $FlexRoot "tests\test_f3d_exogenous_h2_integer_dispatch.py"),
+    (Join-Path $LensRoot "tests\test_f3d_exogenous_h2_integer_independent_replay.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -147,6 +155,37 @@ if($Phase -eq "ExogenousServiceLPScreen"){
   Write-Host "Source-year independent exogenous 25/27.5/30 t/day E/E+S H2 LP screen complete"
   Write-Host "Feasible relaxed LP does NOT establish integer feasibility; savings NULL"
   Write-Host ("Inspect both scalar-only public model results: {0}" -f $exogenousLPOutput)
+  return
+}
+if($Phase -eq "ExogenousH30SolvePair"){
+  Need (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf) "Existing original 2022 prespecified matched H2/price/wind LP screen missing; first run -Phase ExogenousServiceLPScreen"
+  foreach($case in @("E","E_plus_S")){
+    # Each source annual MILP may be computationally expensive. Completed
+    # original hourly 8-variable witnesses are PRIVATE and restartable.
+    Run $python @("-m","ptxflex.f3d_exogenous_h2_integer_dispatch",
+      "--year","$Year","--mode",$Mode,"--case",$case,
+      "--private-root",$PrivateRoot,
+      "--public-source",$publicSource,
+      "--lp-screen",$exogenousLPOutput,
+      "--time-limit","$DispatchTimeLimit")
+  }
+  Write-Host "Both H30 W090 original integer source cases are PRIVATE; independent PtXLens hourly/pressure/market replay STILL REQUIRED"
+  return
+}
+if($Phase -eq "ExogenousH30ReviewPair"){
+  Need (Test-Path -LiteralPath $exogenousLPOutput -PathType Leaf) "Source exogenous H2 LP screen missing"
+  foreach($case in @("E","E_plus_S")){
+    $p=Join-Path $PrivateRoot ("results\exogenous_service_robustness\PRIVATE_F3D_EXOGENOUS_{0}_{1}_H30_W090_{2}.json" -f $Year,$Mode,$case)
+    Need (Test-Path -LiteralPath $p -PathType Leaf) ("Missing original source INTEGER case {0}, cannot publish matched service cost" -f $case)
+  }
+  Run $python @("-m","ptxlens.f3d_exogenous_h2_integer_independent_replay",
+    "--year","$Year","--mode",$Mode,
+    "--private-root",$PrivateRoot,
+    "--public-source",$publicSource,
+    "--lp-screen",$exogenousLPOutput,
+    "--output",$exogenousH30PeerReviewed)
+  Write-Host ("Source-hash gated independent matched-H2/EOS/market evidence ready: {0}" -f $exogenousH30PeerReviewed)
+  Write-Host "Review the scalar result only; do NOT stage any files under PtX_PRIVATE_RESEARCH"
   return
 }
 if($Phase -eq "Consolidate"){
