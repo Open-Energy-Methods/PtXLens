@@ -6,3 +6,7 @@ data/results/F3D_*.json text eol=lf
 data/results/F3D_*.md text eol=lf
 
 # Keep the source-linked pre-publication validation protocols as plain text.
+
+# L3-E source rebuilt outputs are hash-validated as UTF-8 LF across Windows.
+data/results/L3E_*.json text eol=lf
+data/results/L3E_*.md text eol=lf
