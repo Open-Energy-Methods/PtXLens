@@ -56,12 +56,12 @@ def fixture():
     sha_orig=m.base.SOURCE_PUBLISHED_GIT_BLOB
     p2022="1"*64
     w2022="2"*64
-    p2024="3"*64
+    price_2024_sha="3"*64
     w2024="4"*64
     e_selected_2024="5"*64
     annual2022=10950000.
     pbase=cases(2022,32160567.931485903,28878954.877419014)
-    p2024=cases(2024,2544581.872826561,612906.0201971165)
+    integer_2024=cases(2024,2544581.872826561,612906.0201971165)
     original={
         "cases":[{
             "year":2022,"storage_capacity_semantics":"max_inventory",
@@ -69,7 +69,7 @@ def fixture():
             "source_year_wind_f64_sha256":w2022,
         },{
             "year":2024,"storage_capacity_semantics":"max_inventory",
-            "source_year_price_f64_sha256":p2024,
+            "source_year_price_f64_sha256":price_2024_sha,
             "source_year_wind_f64_sha256":w2024,
             "price_neutral_E_uniform_hydrogen_service":{
                 "hourly_target_f64_sha256":e_selected_2024,
@@ -83,7 +83,7 @@ def fixture():
         "capacity_semantics":"max_inventory",
         "source_calendar_UTC_hours":8784,
         "source_original_4_case_public_Git_blob_sha1":sha_orig,
-        "source_original_price_float64_SHA256":p2024,
+        "source_original_price_float64_SHA256":price_2024_sha,
         "source_original_wind_power_float64_SHA256":w2024,
         "source_original_E_max_selected_hourly_H2_float64_SHA256":e_selected_2024,
         "original_selected_E_max_nominal_tonnes_day":30.8321785,
@@ -116,10 +116,10 @@ def fixture():
             })
     lpbytes=(json.dumps(lp,sort_keys=True,indent=2)+"\n").encode("utf-8")
     lp_sha=hashlib.sha256(lpbytes).hexdigest()
-    p2024.update({
+    integer_2024.update({
         "source_original_four_case_public_Git_blob_sha1":sha_orig,
         "independent_LP_screen_bytes_SHA256":lp_sha,
-        "original_price_f64_SHA256":p2024,
+        "original_price_f64_SHA256":price_2024_sha,
         "original_wind_electric_power_f64_SHA256":w2024,
         "exogenous_fixed_hourly_hydrogen_service_f64_SHA256":
             m.base.floating_sha([1250.]*8784),
@@ -139,7 +139,7 @@ def fixture():
         "per_kg_modelled_source_year_nominal_eur":previous_saving/annual2022,
         "real_site_OEM_native_BAFU_and_scientific_v1_0_verified":False,
     }
-    return original,lp,p2024,pbase,old_audit,lp_sha
+    return original,lp,integer_2024,pbase,old_audit,lp_sha
 
 
 def audit_fixture(monkeypatch,mutable=None):
