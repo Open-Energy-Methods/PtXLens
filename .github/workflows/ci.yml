@@ -28,6 +28,13 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e ".[dev]"
+      - uses: actions/checkout@v4
+        with:
+          repository: Open-Energy-Methods/PtXFlex
+          ref: f2a391880bdd29f4d8e1473c65568b1a0896d2dc
+          path: _external_ptxflex_source
+          persist-credentials: false
+      - run: python -m pip install -e "./_external_ptxflex_source"
       - run: python -m pytest -q
       - run: ptxlens assess examples/illustrative.json --output /tmp/ptxlens_result.json
       - run: ptxlens inventory examples/illustrative.json --output /tmp/ptxlens_inventory.json
