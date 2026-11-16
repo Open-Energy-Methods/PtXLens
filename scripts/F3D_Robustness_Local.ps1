@@ -169,7 +169,7 @@ if($Phase -eq "AuditPublic2022"){
   Run $python @("-m","ptxlens.f3d_2022_public_evidence_admission",
     "--results-dir",$publicResults,
     "--original-public-source",$publicSource)
-  Write-Host "All nine original-source public research files approved for manual git add ONLY"
+  Write-Host "All nine original-source public research files approved for manual staging ONLY"
   Write-Host "Review filenames, git diff --cached, scientific claims and private source exclusion BEFORE any push"
   return
 }
