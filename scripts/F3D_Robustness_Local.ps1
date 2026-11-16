@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -30,6 +30,7 @@ $publicSource=Join-Path $FlexRoot "research\F3D_ARCO_2022_2024_PUBLIC_VERIFIED_A
 $publicResults=Join-Path $LensRoot "data\results"
 $lpOutput=Join-Path $publicResults ("F3D_LP_{0}_{1}_independent_relaxed_cost_KKT_NOT_mip_tree.json" -f $Year,$Mode)
 $pairOutput=Join-Path $publicResults ("F3D_CF_{0}_{1}_{2}_INDEPENDENT_PUBLIC_REPLAY.json" -f $Year,$Mode,$Variant)
+$windLPOutput=Join-Path $publicResults ("F3D_WIND_090_{0}_{1}_INDEPENDENT_SOURCE_LP_FEASIBILITY_v1.json" -f $Year,$Mode)
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
 }
@@ -44,6 +45,7 @@ if($Phase -eq "Status") {
   Write-Host ("Original local private research archive present: {0}" -f (Test-Path -LiteralPath $PrivateRoot -PathType Container))
   Write-Host ("Source-year LP review output exists: {0}" -f (Test-Path -LiteralPath $lpOutput -PathType Leaf))
   Write-Host ("Controlled pair independently reviewed output exists: {0}" -f (Test-Path -LiteralPath $pairOutput -PathType Leaf))
+  Write-Host ("Independent wind-power feasibility review exists: {0}" -f (Test-Path -LiteralPath $windLPOutput -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\counterfactuals\PRIVATE_F3D_CF_{0}_{1}_{2}_{3}.json" -f $Year,$Mode,$Variant,$case)
     Write-Host ("PRIVATE source model {0} result exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -55,7 +57,8 @@ if($Phase -eq "Test") {
   Run $python @("-m","pytest","-q",
     (Join-Path $FlexRoot "tests\test_f3d_external_year_controlled_counterfactual.py"),
     (Join-Path $LensRoot "tests\test_f3d_source_year_independent_cost_lp_dual.py"),
-    (Join-Path $LensRoot "tests\test_f3d_lp_cf_public_consolidation.py"))
+    (Join-Path $LensRoot "tests\test_f3d_lp_cf_public_consolidation.py"),
+    (Join-Path $LensRoot "tests\test_f3d_wind_reduction_independent_feasibility.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -70,6 +73,19 @@ if($Phase -eq "IndependentLP"){
     "--LP-time-limit","$LPTimeLimit",
     "--output",$lpOutput)
   Write-Host ("Independent source-year relaxed LP result saved: {0}" -f $lpOutput)
+  return
+}
+if($Phase -eq "IndependentWindFeasibility"){
+  Need ($Variant -eq "wind_power_090") "IndependentWindFeasibility is only preregistered for wind_power_090; use -Variant wind_power_090"
+  Need (Test-Path -LiteralPath $pairOutput -PathType Leaf) "Run -Phase SolvePair and -Phase ReviewPair on wind_power_090 before independent feasibility"
+  Run $python @("-m","ptxlens.f3d_wind_reduction_independent_feasibility",
+    "--year","$Year","--mode",$Mode,
+    "--private-root",$PrivateRoot,
+    "--public-source",$publicSource,
+    "--LP-time-limit","$LPTimeLimit",
+    "--output",$windLPOutput)
+  Write-Host ("Independently reconstructed E infeasible LP / E+S feasible constraint audit saved: {0}" -f $windLPOutput)
+  Write-Host "SOURCE ORIGINAL E/E+S MATCHED SERVICE COST SAVING IS NULL, not 0"
   return
 }
 if($Phase -eq "Consolidate"){
