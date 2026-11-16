@@ -37,6 +37,20 @@ from .f3d_external_year_private_witness_replay import (
 SCHEMA="ptxlens.f3d_2022_2024_wind_reduction_independently_rebuilt_LP_feasibility.v1"
 VARIANT="wind_power_090"
 
+def source_f64_vector_hash(values):
+    """Use exact little-endian float64 hashing of 1-D numpy OR Python vectors.
+
+    The independent PtXLens f64_hash reader intentionally accepts only native
+    Python int/float values; iterating an ndarray produces numpy.float64
+    scalars. Convert to native floats *without* rounding or altering order.
+    Reject malformed vectors before calculating any source-provenance SHA.
+    """
+    array=np.asarray(values,dtype=np.float64)
+    need(array.ndim==1 and array.size>0 and np.isfinite(array).all(),
+         "source evidence requires a finite one-dimensional float64 vector")
+    return f64_hash(array.tolist())
+
+
 
 def necessary_interval_deficit(wind_power_mw, target_kg_h, params, duty):
     """Find maximum contiguous *necessary* energy/storage deficit in O(N).
@@ -159,9 +173,9 @@ def review(year,mode,private_root,public_source,*,limit_s=900):
     w=np.asarray(original_wind,dtype=float)*.9
     p=np.asarray(original_price,dtype=float)
     q=np.asarray(target,dtype=float)
-    need(f64_hash(w)==pair["counterfactual_wind_power_f64_SHA256"] and
-         f64_hash(p)==pair["counterfactual_price_f64_SHA256"] and
-         f64_hash(q)==pair["fixed_original_price_blind_E_hydrogen_service_f64_SHA256"],
+    need(source_f64_vector_hash(w)==pair["counterfactual_wind_power_f64_SHA256"] and
+         source_f64_vector_hash(p)==pair["counterfactual_price_f64_SHA256"] and
+         source_f64_vector_hash(q)==pair["fixed_original_price_blind_E_hydrogen_service_f64_SHA256"],
          "independent new wind electrical-power transformation/H2 source SHA differs")
     e_params=expected_params(20000)
     es_params=expected_params(40000)
@@ -192,7 +206,7 @@ def review(year,mode,private_root,public_source,*,limit_s=900):
     es_original=np.asarray(private_es["source_original_model_8field_primal_witness"],
                            dtype=np.float64)
     need(es_original.shape==(len(q),8) and
-         f64_hash(es_original.reshape(-1))==
+         source_f64_vector_hash(es_original.reshape(-1))==
          reported["E_plus_S"]["independent_hourly_primal_SHA256"],
          "independent E+S original hourly witness hash differs from prior PtXLens")
     ES=construct_lp(w,p,q,es_params,es_duty)
@@ -210,10 +224,10 @@ def review(year,mode,private_root,public_source,*,limit_s=900):
         "year":year,"capacity_semantics":mode,
         "source_calendar_hours":len(q),
         "original_4_case_public_Git_blob_sha1":SOURCE_PUBLISHED_GIT_BLOB,
-        "original_observed_price_float64_SHA256":f64_hash(p),
-        "original_observed_wind_float64_SHA256":f64_hash(original_wind),
-        "counterfactual_wind_model_electric_power_float64_SHA256":f64_hash(w),
-        "same_frozen_hourly_hydrogen_service_float64_SHA256":f64_hash(q),
+        "original_observed_price_float64_SHA256":source_f64_vector_hash(p),
+        "original_observed_wind_float64_SHA256":source_f64_vector_hash(original_wind),
+        "counterfactual_wind_model_electric_power_float64_SHA256":source_f64_vector_hash(w),
+        "same_frozen_hourly_hydrogen_service_float64_SHA256":source_f64_vector_hash(q),
         "original_hourly_H2_service_kg":float(q[0]),
         "original_matched_annual_H2_service_kg":float(np.sum(q)),
         "intervention":"original PyNEXUS modeled available wind electrical POWER * 0.90, original NL A44 price fixed",
