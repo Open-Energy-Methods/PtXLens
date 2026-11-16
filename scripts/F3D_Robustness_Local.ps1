@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -75,7 +75,8 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_f3d_independent_wind_lp_bracket.py"),
     (Join-Path $LensRoot "tests\test_f3d_exogenous_service_lp_screen.py"),
     (Join-Path $FlexRoot "tests\test_f3d_exogenous_h2_integer_dispatch.py"),
-    (Join-Path $LensRoot "tests\test_f3d_exogenous_h2_integer_independent_replay.py"))
+    (Join-Path $LensRoot "tests\test_f3d_exogenous_h2_integer_independent_replay.py"),
+    (Join-Path $LensRoot "tests\test_f3d_2022_public_evidence_admission.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -155,6 +156,17 @@ if($Phase -eq "ExogenousServiceLPScreen"){
   Write-Host "Source-year independent exogenous 25/27.5/30 t/day E/E+S H2 LP screen complete"
   Write-Host "Feasible relaxed LP does NOT establish integer feasibility; savings NULL"
   Write-Host ("Inspect both scalar-only public model results: {0}" -f $exogenousLPOutput)
+  return
+}
+if($Phase -eq "AuditPublic2022"){
+  Need ($Year -eq 2022 -and $Mode -eq "max_inventory") "This nine-file public result admission is only authorized for 2022 max_inventory"
+  # Scientific scalar-only admission. DOES NOT stage, commit, upload, print
+  # provider market data, run the 2022 MILPs or read private hourly witnesses.
+  Run $python @("-m","ptxlens.f3d_2022_public_evidence_admission",
+    "--results-dir",$publicResults,
+    "--original-public-source",$publicSource)
+  Write-Host "All nine original-source public research files approved for manual git add ONLY"
+  Write-Host "Review filenames, git diff --cached, scientific claims and private source exclusion BEFORE any push"
   return
 }
 if($Phase -eq "ExogenousH30SolvePair"){
