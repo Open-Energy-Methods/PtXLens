@@ -123,3 +123,38 @@ def test_invalid_public_model_proof_not_asserted_from_synthetic_tests():
     assert m.VARIANT=="wind_power_090"
     assert m.SCHEMA.endswith("_LP_feasibility.v1")
     assert "PRIVATE" in m.__doc__
+
+
+def test_numpy_float64_provenance_hash_matches_native_python_float_exactly():
+    """Regression for independent wind reviewer traceback on numpy.float64."""
+    from ptxlens.f3d_external_year_private_witness_replay import f64_hash
+    v=[0.0, 12.345678901234567, 112.25, -8.5, 1.0e-12]
+    native_sha=f64_hash(v)
+    numeric=np.asarray(v,dtype=np.float64)
+    assert m.source_f64_vector_hash(numeric)==native_sha
+    assert m.source_f64_vector_hash(v)==native_sha
+    assert m.source_f64_vector_hash(np.float64(0.9)*numeric)==f64_hash(
+        (np.float64(0.9)*numeric).tolist())
+    assert m.source_f64_vector_hash(numeric.reshape(-1))==native_sha
+    assert m.source_f64_vector_hash(np.asarray(v,dtype="<f8"))==native_sha
+    assert m.source_f64_vector_hash(numeric[::-1])!=native_sha
+
+
+def test_source_hash_rejects_nonfinite_or_multidimensional_synthetic_arrays():
+    for bad in (
+        np.array([0.,float("nan")],dtype=np.float64),
+        np.array([0.,float("inf")],dtype=np.float64),
+        np.zeros((2,2),dtype=np.float64),
+        np.zeros((0,),dtype=np.float64),
+    ):
+        with pytest.raises(ExternalYearReviewError):
+            m.source_f64_vector_hash(bad)
+
+
+def test_numpy_flattened_eight_column_witness_hash_remains_original():
+    from ptxlens.f3d_external_year_private_witness_replay import f64_hash
+    original=np.arange(24,dtype=np.float64).reshape(3,8)/17.
+    expected=f64_hash(original.ravel().tolist())
+    assert m.source_f64_vector_hash(original.ravel())==expected
+    # Hourly permutation must change witness provenance hash.
+    assert m.source_f64_vector_hash(original[::-1].ravel())!=expected
