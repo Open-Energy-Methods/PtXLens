@@ -150,11 +150,17 @@ def build():
 
 
 def native_LCIA_release_check(document):
-    """An apparently complete local questionnaire can NEVER alone certify BAFU."""
+    """A matched-service questionnaire cannot certify a real BAFU provider map.
+
+    Source gate expects its original F2/L1 schema, not the new L3-E
+    questionnaire schema. Reopen the source and explicitly delegate to
+    that independent native-provider proof gate, which currently refuses
+    any full LCIA. Do not confuse a schema mismatch with proof of BAFU.
+    """
     need(type(document) is dict and document.get("schema_version")==SCHEMA,
          "L3-E source/evidence hardware schema differs")
-    # Reuse source verifier's deliberately blocked native peer gate.
-    verify_future_complete_native_mapping(document)
+    source_evidence=inspect_original()
+    verify_future_complete_native_mapping(source_evidence)
 
 
 def markdown(d):
