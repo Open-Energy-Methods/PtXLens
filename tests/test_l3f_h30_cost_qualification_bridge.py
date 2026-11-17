@@ -71,5 +71,6 @@ def test_readable_reports_disclose_uncertainty_and_no_supplier_data():
     x=m.markdown(d)
     assert "50" not in x or "0.50" in x
     assert "20t MAX-inventory" in x
-    assert "None" not in x
+    assert "None are accepted now" in x
+    assert "| None |" not in x
     assert "NOT" in x
