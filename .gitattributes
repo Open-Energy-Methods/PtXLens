@@ -10,3 +10,7 @@ data/results/F3D_*.md text eol=lf
 # L3-E source rebuilt outputs are hash-validated as UTF-8 LF across Windows.
 data/results/L3E_*.json text eol=lf
 data/results/L3E_*.md text eol=lf
+
+# L3-F source-locked scientific output SHA bytes must retain LF on Windows.
+data/results/L3F_*.json text eol=lf
+data/results/L3F_*.md text eol=lf
