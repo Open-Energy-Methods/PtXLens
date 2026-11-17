@@ -44,7 +44,7 @@ Every ledger row points to actual relative source-audited JSON paths and never i
 
 Use the original paired PtXFlex Python venv containing scientific dependencies, and pull the **reviewed** L3-G change on each branch before running:
 
-    cd C:\Users\prasa\OEM_Research\PtXLens
+    cd <your-research-root>\PtXLens
     .\scripts\F3D_Robustness_Local.ps1 -Phase Test
     .\scripts\F3D_Robustness_Local.ps1 -Phase L3FAuditPublic -Mode max_inventory
     .\scripts\F3D_Robustness_Local.ps1 -Phase L3GPrepare -Mode max_inventory
