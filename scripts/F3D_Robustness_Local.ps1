@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024","L3EPrepare","L3EAuditPublic")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024","L3EPrepare","L3EAuditPublic","L3FPrepare","L3FAuditPublic")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -40,6 +40,10 @@ $l3eFrontiers=Join-Path $publicResults "L3E_2022_2024_H30_W090_EXOGENOUS_INCREME
 $l3eHardware=Join-Path $publicResults "L3E_H30_W090_INCREMENTAL_STATIONARY_20t_to_40t_HARDWARE_AND_BAFU_FOREGROUND_NOT_LCIA_v1.json"
 $l3eEnergy=Join-Path $publicResults "L3E_H30_W090_2022_2024_SOURCE_ANNUAL_GRID_AND_COMPRESSOR_INVENTORY_NOT_LCIA_v1.json"
 $l3eVendorIntake=Join-Path $FlexRoot "data\results\F2L3E_H30_INCREMENTAL_20t_40t_TYPEI_OEM_BOM_COST_EVIDENCE_INTAKE_NOT_QUOTES_v1.json"
+$l3fThermal=Join-Path $FlexRoot "data\results\L3F_H30_TYPEI_REFERENCE_20t_INCREMENTAL_FREE_VOLUME_THERMAL_DISCRETE_SCREEN_NOT_OEM_v1.json"
+$l3fSite=Join-Path $FlexRoot "data\results\L3F_H30_TYPEI_20t_40t_SITE_PED_P_AND_ID_OEM_QUALIFICATION_REQUIREMENTS_NOT_APPROVED_v1.json"
+$l3fCost=Join-Path $publicResults "L3F_H30_2022_2024_19_EQUIPMENT_COST_EVIDENCE_TO_DCF_GATE_NOT_PROJECT_NPV_v1.json"
+$l3fBAFU=Join-Path $publicResults "L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json"
 function Need([bool]$ok,[string]$errorMessage) {
   if(-not $ok){ throw $errorMessage }
 }
@@ -64,6 +68,10 @@ if($Phase -eq "Status") {
   Write-Host ("L3-E incremental hardware and BAFU admission scope exists: {0}" -f (Test-Path -LiteralPath $l3eHardware -PathType Leaf))
   Write-Host ("L3-E source-replayed annual grid import/export and compressor inventory exists: {0}" -f (Test-Path -LiteralPath $l3eEnergy -PathType Leaf))
   Write-Host ("L3-E original F2 Type I vendor price intake report exists: {0}" -f (Test-Path -LiteralPath $l3eVendorIntake -PathType Leaf))
+  Write-Host ("L3-F pressure/thermal gross vs usable paper reference exists: {0}" -f (Test-Path -LiteralPath $l3fThermal -PathType Leaf))
+  Write-Host ("L3-F PED and 19 supplier site design contract exists: {0}" -f (Test-Path -LiteralPath $l3fSite -PathType Leaf))
+  Write-Host ("L3-F original 2022/24 matched wholesale DCF/OEM evidence gate exists: {0}" -f (Test-Path -LiteralPath $l3fCost -PathType Leaf))
+  Write-Host ("L3-F BAFU v1.1 process and manufacturer mass evidence gate exists: {0}" -f (Test-Path -LiteralPath $l3fBAFU -PathType Leaf))
   foreach($case in @("E","E_plus_S")){
     $p=Join-Path $PrivateRoot ("results\exogenous_service_robustness\PRIVATE_F3D_EXOGENOUS_{0}_{1}_H30_W090_{2}.json" -f $Year,$Mode,$case)
     Write-Host ("PRIVATE exogenous H30 W090 integer witness {0} exists: {1}" -f $case,(Test-Path -LiteralPath $p -PathType Leaf))
@@ -93,7 +101,12 @@ if($Phase -eq "Test") {
     (Join-Path $LensRoot "tests\test_l3e_exogenous_incremental_hardware_lci.py"),
     (Join-Path $LensRoot "tests\test_l3e_exogenous_operational_energy_inventory.py"),
     (Join-Path $LensRoot "tests\test_l3e_publication_admission.py"),
-    (Join-Path $FlexRoot "tests\test_f2l3e_exogenous_vendor_cost_intake.py"))
+    (Join-Path $FlexRoot "tests\test_f2l3e_exogenous_vendor_cost_intake.py"),
+    (Join-Path $FlexRoot "tests\test_f2l3f_stationary_thermal_qualification.py"),
+    (Join-Path $FlexRoot "tests\test_f2l3f_stationary_site_evidence_gate.py"),
+    (Join-Path $LensRoot "tests\test_l3f_h30_cost_qualification_bridge.py"),
+    (Join-Path $LensRoot "tests\test_l3f_bafu_native_mapping_contract.py"),
+    (Join-Path $LensRoot "tests\test_l3f_publication_admission.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -127,6 +140,36 @@ if($Phase -eq "L3EAuditPublic"){
     "--flex-results",(Join-Path $FlexRoot "data\results"))
   Write-Host "Seven exact source-rebuilt safe files validated across both repositories"
   Write-Host "Review all seven files before manual git stage: no private source, native BAFU or actual OEM cost qualification"
+  return
+}
+if($Phase -eq "L3FPrepare"){
+  Need ($Mode -eq "max_inventory") "L3-F source-verified 20t gross delta only registered for max_inventory"
+  Need (Test-Path -LiteralPath $crossYearCompare -PathType Leaf) "Original E/E+S independent matched service 2022+2024 public record missing"
+  Need (Test-Path -LiteralPath $l3eVendorIntake -PathType Leaf) "First run -Phase L3EPrepare; PtXFlex original 19-line unpriced OEM record missing"
+  # Source-only physical endpoint calculation with CoolProp, NOT a pressure-vessel code.
+  Run $python @("-m","ptxflex.f2l3f_stationary_thermal_qualification",
+    "--output-dir",(Join-Path $FlexRoot "data\results"))
+  Run $python @("-m","ptxflex.f2l3f_stationary_site_evidence_gate",
+    "--output-dir",(Join-Path $FlexRoot "data\results"))
+  Run $python @("-m","ptxlens.l3f_h30_cost_qualification_bridge",
+    "--output-dir",$publicResults)
+  Run $python @("-m","ptxlens.l3f_bafu_native_mapping_contract",
+    "--output-dir",$publicResults)
+  Write-Host "L3F original source F2/CoolProp thermal screen, PED site, OEM cost and native BAFU requirements created"
+  Write-Host "No manufacturer, site, pressure equipment or actual openLCA native LCIA verified"
+  return
+}
+if($Phase -eq "L3FAuditPublic"){
+  Need ($Mode -eq "max_inventory") "L3-F source original max_inventory only"
+  Need (Test-Path -LiteralPath $l3fThermal -PathType Leaf) "Run L3FPrepare: thermal paper sizing missing"
+  Need (Test-Path -LiteralPath $l3fSite -PathType Leaf) "Run L3FPrepare: site engineering admission missing"
+  Need (Test-Path -LiteralPath $l3fCost -PathType Leaf) "Run L3FPrepare: matched economic evidence gate missing"
+  Need (Test-Path -LiteralPath $l3fBAFU -PathType Leaf) "Run L3FPrepare: native BAFU mapping contract missing"
+  Run $python @("-m","ptxlens.l3f_publication_admission",
+    "--lens-results",$publicResults,
+    "--flex-results",(Join-Path $FlexRoot "data\results"))
+  Write-Host "L3F eight source-exact result files independently reproduced. Inspect before manual staging"
+  Write-Host "No git add, commit, push or private source/model archive publication performed"
   return
 }
 Need (Test-Path -LiteralPath $PrivateRoot -PathType Container) "Original private source archive missing"
