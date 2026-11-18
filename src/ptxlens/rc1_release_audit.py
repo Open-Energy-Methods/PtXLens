@@ -255,8 +255,9 @@ def main(argv=None) -> None:
             json.dump(report, f, sort_keys=True, indent=2, allow_nan=False)
             f.write("\n")
     print(report["decision"])
+    blocked = len(report["paired_repository_state"]["PtXLens"]["gates"]["not_passed_work_packages"])
     print("10 exact public reports, 4 matching scientific governance inputs, "
-          "12/12 original full-programme gates NOT PASSED; no native LCIA/OEM/NPV")
+          f"{blocked}/12 full-programme gates NOT PASSED; no native LCIA/OEM/NPV")
     if args.require_full_v1:
         raise SystemExit("Scientific v1.0 blocked: RC1 structural evidence is not physical/scientific approval")
 
