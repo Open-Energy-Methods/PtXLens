@@ -111,10 +111,14 @@ def main(argv=None):
     r = report(a.classpath, a.bafu)
     if a.baseline is not None:
         prior = json.loads(a.baseline.read_text(encoding="utf-8"))
-        need(a.classpath is not None and all(r[k] == prior[k] for k in (
-            "pom_sha256", "java_runtime_version", "maven_runtime_version",
-            "declared_dependencies", "declared_build_plugins", "runtime_classpath_jar_hashes")),
-            "native resolved runtime differs from recorded baseline; review required")
+        keys = ("pom_sha256", "java_runtime_version", "maven_runtime_version",
+                "declared_dependencies", "declared_build_plugins", "runtime_classpath_jar_hashes")
+        differences = [k for k in keys if r[k] != prior[k]]
+        if differences:
+            print("RC2C_NATIVE_RUNTIME_BASELINE_DRIFT " + json.dumps(differences))
+            print("RC2C_NATIVE_ENVIRONMENT_INVENTORY " + json.dumps(r, sort_keys=True))
+        need(a.classpath is not None and not differences,
+             "native resolved runtime differs from recorded baseline; review required: " + ", ".join(differences))
         print("RC2C_NATIVE_RUNTIME_BASELINE_MATCH")
     if a.output:
         with a.output.open("x", encoding="utf-8", newline="\n") as f:
