@@ -38,6 +38,8 @@ jobs:
           path: _external_ptxflex_source
           persist-credentials: false
       - run: python -m pip install -e "./_external_ptxflex_source[physics]"
+      - run: python -m pip check
+      - run: python -m compileall -q src tests
       - run: python -m pytest -q
       # Offline cross-repository L3-G smoke: source-only artifacts and immutable audit.
       # This does not rerun private original hourly MILPs or run openLCA/PED/OEM approval.
