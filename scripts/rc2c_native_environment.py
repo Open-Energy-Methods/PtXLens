@@ -105,9 +105,17 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--classpath", type=Path, help="Maven runtime dependency build-classpath file")
     p.add_argument("--bafu", type=Path, help="Optional original PRIVATE local BAFU v1.1 .zolca")
+    p.add_argument("--baseline", type=Path, help="Compare resolved runtime inventory with reviewed baseline")
     p.add_argument("--output", type=Path)
     a = p.parse_args(argv)
     r = report(a.classpath, a.bafu)
+    if a.baseline is not None:
+        prior = json.loads(a.baseline.read_text(encoding="utf-8"))
+        need(a.classpath is not None and all(r[k] == prior[k] for k in (
+            "pom_sha256", "java_runtime_version", "maven_runtime_version",
+            "declared_dependencies", "declared_build_plugins", "runtime_classpath_jar_hashes")),
+            "native resolved runtime differs from recorded baseline; review required")
+        print("RC2C_NATIVE_RUNTIME_BASELINE_MATCH")
     if a.output:
         with a.output.open("x", encoding="utf-8", newline="\n") as f:
             json.dump(r, f, indent=2, sort_keys=True, allow_nan=False)
