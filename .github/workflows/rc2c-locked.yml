@@ -1,0 +1,70 @@
+name: RC2-C paired exact locked Python qualification
+on:
+  push:
+    branches: [main, 'feat/**']
+    paths:
+      - 'environment/**'
+      - 'scripts/**'
+      - '.github/workflows/rc2c-locked.yml'
+      - 'src/**'
+      - 'tests/**'
+      - 'research/**'
+      - 'data/results/**'
+      - 'pyproject.toml'
+  pull_request:
+    paths:
+      - 'environment/**'
+      - 'scripts/**'
+      - '.github/workflows/rc2c-locked.yml'
+      - 'src/**'
+      - 'tests/**'
+      - 'research/**'
+      - 'data/results/**'
+      - 'pyproject.toml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rc2c-lens-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  paired-locked:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            python: '3.11.18'
+          - os: windows-2022
+            python: '3.11.9'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: Open-Energy-Methods/PtXFlex
+          ref: 2fd14031409e478333bf6eee9609b2b93aeed85e
+          path: _external_ptxflex_source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          architecture: x64
+      - name: Install both projects with the same verified wheel lock; reproduce public evidence
+        shell: bash
+        run: |
+          python -m venv .rc2c-venv
+          if [ "$RUNNER_OS" = Windows ]; then P=.rc2c-venv/Scripts/python.exe; else P=.rc2c-venv/bin/python; fi
+          "$P" _external_ptxflex_source/scripts/rc2c_environment_lock.py install --lens-root .
+          "$P" _external_ptxflex_source/scripts/rc2c_environment_lock.py verify
+          "$P" _external_ptxflex_source/scripts/rc2c_numerical_reproducibility.py --lens-root .
+          "$P" -m pytest -q
