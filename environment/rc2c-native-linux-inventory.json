@@ -1,0 +1,198 @@
+{
+  "all_maven_plugins_transitively_hash_locked": false,
+  "declared_build_plugins": [
+    {
+      "artifactId": "maven-compiler-plugin",
+      "groupId": "org.apache.maven.plugins",
+      "version": "3.14.1"
+    },
+    {
+      "artifactId": "exec-maven-plugin",
+      "groupId": "org.codehaus.mojo",
+      "version": "3.5.1"
+    }
+  ],
+  "declared_dependencies": [
+    {
+      "artifactId": "olca-core",
+      "groupId": "org.openlca",
+      "version": "2.7.0"
+    }
+  ],
+  "expected_private_BAFU_2026_v11_archive_bytes": 135424513,
+  "expected_private_BAFU_2026_v11_archive_sha256": "e63b7e7ef5cde04bfe1176a783a55b5f72e2b73f42c36632b6150af39d348c4c",
+  "full_native_environment_certified": false,
+  "java_compiler_release": "25",
+  "java_runtime_version": "25.0.5",
+  "maven_runtime_version": "3.10.0",
+  "native_database_import_or_LCIA_run": false,
+  "native_optional_UMFPACK_binary_checked": false,
+  "pom_sha256": "8d1c1bdb17ae1a4cd5b7f58a6213596585a584b9e69ccf93952b863f29b0b3a7",
+  "private_BAFU_archive_checked": false,
+  "runtime_classpath_jar_hashes": [
+    {
+      "bytes": 172996,
+      "jar": "HikariCP-7.1.0.jar",
+      "sha256": "2be45c641b841e81df87292e181f2c203500c5f0e9a1676f135927387f3cf40b"
+    },
+    {
+      "bytes": 126252,
+      "jar": "asm-9.9.1.jar",
+      "sha256": "6f3828a215c920059a5efa2fb55c233d6c54ec5cadca99ce1b1bdd10077c7ddd"
+    },
+    {
+      "bytes": 75010,
+      "jar": "asm-commons-9.9.1.jar",
+      "sha256": "c2319e014ce7199f2b7f7d56d6bb991863168c3f4b6cd6c9f542a4937ef7ef88"
+    },
+    {
+      "bytes": 51963,
+      "jar": "asm-tree-9.9.1.jar",
+      "sha256": "0f3555096b720b820bbacab0b515589bee0200bee099bda14c561738ae837ba1"
+    },
+    {
+      "bytes": 374716,
+      "jar": "commons-codec-1.19.0.jar",
+      "sha256": "5c3881e4f556855e9c532927ee0c9dfde94cc66760d5805c031a59887070af5f"
+    },
+    {
+      "bytes": 60964,
+      "jar": "commons-csv-1.14.1.jar",
+      "sha256": "32be0e1e76673092f5d12cb790bd2acb6c2ab04c4ea6efc69ea5ee17911c24fe"
+    },
+    {
+      "bytes": 563971,
+      "jar": "commons-io-2.20.0.jar",
+      "sha256": "df90bba0fe3cb586b7f164e78fe8f8f4da3f2dd5c27fa645f888100ccc25dd72"
+    },
+    {
+      "bytes": 2213560,
+      "jar": "commons-math3-3.6.1.jar",
+      "sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308"
+    },
+    {
+      "bytes": 3544643,
+      "jar": "derby-10.17.1.0.jar",
+      "sha256": "764e4c133f860a8876e835ef2306efecad27a742d27f05bc4bce669432c6b397"
+    },
+    {
+      "bytes": 88762,
+      "jar": "derbyshared-10.17.1.0.jar",
+      "sha256": "fb68bab30785375c1f8cb5e9583b349750f8904d6f7ee15ce8e1c30b6be30ef4"
+    },
+    {
+      "bytes": 20254,
+      "jar": "error_prone_annotations-2.47.0.jar",
+      "sha256": "5364bc6f22e72e98195e406a58d3ba1c09ffa11dea0729592cb870dc2de4056d"
+    },
+    {
+      "bytes": 10763,
+      "jar": "failureaccess-1.0.3.jar",
+      "sha256": "cbfc3906b19b8f55dd7cfd6dfe0aa4532e834250d7f080bd8d211a3e246b59cb"
+    },
+    {
+      "bytes": 313604,
+      "jar": "gson-2.14.0.jar",
+      "sha256": "2cbd119bf1961c28788310963dc80ba65f58cdeec1dd139c8bdb1240faa2c36f"
+    },
+    {
+      "bytes": 3064793,
+      "jar": "guava-33.6.0-jre.jar",
+      "sha256": "dc573e1fca4fd5454f4a5fd3d7da2df03002876a4175bafc14a95980dd7713b3"
+    },
+    {
+      "bytes": 16762,
+      "jar": "j2objc-annotations-3.1.jar",
+      "sha256": "84d3a150518485f8140ea99b8a985656749629f6433c92b80c75b36aba3b099b"
+    },
+    {
+      "bytes": 195939,
+      "jar": "jakarta.persistence-api-3.2.0.jar",
+      "sha256": "be8a26b0e75c84c1b7600f759256fbc68d60333d89ec0ce3f784fc3ffa09aa8c"
+    },
+    {
+      "bytes": 3819,
+      "jar": "jspecify-1.0.0.jar",
+      "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+    },
+    {
+      "bytes": 19936,
+      "jar": "jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "bytes": 1239978,
+      "jar": "jts-core-1.20.0.jar",
+      "sha256": "6a783d8f9dba3d3cf7265435f134402f63c05838aa6cbcc4297ad3a5b2842baf"
+    },
+    {
+      "bytes": 2199,
+      "jar": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "bytes": 84914,
+      "jar": "npy-0.0.3.jar",
+      "sha256": "64d1dfe206d1f112ff478ca667981531a21c8dab4bd4ad27898605e05a536106"
+    },
+    {
+      "bytes": 13720,
+      "jar": "olca-commons-1.1.1.jar",
+      "sha256": "d654891fdbfdc37f30d047202d1727aa9a55d56d7af7d3f0bfe31465e23ba68b"
+    },
+    {
+      "bytes": 1776768,
+      "jar": "olca-core-2.7.0.jar",
+      "sha256": "237aa35da7062c1fd31256f583247482f49af1dcfa92e52eb73b2299128e40f2"
+    },
+    {
+      "bytes": 91609,
+      "jar": "olca-formula-2.0.1.jar",
+      "sha256": "91e00c5a7fa01baa61bcc24ac2b76230958975efe3fd59d5783d490164118cc5"
+    },
+    {
+      "bytes": 14738,
+      "jar": "olca-native-0.0.2.jar",
+      "sha256": "a4758191f87fe9fb571a88aa60e29037e4cb8b0d908e8f1e209c68a61d931660"
+    },
+    {
+      "bytes": 5300419,
+      "jar": "org.eclipse.persistence.core-5.0.0.jar",
+      "sha256": "084f8c0b737f19d4bf4cfe37cc0153417f3ba9fc7d1cdb3696a6ff2f9ebd4194"
+    },
+    {
+      "bytes": 1667068,
+      "jar": "org.eclipse.persistence.jpa-5.0.0.jar",
+      "sha256": "0aace4e5a83bed28e0febcc6216712530ce2ee33cbd11ec68d823dedff53a4ab"
+    },
+    {
+      "bytes": 1455256,
+      "jar": "org.eclipse.persistence.jpa.jpql-5.0.0.jar",
+      "sha256": "3225bed14aa79365e97f591bf767aa19a3c47d30c47e468a2f30ac262802c2fa"
+    },
+    {
+      "bytes": 1886258,
+      "jar": "protobuf-java-4.33.0.jar",
+      "sha256": "6c50b4323a101dfd7b8aea209337ac49ecf5d8e33e0b210b196fc654291ed2cc"
+    },
+    {
+      "bytes": 77250,
+      "jar": "protobuf-java-util-4.33.0.jar",
+      "sha256": "afcac44c81ff9bb9e0d30697428aa17dad145a38f069dfbdf6848a0a9963dbf2"
+    },
+    {
+      "bytes": 69982,
+      "jar": "slf4j-api-2.0.18.jar",
+      "sha256": "44508fd1576500688c790b190acdd16fec4f8c79a3e0b900afd70503cf055f55"
+    },
+    {
+      "bytes": 2523218,
+      "jar": "trove4j-3.0.3.jar",
+      "sha256": "3c8616203d61a12a7e3487e8b34f3c198c2b5ba9e90da0c7ea32d99cd4958012"
+    }
+  ],
+  "schema_version": "ptxlens.rc2c.native_environment_inventory.v1",
+  "scientific_v1_approved": false,
+  "observed_ci_run_id": 44418712977,
+  "observed_ci_job_id": 135205705378
+}

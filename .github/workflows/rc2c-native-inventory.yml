@@ -1,0 +1,41 @@
+name: RC2-C native Java openLCA environment inventory (no database)
+on:
+  push:
+    branches: [main, 'feat/**']
+    paths:
+      - 'native-openlca/pom.xml'
+      - 'environment/rc2c-native-linux-inventory.json'
+      - 'scripts/rc2c_native_environment.py'
+      - '.github/workflows/rc2c-native-inventory.yml'
+  pull_request:
+    paths:
+      - 'native-openlca/pom.xml'
+      - 'environment/rc2c-native-linux-inventory.json'
+      - 'scripts/rc2c_native_environment.py'
+      - '.github/workflows/rc2c-native-inventory.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rc2c-native-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  native-environment-inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25.0.5'
+      - name: Resolve actual runtime classpath without original private database
+        shell: bash
+        run: |
+          mvn --batch-mode -ntp -f native-openlca/pom.xml org.apache.maven.plugins:maven-dependency-plugin:3.8.1:build-classpath -Dmdep.outputFile="$RUNNER_TEMP/rc2c-classpath.txt" -DincludeScope=runtime
+          python scripts/rc2c_native_environment.py --classpath "$RUNNER_TEMP/rc2c-classpath.txt" --baseline environment/rc2c-native-linux-inventory.json
