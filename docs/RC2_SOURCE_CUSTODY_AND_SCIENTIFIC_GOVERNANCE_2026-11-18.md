@@ -56,3 +56,14 @@ From PtXLens with its paired PtXFlex environment:
 Expected: RC2_SOURCE_RECEIPT_AND_GOVERNANCE_AUDIT_PASS_P0_AND_SCIENTIFIC_V1_BLOCKED.
 
 This validates public receipts, not a second private archive readback, external legal licensing decision or validated plant design. Do not set any full acceptance flag to passed merely because CI is green.
+
+
+## 5. Preliminary provider-terms review (not independent legal clearance)
+
+Reviewed public provider documents on 18 November 2026:
+
+- **ENTSO-E Transparency Platform:** [official legal terms index](https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions); [29 March 2023 Terms of Use, applicable from 1 November 2023, clause 3.1](https://transparencyplatform.zendesk.com/hc/en-us/article_attachments/40921869376401); [free-reuse list dated 18 October 2023](https://transparencyplatform.zendesk.com/hc/en-us/article_attachments/40921869379729). The CC BY 4.0 list applies to enumerated data; review of all five pages did not identify Dutch bidding-zone day-ahead wholesale electricity prices as a listed category. Distinguish day-ahead load forecasts, cross-zonal capacity prices and balancing prices from spot energy settlement prices. Clause 3.1 requires source attribution and protection of underlying primary-owner rights, including obtaining agreement where reuse risks those rights. Lack of inclusion in the list is not, by itself, a legal finding that all research analysis is prohibited. Do not infer blanket permission to redistribute A44 XML, normalized hourly arrays or original archives. Establish the applicable terms and primary-rights permission before redistributing any raw or potentially reconstructable series.
+- **ERA5-derived wind:** [ECMWF attribution guidance](https://confluence.ecmwf.int/spaces/DAC/pages/576396026/How%2Bcan%2BI%2Battribute%2Band%2Bcite%2BECMWF%2Bdata) describes CC BY 4.0 for applicable ECMWF open data, attribution, source and modifications. The original 2023 CDS downloads and alternate ARCO extraction provenance must retain the applicable dataset licence as received, provider/dataset/source citation and documented conversion to modelled wind power. This is not permission to relicense unrelated electricity-price data or mixed archives.
+- **Native BAFU and mixed source archives:** no whole-archive redistribution clearance granted. MIT code licensing is separate from underlying data terms; do not silently apply MIT or a blanket CC BY designation to source data. Preserve private copies and publish non-reconstructable, attributed derived evidence and source-retrieval instructions subject to rights review. Actual provider licence receipts and independent review remain required for P0.
+
+Keep the scientific and legal boundaries separate. This preliminary terms review does not change the recorded private-readback scope, full P0 status, independent physical backup status or the 12 programme gates.
