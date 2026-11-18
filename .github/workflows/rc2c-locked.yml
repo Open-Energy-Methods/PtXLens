@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: Open-Energy-Methods/PtXFlex
-          ref: 5deababe0d861a5eda4c2c6bbb3a09f741a3c397
+          ref: 74a1fbf9f74702463c92d2fb8d31c36d8e4cdebe
           path: _external_ptxflex_source
           persist-credentials: false
       - uses: actions/setup-python@v5
