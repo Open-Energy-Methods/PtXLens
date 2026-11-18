@@ -1,5 +1,12 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## 18 November 2026 — L3-G paired source and claims release qualification IMPLEMENTED, validation pending
+
+L3-G adds an [independent cross-repository consistency and claims auditor](src/ptxlens/l3g_release_qualification.py), its [negative regression tests](tests/test_l3g_release_qualification.py) and the [paired scientific release methodology](docs/L3G_PAIRED_SCIENTIFIC_RELEASE_CLAIM_EVIDENCE_PROTOCOL_v1.md). It validates the eight existing L3-F public files byte-for-byte, checks 19 original F2 equipment identifiers and 13 site domains, preserves separate 2022/2024 H30 matched-service and gross-versus-usable H2 capacity semantics, and creates two more immutable public-ready research records using new PowerShell `L3GPrepare` and `L3GAuditPublic` phases. **Research claims remain source-scoped; scientific v1.0, authenticated OEM/PED, real installed NPV and native BAFU LCIA are NOT approved.** This is a new review branch; no new local Windows tests or L3-G result publication have yet been asserted.
+
+---
+
+
 ## 17 November 2026 — L3-F physical qualification / 19 OEM costs / BAFU provider mapping IMPLEMENTED, local validation pending
 
 After L3-E's **171 passed, 1 skipped**, source-exact seven-file published research framework, [L3-F scientific protocol](docs/L3F_H30_STATIONARY_TYPEI_PHYSICAL_COST_NATIVE_BAFU_QUALIFICATION_PROTOCOL_v1.md) links real-gas H2 additional vessel screening, original F2 **20t extra MAX inventory versus 17.785t incremental usable**, paper-vessel discrete volume and 13-domain stationary PED/ATEX/HAZOP/compressor/site design-evidence requirements to the source-year independently replayed 2022/2024 exogenous 30t/day H2 E20t and E+S40t cases. [L3-F qualified cost frontier bridge](src/ptxlens/l3f_h30_cost_qualification_bridge.py) source-locks **19 OEM/BoP/annual OPEX/replacement/EOL** evidence requirements and 50/75/100% hypothetical source-year wholesale-saving repetitions at 20y/8% real/€250k extra OPEX/€1m year-10 replacement; does NOT invent real site CAPEX or assert NPV. [Native BAFU:2026 v1.1 mapping gate](src/ptxlens/l3f_bafu_native_mapping_contract.py) requires actual manufacturing materials, process/provider/reference flow/unit IDs, actual installed BoP, geography and independently run native openLCA LCIA, **not** 1,924,800kg paper-empty vessel as virgin steel. An optional original user-owned local .zolca ZIP/SHA fingerprint merely validates source archive bytes, **not** original native provider/LCIA.

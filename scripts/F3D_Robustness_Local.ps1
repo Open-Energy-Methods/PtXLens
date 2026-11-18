@@ -4,7 +4,7 @@
 # No Actions minutes, Copernicus or ENTSO-E network downloads required.
 [CmdletBinding()]
 param(
- [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024","L3EPrepare","L3EAuditPublic","L3FPrepare","L3FAuditPublic")]
+ [ValidateSet("Test","Status","IndependentLP","SolvePair","ReviewPair","Consolidate","IndependentWindFeasibility","AnalyticWindBound","IndependentWindLPBracket","ExogenousServiceLPScreen","ExogenousH30SolvePair","ExogenousH30ReviewPair","AuditPublic2022","AuditAndCompare2024","L3EPrepare","L3EAuditPublic","L3FPrepare","L3FAuditPublic","L3GPrepare","L3GAuditPublic")]
  [string]$Phase="Test",
  [ValidateSet(2022,2024)]
  [int]$Year=2022,
@@ -106,7 +106,8 @@ if($Phase -eq "Test") {
     (Join-Path $FlexRoot "tests\test_f2l3f_stationary_site_evidence_gate.py"),
     (Join-Path $LensRoot "tests\test_l3f_h30_cost_qualification_bridge.py"),
     (Join-Path $LensRoot "tests\test_l3f_bafu_native_mapping_contract.py"),
-    (Join-Path $LensRoot "tests\test_l3f_publication_admission.py"))
+    (Join-Path $LensRoot "tests\test_l3f_publication_admission.py"),
+    (Join-Path $LensRoot "tests\test_l3g_release_qualification.py"))
   Write-Host "Hermetic scientific regression tests completed; original provider-year MILPs NOT run"
   return
 }
@@ -170,6 +171,27 @@ if($Phase -eq "L3FAuditPublic"){
     "--flex-results",(Join-Path $FlexRoot "data\results"))
   Write-Host "L3F eight source-exact result files independently reproduced. Inspect before manual staging"
   Write-Host "No git add, commit, push or private source/model archive publication performed"
+  return
+}
+if($Phase -eq "L3GPrepare"){
+  Need ($Mode -eq "max_inventory") "L3-G matches only the audited original max_inventory F2/H30 cases"
+  Run $python @("-m","ptxlens.l3g_release_qualification",
+    "--lens-results",$publicResults,
+    "--flex-results",(Join-Path $FlexRoot "data\results"),
+    "--output-dir",$publicResults)
+  Write-Host "L3G paired scientific research claims admitted; full scientific v1.0 BLOCKED"
+  Write-Host "Inspect all ten public-safe research reports; no git stage, vendor quote or original archive accessed"
+  return
+}
+if($Phase -eq "L3GAuditPublic"){
+  Need ($Mode -eq "max_inventory") "L3-G matches only audited original max_inventory"
+  Run $python @("-m","ptxlens.l3g_release_qualification",
+    "--lens-results",$publicResults,
+    "--flex-results",(Join-Path $FlexRoot "data\results"),
+    "--output-dir",$publicResults,
+    "--verify-only")
+  Write-Host "L3G original eight source files plus exact two-report release ledger verified"
+  Write-Host "No site/OEM/PED/BAFU LCIA or real project NPV has passed; no git publication performed"
   return
 }
 Need (Test-Path -LiteralPath $PrivateRoot -PathType Container) "Original private source archive missing"
