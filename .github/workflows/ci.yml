@@ -6,6 +6,13 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'examples/**'
+      - 'scripts/**'
+      - 'contracts/**'
+      - 'research/**'
+      - 'data/results/**'
+      - 'docs/PROGRAMME_MASTER_PLAN_v1.0.md'
+      - 'docs/DECISION_REGISTER_v1.0.md'
+      - '.gitattributes'
       - 'pyproject.toml'
       - '.github/workflows/ci.yml'
   pull_request:
@@ -13,6 +20,13 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'examples/**'
+      - 'scripts/**'
+      - 'contracts/**'
+      - 'research/**'
+      - 'data/results/**'
+      - 'docs/PROGRAMME_MASTER_PLAN_v1.0.md'
+      - 'docs/DECISION_REGISTER_v1.0.md'
+      - '.gitattributes'
       - 'pyproject.toml'
       - '.github/workflows/ci.yml'
   workflow_dispatch:
@@ -34,7 +48,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: Open-Energy-Methods/PtXFlex
-          ref: eb9e6ff3f82edf13ed6be118dea0a29b6765b836
+          ref: c6a6c3d3691cea17586a2de5dd1370da4317f9a6
           path: _external_ptxflex_source
           persist-credentials: false
       - run: python -m pip install -e "./_external_ptxflex_source[physics]"
@@ -55,5 +69,7 @@ jobs:
           python -m ptxlens.l3g_release_qualification --lens-results "$RUNNER_TEMP/l3g-lens" --flex-results "$RUNNER_TEMP/l3g-flex" --output-dir "$RUNNER_TEMP/l3g-lens" --verify-only
       - name: RC1 paired scientific release audit (source-only, not v1 approval)
         run: python -m ptxlens.rc1_release_audit --lens-root . --flex-root ./_external_ptxflex_source
+      - name: RC2 provenance and scientific governance audit (no private raw inputs)
+        run: python -m ptxlens.rc2_provenance_governance --lens-root . --flex-root ./_external_ptxflex_source
       - run: ptxlens assess examples/illustrative.json --output /tmp/ptxlens_result.json
       - run: ptxlens inventory examples/illustrative.json --output /tmp/ptxlens_inventory.json

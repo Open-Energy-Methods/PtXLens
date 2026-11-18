@@ -1,0 +1,147 @@
+{
+  "schema_version": "oem.ptx.rc2_source_provenance_and_calendar_scope.v1",
+  "checked_utc_date": "2026-11-18",
+  "original_2023_pynexus": {
+    "source_repository": "abhijith-sivaprasadan/PyNEXUS",
+    "metadata_check": "GitHub Actions artifact listings for original frozen source runs; API digests match registered SHA256",
+    "original_artifacts": [
+      {
+        "case": "E",
+        "artifact_id": 12612294862,
+        "workflow_run_id": 40229852457,
+        "name": "wp5-observed-full-year-E",
+        "size_bytes": 767808,
+        "expired": false,
+        "expires_at_UTC": "2026-12-24T20:18:09Z",
+        "verified_source_archive_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+        "api_sha256_digest_matches_frozen_registry": true,
+        "existing_private_owner_copy_readback_sha256_matches_registry": true,
+        "existing_private_owner_copy_readback_zip_crc_passed": true,
+        "existing_private_owner_copy_byte_length_matches_registry": true
+      },
+      {
+        "case": "E_plus_S",
+        "artifact_id": 12613045475,
+        "workflow_run_id": 40229852457,
+        "name": "wp5-observed-full-year-E+S",
+        "size_bytes": 775930,
+        "expired": false,
+        "expires_at_UTC": "2026-12-24T20:21:57Z",
+        "verified_source_archive_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+        "api_sha256_digest_matches_frozen_registry": true,
+        "existing_private_owner_copy_readback_sha256_matches_registry": true,
+        "existing_private_owner_copy_readback_zip_crc_passed": true,
+        "existing_private_owner_copy_byte_length_matches_registry": true
+      },
+      {
+        "case": "A44_original_market_provider_XML",
+        "artifact_id": 12610917985,
+        "workflow_run_id": 40225702504,
+        "name": "wp1-nl-a44-original-provider-xml-2023",
+        "size_bytes": 79058,
+        "expired": false,
+        "expires_at_UTC": "2026-12-24T19:24:29Z",
+        "verified_source_archive_sha256": "bc1751b86a3fe712ac2713985c4e189c922a031bacb53a7bd8f422809ba24248",
+        "api_sha256_digest_matches_frozen_registry": true,
+        "existing_private_owner_copy_readback_sha256_matches_registry": true,
+        "existing_private_owner_copy_readback_zip_crc_passed": true,
+        "existing_private_owner_copy_byte_length_matches_registry": true
+      }
+    ],
+    "earliest_observed_retention_expiry_utc": "2026-12-24T19:24:29Z",
+    "existing_owner_controlled_private_archive_readback_all_three_sha256_crc_verified": true,
+    "readback_method": "Authorized retrieval of pre-existing unshared user-owned copies into temporary private analysis; recomputed SHA256 of full original ZIP bytes and Python ZipFile.testzip; no extraction or public redistribution",
+    "readback_temporary_analysis_is_NOT_second_permanent_independent_backup": true,
+    "permanent_independent_physical_backup_and_full_restore_verified": false,
+    "original_source_provider_licensing_independently_reviewed": false,
+    "external_scientific_review_verified": false,
+    "private_storage_locators_credentials_or_raw_source_bytes_in_report": false,
+    "P0_full_release_gate_passed": false
+  },
+  "alternate_year_source_evidence": {
+    "public_flex_aggregate_git_blob_sha1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+    "public_lens_h30_w090_crossyear_git_blob_sha1": "c24b4cb0d6a409798c8a7e764965fffd51478a77",
+    "scope": "Prior source-hash and independent full-hourly primal/EOS replay receipts for 2022/2024 ENTSO-E NL day-ahead observations and ERA5 ARCO-derived modelled wind at the original offshore grid point. Not freshly reread 2022/2024 private source files in RC2.",
+    "source_representation": "2022/2024 NL ENTSO-E A44 day-ahead EUR/MWh and Copernicus ERA5 ARCO geo-chunked hourly offshore wind, 52.5N, 3.5E",
+    "original_2023_CDS_ARCO_full_year_1W_reference_sha256": "9e0e95ddf9c70547ab6ce696f52a82dc312f11d7cd760de5dc779c6ac2b43c9c",
+    "original_2023_CDS_ARCO_full_year_calibration_passed_in_prior_source_evidence": true,
+    "source_pairs": [
+      {
+        "year": 2022,
+        "calendar_utc_hours": 8760,
+        "source_provider_pair_receipt_sha256": "7936a6da941068fc1bb74a85c2f78bc43680d87c77f1c3e19d2e311da6c2697a",
+        "source_price_f64_sha256": "1a5490fd607d6c786878ca56b5d82ce8568f62b5277bc201206f1e6761b04f28",
+        "source_wind_electric_power_f64_sha256": "b5e6033bbfb3f776008191fe8f5e1e05b611b8598b55d88af835d74dc9e267b4",
+        "original_source_hash_and_calendar_admitted": true,
+        "separate_price_neutral_E_selected_service_cases": [
+          {
+            "storage_capacity_semantics": "max_inventory",
+            "selected_tonnes_per_day": 30.480648653278504,
+            "paired_integer_primal_replayed": true,
+            "paired_eos_replayed": true,
+            "integer_search_dual_independently_reconstructed": false
+          },
+          {
+            "storage_capacity_semantics": "usable_service",
+            "selected_tonnes_per_day": 30.883823336356475,
+            "paired_integer_primal_replayed": true,
+            "paired_eos_replayed": true,
+            "integer_search_dual_independently_reconstructed": false
+          }
+        ]
+      },
+      {
+        "year": 2024,
+        "calendar_utc_hours": 8784,
+        "source_provider_pair_receipt_sha256": "d4aad562e99875a0634686307884cccc91844b80828657ab070ffa8a9f1bcb27",
+        "source_price_f64_sha256": "834449561032a1c81f76950fd49b1b0276f6cd27b4a0e07e9188a09144574fce",
+        "source_wind_electric_power_f64_sha256": "ee4beeca6af19c70a4719a677088a0282d73873faa835bdbfd8327b4222e4f27",
+        "original_source_hash_and_calendar_admitted": true,
+        "separate_price_neutral_E_selected_service_cases": [
+          {
+            "storage_capacity_semantics": "max_inventory",
+            "selected_tonnes_per_day": 30.747937895131617,
+            "paired_integer_primal_replayed": true,
+            "paired_eos_replayed": true,
+            "integer_search_dual_independently_reconstructed": false
+          },
+          {
+            "storage_capacity_semantics": "usable_service",
+            "selected_tonnes_per_day": 31.006438483413874,
+            "paired_integer_primal_replayed": true,
+            "paired_eos_replayed": true,
+            "integer_search_dual_independently_reconstructed": false
+          }
+        ]
+      }
+    ],
+    "separately_prespecified_fixed_H30_W090_max_inventory_cases": [
+      {
+        "year": 2022,
+        "calendar_utc_hours": 8760,
+        "annual_delivered_H2_kg": 10950000,
+        "prespecified_h2_tonnes_per_day": 30,
+        "wind_electric_power_factor": 0.9,
+        "source_year_nominal_wholesale_saving_eur": 3281613.054066889,
+        "paired_integer_primal_replayed": true,
+        "integer_search_dual_independently_reconstructed": false
+      },
+      {
+        "year": 2024,
+        "calendar_utc_hours": 8784,
+        "annual_delivered_H2_kg": 10980000,
+        "prespecified_h2_tonnes_per_day": 30,
+        "wind_electric_power_factor": 0.9,
+        "source_year_nominal_wholesale_saving_eur": 1931675.8526294443,
+        "paired_integer_primal_replayed": true,
+        "integer_search_dual_independently_reconstructed": false
+      }
+    ],
+    "F3D_source_year_8784_hour_capable_for_these_verified_studies": true,
+    "original_2023_frozen_PyNEXUS_unchanged": true,
+    "original_full_50t_day_contract_served_or_real_site_validated": false,
+    "all_private_alternate_year_raw_archives_freshly_read_by_RC2": false,
+    "native_BAFU_matched_storage_LCIA_or_real_OEM_cost_certified": false,
+    "full_scientific_v1_allowed": false
+  }
+}

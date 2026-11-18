@@ -1,5 +1,12 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## 18 November 2026 — RC2-A/B provenance and gate reconciliation
+
+[RC2 scientific governance and custody protocol](docs/RC2_SOURCE_CUSTODY_AND_SCIENTIFIC_GOVERNANCE_2026-11-18.md) records the exact frozen original three-archive private readback, 2 source-admitted 2022/2024 pairs, 4 prior selected-service year/mode cases and 2 independent exogenous H30/W090 max_inventory cases. The [shared receipt](research/RC2_SOURCE_PROVENANCE_AND_YEAR_EVIDENCE_2026-11-18.json) separates observed electricity prices, ERA5-derived model wind, prior independent primal/EOS checks and source-reported integer bounds. Paired [RC2 audit](src/ptxlens/rc2_provenance_governance.py) reconstructs the public F3-D admission and runs RC1. **All 12 science gates remain NOT_PASSED.** Independent physical backup and restoration, source rights, actual OEM/site and native matched-storage LCIA, project NPV, external review and full scientific v1.0 are not approved.
+
+---
+
+
 ## 18 November 2026 — RC1 paired scientific/software release audit (review branch)
 
 [Full RC1 findings and prioritized blockers](docs/RC1_PAIRED_SCIENTIFIC_SOFTWARE_RELEASE_AUDIT_2026-11-18.md) and the [fail-closed paired reviewer](src/ptxlens/rc1_release_audit.py) test common science gates and shared contract/master plan/ADRs, L3-F eight-file source reconstruction plus L3-G two immutable files, private file-class exclusions and Windows LF output integrity. Paired CI is pinned to PtXFlex published commit `eb9e6ff`, with dependency/compilation and least-privilege checks. **All 12 full scientific programme gates still NOT_PASSED; v1.0 is NOT approved.** The huge draft PR to main remains conflicted; environmental superiority, OEM/PED and actual investment feasibility are still unverified. RC1 is a research evidence/safety audit, not an independent industrial or comprehensive security certification.
