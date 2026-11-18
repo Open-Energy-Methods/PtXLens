@@ -13,3 +13,7 @@ outputs/
 *.ecospold
 bafu-licensed-databases/
 private-lci/
+
+# RC2-C locked venv and CI-only paired checkout
+.rc2c-venv/
+_external_ptxflex_source/
