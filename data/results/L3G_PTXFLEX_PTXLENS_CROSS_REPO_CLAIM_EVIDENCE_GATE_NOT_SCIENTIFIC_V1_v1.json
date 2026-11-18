@@ -1,0 +1,199 @@
+{
+  "any_git_staging_commit_or_push_performed": false,
+  "blocked_unsupported_project_and_v1_claims": [
+    {
+      "admissible_scope": "blocked: independent manufacturer and engineering evidence missing",
+      "claim": "Selected OEM bank quantities, materials, and PED/site safety approval",
+      "evidence_relative_paths": [
+        "PtXFlex/data/results/L3F_H30_TYPEI_REFERENCE_20t_INCREMENTAL_FREE_VOLUME_THERMAL_DISCRETE_SCREEN_NOT_OEM_v1.json",
+        "PtXFlex/data/results/L3F_H30_TYPEI_20t_40t_SITE_PED_P_AND_ID_OEM_QUALIFICATION_REQUIREMENTS_NOT_APPROVED_v1.json"
+      ],
+      "id": "B01"
+    },
+    {
+      "admissible_scope": "blocked: authenticated signed OEM quotes and site contracts missing",
+      "claim": "Actual installed project CAPEX/OPEX/replacements and investable NPV",
+      "evidence_relative_paths": [
+        "PtXLens/data/results/L3F_H30_2022_2024_19_EQUIPMENT_COST_EVIDENCE_TO_DCF_GATE_NOT_PROJECT_NPV_v1.json",
+        "PtXFlex/data/results/L3F_H30_TYPEI_20t_40t_SITE_PED_P_AND_ID_OEM_QUALIFICATION_REQUIREMENTS_NOT_APPROVED_v1.json"
+      ],
+      "id": "B02"
+    },
+    {
+      "admissible_scope": "blocked: native process/provider flows, real material masses and rerun absent",
+      "claim": "Native BAFU:2026 v1.1 product system manufacturing/replacement/EOL LCIA",
+      "evidence_relative_paths": [
+        "PtXLens/data/results/L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json"
+      ],
+      "id": "B03"
+    },
+    {
+      "admissible_scope": "blocked: native manufacturing LCIA and matched-hourly operational impact missing",
+      "claim": "Lifecycle GHG benefit or environmental superiority",
+      "evidence_relative_paths": [
+        "PtXLens/data/results/L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json"
+      ],
+      "id": "B04"
+    },
+    {
+      "admissible_scope": "blocked: external experimental validation and B01-B04 remain unresolved",
+      "claim": "Unqualified general scientific v1.0 and plant-operational validity",
+      "evidence_relative_paths": [
+        "PtXFlex/data/results/L3F_H30_TYPEI_REFERENCE_20t_INCREMENTAL_FREE_VOLUME_THERMAL_DISCRETE_SCREEN_NOT_OEM_v1.json",
+        "PtXFlex/data/results/L3F_H30_TYPEI_20t_40t_SITE_PED_P_AND_ID_OEM_QUALIFICATION_REQUIREMENTS_NOT_APPROVED_v1.json",
+        "PtXLens/data/results/L3F_H30_2022_2024_19_EQUIPMENT_COST_EVIDENCE_TO_DCF_GATE_NOT_PROJECT_NPV_v1.json",
+        "PtXLens/data/results/L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json"
+      ],
+      "id": "B05"
+    }
+  ],
+  "cross_repository_semantic_contract": {
+    "actual_installed_cost_or_NPV_authorized": false,
+    "actual_site_or_manufacturer_certification": false,
+    "declared_storage_mode": "max_inventory",
+    "engineering_documentary_domains": 13,
+    "hypothetical_thermal_screens": 3,
+    "incremental_gross_MAX_H2_kg": 20000.0,
+    "incremental_reference_pressure_swing_usable_H2_kg": 17784.924849614785,
+    "independent_historical_case_years": [
+      2022,
+      2024
+    ],
+    "matched_delivery_kg_per_hour": 1250.0,
+    "native_BAFU_LCIA_reproduced": false,
+    "original_F2_reference_git_blob_sha1": "424a8f738cb9caa2d05c1ec5c22cbf6cdd601b82",
+    "physical_reference_supplier_BOM_categories": 19,
+    "source_year_annual_matched_service_kg": {
+      "2022": 10950000.0,
+      "2024": 10980000.0
+    }
+  },
+  "decision": "L3G_SOURCE_RESEARCH_EVIDENCE_ADMISSIBLE_FULL_SCIENTIFIC_V1_BLOCKED",
+  "exact_original_source_rebuilt_report_count": 8,
+  "gates": {
+    "authenticated_OEM_and_PED_design": false,
+    "cross_repository_F2_cost_native_material_consistency": true,
+    "eight_public_source_rebuilds": true,
+    "experimentally_validated_station_operation": false,
+    "matched_source_2022_2024_service_and_research_scope": true,
+    "native_BAFU_2026_v11_LCIA": false,
+    "quoted_installed_CAPEX_and_project_NPV": false,
+    "unqualified_scientific_v1_0_release": false
+  },
+  "original_hourly_MILP_rerun_by_L3G": false,
+  "original_private_source_or_vendor_archive_processed": false,
+  "permitted_scoped_research_claims": [
+    {
+      "admissible_scope": "independently replayed source-year research model; 2022 and 2024 never merged",
+      "claim": "Same modelled 30t/day H2 in both architectures in each year",
+      "evidence_relative_paths": [
+        "PtXLens/data/results/L3F_H30_2022_2024_19_EQUIPMENT_COST_EVIDENCE_TO_DCF_GATE_NOT_PROJECT_NPV_v1.json",
+        "PtXLens/data/results/L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json"
+      ],
+      "id": "R01"
+    },
+    {
+      "admissible_scope": "source-locked paper reference, NOT guaranteed site deliverability",
+      "claim": "Original F2 additional MAX inventory 20,000 kg and distinct pressure-swing reference usable 17,784.925 kg",
+      "evidence_relative_paths": [
+        "PtXFlex/data/results/L3F_H30_TYPEI_REFERENCE_20t_INCREMENTAL_FREE_VOLUME_THERMAL_DISCRETE_SCREEN_NOT_OEM_v1.json",
+        "PtXFlex/data/results/L3F_H30_TYPEI_20t_40t_SITE_PED_P_AND_ID_OEM_QUALIFICATION_REQUIREMENTS_NOT_APPROVED_v1.json"
+      ],
+      "id": "R02"
+    },
+    {
+      "admissible_scope": "analyst temperature endpoints, NOT validated transient bank design",
+      "claim": "Three real-gas hydrogen endpoint FREE-volume sensitivity screens",
+      "evidence_relative_paths": [
+        "PtXFlex/data/results/L3F_H30_TYPEI_REFERENCE_20t_INCREMENTAL_FREE_VOLUME_THERMAL_DISCRETE_SCREEN_NOT_OEM_v1.json"
+      ],
+      "id": "R03"
+    },
+    {
+      "admissible_scope": "conditional historical source-price repetition; NOT actual investment NPV",
+      "claim": "Separate positive 2022-like/2024-like model wholesale savings and hypothetical zero-NPV incremental CAPEX ceilings",
+      "evidence_relative_paths": [
+        "PtXLens/data/results/L3F_H30_2022_2024_19_EQUIPMENT_COST_EVIDENCE_TO_DCF_GATE_NOT_PROJECT_NPV_v1.json"
+      ],
+      "id": "R04"
+    },
+    {
+      "admissible_scope": "electricity inventory only; NOT lifecycle carbon or climate superiority",
+      "claim": "Source-year signed grid-import differences are reported",
+      "evidence_relative_paths": [
+        "PtXLens/data/results/L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json"
+      ],
+      "id": "R05"
+    },
+    {
+      "admissible_scope": "evidence requirements only; not actual manufactured material inventory",
+      "claim": "Original F2 BOM coverage consistent across 19 cost, PED and native BAFU foreground categories",
+      "evidence_relative_paths": [
+        "PtXFlex/data/results/L3F_H30_TYPEI_20t_40t_SITE_PED_P_AND_ID_OEM_QUALIFICATION_REQUIREMENTS_NOT_APPROVED_v1.json",
+        "PtXLens/data/results/L3F_H30_2022_2024_19_EQUIPMENT_COST_EVIDENCE_TO_DCF_GATE_NOT_PROJECT_NPV_v1.json",
+        "PtXLens/data/results/L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json"
+      ],
+      "id": "R06"
+    }
+  ],
+  "public_artifact_fingerprints_only": [
+    {
+      "SHA256_exact_original_source_rebuilt": "de683b92a50daeab7ae656b0ccb5c3accf06ca47bc06964e7d239575ae8cdab4",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_TYPEI_REFERENCE_20t_INCREMENTAL_FREE_VOLUME_THERMAL_DISCRETE_SCREEN_NOT_OEM_v1.json",
+      "repo": "PtXFlex",
+      "size_bytes": 7383
+    },
+    {
+      "SHA256_exact_original_source_rebuilt": "fba7c19ed9cc33732cd038c7472c3dbb212fa3cdd0c969899719b5badd510370",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_TYPEI_REFERENCE_THERMAL_PRESSURE_DESIGN_SCOPE_NOT_OEM_v1.md",
+      "repo": "PtXFlex",
+      "size_bytes": 1489
+    },
+    {
+      "SHA256_exact_original_source_rebuilt": "82a7d79066a6b683d5bffec694a727ad699a52f7bc1b82b5887382ce24a6107e",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_TYPEI_20t_40t_SITE_PED_P_AND_ID_OEM_QUALIFICATION_REQUIREMENTS_NOT_APPROVED_v1.json",
+      "repo": "PtXFlex",
+      "size_bytes": 24347
+    },
+    {
+      "SHA256_exact_original_source_rebuilt": "f2597107584fa4f055c0b17a2c2cf38cdaa071a6694fbf17c16cac01a2f373db",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_SITE_DESIGN_AND_MANUFACTURER_EVIDENCE_GAPS_NOT_APPROVED_v1.md",
+      "repo": "PtXFlex",
+      "size_bytes": 2031
+    },
+    {
+      "SHA256_exact_original_source_rebuilt": "1d9a6bfff2c458a1f9b7bab1df766a7776bd7e4637bd6ebf7adbe39b1a5f90a3",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_2022_2024_19_EQUIPMENT_COST_EVIDENCE_TO_DCF_GATE_NOT_PROJECT_NPV_v1.json",
+      "repo": "PtXLens",
+      "size_bytes": 24830
+    },
+    {
+      "SHA256_exact_original_source_rebuilt": "13eaa3ed65c08ed6051fb18f8d98de4586ea79606b67360c51ebe1fd17c92d0e",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_INCREMENTAL_INSTALLED_COST_2022_2024_EVIDENCE_BRIDGE_NOT_NPV_v1.md",
+      "repo": "PtXLens",
+      "size_bytes": 1486
+    },
+    {
+      "SHA256_exact_original_source_rebuilt": "f60b71c50b05f493bc309795650b5eb82f6a4e771397ae2c1729e0d62b947923",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_2022_2024_BAFU_2026_v11_PROCESS_AND_MATERIAL_MAPPING_NOT_LCIA_v1.json",
+      "repo": "PtXLens",
+      "size_bytes": 32651
+    },
+    {
+      "SHA256_exact_original_source_rebuilt": "aac869f5b76b5149d002772c3f2f9f48afed9b9f1ea26b0333645cd6d03dc6eb",
+      "original_2022_2024_provider_hourly_or_supplier_signed_docs_exposed": false,
+      "relative_path": "data/results/L3F_H30_BAFU_NATIVE_STATIONARY_STORAGE_MAPPING_REQUIREMENTS_NOT_LCIA_v1.md",
+      "repo": "PtXLens",
+      "size_bytes": 2395
+    }
+  ],
+  "schema_version": "ptxlens.l3g_paired_research_evidence_release_gate.v1",
+  "source_L3F_exact_rebuild_schema": "ptxlens.l3f_8file_original_H30_max_inventory_2022_2024_source_rebuilt_safety_finance_native_BAFU_release.v1"
+}
