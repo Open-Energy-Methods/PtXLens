@@ -1,5 +1,12 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+## 18 November 2026 — RC1 paired scientific/software release audit (review branch)
+
+[Full RC1 findings and prioritized blockers](docs/RC1_PAIRED_SCIENTIFIC_SOFTWARE_RELEASE_AUDIT_2026-11-18.md) and the [fail-closed paired reviewer](src/ptxlens/rc1_release_audit.py) test common science gates and shared contract/master plan/ADRs, L3-F eight-file source reconstruction plus L3-G two immutable files, private file-class exclusions and Windows LF output integrity. Paired CI is pinned to PtXFlex published commit `eb9e6ff`, with dependency/compilation and least-privilege checks. **All 12 full scientific programme gates still NOT_PASSED; v1.0 is NOT approved.** The huge draft PR to main remains conflicted; environmental superiority, OEM/PED and actual investment feasibility are still unverified. RC1 is a research evidence/safety audit, not an independent industrial or comprehensive security certification.
+
+---
+
+
 ## 18 November 2026 — L3-G paired source and claims release qualification IMPLEMENTED, validation pending
 
 L3-G adds an [independent cross-repository consistency and claims auditor](src/ptxlens/l3g_release_qualification.py), its [negative regression tests](tests/test_l3g_release_qualification.py) and the [paired scientific release methodology](docs/L3G_PAIRED_SCIENTIFIC_RELEASE_CLAIM_EVIDENCE_PROTOCOL_v1.md). It validates the eight existing L3-F public files byte-for-byte, checks 19 original F2 equipment identifiers and 13 site domains, preserves separate 2022/2024 H30 matched-service and gross-versus-usable H2 capacity semantics, and creates two more immutable public-ready research records using new PowerShell `L3GPrepare` and `L3GAuditPublic` phases. **Research claims remain source-scoped; scientific v1.0, authenticated OEM/PED, real installed NPV and native BAFU LCIA are NOT approved.** This is a new review branch; no new local Windows tests or L3-G result publication have yet been asserted.

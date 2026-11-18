@@ -16,6 +16,9 @@ on:
       - 'pyproject.toml'
       - '.github/workflows/ci.yml'
   workflow_dispatch:
+permissions:
+  contents: read
+
 concurrency:
   group: core-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -31,10 +34,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: Open-Energy-Methods/PtXFlex
-          ref: 15fb0b270ada39c86e152b26c30d6d0f66ff3171
+          ref: eb9e6ff3f82edf13ed6be118dea0a29b6765b836
           path: _external_ptxflex_source
           persist-credentials: false
       - run: python -m pip install -e "./_external_ptxflex_source[physics]"
+      - run: python -m pip check
+      - run: python -m compileall -q src tests
       - run: python -m pytest -q
       # Offline cross-repository L3-G smoke: source-only artifacts and immutable audit.
       # This does not rerun private original hourly MILPs or run openLCA/PED/OEM approval.
@@ -48,5 +53,7 @@ jobs:
           python -m ptxlens.l3f_bafu_native_mapping_contract --output-dir "$RUNNER_TEMP/l3g-lens"
           python -m ptxlens.l3g_release_qualification --lens-results "$RUNNER_TEMP/l3g-lens" --flex-results "$RUNNER_TEMP/l3g-flex" --output-dir "$RUNNER_TEMP/l3g-lens"
           python -m ptxlens.l3g_release_qualification --lens-results "$RUNNER_TEMP/l3g-lens" --flex-results "$RUNNER_TEMP/l3g-flex" --output-dir "$RUNNER_TEMP/l3g-lens" --verify-only
+      - name: RC1 paired scientific release audit (source-only, not v1 approval)
+        run: python -m ptxlens.rc1_release_audit --lens-root . --flex-root ./_external_ptxflex_source
       - run: ptxlens assess examples/illustrative.json --output /tmp/ptxlens_result.json
       - run: ptxlens inventory examples/illustrative.json --output /tmp/ptxlens_inventory.json
