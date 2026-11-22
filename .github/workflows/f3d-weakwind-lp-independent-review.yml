@@ -1,0 +1,51 @@
+name: F3-D PtXLens — independent 2023 weak wind 0.9 full-hour source LP infeasibility review
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/f3d_weakwind_lp_independent_review.py'
+      - 'tests/test_f3d_weakwind_lp_independent_review.py'
+      - '.github/workflows/f3d-weakwind-lp-independent-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify_original_2023_source_both_E_ES_models_LP_super_set:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify four source LP status 2 and original unchanged MILP economic source null result
+        run: |
+          python -m pytest -q tests/test_f3d_weakwind_lp_independent_review.py tests/test_f3d_independent_2023_stress_finance_bridge.py
+      - name: Independent immutable cross repository LP mathematical infeasibility audit
+        run: |
+          mkdir -p outputs
+          python - <<'PY'
+          import base64,hashlib,json,pathlib
+          from ptxlens.f3d_weakwind_lp_independent_review import review_both
+          d=review_both()
+          assert d["schema_version"]=="ptxlens.f3d_independent_weakwind_2023_source_LP_status2_feasibility_proof_NOT_site_v1"
+          assert d["both_capacity_modes_and_both_E_and_EplusS_HiGHS_LP_status2"]
+          assert d["modelled_source_hourly_target_unattainable_in_E_and_ES_under_wind_090"]
+          assert not d["full_real_site_hydrogen_unattainable_proven"]
+          assert d["relative_annual_wholesale_cost_under_stress_eur"] is None
+          assert d["hypothetical_financial_capex_break_even_at_wind_090_eur"] is None
+          assert d["native_full_BAFU_storage_manufacturing_GWP_kgCO2e"] is None
+          assert d["new_observed_2022_2024_data_retrieved"] is False
+          out=pathlib.Path("outputs/F3_D_2023_minus10percent_source_wind_4_HiGHS_LP_status2_two_modes_independent_Lens_review_NOT_real_site.json")
+          out.write_text(json.dumps(d,sort_keys=True,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+          raw=out.read_bytes()
+          print("F3_D_WEAKWIND_LENS_SHA256="+hashlib.sha256(raw).hexdigest())
+          print("F3_D_WEAKWIND_LENS_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("PASS: original source 2023 weaker 8760hour wind and fixed H2 E/ES LP relaxation infeasible all four; do NOT claim real site infeasibility or a cost comparison.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: F3-D-2023-original-matched-H2-wind-minus10-LP-infeasibility-NOT-real-site
+          path: outputs/
+          retention-days: 90

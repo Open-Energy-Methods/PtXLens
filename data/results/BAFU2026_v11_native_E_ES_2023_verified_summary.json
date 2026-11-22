@@ -1,0 +1,77 @@
+{
+  "schema_version": "ptxlens.bafu_2026_v1_1_nl_2023_native_gwp100_v1",
+  "executed_date": "2026-11-13",
+  "source": {
+    "bafu_native_edition": "BAFU:2026 v1.1",
+    "bafu_native_original_zolca_sha256": "e63b7e7ef5cde04bfe1176a783a55b5f72e2b73f42c36632b6150af39d348c4c",
+    "bafu_v1_ecospold_original_zip_sha256": "ebaab56717a6227b5eb271fcb4c86fb9db206115eb937fb0ec0b10d7accf26c7",
+    "bafu_v1_corrected_lcia_original_zip_sha256": "a692f72705baac82fc59e85e00389302446ac2d5e921ab9df86fce7441a49e01",
+    "source_citation": "Database of the Swiss Federal Administration, BAFU:2026, Federal Office for the Environment, 2026",
+    "source_raw_dataset_distributed": false,
+    "source_opensource": "GreenDelta openLCA-core 2.7.0 Java engine and separately GPL-licensed UMFPACK sparse solver"
+  },
+  "native_method": {
+    "name": "IPCC 2021",
+    "exact_impact_category": "IPCC 2021 GWP 100",
+    "functional_unit": "1 kg H2 at original BAFU 30bar PEM reference gate"
+  },
+  "native_reference_CH": {
+    "source_process_uuid": "99a1af16-58cd-3f11-a877-c43d3c8e5d78",
+    "gwp100_kgco2e_per_kg_h2": 5.541965561665505,
+    "corrected_BAFU_v1_source_gwp100_kgco2e_per_kg_h2": 5.541965540130873,
+    "source_v1_native_v11_absolute_difference": 2.15346323e-8,
+    "native_linked_processes": 4235,
+    "native_links": 52066,
+    "unlinked_product_inputs": 0,
+    "unlinked_waste_outputs": 0
+  },
+  "historical_2023_original_scenarios": [
+    {
+      "id": "E",
+      "source_archive_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+      "modelled_2023_delivered_h2_kg": 16335279.3173782,
+      "original_pyNEXUS_storage_capacity_kg_h2": 20000,
+      "original_pyNEXUS_grid_kwh_per_kg_model_delivered_h2": 18.401353782960207,
+      "original_pyNEXUS_offshore_wind_kwh_per_kg_model_delivered_h2": 29.03960826433562,
+      "native_gwp100_kgco2e_per_kg_model_delivered_h2": 6.148174395784,
+      "independent_corrected_BAFU_v1_source_factor_kgco2e_per_kg_h2": 6.148174403272011,
+      "native_linked_processes": 4240,
+      "native_links": 52123,
+      "unlinked_product_inputs": 0,
+      "unlinked_waste_outputs": 0
+    },
+    {
+      "id": "E_plus_S",
+      "source_archive_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+      "modelled_2023_delivered_h2_kg": 16679072.08788836,
+      "original_pyNEXUS_storage_capacity_kg_h2": 40000,
+      "original_pyNEXUS_grid_kwh_per_kg_model_delivered_h2": 18.145143492919193,
+      "original_pyNEXUS_offshore_wind_kwh_per_kg_model_delivered_h2": 29.311037908050114,
+      "native_gwp100_kgco2e_per_kg_model_delivered_h2": 6.0765526538929,
+      "independent_corrected_BAFU_v1_source_factor_kgco2e_per_kg_h2": 6.076552667834463,
+      "native_linked_processes": 4240,
+      "native_links": 52123,
+      "unlinked_product_inputs": 0,
+      "unlinked_waste_outputs": 0
+    }
+  ],
+  "scenario_model_changes": {
+    "replaced": "BAFU original 54kWh/kg H2 Swiss low-voltage electricity with model-delivered-normalized 2023 Dutch grid low-voltage and legacy offshore-wind model supplies; Swiss deionized water supplier with NL deionized water at same 14kg/kg H2",
+    "retained": "BAFU v1.1 original PEM stack, BOP, end-of-life and original 30bar PEM H2 reference",
+    "additional_e_plus_s_tank_material_equipment_included": false,
+    "additional_e_plus_s_capacity_kg_h2": 20000,
+    "h2_storage_capacity_is_not_tank_equipment_mass": true,
+    "native_impact_2023_site_measured": false
+  },
+  "scientific_claims": {
+    "original_native_LCIA_executed": true,
+    "E_native_LCIA_executed": true,
+    "E_plus_S_native_LCIA_executed": true,
+    "source_process_provider_graph_closed": true,
+    "full_2023_nl_E_vs_ES_matched_service_comparison_completed": false,
+    "e_plus_s_added_storage_compression_and_losses_included": false,
+    "published_GWP_per_kg_may_not_establish_ES_superiority": true
+  },
+  "method_report": "docs/BAFU_2026_V11_NATIVE_2023_DUTCH_E_ES_VERIFIED.md",
+  "outstanding_issue": "https://github.com/Open-Energy-Methods/PtXLens/issues/2"
+}

@@ -1,0 +1,43 @@
+name: Inspect real USLCI 1kg PEM H2 process and provider UUIDs
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  get-real-process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      LCA_COMMONS_API_KEY: ${{ secrets.LCA_COMMONS_API_KEY }}
+    steps:
+      - name: Require user's personal free API key (never use DEMO_KEY for automated workflows)
+        run: |
+          test -n "$LCA_COMMONS_API_KEY" || { echo "Set LCA_COMMONS_API_KEY in repository Actions secrets (free key from api.data.gov)"; exit 1; }
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Query official federal LCA Commons original reference process UUID
+        run: |
+          mkdir -p outputs/commons_pem_process
+          python -m ptxlens.commons_process \
+            --output outputs/commons_pem_process/real_uslci_pem_1kg_process_audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("outputs/commons_pem_process/real_uslci_pem_1kg_process_audit.json").read_text())
+          q=x["mass_and_stoichiometry_source_check"]
+          print("source oxygen, kg per kg H2:",q["original_source_oxygen_output_kg"])
+          print("theoretical source oxygen, kg:",q["theoretical_oxygen_kg_for_source_h2"])
+          print("full-LCA mass QA gate:",q["elemental_stoichiometry_reconciled"])
+          assert q["elemental_stoichiometry_reconciled"] is False
+          assert q["blocks_complete_product_lca"] is True
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: federal-commons-uslci-actual-pem-hydrogen-exchange-and-link-audit
+          path: outputs/commons_pem_process/
+          retention-days: 60
+          if-no-files-found: warn

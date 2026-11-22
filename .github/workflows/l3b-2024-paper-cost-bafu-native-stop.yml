@@ -1,0 +1,58 @@
+name: L3-B — peer-reviewed 2024 Type I tank-only cost and real BAFU v1.1 30bar PEM native boundary stop
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/l3b_published_tank_cost_and_bafu_provider_gate.py'
+      - 'tests/test_l3b_published_tank_cost_and_bafu_provider_gate.py'
+      - 'research/L3_B_2024_PEER_REVIEWED_TYPEI_200BAR_TANK_COST_NOT_VENDOR_AND_BAFU_V11_GAP_v1.json'
+      - '.github/workflows/l3b-2024-paper-cost-bafu-native-stop.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  peer_reviewed_tank_2024_EUR_vs_2023_wholesale_and_native_BAFU_2026_foreground_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Reject invented vendor prices, year-converted 2024 study Euros, and vehicle-composite wrong stationary steel provider
+        run: |
+          python -m pytest -q tests/test_l3b_published_tank_cost_and_bafu_provider_gate.py tests/test_l3a_source_wholesale_dcf.py tests/test_f2_l1_stationary_bom_bridge.py
+      - name: Generate strictly qualified literature tank-only EUR2024 equipment cost and native BAFU 30bar-only source inventory mismatch
+        run: |
+          mkdir -p outputs
+          python -m ptxlens.l3b_published_tank_cost_and_bafu_provider_gate --output outputs/L3_B_2024_IJHE_nominal_200bar_gauge_TypeI_storage_tank_only_cost_NOT_supplier_quote_BAFU_stationary_NO_LCI.json
+      - name: Original 2023/2024 source currency unit and manufacturer provider gap certificate
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib,base64
+          p=pathlib.Path("outputs/L3_B_2024_IJHE_nominal_200bar_gauge_TypeI_storage_tank_only_cost_NOT_supplier_quote_BAFU_stationary_NO_LCI.json")
+          raw=p.read_bytes();d=json.loads(raw)
+          assert d["schema_version"]=="ptxlens.l3b_2024_paper_tank_reference_2023_source_l3a_GWP_provider_STOP.v1"
+          assert d["source_eur_reference_year"]==2024 and d["original_hourly_modelled_economic_source_year"]==2023
+          assert d["source_200bar_reference_paper_rating_is_gauge_while_F3_model_is_absolute"]
+          assert d["price_year_conversion_unprovided_and_not_inferred"]
+          assert d["actual_complete_2023_H2_same_hour_BAFU_v11_GWP_per_kg"] is None
+          assert d["source_F2_SHA256"]=="1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47"
+          assert not d["actual_full_manufacturer_BOM_quote_and_economic_preference_allowed"]
+          assert d["modes"]["max_inventory"]["source_literature_tank_only_2024_EUR"]==4629144
+          assert d["modes"]["usable_service"]["source_literature_tank_only_2024_EUR"]==5206344
+          for mode,q in d["modes"].items():
+              assert q["manufacturer_actual_all_in_incremental_CAPEX_EUR"] is None
+              assert q["manufacturer_actual_annual_OPEX_EUR"] is None
+              assert q["2023_true_investment_NPV_and_LCOH_EUR"] is None
+              assert q["matched_native_2026_BAFU_v11_added_TypeI_storage_LCI_kgCO2e"] is None
+          print("L3_B_2024_PAPER_COST_SHA256="+hashlib.sha256(raw).hexdigest())
+          print("L3_B_2024_PAPER_COST_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("PASS: peer-reviewed genuine paper tank-only 2024 Euro baseline; source BAFU v1.1 native PEM verified, incompatible actual storage steel provider still absent. No 2023 vendor quote, full LCOH or GWP.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: L3-B-2024-IJHE-peer-reviewed-paper-cost-vs-BAFU-v11-no-TypeI-foreground
+          path: outputs/
+          retention-days: 90

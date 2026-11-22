@@ -1,0 +1,195 @@
+{
+  "actual_site_location": null,
+  "backup_LCA_process_inventory_available": false,
+  "backup_whole_system_EUR_DCF_available": false,
+  "candidate_route_priority": "direct_industrial_H2_pipeline_import_if_site_connection_and_exits_proven",
+  "comparative_environmental_or_cost_superiority_eligible": false,
+  "end_use_purity_grade_and_impurity_limits": null,
+  "evidence_maturity": "PROSPECTIVE_HARDWARE_DESIGN_BASIS_ONLY_NOT_OPERATIONAL",
+  "external_network_architecture_source_year": 2026,
+  "fixed_original_model_required_delivery_pressure_bar_absolute": 20.0,
+  "modes": {
+    "max_inventory": {
+      "environmental_and_tea_comparison_eligible": false,
+      "mandatory_missing_proofs": [
+        "plant geographical site and actual 2023/forward connection date",
+        "signed H2 supplier or certified distribution and exit point pressure contract",
+        ">= incumbent peak flow at specified pressure including line/regulator drop",
+        "end-use-specific composition/impurity/water and metering certification",
+        "8760h signed/feasible continuous backup nomination and reliability",
+        "source-specific manufacturer materials and PED/ATEX/permits",
+        "incremental service delivered fuel GWP and full native BAFU v1.1 LCI",
+        "full EUR year-consistent tariff, source H2, replacement, CAPEX, OPEX",
+        "source-preserving equal-delivered-service coupled dispatch and review"
+      ],
+      "minimum_backup_flow_and_buffer_equipment_design_validated": false,
+      "pathways": {
+        "additional_on_site_electrolysis": {
+          "additional_electrolyser_and_cooling_LCI": null,
+          "additional_grid_interconnection_available": null,
+          "additional_grid_interconnection_verified": false,
+          "additional_peaking_PEM_firm_electricity_MW": null,
+          "priority": "EXPANSION_OPTION_NOT_A_FREE_BACKUP",
+          "status": "ADDITIONAL_ELECTRICAL_CONNECTION_AND_WATER_AND_PEM_CAPEX_UNSOURCED"
+        },
+        "contracted_dedicated_H2_pipeline": {
+          "candidate_station_components_to_specify": [
+            "connection and legally agreed boundary node",
+            "custody-transfer metering and flow control",
+            "isolation and ESD valves, nonreturn/check",
+            "pressure regulation/overpressure relief and vent/purge",
+            "filter and sampling with contractual gas impurity limits",
+            "gas detection, classified electrical safety and materials review",
+            "site piping/pressure-drop and peak hydraulic calculation",
+            "redundancy, commissioning, maintenance and outage scenarios"
+          ],
+          "customer_firm_hourly_nomination_capacity_kg_h": null,
+          "customer_guaranteed_min_exit_pressure_bar_absolute": null,
+          "customer_h2_impurity_certification": null,
+          "customer_pipe_pressure_loss_bar": null,
+          "customer_regulator_margin_bar": null,
+          "documented_existing_site_connection": false,
+          "engineering_code_considerations": [
+            "EIGA DOC 15/21 (industrial consumer station guidance)",
+            "EU PED 2014/68/EU and relevant harmonized codes",
+            "hydrogen materials/pipe code selection and local permits"
+          ],
+          "full_plant_LCI_and_capex": null,
+          "hourly_2023_supply_availability": null,
+          "hynetwork_2026_general_network_entry_minimum_bar_gauge": 30.0,
+          "illustrative_entry_pressure_minus_20bar_node_bar": 11.01325,
+          "priority": "CONDITIONAL_FIRST_OPTION",
+          "reference_conversion_at_1_atm_entry_bar_absolute": 31.01325,
+          "required_customer_node_pressure_bar_absolute": 20.0,
+          "status": "NO_SITE_NO_EXIT_PRESSURE_NO_FIRM_FLOW_OR_PURCHASE_AGREEMENT",
+          "the_30barg_value_is_not_site_customer_exit_pressure": true
+        },
+        "gaseous_tube_trailer_delivery": {
+          "actual_deliverable_peak_flow_kg_h": null,
+          "full_plant_LCI_and_cost": null,
+          "logistics_schedule_and_delivery_access": null,
+          "operator_qualification_and_ADR_approvals": null,
+          "optimistic_payload_equivalents_at_900kg_per_nominal_load_annual": 74,
+          "optimistic_payload_equivalents_at_900kg_per_nominal_load_peak_24h": 3,
+          "optimistic_payload_equivalents_at_900kg_per_nominal_load_peak_hour": 2,
+          "payload_equivalents_are_not_actual_required_vehicle_trips": true,
+          "priority": "SECONDARY_CONDITIONAL_LOGISTICS_SCREEN",
+          "recovered_usable_H2_from_tank_down_to_20bar_absolute_kg": null,
+          "status": "NO_DUTCH_SOURCE_SITE_PERMISSION_USABLE_PRESSURE_PAYLOAD_OR_REFILL_TIMES",
+          "transfer_compressor_or_booster_and_buffer_design": null,
+          "us_DOE_nonEU_composite_reference_max_nominal_payload_kg": 900
+        }
+      },
+      "source_evidence_sha256": "c65fda894ef4b30e09339ad88a3972625af78c17802fd0cb9a2fc25d3205882f",
+      "source_specific_feasible_incumbent_topup_annual_kg": 66524.31653871403,
+      "source_specific_incumbent_largest_rolling_24hour_topup_kg": 2509.515873276357,
+      "source_specific_incumbent_number_of_separate_events": 92,
+      "source_specific_incumbent_occupied_hours": 176,
+      "source_specific_incumbent_peak_hour_topup_kg_h": 1029.0279027902793,
+      "source_stageA_proven_minimum_additional_shortage_lower_bound_kg": 65860.37818773676
+    },
+    "usable_service": {
+      "environmental_and_tea_comparison_eligible": false,
+      "mandatory_missing_proofs": [
+        "plant geographical site and actual 2023/forward connection date",
+        "signed H2 supplier or certified distribution and exit point pressure contract",
+        ">= incumbent peak flow at specified pressure including line/regulator drop",
+        "end-use-specific composition/impurity/water and metering certification",
+        "8760h signed/feasible continuous backup nomination and reliability",
+        "source-specific manufacturer materials and PED/ATEX/permits",
+        "incremental service delivered fuel GWP and full native BAFU v1.1 LCI",
+        "full EUR year-consistent tariff, source H2, replacement, CAPEX, OPEX",
+        "source-preserving equal-delivered-service coupled dispatch and review"
+      ],
+      "minimum_backup_flow_and_buffer_equipment_design_validated": false,
+      "pathways": {
+        "additional_on_site_electrolysis": {
+          "additional_electrolyser_and_cooling_LCI": null,
+          "additional_grid_interconnection_available": null,
+          "additional_grid_interconnection_verified": false,
+          "additional_peaking_PEM_firm_electricity_MW": null,
+          "priority": "EXPANSION_OPTION_NOT_A_FREE_BACKUP",
+          "status": "ADDITIONAL_ELECTRICAL_CONNECTION_AND_WATER_AND_PEM_CAPEX_UNSOURCED"
+        },
+        "contracted_dedicated_H2_pipeline": {
+          "candidate_station_components_to_specify": [
+            "connection and legally agreed boundary node",
+            "custody-transfer metering and flow control",
+            "isolation and ESD valves, nonreturn/check",
+            "pressure regulation/overpressure relief and vent/purge",
+            "filter and sampling with contractual gas impurity limits",
+            "gas detection, classified electrical safety and materials review",
+            "site piping/pressure-drop and peak hydraulic calculation",
+            "redundancy, commissioning, maintenance and outage scenarios"
+          ],
+          "customer_firm_hourly_nomination_capacity_kg_h": null,
+          "customer_guaranteed_min_exit_pressure_bar_absolute": null,
+          "customer_h2_impurity_certification": null,
+          "customer_pipe_pressure_loss_bar": null,
+          "customer_regulator_margin_bar": null,
+          "documented_existing_site_connection": false,
+          "engineering_code_considerations": [
+            "EIGA DOC 15/21 (industrial consumer station guidance)",
+            "EU PED 2014/68/EU and relevant harmonized codes",
+            "hydrogen materials/pipe code selection and local permits"
+          ],
+          "full_plant_LCI_and_capex": null,
+          "hourly_2023_supply_availability": null,
+          "hynetwork_2026_general_network_entry_minimum_bar_gauge": 30.0,
+          "illustrative_entry_pressure_minus_20bar_node_bar": 11.01325,
+          "priority": "CONDITIONAL_FIRST_OPTION",
+          "reference_conversion_at_1_atm_entry_bar_absolute": 31.01325,
+          "required_customer_node_pressure_bar_absolute": 20.0,
+          "status": "NO_SITE_NO_EXIT_PRESSURE_NO_FIRM_FLOW_OR_PURCHASE_AGREEMENT",
+          "the_30barg_value_is_not_site_customer_exit_pressure": true
+        },
+        "gaseous_tube_trailer_delivery": {
+          "actual_deliverable_peak_flow_kg_h": null,
+          "full_plant_LCI_and_cost": null,
+          "logistics_schedule_and_delivery_access": null,
+          "operator_qualification_and_ADR_approvals": null,
+          "optimistic_payload_equivalents_at_900kg_per_nominal_load_annual": 5,
+          "optimistic_payload_equivalents_at_900kg_per_nominal_load_peak_24h": 1,
+          "optimistic_payload_equivalents_at_900kg_per_nominal_load_peak_hour": 1,
+          "payload_equivalents_are_not_actual_required_vehicle_trips": true,
+          "priority": "SECONDARY_CONDITIONAL_LOGISTICS_SCREEN",
+          "recovered_usable_H2_from_tank_down_to_20bar_absolute_kg": null,
+          "status": "NO_DUTCH_SOURCE_SITE_PERMISSION_USABLE_PRESSURE_PAYLOAD_OR_REFILL_TIMES",
+          "transfer_compressor_or_booster_and_buffer_design": null,
+          "us_DOE_nonEU_composite_reference_max_nominal_payload_kg": 900
+        }
+      },
+      "source_evidence_sha256": "d893c6388f14d276b2ef5d4bff4b6c8057dd252067f307f83b9baafcfa1e5308",
+      "source_specific_feasible_incumbent_topup_annual_kg": 3720.371002092329,
+      "source_specific_incumbent_largest_rolling_24hour_topup_kg": 324.54615188471377,
+      "source_specific_incumbent_number_of_separate_events": 87,
+      "source_specific_incumbent_occupied_hours": 91,
+      "source_specific_incumbent_peak_hour_topup_kg_h": 183.60901388726026,
+      "source_stageA_proven_minimum_additional_shortage_lower_bound_kg": 3718.7443495468883
+    }
+  },
+  "original_2023_hydrogen_reference_is_modelled_not_measured": true,
+  "physical_hydrogen_connection_and_supply_contract": null,
+  "physically_verified_common_hourly_service": false,
+  "programme": "OEM-PTX-2026-01",
+  "prospective_2026_infrastructure_is_not_observed_2023_site_supply": true,
+  "published_hynetwork_pressure_is_network_entry_not_customer_exit_guarantee": true,
+  "published_hynetwork_quality_annex_is_not_end_use_grade_contract": true,
+  "reference_weather_and_wholesale_price_year": 2023,
+  "schema_version": "ptxflex.f3_prospective_backup_delivery_design_basis.v1",
+  "source_frozen_original_E_SHA256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+  "source_frozen_original_EplusS_SHA256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+  "source_reference_ids": [
+    "hynetwork_2026_transport_pressure",
+    "hynetwork_2026_transport_quality",
+    "hynetwork_2026_connection_process",
+    "gasunie_rotterdam_2026",
+    "eiga_15_21",
+    "doe_tube_trailer",
+    "iso_14687_2025",
+    "ped_2014_68",
+    "asme_b31_12_2023"
+  ],
+  "source_specific_20bar_absolute_delivery_pressure_verified": false,
+  "upstream_reconciled_source_derived_sha256": "5dead18cfa0c3fecf15562f423e01044bcc6ad4ba4f5212dfb44a010b0d1a0d3"
+}

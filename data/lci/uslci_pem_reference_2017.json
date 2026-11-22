@@ -1,0 +1,64 @@
+{
+  "schema_version": "ptxlens.uslci_pem_reference_record.v0.1",
+  "primary_source": {
+    "url": "https://lcacommons.gov/lca-collaboration/National_Renewable_Energy_Laboratory/USLCI_Database_Public/dataset/PROCESS/f00a298a-295f-4fbc-b463-45f8e96f018b?commitId=978870b1695caa9519f55aa5904dfd348a823623",
+    "source_process_id": "f00a298a-295f-4fbc-b463-45f8e96f018b",
+    "repository": "USLCI; included in Federal_LCA_Commons/commons_merged",
+    "description": "NREL USLCI PEM water electrolysis dry H2 plant-gate process; adapted from Bareiß et al. 2019",
+    "geography": "United States of America; original study German-based",
+    "reference_year": 2017,
+    "process_type": "UNIT_PROCESS"
+  },
+  "reference_product": {
+    "name": "Hydrogen, at plant",
+    "amount": 1,
+    "unit": "kg",
+    "attributes": "dried H2; anode drying/purification excluded"
+  },
+  "observed_published_process_inputs": [
+    {
+      "name": "Electricity AC 120 V",
+      "amount": 198,
+      "unit": "MJ",
+      "equivalent": 55,
+      "equivalent_unit": "kWh"
+    },
+    {
+      "name": "Water process deionized",
+      "amount": 9,
+      "unit": "kg"
+    },
+    {
+      "name": "PEM water electrolyzer plant construction",
+      "amount": 3.18e-7,
+      "unit": "items"
+    },
+    {
+      "name": "PEM water electrolysis stack 1MW at plant",
+      "amount": 8.97e-7,
+      "unit": "items"
+    }
+  ],
+  "observed_published_process_outputs": [
+    {
+      "name": "Hydrogen, at plant",
+      "amount": 1,
+      "unit": "kg"
+    },
+    {
+      "name": "Oxygen",
+      "amount": 12,
+      "unit": "kg"
+    }
+  ],
+  "allocation": "No oxygen co-product credit according to public process description",
+  "explicitly_excluded": "Anode drying and purification system",
+  "source_limits": [
+    "2017 representative source published/modified later; not 2023 NL or installed industrial plant.",
+    "A process available on the site does not imply its background product system is linked and valid.",
+    "USLCI reference stack/plant manufacturing must not be added again to separate Kanz 2024 stack material LCI.",
+    "198 MJ per 1 kg = 55 kWh/kg; different from original PyNEXUS modelled energy per kg and reference gate.",
+    "No GWP result until actual background suppliers and a matching characterized IPCC GWP100 method are run in openLCA."
+  ],
+  "candidate_status": "authentic published 1kg unit-process inventory; not yet verified provider-closed or LCIA calculated"
+}

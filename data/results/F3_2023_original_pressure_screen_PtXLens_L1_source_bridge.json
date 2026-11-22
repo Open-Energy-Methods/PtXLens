@@ -1,0 +1,73 @@
+{
+  "schema_version": "ptxlens.l1_f3_2023_source_pressure_system_bom_and_compatibility.v0.1",
+  "upstream_source": "https://github.com/Open-Energy-Methods/PtXFlex/actions/runs/43514524449",
+  "upstream_immutable_workflow_artifact_id": 14079912306,
+  "upstream_derived_json_sha256": "a8240205a15d905ffe48e8443a69c227b9bfe1b1788229b67b6daeac218a74c1",
+  "source_original_E_zip_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+  "source_original_EplusS_zip_sha256": "cd4101fe62c3f1b8aa2d7508d3651d2fee40d2bafe6d5b87e40d5f4d055070f9",
+  "source_2023_method": "Historic 8760h observed NL market and ERA5-derived offshore wind; original E solved model H2 hourly delivered target",
+  "common_original_model_H2_hourly_delivery_target_kg": 16335279.317376738,
+  "full_original_nominal_H2_demand_kg": 18250000,
+  "technology_source_doi": "10.1016/j.ijhydene.2025.152849",
+  "vessel_source_table": "Table 2 Type I steel 200bar reference; 1.8m3 free volume; 2400kg empty per vessel",
+  "compressor_source": "https://www.rvo.nl/sites/default/files/2023-12/GHG_EF_including_conversion_efficiencies_for_RFNBO_GHG_calculations_LBST.pdf",
+  "method": "CoolProp 8 real-gas density at 313K, 20bar minimum delivery, absolute pressure assumption; 2-stage 30->200bar 80% isentropic / 90% motor",
+  "storage_target_definition": "Original 20/40t maximum gas stock; separately model physical 20/40t usable working capacity",
+  "models_differ_in_plant_hardware_specification": true,
+  "status": "DIAGNOSTIC_SOURCE_BASED_PHYSICAL_SCREEN_NOT_FULL_CRADLE_TO_GATE",
+  "cases": {
+    "max_inventory": {
+      "E": {
+        "screen_result": "INFEASIBLE_FIXED_HOURLY_DELIVERY",
+        "vessels": 803,
+        "empty_reference_vessel_mass_kg": 1927200,
+        "gas_heel_kg": 2213.963,
+        "annual_wholesale_settlement_eur2023": null,
+        "annual_compressor_MWh": null,
+        "annual_delivered_H2_kg": null
+      },
+      "E_plus_S": {
+        "screen_result": "FULL_YEAR_MODELLED_DELIVERY_SOLVER_VERIFIED",
+        "vessels": 1605,
+        "empty_reference_vessel_mass_kg": 3852000,
+        "gas_heel_kg": 4425.17,
+        "annual_wholesale_settlement_eur2023": 24954564.74703172,
+        "annual_compressor_MWh": 2029.6654853250411,
+        "annual_delivered_H2_kg": 16335279.317376738
+      }
+    },
+    "usable_service": {
+      "E": {
+        "screen_result": "INFEASIBLE_FIXED_HOURLY_DELIVERY",
+        "vessels": 902,
+        "empty_reference_vessel_mass_kg": 2164800,
+        "gas_heel_kg": 2486.918,
+        "annual_wholesale_settlement_eur2023": null,
+        "annual_compressor_MWh": null,
+        "annual_delivered_H2_kg": null
+      },
+      "E_plus_S": {
+        "screen_result": "FULL_YEAR_MODELLED_DELIVERY_SOLVER_VERIFIED",
+        "vessels": 1804,
+        "empty_reference_vessel_mass_kg": 4329600,
+        "gas_heel_kg": 4973.835,
+        "annual_wholesale_settlement_eur2023": 24806275.866331656,
+        "annual_compressor_MWh": 2057.684286015913,
+        "annual_delivered_H2_kg": 16335279.317376738
+      }
+    }
+  },
+  "source_compressor_charge_electrical_kwh_per_kg": 1.136551,
+  "installed_motor_and_cooler_hardware_mass_kg": null,
+  "manufacturer_steel_grade_wall_material_breakdown_kg": null,
+  "process_transport_and_end_of_life_sourced": false,
+  "original_BAFU_v1_composite_vehicle_tank_product_process_uuid": "b4739ad2-aa38-368d-8ada-63f5417c8b55",
+  "original_BAFU_vehicle_tank_compatible_with_TypeI_steel_reference": false,
+  "native_BAFU_v11_process_inspected_for_this_physical_design": false,
+  "native_storage_manufacturing_GWP_kgCO2e": null,
+  "full_cradle_to_gate_GWP_kgCO2e_per_H2_kg": null,
+  "full_LCOH_EUR_per_kg": null,
+  "source_plants_measured": false,
+  "physically_matched_E_vs_ES_environmental_comparison_eligible": false,
+  "conclusion": "E infeasible in BOTH physically bounded pressure screens: E+S 2023 annual wholesale amounts and electricity data cannot be compared against a source-matched feasible E case; no full system GWP, physical cost superiority, or v1 release established."
+}

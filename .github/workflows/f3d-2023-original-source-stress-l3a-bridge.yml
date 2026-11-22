@@ -1,0 +1,62 @@
+name: F3-D PtXLens — independent 8× original 2023 source wind/price reoptimization SHA financial intake
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/f3d_independent_2023_stress_finance_bridge.py'
+      - 'tests/test_f3d_independent_2023_stress_finance_bridge.py'
+      - '.github/workflows/f3d-2023-original-source-stress-l3a-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent_source_2023_F3D_SciPy_HiGHS_8_comparisons_not_Forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Eight physical F3D independent source SHA cases + separate original 2023 F3C hour-by-hour and financial 20y/8pct controls
+        run: |
+          python -m pytest -q tests/test_f3d_independent_2023_stress_finance_bridge.py tests/test_l3a_source_wholesale_dcf.py tests/test_f3c_common_service_bridge.py
+      - name: Generate source-only 2023 wind/price counterfactual 8-case complete truthful modelled savings record
+        run: |
+          mkdir -p outputs
+          python - <<'PY'
+          import json,hashlib,base64,pathlib
+          from ptxlens.f3d_independent_2023_stress_finance_bridge import synthesize_independent_comparison
+          x=synthesize_independent_comparison()
+          assert x["schema_version"]=="ptxlens.f3d_eight_source_2023_price_wind_counterfactuals_verified_numerical_operating_response.v1"
+          assert x["original_observed_weather_and_market_year"]==2023
+          assert x["certified_matched_source_year_scenarios_count"]==6
+          assert x["unknown_result_short_wind_source_scenarios_count"]==2
+          assert x["zero_independently_observed_new_2022_2024_price_wind_pairs_retrieved"]
+          assert x["manufacturer_installed_extra_20t_typeI_storage_cost_eur"] is None
+          assert x["native_BAFU2026_v11_exact_matched_source_LCIA_kgCO2e"] is None
+          assert x["full_true_hydrogen_LCOH_and_plant_preference"] is None
+          assert x["scientific_v1_full_release_passed"] is False
+          assert len(x["rows"])==8
+          for q in x["rows"]:
+              assert q["manufacturer_CAPEX_EUR_or_site_LCOH_GWP"] is None
+              if q["both_cases_solver_optimality_certified_to_1e6"]:
+                  lo,hi=q["conditional_20y_8pct_no_extra_cost_C0_minmax_due_ONLY_to_solver_gap_eur"]
+                  capex=q["conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis"]
+                  assert lo<=capex<=hi
+              else:
+                  assert q["source_2023_counterfactual_wholesale_EplusS_saving_eur"] is None
+                  assert q["conditional_20y_8pct_no_extra_cost_C0_max_eur_2023_basis"] is None
+          p=pathlib.Path("outputs/F3_D_2023_8_original_source_price_wind_counterfactuals_PtXLens_6_certified_2_unknown_not_forecast.json")
+          p.write_text(json.dumps(x,sort_keys=True,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+          raw=p.read_bytes()
+          print("F3_D_PTXLENS_BRIDGE_SHA256="+hashlib.sha256(raw).hexdigest())
+          print("F3_D_PTXLENS_BRIDGE_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("PASS: authentic original 2023 full-year E vs ES 6 certified wholesale and 2 unknown -10pct wind cases; strict source H2 service and no future actual market/GWP/NPV claims.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: F3-D-PtXLens-2023-original-SOURCE-derived-stress-not-new-real-year
+          path: outputs/
+          retention-days: 90

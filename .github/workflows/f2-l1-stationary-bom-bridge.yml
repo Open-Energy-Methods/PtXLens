@@ -1,0 +1,54 @@
+name: F2-L1 — source-hash 2023 stationary Type I 20t→40t manufactured-equipment reference intake
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/f2_l1_stationary_bom_bridge.py'
+      - 'tests/test_f2_l1_stationary_bom_bridge.py'
+      - 'research/F2_L1_STATIONARY_TYPEI_OEM_AND_STANDARDS_SOURCE_REGISTER_v1.json'
+      - 'data/results/F2_L1_2023_source_incremental_20t_to_40t_stationary_typeI_200bar_BOM_SCOPE_NOT_complete_native_LCI.json'
+      - '.github/workflows/f2-l1-stationary-bom-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_2023_model_stationary_200bar_reference_foreground_LCI_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Reject missing stationary hardware quantities, TPED vs PED product substitution and fabricated BAFU factors
+        run: |
+          python -m pytest -q tests/test_f2_l1_stationary_bom_bridge.py tests/test_l1_pressure_source_bridge.py tests/test_f3c_common_service_bridge.py
+      - name: Emit original-source Type I 20t to 40t *incomplete* environmental foreground ledger
+        run: |
+          mkdir -p outputs
+          python - <<'PY'
+          import pathlib,json,hashlib,base64
+          from ptxlens.f2_l1_stationary_bom_bridge import import_f2_bom
+          p=pathlib.Path("outputs/F2_L1_2023_stationary_TypeI_Lens_manufacturing_foreground_REQUIREMENTS_NOT_native_LCA.json")
+          x=import_f2_bom()
+          assert x["schema_version"]=="ptxlens.f2_l1_typeI_stationary_eu_pressure_equipment_foreground_E20t_ES40t_source_gate.v1"
+          assert x["F2_source_SHA256"]=="1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47"
+          assert x["all_required_components_published_as_scope_but_not_a_complete_quoted_BOM"]
+          assert x["cannot_characterize_from_wrong_vehicle_composite_LCI"]
+          assert x["full_L2_LCIA_per_kg_H2"] is None
+          assert x["full_L3_LCOH_EUR_per_kg_H2"] is None
+          assert x["F2_L1_full_equipment_native_LCA_release_PASSED"] is False
+          assert x["modes"]["max_inventory"]["incremental_REFERENCE_EMPTY_MANUFACTURED_VESSEL_MASS_kg"]==1924800.
+          assert x["modes"]["usable_service"]["incremental_REFERENCE_EMPTY_MANUFACTURED_VESSEL_MASS_kg"]==2164800.
+          p.write_text(json.dumps(x,indent=2,sort_keys=True,allow_nan=False)+"\n",encoding="utf-8")
+          raw=p.read_bytes()
+          print("F2_L1_PTXLENS_FOREGROUND_SHA256="+hashlib.sha256(raw).hexdigest())
+          print("F2_L1_PTXLENS_FOREGROUND_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("PASS: existing authentic 2023 source service, reference Type I vessel hardware mass, and explicit unquantified physical foreground. No native 2026 BAFU GWP or LCOH.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: F2-L1-PtXLens-2023-physical-reference-shell-and-UNQUANTIFIED-components-NOT-native-LCA
+          path: outputs/
+          retention-days: 90

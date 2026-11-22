@@ -1,0 +1,4917 @@
+{
+  "analyst_324_case_deterministic_sensitivity_matrix": [
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15913786.469679281,
+        15913855.569658011
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15913826.661455799,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13781235.760485323,
+        13781304.860464055
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13781275.95226184,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11648685.051291365,
+        11648754.151270097
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11648725.243067885,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32571666.854255285,
+        32571805.05421275
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32571747.23780832,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        30439116.14506133,
+        30439254.345018793
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 30439196.528614365,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28306565.43586737,
+        28306703.635824837
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28306645.81942041,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        49229547.23883129,
+        49229754.53876749
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 49229667.814160846,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        47096996.52963733,
+        47097203.82957353
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 47097117.10496689,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        44964445.82044338,
+        44964653.12037957
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 44964566.395772934,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12640332.35451802,
+        12640386.710374596
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12640363.970424132,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10962812.00478266,
+        10962866.360639235
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10962843.620688772,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9285291.6550473,
+        9285346.010903874
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9285323.270953411,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        25743858.197120726,
+        25743966.908833873
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 25743921.428932946,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24066337.84738536,
+        24066446.559098516
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24066401.079197586,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22388817.49765,
+        22388926.209363155
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22388880.72946223,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        38847384.039723426,
+        38847547.10729315
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 38847478.88744176,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37169863.68998807,
+        37170026.757557794
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37169958.537706405,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        35492343.340252705,
+        35492506.40782243
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 35492438.18797104,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10711848.719865836,
+        10711894.490206655
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10711875.342034804,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9299292.962763121,
+        9299338.73310394
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9299319.584932087,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        7886737.205660406,
+        7886782.9760012245
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 7886763.827829372,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21745670.67632237,
+        21745762.21700401
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21745723.920660302,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20333114.919219654,
+        20333206.459901292
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20333168.163557585,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18920559.162116937,
+        18920650.702798575
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18920612.40645487,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32779492.6327789,
+        32779629.94380136
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32779572.499285802,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        31366936.875676185,
+        31367074.18669864
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 31367016.742183086,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        29954381.118573472,
+        29954518.42959593
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 29954460.98508037,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28308813.898919802,
+        28308934.415772226
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28308883.997152656,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24589445.183805924,
+        24589565.70065835
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24589515.282038778,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20870076.46869205,
+        20870196.985544477
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20870146.566924904,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        57361721.71273633,
+        57361962.74644118
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 57361861.90920204,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        53642352.99762245,
+        53642594.0313273
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 53642493.19408816,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        49922984.282508574,
+        49923225.31621343
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 49923124.47897428,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        86414629.52655286,
+        86414991.07711013
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 86414839.82125142,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        82695260.81143898,
+        82695622.36199625
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 82695471.10613754,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        78975892.0963251,
+        78976253.64688239
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 78976102.39102367,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18709800.195760965,
+        18709879.728896346
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18709846.455948908,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16255263.343898645,
+        16255342.877034025
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16255309.604086589,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13800726.492036324,
+        13800806.025171705
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13800772.752224267,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37882793.87960662,
+        37882952.94587738
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37882886.399982505,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        35428257.02774429,
+        35428416.094015054
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 35428349.548120186,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32973720.175881974,
+        32973879.242152736
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32973812.69625786,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        57055787.563452266,
+        57056026.16285841
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 57055926.3440161,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        54601250.71158995,
+        54601489.310996085
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 54601389.49215378,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        52146713.85972763,
+        52146952.45913377
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 52146852.64029145,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        14264444.087151632,
+        14264504.594317224
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 14264479.280946504,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12397083.181069734,
+        12397143.688235326
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12397118.374864606,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10529722.274987835,
+        10529782.782153428
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10529757.468782708,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28850861.410893958,
+        28850982.425225142
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28850931.798483703,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        26983500.50481206,
+        26983621.519143246
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 26983570.892401807,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        25116139.59873016,
+        25116260.613061346
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 25116209.986319907,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        43437278.734636284,
+        43437460.256133065
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 43437384.316020906,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        41569917.828554384,
+        41570099.350051165
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 41570023.409939006,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        39702556.92247249,
+        39702738.443969265
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 39702662.503857106,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37531878.38399567,
+        37532037.159830935
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37531970.7354407,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32631768.046628226,
+        32631926.82246349
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32631860.398073256,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        27731657.709260784,
+        27731816.48509605
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 27731750.060705815,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        75807850.68288806,
+        75808168.23455858
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 75808035.38577813,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        70907740.34552062,
+        70908057.89719115
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 70907925.04841068,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        66007630.00815318,
+        66007947.55982371
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 66007814.71104324,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        114083822.98178045,
+        114084299.30928625
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 114084100.03611554,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        109183712.64441301,
+        109184188.9719188
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 109183989.69874811,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        104283602.30704558,
+        104284078.63455136
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 104283879.36138067,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21521138.175964106,
+        21521229.371051077
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21521191.21928803,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18706692.340182237,
+        18706783.53526921
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18706745.38350616,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15892246.504400367,
+        15892337.699487338
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15892299.547724292,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        43505469.84001289,
+        43505652.230186835
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 43505575.92666075,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        40691024.00423103,
+        40691206.39440497
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 40691130.090878874,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37876578.168449156,
+        37876760.5586231
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37876684.25509701,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        65489801.504061684,
+        65490075.0893226
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 65489960.63403346,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        62675355.66827982,
+        62675629.253540725
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 62675514.79825159,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        59860909.83249795,
+        59861183.41775886
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 59861068.96246972,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15408284.71585375,
+        15408349.967882512
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15408322.66948276,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13394488.723936912,
+        13394553.975965673
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13394526.677565921,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11380692.732020073,
+        11380757.984048834
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11380730.685649082,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        31138542.668298196,
+        31138673.17235572
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 31138618.575556215,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        29124746.676381357,
+        29124877.18043888
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 29124822.583639376,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        27110950.684464518,
+        27111081.18852204
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 27111026.591722537,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        46868800.62074264,
+        46868996.376828924
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 46868914.48162967,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        44855004.628825806,
+        44855200.38491209
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 44855118.489712834,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        42841208.63690896,
+        42841404.39299525
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 42841322.49779599,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15905930.118894957,
+        15906140.069235014
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15906039.911377314,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13773379.409700999,
+        13773589.360041058
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13773489.202183357,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11640828.700507041,
+        11641038.6508471
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11640938.4929894,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32555954.152686637,
+        32556374.053366754
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32556173.737651356,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        30423403.44349268,
+        30423823.344172798
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 30423623.028457396,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28290852.734298725,
+        28291272.63497884
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28291072.31926344,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        49205978.18647832,
+        49206608.0374985
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 49206307.56392539,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        47073427.47728436,
+        47074057.32830454
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 47073756.85473144,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        44940876.768090405,
+        44941506.61911058
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 44941206.14553748,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12634152.342826601,
+        12634317.495273557
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12634238.708474372,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10956631.99309124,
+        10956797.145538196
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10956718.358739011,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9279111.64335588,
+        9279276.795802835
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9279198.00900365,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        25731498.173737884,
+        25731828.4786318
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 25731670.90503343,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24053977.824002527,
+        24054308.128896438
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24054150.555298068,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22376457.474267162,
+        22376787.779161077
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22376630.205562707,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        38828844.00464917,
+        38829339.461990036
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 38829103.10159248,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37151323.65491381,
+        37151819.11225468
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37151582.751857124,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        35473803.30517845,
+        35474298.762519315
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 35474062.40212176,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10706644.841954578,
+        10706783.90854759
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10706717.566135237,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9294089.084851861,
+        9294228.151444875
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9294161.809032522,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        7881533.327749146,
+        7881672.394342159
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 7881606.051929806,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21735262.92049985,
+        21735541.053685877
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21735408.368861172,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20322707.163397137,
+        20322985.29658316
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20322852.611758456,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18910151.40629442,
+        18910429.539480444
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18910296.85465574,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32763880.999045122,
+        32764298.198824164
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32764099.171587102,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        31351325.24194241,
+        31351742.441721447
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 31351543.41448439,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        29938769.484839693,
+        29939186.68461873
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 29938987.657381672,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28295111.685323566,
+        28295477.858434092
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28295303.17372395,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24575742.97020969,
+        24576109.143320218
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24575934.458610073,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20856374.255095817,
+        20856740.42820634
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20856565.7434962,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        57334317.28554386,
+        57335049.63176491
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 57334700.26234463,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        53614948.57042999,
+        53615680.91665103
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 53615331.54723075,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        49895579.85531611,
+        49896312.20153716
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 49895962.83211687,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        86373522.88576415,
+        86374621.40509573
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 86374097.3509653,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        82654154.17065027,
+        82655252.68998185
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 82654728.63585143,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        78934785.45553641,
+        78935883.97486797
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 78935359.92073755,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18700757.642897796,
+        18700999.292882722
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18700884.012551207,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16246220.791035473,
+        16246462.4410204
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16246347.160688886,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13791683.939173153,
+        13791925.589158079
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13791810.308826566,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37864708.77388027,
+        37865192.073850125
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37864961.5131871,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        35410171.922017954,
+        35410655.221987806
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 35410424.66132478,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32955635.07015563,
+        32956118.370125484
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32955887.809462458,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        57028659.904862754,
+        57029384.85481753
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 57029039.013822995,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        54574123.053000435,
+        54574848.00295521
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 54574502.16196067,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        52119586.20113811,
+        52120311.15109289
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 52119965.31009835,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        14257564.69982646,
+        14257748.542140527
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 14257660.839246945,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12390203.793744562,
+        12390387.636058629
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12390299.93316505,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10522842.887662664,
+        10523026.729976732
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10522939.027083151,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28837102.63624362,
+        28837470.32087175
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28837294.91508459,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        26969741.73016172,
+        26970109.41478985
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 26969934.00900269,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        25102380.824079823,
+        25102748.508707955
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 25102573.102920793,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        43416640.572660774,
+        43417192.099602975
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 43416928.99092223,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        41549279.666578874,
+        41549831.193521075
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 41549568.084840335,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        39681918.76049698,
+        39682470.287439175
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 39682207.178758435,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37513826.29945377,
+        37514308.71697717
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37514078.577289626,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32613715.96208633,
+        32614198.379609726
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32613968.239922184,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        27713605.624718886,
+        27714088.042242285
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 27713857.902554743,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        75771746.51380427,
+        75772711.34885107
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 75772251.06947598,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        70871636.17643683,
+        70872601.01148362
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 70872140.73210853,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        65971525.83906938,
+        65972490.67411618
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 65972030.394741096,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        114029666.72815476,
+        114031113.98072496
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 114030423.56166233,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        109129556.39078732,
+        109131003.64335752
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 109130313.2242949,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        104229446.05341989,
+        104230893.30599007
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 104230202.88692746,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21510769.712670803,
+        21511046.795817174
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21510914.611919127,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18696323.876888935,
+        18696600.960035305
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18696468.77613726,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15881878.041107066,
+        15882155.124253435
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15882022.940355388,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        43484732.91342629,
+        43485287.07971903
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 43485022.711922936,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        40670287.07764442,
+        40670841.243937165
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 40670576.87614107,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37855841.24186255,
+        37856395.40815529
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37856131.0403592,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        65458696.11418178,
+        65459527.363620885
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 65459130.81192675,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        62644250.278399915,
+        62645081.52783902
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 62644684.97614488,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        59829804.44261804,
+        59830635.69205715
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 59830239.14036301,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15400865.859339645,
+        15401064.11823754
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15400969.537840683,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13387069.867422806,
+        13387268.126320701
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13387173.545923844,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11373273.875505967,
+        11373472.134403862
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11373377.554007005,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        31123704.955269985,
+        31124101.473065775
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 31123912.31227206,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        29109908.963353146,
+        29110305.481148936
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 29110116.32035522,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        27096112.971436307,
+        27096509.489232097
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 27096320.328438383,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        46846544.05120032,
+        46847138.82789401
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 46846855.08670344,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        44832748.05928349,
+        44833342.835977174
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 44833059.0947866,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        42818952.06736665,
+        42819546.84406033
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 42819263.102869764,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2022,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8840123.899593793,
+        8840130.774215125
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8840127.131782142,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6707573.190399837,
+        6707580.065021167
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6707576.4225881845,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4575022.481205879,
+        4575029.35582721
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4575025.713394227,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18424341.714084312,
+        18424355.463326972
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18424348.178461008,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16291791.004890354,
+        16291804.754133016
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16291797.469267052,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        14159240.295696398,
+        14159254.044939058
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 14159246.760073094,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28008559.52857483,
+        28008580.15243882
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28008569.225139875,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        25876008.819380872,
+        25876029.443244863
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 25876018.51594592,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        23743458.110186916,
+        23743478.734050907
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 23743467.80675196,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        7076003.751534965,
+        7076009.159292505
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 7076006.294059138,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        5398483.401799604,
+        5398488.8095571445
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 5398485.944323777,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        3720963.0520642437,
+        3720968.4598217844
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 3720965.594588417,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        14615200.991154613,
+        14615211.806669695
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 14615206.07620296,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12937680.641419252,
+        12937691.456934335
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12937685.7264676,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11260160.291683894,
+        11260171.107198974
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11260165.37673224,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22154398.23077426,
+        22154414.454046883
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22154405.858346783,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20476877.8810389,
+        20476894.104311522
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20476885.508611422,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18799357.53130354,
+        18799373.754576165
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18799365.15887606,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6026406.66022407,
+        6026411.213825489
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6026408.801156165,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4613850.903121354,
+        4613855.456722775
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4613853.04405345,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        3201295.1460186383,
+        3201299.6996200583
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 3201297.2869507344,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12374786.557038836,
+        12374795.664241675
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12374790.838903027,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10962230.79993612,
+        10962239.90713896
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10962235.081800312,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9549675.042833405,
+        9549684.150036244
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9549679.324697595,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18723166.4538536,
+        18723180.11465786
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18723172.87664989,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        17310610.696750887,
+        17310624.357555144
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 17310617.119547173,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15898054.93964817,
+        15898068.60045243
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15898061.362444457,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15971682.054400977,
+        15971694.044386204
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15971687.691641007,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12252313.3392871,
+        12252325.32927233
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12252318.97652713,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8532944.624173224,
+        8532956.614158453
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8532950.261413254,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32687458.023698676,
+        32687482.003669135
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32687469.298178736,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28968089.3085848,
+        28968113.28855526
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28968100.58306486,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        25248720.593470924,
+        25248744.573441382
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 25248731.867950987,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        49403233.99299638,
+        49403269.96295207
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 49403250.90471647,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        45683865.2778825,
+        45683901.24783819
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 45683882.18960259,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        41964496.56276862,
+        41964532.53272431
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 41964513.47448872,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10568110.818312813,
+        10568118.730908431
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10568114.538517626,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8113573.966450491,
+        8113581.8790461095
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8113577.686655304,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        5659037.114588169,
+        5659045.027183788
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 5659040.834792983,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21599415.12471031,
+        21599430.949901547
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21599422.565119937,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        19144878.272847988,
+        19144894.098039225
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 19144885.713257615,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16690341.420985667,
+        16690357.246176904
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16690348.861395294,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32630719.431107808,
+        32630743.16889466
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32630730.591722246,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        30176182.579245485,
+        30176206.31703234
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 30176193.739859924,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        27721645.727383163,
+        27721669.46517002
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 27721656.887997605,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8070415.082708828,
+        8070421.102448035
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8070417.91296376,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6203054.17662693,
+        6203060.196366138
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6203057.006881862,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4335693.270545032,
+        4335699.29028424
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4335696.100799964,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16462803.402008351,
+        16462815.441486767
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16462809.062518215,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        14595442.495926453,
+        14595454.535404868
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 14595448.156436319,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12728081.589844557,
+        12728093.62932297
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12728087.25035442,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24855191.721307874,
+        24855209.780525498
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24855200.21207267,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22987830.815225977,
+        22987848.874443598
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22987839.305990774,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21120469.90914408,
+        21120487.9683617
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21120478.399908874,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21278231.081125118,
+        21278246.877421495
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21278238.507949468,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16378120.743757674,
+        16378136.540054053
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16378128.170582024,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11478010.406390231,
+        11478026.20268661
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11478017.833214583,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        43300556.077146955,
+        43300587.669739716
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 43300570.93079566,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        38400445.73977952,
+        38400477.33237227
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 38400460.59342822,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        33500335.40241207,
+        33500366.99500483
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 33500350.256060775,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        65322881.0731688,
+        65322928.46205793
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 65322903.35364185,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        60422770.735801354,
+        60422818.124690495
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 60422793.01627441,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        55522660.398433916,
+        55522707.78732305
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 55522682.67890697,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12185632.07133882,
+        12185641.144159123
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12185636.337037636,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9371186.23555695,
+        9371195.308377255
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9371190.501255767,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6556740.399775081,
+        6556749.472595386
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6556744.665473898,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24834457.630762324,
+        24834475.77640293
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24834466.162159957,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22020011.79498045,
+        22020029.940621063
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22020020.32637809,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        19205565.959198583,
+        19205584.104839195
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 19205574.49059622,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37483283.19018582,
+        37483310.40864674
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37483295.987282276,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        34668837.35440396,
+        34668864.57286487
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 34668850.151500404,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        31854391.518622085,
+        31854418.737083003
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 31854404.31571854,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8728531.090114888,
+        8728537.581911223
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8728534.142313324,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6714735.098198049,
+        6714741.589994385
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6714738.150396486,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4700939.106281211,
+        4700945.598077547
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4700942.158479647,
+      "mode": "max_inventory",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        17779035.41682047,
+        17779048.400413144
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 17779041.521217346,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15765239.424903633,
+        15765252.408496305
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15765245.529300507,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13751443.432986794,
+        13751456.416579466
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13751449.537383668,
+      "mode": "max_inventory",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        26829539.743526056,
+        26829559.218915064
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 26829548.900121365,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24815743.751609217,
+        24815763.226998225
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24815752.908204526,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22801947.75969238,
+        22801967.235081386
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22801956.916287687,
+      "mode": "max_inventory",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8665711.629050989,
+        8665717.945302714
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8665715.801871479,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6533160.919857033,
+        6533167.236108757
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6533165.092677521,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4400610.210663075,
+        4400616.5269148
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4400614.3834835645,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18075517.172998704,
+        18075529.805502154
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18075525.51863968,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15942966.463804746,
+        15942979.096308196
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15942974.809445724,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13810415.75461079,
+        13810428.387114238
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13810424.100251768,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        27485322.71694642,
+        27485341.66570159
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 27485335.235407885,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        25352772.00775246,
+        25352790.956507634
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 25352784.52621393,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        23220221.298558503,
+        23220240.24731368
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 23220233.81701997,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6938806.482641092,
+        6938811.451170448
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6938809.76509119,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        5261286.132905731,
+        5261291.101435088
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 5261289.41535583,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        3583765.783170371,
+        3583770.751699727
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 3583769.0656204694,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        14340806.453366868,
+        14340816.39042558
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 14340813.018267065,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12663286.103631508,
+        12663296.040690219
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12663292.668531705,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10985765.753896147,
+        10985775.690954858
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10985772.318796344,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21742806.424092643,
+        21742821.32968071
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21742816.27144294,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20065286.074357282,
+        20065300.97994535
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20065295.921707578,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18387765.72462192,
+        18387780.63020999
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18387775.571972217,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        5910879.720675835,
+        5910883.904425229
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 5910882.484662445,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4498323.96357312,
+        4498328.147322513
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4498326.7275597295,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        3085768.2064704043,
+        3085772.390219798
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 3085770.970457014,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12143732.677942367,
+        12143741.045441154
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12143738.205915587,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10731176.92083965,
+        10731185.28833844
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10731182.44881287,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9318621.163736936,
+        9318629.531235723
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9318626.691710155,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18376585.635208897,
+        18376598.18645708
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18376593.927168727,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16964029.878106184,
+        16964042.429354362
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16964038.17006601,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15551474.121003466,
+        15551486.672251647
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15551482.412963297,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 10
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15667490.67466395,
+        15667501.690800147
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15667497.952454772,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11948121.959550075,
+        11948132.975686273
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11948129.237340897,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8228753.244436198,
+        8228764.260572396
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8228760.522227021,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32079075.264224626,
+        32079097.29649702
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32079089.81980627,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        28359706.549110748,
+        28359728.581383143
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 28359721.104692396,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24640337.833996873,
+        24640359.866269268
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24640352.389578518,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        48490659.8537853,
+        48490692.90219389
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 48490681.687157765,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        44771291.13867142,
+        44771324.18708002
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 44771312.972043894,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        41051922.42355755,
+        41051955.47196614
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 41051944.256930016,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        10367364.667884294,
+        10367371.937804094
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 10367369.470743904,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        7912827.816021972,
+        7912835.085941772
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 7912832.618881582,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        5458290.964159652,
+        5458298.23407945
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 5458295.767019261,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21197922.823853273,
+        21197937.363692872
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21197932.429572493,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18743385.97199095,
+        18743400.51183055
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18743395.57771017,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16288849.12012863,
+        16288863.659968227
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16288858.72584785,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32028480.979822252,
+        32028502.78958165
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32028495.38840108,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        29573944.12795993,
+        29573965.937719326
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 29573958.536538757,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        27119407.276097607,
+        27119429.085857004
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 27119421.684676435,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        7917691.560520831,
+        7917697.091325558
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 7917695.214437155,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6050330.654438933,
+        6050336.18524366
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6050334.308355258,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4182969.748357035,
+        4182975.2791617624
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4182973.4022733597,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        16157356.357632358,
+        16157367.419241812
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 16157363.665465007,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        14289995.45155046,
+        14290006.513159914
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 14290002.759383108,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        12422634.545468561,
+        12422645.607078016
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 12422641.85330121,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24397021.154743884,
+        24397037.747158065
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24397032.116492856,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22529660.248661987,
+        22529676.84107617
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22529671.21041096,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20662299.342580087,
+        20662315.93499427
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20662310.304329064,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 20
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        20877471.85595595,
+        20877486.369247586
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 20877481.444136307,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15977361.51858851,
+        15977376.031880144
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15977371.106768863,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11077251.181221068,
+        11077265.694512703
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11077260.769401422,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        42499037.62680863,
+        42499066.6533919
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 42499056.80316934,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        37598927.28944119,
+        37598956.31602445
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 37598946.465801895,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        32698816.952073745,
+        32698845.978657015
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 32698836.128434453,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        64120603.397661306,
+        64120646.93753621
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 64120632.162202366,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        59220493.06029386,
+        59220536.60016877
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 59220521.82483493,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        54320382.72292642,
+        54320426.26280133
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.03,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 54320411.48746748,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        11955450.492808389,
+        11955458.828717254
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 11955455.999911781,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        9141004.657026518,
+        9141012.992935386
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 9141010.164129913,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6326558.82124465,
+        6326567.157153516
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6326564.328348044,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24374094.47370146,
+        24374111.145519193
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24374105.487908248,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        21559648.63791959,
+        21559665.30973732
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 21559659.65212638,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        18745202.80213772,
+        18745219.473955452
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 18745213.81634451,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        36792738.45459453,
+        36792763.46232113
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 36792754.97590471,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        33978292.618812665,
+        33978317.62653926
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 33978309.140122846,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        31163846.783030793,
+        31163871.79075739
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.08,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 31163863.304340977,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        8563831.263824252,
+        8563837.228344746
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 8563835.20427413,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        6550035.271907414,
+        6550041.236427907
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 6550039.212357289,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        4536239.279990575,
+        4536245.244511069
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 4536243.220440451,
+      "mode": "usable_service",
+      "repeat_factor": 0.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        17449635.764239203,
+        17449647.693280187
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 17449643.645138953,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        15435839.772322364,
+        15435851.70136335
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 15435847.653222114,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        13422043.780405525,
+        13422055.70944651
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 13422051.661305275,
+      "mode": "usable_service",
+      "repeat_factor": 1.0,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        26335440.264654152,
+        26335458.15821563
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 0.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 26335452.086003777,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        24321644.272737313,
+        24321662.16629879
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 250000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 24321656.094086938,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    },
+    {
+      "CAPEX_ceiling_source_solver_bound_interval_eur": [
+        22307848.280820474,
+        22307866.174381953
+      ],
+      "EOY10_replacement_assumed_eur": 1000000.0,
+      "annual_extra_OPEX_assumed_eur": 500000.0,
+      "discount_real": 0.12,
+      "maximum_extra_initial_CAPEX_at_zero_NPV_eur": 22307860.1021701,
+      "mode": "usable_service",
+      "repeat_factor": 1.5,
+      "year": 2024,
+      "years": 30
+    }
+  ],
+  "baseline_20_year_8pct_zero_incremental_opex_and_no_replacement": [
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 0.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 0.0,
+        "replacement_year": null,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "max_inventory",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 3905632.9363086373,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 38346079.888067186,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 38346079.888067186
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11125436.758446654,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        38345987.3676913,
+        38346146.43396206
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        38345987.3676913,
+        38346146.43396206
+      ],
+      "source_annual_savings_nominal_eur": 3905632.9363086373,
+      "source_solver_saving_interval_eur": [
+        3905623.512903992,
+        3905639.7141550183
+      ],
+      "source_year_price_unit": "hypothetical constant 2022-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2022
+    },
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 0.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 0.0,
+        "replacement_year": null,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "usable_service",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 3903807.246995621,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 38328155.001271784,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 38328155.001271784
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11272595.517770113,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        38327902.26196496,
+        38328385.561934814
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        38327902.26196496,
+        38328385.561934814
+      ],
+      "source_annual_savings_nominal_eur": 3903807.2469956204,
+      "source_solver_saving_interval_eur": [
+        3903781.504938964,
+        3903830.7301084176
+      ],
+      "source_year_price_unit": "hypothetical constant 2022-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2022
+    },
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 0.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 0.0,
+        "replacement_year": null,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "max_inventory",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 2247126.177435993,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 22062616.05320462,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 22062616.05320462
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11253745.269618172,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        22062608.61279499,
+        22062624.43798623
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        22062608.61279499,
+        22062624.43798623
+      ],
+      "source_annual_savings_nominal_eur": 2247126.177435993,
+      "source_solver_saving_interval_eur": [
+        2247125.419613838,
+        2247127.0314445207
+      ],
+      "source_year_price_unit": "hypothetical constant 2024-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2024
+    },
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 0.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 0.0,
+        "replacement_year": null,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "usable_service",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 2206233.52030978,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 21661125.917657174,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 21661125.917657174
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11348356.484929478,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        21661116.311937958,
+        21661130.851777554
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        21661116.311937958,
+        21661130.851777554
+      ],
+      "source_annual_savings_nominal_eur": 2206233.52030978,
+      "source_solver_saving_interval_eur": [
+        2206232.54194606,
+        2206234.022860839
+      ],
+      "source_year_price_unit": "hypothetical constant 2024-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2024
+    }
+  ],
+  "cashflow_timing": "year0 extra CAPEX, end-year annual net benefits minus extra OPEX, EOY replacements, terminal salvage/decommission",
+  "different_2022_and_2024_EUR_and_H2_not_pooled_as_project_cashflow": true,
+  "each_source_year_money_basis_separately": true,
+  "independent_dual_certification_not_complete": true,
+  "native_BAFU_LCIA_not_complete": true,
+  "no_full_industrial_H2_contract_or_project_NPV": true,
+  "no_future_market_forecast_or_statistical_probability_weights": true,
+  "no_manufacturer_CAPEX_quote": true,
+  "schema_version": "ptxlens.l3d_2022_2024_scenario_only_historical_source_DCF.v1",
+  "scientific_v1_0_release_allowed": false,
+  "source_H2_product_is_matched_ONLY_within_year_and_mode": true,
+  "source_original_PtXFlex_LF_bytes_sha256": "5e5b751c01a4722dc322f73e37ff348fbe5566d1ed9059ca8013b9ecf96ef91d",
+  "source_original_PtXFlex_git_blob_sha1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+  "stress_20_year_8pct_250k_extra_opex_1m_EOY10_replacement": [
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 250000.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 1000000.0,
+        "replacement_year": 10,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "max_inventory",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 3858455.656434713,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 35428349.548120186,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 35428349.548120186
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11125436.758446654,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        35428257.02774429,
+        35428416.094015054
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        35428257.02774429,
+        35428416.094015054
+      ],
+      "source_annual_savings_nominal_eur": 3905632.9363086373,
+      "source_solver_saving_interval_eur": [
+        3905623.512903992,
+        3905639.7141550183
+      ],
+      "source_year_price_unit": "hypothetical constant 2022-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2022
+    },
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 250000.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 1000000.0,
+        "replacement_year": 10,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "usable_service",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 3856629.9671216956,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 35410424.66132478,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 35410424.66132478
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11272595.517770113,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        35410171.922017954,
+        35410655.221987806
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        35410171.922017954,
+        35410655.221987806
+      ],
+      "source_annual_savings_nominal_eur": 3903807.2469956204,
+      "source_solver_saving_interval_eur": [
+        3903781.504938964,
+        3903830.7301084176
+      ],
+      "source_year_price_unit": "hypothetical constant 2022-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2022
+    },
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 250000.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 1000000.0,
+        "replacement_year": 10,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "max_inventory",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 2199948.897562069,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 19144885.713257615,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 19144885.713257615
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11253745.269618172,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        19144878.272847988,
+        19144894.098039225
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        19144878.272847988,
+        19144894.098039225
+      ],
+      "source_annual_savings_nominal_eur": 2247126.177435993,
+      "source_solver_saving_interval_eur": [
+        2247125.419613838,
+        2247127.0314445207
+      ],
+      "source_year_price_unit": "hypothetical constant 2024-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2024
+    },
+    {
+      "assumed_parameters_HYPOTHETICAL_not_vendor_prices": {
+        "annual_degradation": 0.0,
+        "capex": 0.0,
+        "decommission": 0.0,
+        "discount_real": 0.08,
+        "opex": 250000.0,
+        "repeat_factor": 1.0,
+        "replacement_cost": 1000000.0,
+        "replacement_year": 10,
+        "salvage": 0.0,
+        "years": 20
+      },
+      "forecast_of_future_wind_price_or_hydrogen": false,
+      "independent_HiGHS_cost_dual_proof": false,
+      "investment_viability_demonstrated": false,
+      "manufacturer_CAPEX_OPEX_verification": false,
+      "mode": "usable_service",
+      "modelled_central_economic_result": {
+        "break_even_extra_annual_OPEX_at_selected_CAPEX_source_year_eur": 2159056.2404358555,
+        "discounted_first_recovery_year_only_if_final_NPV_nonnegative": 1,
+        "hypothetical_incremental_NPV_source_year_eur": 18743395.57771017,
+        "negative_capex_ceiling_means_no_nonnegative_CAPEX_feasible": false,
+        "negative_opex_ceiling_means_no_nonnegative_OPEX_feasible": false,
+        "zero_NPV_extra_all_in_CAPEX_ceiling_source_year_eur": 18743395.57771017
+      },
+      "native_BAFU_2026_full_LCIA": false,
+      "same_modelled_H2_kg_year": 11348356.484929478,
+      "solver_reported_bound_propagated_CAPEX_ceiling_interval_eur": [
+        18743385.97199095,
+        18743400.51183055
+      ],
+      "solver_reported_bound_propagated_NPV_interval_eur": [
+        18743385.97199095,
+        18743400.51183055
+      ],
+      "source_annual_savings_nominal_eur": 2206233.52030978,
+      "source_solver_saving_interval_eur": [
+        2206232.54194606,
+        2206234.022860839
+      ],
+      "source_year_price_unit": "hypothetical constant 2024-EUR purchasing-power unit; not inflation-adjusted 2026 EUR",
+      "statistical_confidence_band": false,
+      "year": 2024
+    }
+  ]
+}

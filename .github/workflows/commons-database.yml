@@ -1,0 +1,38 @@
+name: Acquire real Commons Merged 2026 openLCA JSON-LD repository
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  download-and-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      LCA_COMMONS_API_KEY: ${{ secrets.LCA_COMMONS_API_KEY }}
+    steps:
+      - name: Require user's personal free API key (never use DEMO_KEY for automated workflows)
+        run: |
+          test -n "$LCA_COMMONS_API_KEY" || { echo "Set LCA_COMMONS_API_KEY in repository Actions secrets (free key from api.data.gov)"; exit 1; }
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - name: Download authentic merged repository through official Federal Commons API
+        run: |
+          mkdir -p outputs/commons_database /tmp/ptxlens_lci
+          python -m ptxlens.commons_archive \
+            --archive /tmp/ptxlens_lci/commons_merged_original.jsonld.zip \
+            --manifest outputs/commons_database/commons_merged_archive_provenance.json
+      - name: Record that this is US-background and not fully matched Dutch inventory
+        if: always()
+        run: |
+          echo "This route is a geographic sensitivity only until provider identities and full foreground are validated."
+          echo "No LCIA claimed and no raw licensed/mixed-source database will be published as a repo artifact."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: commons-merged-full-download-provenance-only
+          path: outputs/commons_database/
+          retention-days: 90
+          if-no-files-found: warn

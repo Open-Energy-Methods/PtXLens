@@ -1,0 +1,57 @@
+name: F3-C — 2023 source-registered E/ES matched hourly hydrogen operations PtXLens bridge
+on:
+  push:
+    branches: ['feat/wp0-screening-core']
+    paths:
+      - 'src/ptxlens/f3c_common_service_bridge.py'
+      - 'tests/test_f3c_common_service_bridge.py'
+      - 'data/results/F3_C_2023_source_pressure_matched_*.json'
+      - '.github/workflows/f3c-ptxlens-source-bridge-2023.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_2023_E_ES_matched_service_cost_source_bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify exact four upstream source JSON hashes, source dates, physics, common 8760h service and adversarial tamper controls
+        run: python -m pytest -q tests/test_f3c_common_service_bridge.py tests/test_f3_adequacy_intake.py tests/test_f3_hns_exit_supplier_bridge.py
+      - name: Build source-registered matched H2 service operational comparison (NOT native full LCA or LCOH)
+        run: |
+          mkdir -p outputs
+          python -m ptxlens.f3c_common_service_bridge --output outputs/F3_C_2023_source_real_gas_equal_H2_hour_E_vs_ES_Lens_operational_bridge.json
+          python - <<'PY'
+          import json,hashlib,base64,pathlib,math
+          p=pathlib.Path("outputs/F3_C_2023_source_real_gas_equal_H2_hour_E_vs_ES_Lens_operational_bridge.json")
+          raw=p.read_bytes();d=json.loads(raw)
+          assert d["schema_version"]=="ptxlens.f3c_2023_source_pressure_screen_hourly_comparable_operational_cost.v1"
+          assert d["source_2023_weather_observations_and_NL_A44_original_matched"]
+          assert d["pressure_screened_TypeI_200bar_and_RVO_compression_electricity_included"]
+          assert d["service_is_original_E_source_feasible_stageA_incumbent_not_full_contract"]
+          assert d["native_BAFU_complete_LCA_and_discounted_LCOH_missing"]
+          assert not d["l1_l2_l3_v1_0_RELEASE_PASSED"]
+          assert set(d["modes"])=={"max_inventory","usable_service"}
+          for mode,r in d["modes"].items():
+              assert r["remaining_unserved_original_full_contract_kg"]>1_914_720
+              lo,hi=r["EplusS_saving_interval_mip_bounds_eur"]
+              assert 0<lo<=r["EplusS_2023_wholesale_saving_eur"]<=hi
+              assert abs(r["reference_common_annual_modelled_service_kg"]+
+                  r["remaining_unserved_original_full_contract_kg"]-18250000)<.002
+              assert r["native_BAFU_2026_v1_1_full_physical_plant_GWP_kgCO2e"] is None
+              assert r["installed_40t_vs_20t_CAPEX_and_discounted_lifetime_cashflow_eur"] is None
+              assert not r["actual_economic_preference_or_full_plant_LCA_claim_permitted"]
+          print("F3_C_PTXLENS_RESULT_SHA256="+hashlib.sha256(raw).hexdigest())
+          print("F3_C_PTXLENS_RESULT_BASE64="+base64.b64encode(raw).decode("ascii"))
+          print("PASS: independent consumer of four original-hourly pressure screen source-locked MILP results; LCA/TEA fail-closed")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: F3C-PtXLens-2023-physical-common-hourly-H2-wholesale-only-NOT-LCA
+          path: outputs/
+          retention-days: 90

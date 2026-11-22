@@ -1,0 +1,118 @@
+{
+  "2022_completed_nine_source_result_files_audited_count": 9,
+  "2024_minus_2022_nominal_saving_eur_per_kg": -0.12376392733456451,
+  "2024_safe_evidence_allowlist_sha256": [
+    {
+      "relative_path": "data/results/F3D_2024_max_inventory_EXOGENOUS_H2_SOURCE_LP_FEASIBILITY_SCREEN_v1.json",
+      "sha256": "6fa699cb166b49ef57d48e45e31bcf4790a02b6f9e7272f43da17b8a060dffbc"
+    },
+    {
+      "relative_path": "data/results/F3D_2024_max_inventory_EXOGENOUS_H2_SOURCE_LP_FEASIBILITY_SCREEN_v1.md",
+      "sha256": "8b6781bdbd4aef218f47fafaf7978e6c64ddbc8d1b94516800716996c86c297b"
+    },
+    {
+      "relative_path": "data/results/F3D_EXOGENOUS_2024_max_inventory_H30_W090_BOTH_INTEGER_INDEPENDENT_REPLAY_v1.json",
+      "sha256": "8f2c3eb4fa050292186d302b168a1818297c9c8d8538c78e65d0116a3193374b"
+    }
+  ],
+  "2024_saving_fraction_of_2022_saving_per_kg": 0.5870277872542075,
+  "2024_vs_2022_fractional_change_in_nominal_saving_per_kg": -0.4129722127457926,
+  "H2_product_prespecified_externally_from_maximum_E": true,
+  "both_source_years_storage_reduces_modelled_wholesale_electricity_cost": true,
+  "comparison_2022_2024_nominal_EUR_NOT_inflation_adjusted": true,
+  "comparison_does_NOT_establish_statistics_future_expected_value_weather_probability": true,
+  "matched_hydrogen_delivery_tonnes_per_day": 30.0,
+  "modelled_wind_ELECTRIC_POWER_availability_factor": 0.9,
+  "no_actual_installed_CAPEX_OPEX_fuel_LCIA_manufacturer_BAFU_site_or_v1": true,
+  "original_four_case_public_Git_blob_sha1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+  "public_hourly_provider_price_wind_or_original_MILP_witness_arrays_in_report": false,
+  "same_fixed_hydrogen_every_hour_of_each_year_for_E_and_ES": true,
+  "schema_version": "ptxlens.f3d_original_2022_2024_H30_W090_cross_year_source_economics_verified_public.v1",
+  "scientific_independence": "Independent equation/historical-year replay; source reported HiGHS integer cost bounds, NOT independently rebuilt integer tree",
+  "source_2022_audit_verified_historical_cost_saving_eur": 3281613.054066889,
+  "source_2022_independent_integer_evidence_sha256": "3b826a65316658839c4c93ae8f8c4ef97aeb91664c99fd0b99dd9dbf9984dd4e",
+  "source_year_2022_and_2024_are_NOT_independent_random_draws": true,
+  "source_year_results": [
+    {
+      "annual_delivered_H2_kg": 10950000.0,
+      "calendar_UTC_hours": 8760,
+      "exogenous_hydrogen_tonnes_per_day": 30.0,
+      "integer_search_tree_dual_independently_reconstructed": false,
+      "original_2022_vs_2024_EUR_inflation_adjusted": false,
+      "original_source_two_integer_primal_replays": true,
+      "original_wind_electric_power_multiplier": 0.9,
+      "source_cases": {
+        "E": {
+          "independently_replayed_annual_hydrogen_kg": 10950000.0,
+          "original_hourly_primal_SHA256": "9db8f9b4c1e11fd31e9ce05ec57a01d2e9fe587d54472be463c68824e6faf838",
+          "private_hourly_state_arrays_in_public": false,
+          "source_reported_lower_bound_eur": 32160543.073611967,
+          "source_reported_relative_gap": 7.72930190967315e-07,
+          "source_year_nominal_wholesale_cost_eur": 32160567.931485903
+        },
+        "E_plus_S": {
+          "independently_replayed_annual_hydrogen_kg": 10950000.0,
+          "original_hourly_primal_SHA256": "99330e8c41cc3c44d2013a44f8dcf9fb5b16374b5968f6146965abea51cba44b",
+          "private_hourly_state_arrays_in_public": false,
+          "source_reported_lower_bound_eur": 28878940.00631784,
+          "source_reported_relative_gap": 5.149459612147128e-07,
+          "source_year_nominal_wholesale_cost_eur": 28878954.877419014
+        }
+      },
+      "source_solver_reported_cost_saving_lower_upper_eur": [
+        3281588.1961929537,
+        3281627.9251680635
+      ],
+      "source_year": 2022,
+      "source_year_E_20t_wholesale_eur": 32160567.931485903,
+      "source_year_EplusS_40t_wholesale_eur": 28878954.877419014,
+      "source_year_EplusS_wholesale_cost_reduction_fraction_of_E": 0.10203840495161523,
+      "source_year_wholesale_E_minus_EplusS_saving_eur": 3281613.054066889,
+      "source_year_wholesale_saving_eur_per_kg": 0.2996906898691223
+    },
+    {
+      "annual_delivered_H2_kg": 10980000.0,
+      "calendar_UTC_hours": 8784,
+      "exogenous_hydrogen_tonnes_per_day": 30.0,
+      "integer_search_tree_dual_independently_reconstructed": false,
+      "original_2022_vs_2024_EUR_inflation_adjusted": false,
+      "original_source_two_integer_primal_replays": true,
+      "original_wind_electric_power_multiplier": 0.9,
+      "source_cases": {
+        "E": {
+          "independently_replayed_annual_hydrogen_kg": 10980000.0,
+          "original_hourly_primal_SHA256": "e54a6852d6dc24d16f2a2880422a4260ac407b2acd2ce06ead9995e343c66435",
+          "private_hourly_state_arrays_in_public": false,
+          "source_reported_lower_bound_eur": 2544581.5952390917,
+          "source_reported_relative_gap": 1.0908962077195525e-07,
+          "source_year_nominal_wholesale_cost_eur": 2544581.872826561
+        },
+        "E_plus_S": {
+          "independently_replayed_annual_hydrogen_kg": 10980000.0,
+          "original_hourly_primal_SHA256": "9f609b52e2950b9d3c7aa8c65d8eeadc4c84b2d166083c717f03c995d66da793",
+          "private_hourly_state_arrays_in_public": false,
+          "source_reported_lower_bound_eur": 612905.4189954139,
+          "source_reported_relative_gap": 9.809035677540776e-07,
+          "source_year_nominal_wholesale_cost_eur": 612906.0201971165
+        }
+      },
+      "source_solver_reported_cost_saving_lower_upper_eur": [
+        1931675.5750419751,
+        1931676.453831147
+      ],
+      "source_year": 2024,
+      "source_year_E_20t_wholesale_eur": 2544581.872826561,
+      "source_year_EplusS_40t_wholesale_eur": 612906.0201971165,
+      "source_year_EplusS_wholesale_cost_reduction_fraction_of_E": 0.7591329142354177,
+      "source_year_wholesale_E_minus_EplusS_saving_eur": 1931675.8526294443,
+      "source_year_wholesale_saving_eur_per_kg": 0.17592676253455777
+    }
+  ],
+  "source_years": [
+    2022,
+    2024
+  ],
+  "source_years_included_only_2022_and_2024_NOT_intermediate_2023": true,
+  "storage_capacity_interpretation": "max_inventory",
+  "year_specific_nominal_electricity_price_and_wind_chronologies_not_mixed": true
+}

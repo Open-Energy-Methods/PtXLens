@@ -1,0 +1,92 @@
+{
+  "schema_version": "oem.ptx.f3d_alternative_observed_2022_2024_entsoe_era5_private_source_admission.v1",
+  "programme": "OEM-PTX-2026-01",
+  "prepared_utc": "2026-11-14",
+  "years_requested": [
+    2022,
+    2024
+  ],
+  "independent_historical_year_source_files_downloaded_and_verified": false,
+  "current_total_accepted_alternative_year_price_and_wind_pairs": 0,
+  "original_weather_point": {
+    "latitude_deg_N": 52.5,
+    "longitude_deg_E": 3.5,
+    "offshore_source_only_NOT_hydrogen_site": true,
+    "ERA5_atmospheric_grid_deg": 0.25
+  },
+  "provider_price": {
+    "name": "ENTSO-E Transparency Platform",
+    "dataset": "A44 Day-ahead electricity prices Netherlands NL zone",
+    "bidding_zone": "NL",
+    "document_type": "A44",
+    "canonical_H2_dispatch_price_unit": "EUR/MWh",
+    "source_timestamps": "Europe/Amsterdam market day; UTC-normalize with DST duration-weighted aggregation if input is 15min",
+    "upstream_original_PyNEXUS_file": "data/entsoe.py",
+    "provider_url": "https://transparency.entsoe.eu/",
+    "provider_API_access_authorization_verified": false,
+    "authorization_environment_variable_name": "ENTSOE_API_KEY",
+    "raw_provider_source_sha256": null,
+    "license_and_redistribution_review_complete": false
+  },
+  "provider_wind": {
+    "name": "Copernicus Climate Data Store ERA5",
+    "dataset": "reanalysis-era5-single-levels hourly",
+    "variables": [
+      "10m_u_component_of_wind",
+      "10m_v_component_of_wind",
+      "100m_u_component_of_wind",
+      "100m_v_component_of_wind"
+    ],
+    "source_timestamps": "UTC hourly; 2024 leap day must be present",
+    "source_grid_point": "52.5N 3.5E exact 0.25-degree source point, preserve actual returned grid coordinates",
+    "provider_dataset_url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels",
+    "original_PyNEXUS_ERA5_loader": "data/era5.py",
+    "original_PyNEXUS_model": "components/wind_turbine.py",
+    "100m_to_120m_shear_exponent": 0.11,
+    "original_power_curve": "cubic cut-in 3.0, rated 13.0, cut-out 25.0 m/s; 10 turbines each 15MW; wake10pct electric2pct unavailability5pct",
+    "model_max_licensed_source_wind_farm_available_MW": 125.685,
+    "hub_height_m": 120,
+    "provider_CDS_access_accepted": false,
+    "raw_monthly_provider_files_sha256": null,
+    "license_and_redistribution_review_complete": false
+  },
+  "baseline_original_2023_consistency_proof": {
+    "source_original_E_archive_sha256": "069455704573825f4e709e6705f5db43823722909cb93a37bd86b978636fb051",
+    "source_2023_original_wind_power_float64_SHA256": "abbfea17224cd92f694ed26b7a179ef7e35fff5a5bb17c6ee060a674c1977717",
+    "source_2023_original_NL_A44_price_float64_SHA256": "e67f59598079303df0c51a553904d2352a939ed7439af73ccbfb3daab9d667b6",
+    "2023_ERA5_raw_rederivation_and_calibration_against_source_float64_SHA_verified_for_external_year_pipeline": false,
+    "source_price_2023_primary_A44_raw_SHA_reference": "bc1751b86a3fe712ac2713985c4e189c922a031bacb53a7bd8f422809ba24248",
+    "original_2023_primary_source_private_2copy_recoverable_escrow_verified": false
+  },
+  "year_requirements": {
+    "2022": {
+      "expected_UTC_hours": 8760,
+      "expected_UTC_first_hour": "2022-01-01T00:00:00Z",
+      "expected_UTC_last_hour": "2022-12-31T23:00:00Z",
+      "independently_source_verified_price_and_wind_pair": false,
+      "ENTSOE_A44_raw_original_SHA256": null,
+      "ERA5_raw_original_monthly_sha256": null,
+      "normalized_UTC_price_SHA256": null,
+      "normalized_UTC_wind_MW_SHA256": null,
+      "modelled_samehour_H2_delivery_physical_and_solving_tested": false
+    },
+    "2024": {
+      "expected_UTC_hours": 8784,
+      "expected_UTC_first_hour": "2024-01-01T00:00:00Z",
+      "expected_UTC_last_hour": "2024-12-31T23:00:00Z",
+      "independently_source_verified_price_and_wind_pair": false,
+      "ENTSOE_A44_raw_original_SHA256": null,
+      "ERA5_raw_original_monthly_sha256": null,
+      "normalized_UTC_price_SHA256": null,
+      "normalized_UTC_wind_MW_SHA256": null,
+      "modelled_samehour_H2_delivery_physical_and_solving_tested": false,
+      "current_original_8760h_source_solver_2024_leap_year_support_verified": false
+    }
+  },
+  "P0_original_2023_actions_sources_ephemeral_expiry": "2026-12-24",
+  "no_raw_provider_data_to_public_GitHub": true,
+  "must_privately_escrow_source_original_monthly_files_and_sanitized_SHA_ledger": true,
+  "hard_stop_if_any_missing_or_reordered_hours_or_duplicated_DST": true,
+  "zero_2022_2024_interyear_robustness_results_claimed": true,
+  "full_F3_and_L3_v1_release_eligible": false
+}

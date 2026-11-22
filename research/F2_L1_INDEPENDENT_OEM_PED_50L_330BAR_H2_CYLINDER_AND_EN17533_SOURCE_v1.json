@@ -1,0 +1,63 @@
+{
+  "schema_version": "oem.ptx.f2_l1_stationary_PED_vessel_independent_OEM_product_source.v1",
+  "registered_utc_date": "2026-11-14",
+  "purpose": "Independent heiserTEC PED hydrogen Type I steel cylinder product with published empty per-cylinder mass, separate from both IJHE 200bar 1.8m3 literature reference and heiserTEC 210bar stationary 36x87L module whose empty mass is not published.",
+  "manufacturer": {
+    "name": "heiserTEC GmbH",
+    "product": "Hydrogen Type I steel cylinder, PED EN 1964-1, catalogue class 330bar, nominal water volume 50 litre",
+    "source_url": "https://www.heisertec.com/products/type-1/",
+    "source_locator": "Product range Type 1 – Technical overview / Hydrogen / 50 L / PED / EN1964-1 / 330 BAR / test 472 BAR / cylinder weight 85.5KG; alternate 50L PED variants are distinct",
+    "product_service": "hydrogen",
+    "pressure_category": "PED stationary-compatible cylinder candidate",
+    "cylinder_water_volume_litre": 50,
+    "working_pressure_catalogue_bar": 330,
+    "catalogue_pressure_basis_gauge_or_absolute_unspecified": true,
+    "catalogue_test_pressure_bar": 472,
+    "catalogue_empty_cylinder_weight_kg": 85.5,
+    "weight_tolerance_or_manufacturing_batch_spec": null,
+    "actual_50L_PED_unit_pressure_cycling_certified_for_20bar_to_200bar_313K_site": false,
+    "material_alloy_grade_certificate_available": false,
+    "carbon_steel_recycled_content": null,
+    "single_cylinder_mass_is_completed_stationary_module_or_BOP": false,
+    "manufacturer_has_quoted_200bar_suitable_modular_pack_with_this_50L_330bar_cylinder": false,
+    "per_cylinder_sales_price_eur": null,
+    "per_cylinder_site_footprint_and_rack_GA": null
+  },
+  "local_standards": {
+    "name": "NEN-EN 17533:2025",
+    "publisher": "Royal Netherlands Standardization Institute (NEN)",
+    "date": "2025-05-01",
+    "url": "https://www.nen.nl/en/nen-en-17533-2025-en-338598",
+    "official_scope": "Stationary compressed gaseous hydrogen storage metallic/composite cylinders/tubes and vessels; up to 10,000 litres water capacity and 1,100 bar maximum allowable working pressure",
+    "explicitly_excludes_manifolded_assemblies": true,
+    "explicitly_excludes_external_piping": true,
+    "compliance_in_this_study_assessed": false,
+    "purchased_or_reproduced_full_standard": false
+  },
+  "scientific_analog": {
+    "original_2023_E_max_storage_kg": 20000,
+    "original_2023_EplusS_max_storage_kg": 40000,
+    "considered_mode": [
+      "max_inventory",
+      "usable_service"
+    ],
+    "original_PyNEXUS_storage_nominal_max_pressure_abs_bar": null,
+    "selected_reference_pressure_max_bar_absolute_for_comparison": 200,
+    "selected_minimum_delivery_bar_absolute": 20,
+    "selected_reference_isothermal_K": 313,
+    "retrospective_2023_original_product_field_data": false,
+    "OEM_product_is_330bar_CLASS_but_only_USED_TO_CALCULATE_hypothetical_200bara_313K_H2_density": true,
+    "OEM_330bar_gauge_or_absolute_not_converted_or_silently_equated_to_200bara": true,
+    "manufacturer_cylinder_reference_mass_not_alloy_raw_material_mass": true,
+    "require_eos_20bar_heel_in_usable_case": true,
+    "comparability_with_IJHE_200bar_same_technology_different_dimensions_and_rated_pressure_only": true,
+    "not_a_duty_correct_vendor_quote_2023": true
+  },
+  "existing_record": {
+    "source_F2_typeI_200bar_research_BOM_SHA256": "1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47",
+    "full_LCI_and_capex_complete": false
+  },
+  "system_complete_manufacturer_BOM_available": false,
+  "source_compatible_BAFU_2026_v11_native_low_alloy_steel_hot_forging_recycled_content_CRP_validated": false,
+  "full_GWP100_or_lifetime_Cost_possible": false
+}

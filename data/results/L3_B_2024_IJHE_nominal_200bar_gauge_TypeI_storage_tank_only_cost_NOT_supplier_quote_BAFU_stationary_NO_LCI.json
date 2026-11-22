@@ -1,0 +1,76 @@
+{
+  "BAFU_2026_v11_native_30bar_PEM_source_archive_sha256": "e63b7e7ef5cde04bfe1176a783a55b5f72e2b73f42c36632b6150af39d348c4c",
+  "BAFU_native_reference_2023_original_E_and_ES_not_matched_H2_service": [
+    {
+      "case": "E",
+      "gwp_per_kg_at_30bar_PEM_H2": 6.148174395784,
+      "modelled_annual_H2_kg": 16335279.3173782
+    },
+    {
+      "case": "E_plus_S",
+      "gwp_per_kg_at_30bar_PEM_H2": 6.0765526538929,
+      "modelled_annual_H2_kg": 16679072.08788836
+    }
+  ],
+  "BAFU_v1_vehicle_composite_per_kg_H2_capacity_not_steel_mass_provider_UUID": "b4739ad2-aa38-368d-8ada-63f5417c8b55",
+  "actual_complete_2023_H2_same_hour_BAFU_v11_GWP_per_kg": null,
+  "actual_full_manufacturer_BOM_quote_and_economic_preference_allowed": false,
+  "modes": {
+    "max_inventory": {
+      "2023_true_investment_NPV_and_LCOH_EUR": null,
+      "F2_E20t_to_ES40t_additional_1p8m3_200bar_reference_empty_vessels_count": 802,
+      "installed_source_2024_extra_compressor_and_cooler_and_rack_cost_EUR": null,
+      "manufacturer_actual_all_in_incremental_CAPEX_EUR": null,
+      "manufacturer_actual_annual_OPEX_EUR": null,
+      "matched_native_2026_BAFU_v11_added_TypeI_storage_LCI_kgCO2e": null,
+      "paper_2024_tank_cost_vs_L3A_2023_breakeven_comparable_without_price_year_and_scope_adjustment": false,
+      "real_2024_to_2023_currency_year_factor": null,
+      "source_2023_L3_A_20y8pct_ZERO_OPEX_hypothetical_installed_CAPEX_ceiling_EUR2023": 11038859.95478113,
+      "source_2023_modelled_same_H2_annual_wholesale_benefit_eur": 1124332.2692838833,
+      "source_F3_pressure_model_max_bar_ABSOLUTE": 200,
+      "source_capacity_semantics": "max_inventory",
+      "source_literature_2024_EUR_per_kg_H2_nominal_capacity": 222,
+      "source_literature_reference_26kg_per_vessel_at_nominal_pressure_class": true,
+      "source_literature_tank_cost_proven_vendor_quoted_eur": null,
+      "source_literature_tank_only_2024_EUR": 4629144,
+      "source_only_not_a_vendor_quote_nor_full_LCA": true,
+      "source_paper_nominal_H2_capacity_kg_on_added_reference_vessels": 20852,
+      "source_paper_nominal_empty_equipment_mass_kg_not_raw_steel": 1924800,
+      "source_published_2024_journal_nominal_pressure_class_bar_GAUGE": 200,
+      "source_reference_paper_bare_cost_includes_all_18_other_BOP_plant_scope_classes": false
+    },
+    "usable_service": {
+      "2023_true_investment_NPV_and_LCOH_EUR": null,
+      "F2_E20t_to_ES40t_additional_1p8m3_200bar_reference_empty_vessels_count": 902,
+      "installed_source_2024_extra_compressor_and_cooler_and_rack_cost_EUR": null,
+      "manufacturer_actual_all_in_incremental_CAPEX_EUR": null,
+      "manufacturer_actual_annual_OPEX_EUR": null,
+      "matched_native_2026_BAFU_v11_added_TypeI_storage_LCI_kgCO2e": null,
+      "paper_2024_tank_cost_vs_L3A_2023_breakeven_comparable_without_price_year_and_scope_adjustment": false,
+      "real_2024_to_2023_currency_year_factor": null,
+      "source_2023_L3_A_20y8pct_ZERO_OPEX_hypothetical_installed_CAPEX_ceiling_EUR2023": 10833969.547453701,
+      "source_2023_modelled_same_H2_annual_wholesale_benefit_eur": 1103463.7287309095,
+      "source_F3_pressure_model_max_bar_ABSOLUTE": 200,
+      "source_capacity_semantics": "usable_service",
+      "source_literature_2024_EUR_per_kg_H2_nominal_capacity": 222,
+      "source_literature_reference_26kg_per_vessel_at_nominal_pressure_class": true,
+      "source_literature_tank_cost_proven_vendor_quoted_eur": null,
+      "source_literature_tank_only_2024_EUR": 5206344,
+      "source_only_not_a_vendor_quote_nor_full_LCA": true,
+      "source_paper_nominal_H2_capacity_kg_on_added_reference_vessels": 23452,
+      "source_paper_nominal_empty_equipment_mass_kg_not_raw_steel": 2164800,
+      "source_published_2024_journal_nominal_pressure_class_bar_GAUGE": 200,
+      "source_reference_paper_bare_cost_includes_all_18_other_BOP_plant_scope_classes": false
+    }
+  },
+  "no_supplier_quote_or_real_safety_conformity_or_steel_fabrication_footprint": true,
+  "original_hourly_modelled_economic_source_year": 2023,
+  "paper_DOI": "10.1016/j.ijhydene.2025.152849",
+  "price_year_conversion_unprovided_and_not_inferred": true,
+  "programme": "OEM-PTX-2026-01",
+  "schema_version": "ptxlens.l3b_2024_paper_tank_reference_2023_source_l3a_GWP_provider_STOP.v1",
+  "source_200bar_reference_paper_rating_is_gauge_while_F3_model_is_absolute": true,
+  "source_F2_SHA256": "1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47",
+  "source_L3A_economic_SHA256": "89a10d1f10b5317f335fd4db042b7133cccc849ec8174a847fa000b9b9a58de3",
+  "source_eur_reference_year": 2024
+}

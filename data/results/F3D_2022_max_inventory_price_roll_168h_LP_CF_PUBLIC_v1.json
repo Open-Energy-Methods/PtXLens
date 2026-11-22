@@ -1,0 +1,45 @@
+{
+  "LP_cases": {
+    "E": {
+      "LP_to_integer_relative_gap": 0.001251243624450254,
+      "independent_LP_lower_bound_eur": 26636647.93342419,
+      "integer_optimum_closed_to_1e_minus6_by_independent_LP": false,
+      "previously_physically_replayed_integer_feasible_eur": 26670018.62419168
+    },
+    "E_plus_S": {
+      "LP_to_integer_relative_gap": 0.0017559846971716027,
+      "independent_LP_lower_bound_eur": 22724411.774974607,
+      "integer_optimum_closed_to_1e_minus6_by_independent_LP": false,
+      "previously_physically_replayed_integer_feasible_eur": 22764385.68788304
+    }
+  },
+  "capacity_semantics": "max_inventory",
+  "controlled_pair_full_hourly_primal_E_and_ES_independently_replayed": true,
+  "controlled_pair_modelled_savings_eur": 2973349.620099077,
+  "controlled_pair_modelled_savings_eur_per_kg_H2": 0.2672568892939552,
+  "controlled_pair_source_solver_reported_interval_eur": [
+    2973334.610393429,
+    2973356.32486213
+  ],
+  "controlled_savings_change_from_original_eur": -932283.3162095603,
+  "controlled_savings_change_from_original_percent": -23.87022363373187,
+  "hours": 8760,
+  "independent_original_LP_KKT_both_passed": true,
+  "independent_original_LP_global_savings_interval_eur": [
+    3872262.245541148,
+    3945606.849217072
+  ],
+  "independent_original_LP_proves_positive_saving": true,
+  "observed_source_year_EUR_not_harmonized": true,
+  "original_evidence_Git_blob_SHA1": "ca07f5ef1e381fa157982bc5a68e46ce3022003a",
+  "original_matched_h2_kg_per_year": 11125436.758446654,
+  "original_nominal_source_year_E_minus_ES_saving_eur": 3905632.9363086373,
+  "original_verified_h2_hourly_target_SHA256": "1db32cba4cee3506bb9d1af9a69471baf6e5173522008a8567dd9332f52b9513",
+  "real_site_market_forecast_vendor_BAFU_and_scientific_v1_0_completed": false,
+  "schema_version": "ptxlens.f3d_independent_LP_positive_saving_and_controlled_counterfactual.v1",
+  "source_independent_CF_review_bytes_SHA256": "afaa243c752d06613a3494f8555107bd71b89488af2e3e77def0ee58fe02ac17",
+  "source_independent_LP_review_bytes_SHA256": "c3b662b25cdd9f3f9b419844a2a2f49f5c066b38e1060e6dd9eb9494c12c2381",
+  "source_original_INTEGER_branch_and_bound_independently_certified": false,
+  "variant": "price_roll_168h",
+  "year": 2022
+}

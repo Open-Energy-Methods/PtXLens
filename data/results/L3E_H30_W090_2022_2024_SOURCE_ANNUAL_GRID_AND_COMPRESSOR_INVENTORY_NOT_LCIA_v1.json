@@ -1,0 +1,111 @@
+{
+  "annual_electricity_Net_import_is_import_minus_export": true,
+  "claim_of_environmentally_superior_storage_allowed": false,
+  "compressor_MWh_is_electrical_load_SUBSET_NOT_added_to_grid_consumption": true,
+  "functional_unit": "1 kg H2 delivered by both original architectures at identical hourly source-year offtake, 30t/day",
+  "lifecycle_incremental_kgCO2e_per_kg_delivered_H2": null,
+  "missing_complete_native_BAFU_v11_manufacturing_BoP_replacements_EOL": true,
+  "missing_hourly_time_matched_energy_grid_emission_factors": true,
+  "missing_reproducible_export_credit_accounting_and_real_grid_contract": true,
+  "net_wholesale_savings_are_NOT_same_as_energy_savings": true,
+  "public_original_hourly_8784_8760_source_price_wind_primal_vectors": false,
+  "schema_version": "ptxlens.l3e_exogenous_H30_W090_replayed_source_year_annual_electricity_inventory_NOT_LCIA.v1",
+  "scientific_v1_0_LCA_gate_passed": false,
+  "source_verified_H30_W090_2022_2024_cross_year_Git_blob_SHA1": "c24b4cb0d6a409798c8a7e764965fffd51478a77",
+  "source_years": [
+    2022,
+    2024
+  ],
+  "yearly": [
+    {
+      "EplusS_MINUS_E_delta_compressor_MWh_ALREADY_INCLUDED_in_system_load": 432.6413695898382,
+      "EplusS_MINUS_E_delta_export_MWh": -9144.901379136776,
+      "EplusS_MINUS_E_delta_import_MWh": -8244.812981100084,
+      "EplusS_MINUS_E_delta_net_grid_import_MWh": 900.0883980366925,
+      "EplusS_MINUS_E_delta_net_grid_import_kWh_per_kg_delivered_H2": 0.08219985370198105,
+      "annual_matched_delivered_H2_kg": 10950000.0,
+      "cases": {
+        "E": {
+          "actual_metered_site_electricity_data": false,
+          "modelled_annual_compressor_electricity_MWh_WITHIN_system_load": 2304.802616188195,
+          "modelled_annual_export_kWh_per_kg_H2": 11.45499293065506,
+          "modelled_annual_grid_export_MWh": 125432.1725906729,
+          "modelled_annual_grid_import_MWh": 230296.8263440029,
+          "modelled_annual_import_kWh_per_kg_H2": 21.031673638721728,
+          "modelled_annual_signed_NET_grid_import_MWh": 104864.65375333001,
+          "modelled_annual_signed_net_import_kWh_per_kg_H2": 9.576680708066668,
+          "modelled_annual_signed_wholesale_electricity_settlement_nominal_year_EUR": 32160567.931485903,
+          "modelled_compressor_kWh_per_kg_H2_WITHIN_system_load": 0.21048425718613653,
+          "original_E_or_ES_hardware": "E"
+        },
+        "E_plus_S": {
+          "actual_metered_site_electricity_data": false,
+          "modelled_annual_compressor_electricity_MWh_WITHIN_system_load": 2737.443985778033,
+          "modelled_annual_export_kWh_per_kg_H2": 10.619842119774988,
+          "modelled_annual_grid_export_MWh": 116287.27121153612,
+          "modelled_annual_grid_import_MWh": 222052.01336290283,
+          "modelled_annual_import_kWh_per_kg_H2": 20.278722681543638,
+          "modelled_annual_signed_NET_grid_import_MWh": 105764.7421513667,
+          "modelled_annual_signed_net_import_kWh_per_kg_H2": 9.65888056176865,
+          "modelled_annual_signed_wholesale_electricity_settlement_nominal_year_EUR": 28878954.877419014,
+          "modelled_compressor_kWh_per_kg_H2_WITHIN_system_load": 0.2499948845459391,
+          "original_E_or_ES_hardware": "E_plus_S"
+        }
+      },
+      "environmental_superiority_certified": false,
+      "grid_energy_delta_implies_CO2e_sign": null,
+      "modelled_year_specific_wholesale_E_MINUS_ES_saving_EUR": 3281613.054066889,
+      "native_BAFU_v11_foreground_manufacturing_plus_replacements_GWP_kgCO2e": null,
+      "net_grid_electricity_NOT_same_as_net_signed_wholesale_EUR": true,
+      "source_year": 2022,
+      "source_year_UTC_hours": 8760,
+      "time_matched_grid_marginal_LCIA_or_export_credit_factors_available": false,
+      "year_specific_original_integer_replay_Git_blob_SHA1": "0ef8966342b516d94ee6b7ce6223cb8fe6a535b0"
+    },
+    {
+      "EplusS_MINUS_E_delta_compressor_MWh_ALREADY_INCLUDED_in_system_load": 576.5523077855414,
+      "EplusS_MINUS_E_delta_export_MWh": -10779.189715810862,
+      "EplusS_MINUS_E_delta_import_MWh": -11659.94802281793,
+      "EplusS_MINUS_E_delta_net_grid_import_MWh": -880.7583070070687,
+      "EplusS_MINUS_E_delta_net_grid_import_kWh_per_kg_delivered_H2": -0.08021478205893157,
+      "annual_matched_delivered_H2_kg": 10980000.0,
+      "cases": {
+        "E": {
+          "actual_metered_site_electricity_data": false,
+          "modelled_annual_compressor_electricity_MWh_WITHIN_system_load": 2600.4488205371204,
+          "modelled_annual_export_kWh_per_kg_H2": 12.579712250096971,
+          "modelled_annual_grid_export_MWh": 138125.24050606473,
+          "modelled_annual_grid_import_MWh": 211118.38249187166,
+          "modelled_annual_import_kWh_per_kg_H2": 19.22753938905935,
+          "modelled_annual_signed_NET_grid_import_MWh": 72993.14198580693,
+          "modelled_annual_signed_net_import_kWh_per_kg_H2": 6.64782713896238,
+          "modelled_annual_signed_wholesale_electricity_settlement_nominal_year_EUR": 2544581.872826561,
+          "modelled_compressor_kWh_per_kg_H2_WITHIN_system_load": 0.23683504740775232,
+          "original_E_or_ES_hardware": "E"
+        },
+        "E_plus_S": {
+          "actual_metered_site_electricity_data": false,
+          "modelled_annual_compressor_electricity_MWh_WITHIN_system_load": 3177.0011283226618,
+          "modelled_annual_export_kWh_per_kg_H2": 11.598000982718931,
+          "modelled_annual_grid_export_MWh": 127346.05079025387,
+          "modelled_annual_grid_import_MWh": 199458.43446905373,
+          "modelled_annual_import_kWh_per_kg_H2": 18.16561333962238,
+          "modelled_annual_signed_NET_grid_import_MWh": 72112.38367879986,
+          "modelled_annual_signed_net_import_kWh_per_kg_H2": 6.567612356903448,
+          "modelled_annual_signed_wholesale_electricity_settlement_nominal_year_EUR": 612906.0201971165,
+          "modelled_compressor_kWh_per_kg_H2_WITHIN_system_load": 0.28934436505670874,
+          "original_E_or_ES_hardware": "E_plus_S"
+        }
+      },
+      "environmental_superiority_certified": false,
+      "grid_energy_delta_implies_CO2e_sign": null,
+      "modelled_year_specific_wholesale_E_MINUS_ES_saving_EUR": 1931675.8526294443,
+      "native_BAFU_v11_foreground_manufacturing_plus_replacements_GWP_kgCO2e": null,
+      "net_grid_electricity_NOT_same_as_net_signed_wholesale_EUR": true,
+      "source_year": 2024,
+      "source_year_UTC_hours": 8784,
+      "time_matched_grid_marginal_LCIA_or_export_credit_factors_available": false,
+      "year_specific_original_integer_replay_Git_blob_SHA1": "c702bf79f826fc28def0e60a5d2c0537241961ac"
+    }
+  ]
+}

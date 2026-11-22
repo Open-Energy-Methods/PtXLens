@@ -1,0 +1,46 @@
+{
+  "EN17533_2025_standards_for_cylinder_not_manifold_or_piping": true,
+  "OEM_330bar_product_not_2023_site_certified_at_200bara": true,
+  "financial_and_climate_compare_release_eligible": false,
+  "missing_steel_manufacturing_alloy_heat_treatment_rack_BO_P_CEH": true,
+  "original_2023_source_operating_hydrogen_is_modelled": true,
+  "programme": "OEM-PTX-2026-01",
+  "scenarios": {
+    "max_inventory": {
+      "2023_modelled_source_case_capacity_semantics": "max_inventory",
+      "IJHE_200bar_TypeI_1_8m3_literature_additional_empty_hardware_kg": 1924800.0,
+      "IJHE_200bar_TypeI_1_8m3_literature_additional_vessels": 802,
+      "OEM_200bar_derated_313K_cycling_not_site_certified": true,
+      "OEM_330bar_is_separate_pressure_rating_and_50L_geometry_not_a_vendor_200bar_station_offer": true,
+      "OEM_heisertec_330bar_PED_50L_reference_at_derated_200bara_313K_additional_cylinders": 28878,
+      "OEM_heisertec_330bar_PED_50L_reference_at_derated_200bara_313K_additional_empty_hardware_kg": 2469069.0,
+      "full_native_BAFU2026_v11_co2e_kg": null,
+      "manufacturer_stationary_typeI_supplier_BOM_complete": false,
+      "original_F3C_same_hour_source_target_SHA256": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16",
+      "published_50L_PED_cylinder_standalone_mass_must_not_be_used_for_36x87L_COSMOS_modules": true,
+      "same_stationary_210bar_COSMOS_36x87L_bundle_empty_mass_known": false,
+      "steel_raw_input_from_weight_without_materials_fabrication_provider_NOT_allowed": true,
+      "whole_plant_EUR2023_discounted_cost": null
+    },
+    "usable_service": {
+      "2023_modelled_source_case_capacity_semantics": "usable_service",
+      "IJHE_200bar_TypeI_1_8m3_literature_additional_empty_hardware_kg": 2164800.0,
+      "IJHE_200bar_TypeI_1_8m3_literature_additional_vessels": 902,
+      "OEM_200bar_derated_313K_cycling_not_site_certified": true,
+      "OEM_330bar_is_separate_pressure_rating_and_50L_geometry_not_a_vendor_200bar_station_offer": true,
+      "OEM_heisertec_330bar_PED_50L_reference_at_derated_200bara_313K_additional_cylinders": 32468,
+      "OEM_heisertec_330bar_PED_50L_reference_at_derated_200bara_313K_additional_empty_hardware_kg": 2776014.0,
+      "full_native_BAFU2026_v11_co2e_kg": null,
+      "manufacturer_stationary_typeI_supplier_BOM_complete": false,
+      "original_F3C_same_hour_source_target_SHA256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+      "published_50L_PED_cylinder_standalone_mass_must_not_be_used_for_36x87L_COSMOS_modules": true,
+      "same_stationary_210bar_COSMOS_36x87L_bundle_empty_mass_known": false,
+      "steel_raw_input_from_weight_without_materials_fabrication_provider_NOT_allowed": true,
+      "whole_plant_EUR2023_discounted_cost": null
+    }
+  },
+  "schema_version": "ptxlens.f2_l1_oem_330bar_PED_50L_vs_IJHE_200bar_typeI_reference_hardware_not_full_LCI.v1",
+  "source_F2_OEM_50L_json_sha256": "9db1885bd42cc91049c4d2e7170aaf74782bf0d791ed88b877795e84fa4a8a57",
+  "source_IJHE_typeI_200bar_F2_registered_original_SHA256": "1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47",
+  "two_distinct_typeI_cylinder_reference_products_not_interchangeable": true
+}

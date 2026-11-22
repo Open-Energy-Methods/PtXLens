@@ -1,0 +1,79 @@
+{
+  "schema_version": "ptxlens.published_pem_stack_inventory.v0.1",
+  "source": {
+    "citation": "Kanz, Olga (2024), Life Cycle Assessment of Photovoltaic Applications, TU Eindhoven PhD thesis, Appendix B, Table B:8, p.136",
+    "url": "https://pure.tue.nl/ws/portalfiles/portal/330479277/20240626_Kanz_hf.pdf",
+    "publication_date": "2024-06-26",
+    "original_underlying_reference": "[41] as given by author; provider-specific inventory flows were previously modeled in GaBi/ecoinvent",
+    "data_reuse_notice": "Factual quantities transcribed with scholarly attribution; no source PDF or proprietary GaBi/ecoinvent data redistributed",
+    "location_scope": "Global and Europe, not site-specific Dutch manufacturing"
+  },
+  "reference_stack_rated_power_mw": 1,
+  "reference_model": "PEM stack material inputs only, not balance of plant or full factory/process inventory",
+  "materials": [
+    {
+      "name": "titanium",
+      "unit": "kg",
+      "kg_per_1mw_stack": 528,
+      "reference_region": "Global",
+      "provider_lci_name": "market for titanium"
+    },
+    {
+      "name": "aluminium primary",
+      "unit": "kg",
+      "kg_per_1mw_stack": 27,
+      "reference_region": "Europe",
+      "provider_lci_name": "aluminium, primary, at plant"
+    },
+    {
+      "name": "stainless steel 18/8",
+      "unit": "kg",
+      "kg_per_1mw_stack": 100,
+      "reference_region": "Europe",
+      "provider_lci_name": "market for steel, chromium steel 18/8"
+    },
+    {
+      "name": "copper",
+      "unit": "kg",
+      "kg_per_1mw_stack": 4.5,
+      "reference_region": "Europe",
+      "provider_lci_name": "copper, at regional storage"
+    },
+    {
+      "name": "nafion membrane precursor proxy",
+      "unit": "kg",
+      "kg_per_1mw_stack": 16,
+      "reference_region": "Global",
+      "provider_lci_name": "nafion (sulfonyl fluoride)"
+    },
+    {
+      "name": "activated carbon",
+      "unit": "kg",
+      "kg_per_1mw_stack": 9,
+      "reference_region": "Global",
+      "provider_lci_name": "activated carbon production, granular from hard coal"
+    },
+    {
+      "name": "iridium in PGM concentrate",
+      "unit": "kg",
+      "kg_per_1mw_stack": 0.75,
+      "reference_region": "Global",
+      "provider_lci_name": "market for platinum group metal concentrate, Iridium"
+    },
+    {
+      "name": "platinum",
+      "unit": "kg",
+      "kg_per_1mw_stack": 0.075,
+      "reference_region": "Global",
+      "provider_lci_name": "market for platinum"
+    }
+  ],
+  "blockers": [
+    "Proprietary GaBi/ecoinvent process providers used in original study are not included",
+    "Must validate whether PEM technology and stack composition map to PyNEXUS electrolyser model",
+    "Must independently source identical or suitable background providers without unlicensed data",
+    "Need balance of plant, storage, freshwater production and infrastructure processes",
+    "Do not calculate cradle-to-gate GWP until all providers and impacts are transparently linked"
+  ],
+  "source_water_intake": "9–10 L deionised water per kg H2 described in thesis section 3; an operating estimate, not an actual measured PyNEXUS input"
+}

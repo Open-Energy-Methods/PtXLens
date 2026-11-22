@@ -1,0 +1,19 @@
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.venv/
+outputs/
+*.db
+*.sqlite
+.env
+
+# Source-licensed raw background LCIs: never commit or redistribute
+*.zolca
+*.spold
+*.ecospold
+bafu-licensed-databases/
+private-lci/
+
+# RC2-C locked venv and CI-only paired checkout
+.rc2c-venv/
+_external_ptxflex_source/

@@ -1,0 +1,53 @@
+{
+  "complete_LCOH_eur_per_kg_H2": null,
+  "full_sensitivity_source_result_sha256": "142a1eac14b946c8b491a92991ab9b6cd21dd3dd0b5f9c0018b43666cd9165ba",
+  "illustration_N_years": 20,
+  "illustration_is_future_forecast": false,
+  "illustration_real_discount_rate": 0.08,
+  "illustration_source_2023_wholesale_repeat_factor": 1,
+  "native_matched_scope_BAFU_GWP_kgCO2e": null,
+  "programme": "OEM-PTX-2026-01",
+  "schema_version": "ptxlens.l3a_source2023_conditional_wholesale_DCF_2mode_registered_numerical_summary.v1",
+  "source_F2_reference_BOM_sha256": "1315d1181b9d1eab6d3368425c9571dbe295c3360935d2972403bf3c60e2dc47",
+  "source_F3C_modes": {
+    "max_inventory": {
+      "2023_wholesale_annual_saving_eur_not_a_forecast": 1124332.2692838833,
+      "additional_literature_empty_vessel_equipment_kg_NOT_steel_foreground": 1924800,
+      "equal_hour_modelled_H2_kg_per_year": 16268755.000838026,
+      "hypothetical_250k_EUR_annual_incremental_opex_1M_EUR_year10_replacement_capex_ceiling_eur": 8121129.614834123,
+      "no_extra_cost_hypothetical_capex_ceiling_eur": 11038859.95478113,
+      "no_extra_cost_hypothetical_capex_solver_interval_eur": [
+        11038720.192338264,
+        11039015.53255686
+      ],
+      "solver_saving_interval_eur": [
+        1124318.0341703668,
+        1124348.1152239852
+      ],
+      "source_2023_samehour_h2_target_sha256": "8e0d55994c7fe5f1abd952771a1b169336893d12698147fb3a93cb61a4ee7a16",
+      "zero_extra_cost_CAPEX_ceiling_implies_no_real_storage_design": true
+    },
+    "usable_service": {
+      "2023_wholesale_annual_saving_eur_not_a_forecast": 1103463.7287309095,
+      "additional_literature_empty_vessel_equipment_kg_NOT_steel_foreground": 2164800,
+      "equal_hour_modelled_H2_kg_per_year": 16331558.946374645,
+      "hypothetical_250k_EUR_annual_incremental_opex_1M_EUR_year10_replacement_capex_ceiling_eur": 7916239.207506696,
+      "no_extra_cost_hypothetical_capex_ceiling_eur": 10833969.547453701,
+      "no_extra_cost_hypothetical_capex_solver_interval_eur": [
+        10833952.118713982,
+        10834076.527926369
+      ],
+      "solver_saving_interval_eur": [
+        1103461.953575272,
+        1103474.6249283515
+      ],
+      "source_2023_samehour_h2_target_sha256": "6a30baf00ddb065cd906dedd711db7cbf67504c50b4fda5809c5dfd29b23fa87",
+      "zero_extra_cost_CAPEX_ceiling_implies_no_real_storage_design": true
+    }
+  },
+  "source_F3C_sha256": "dddd07d5c0a3d4f276e80af44e28cf3cfdbc93421107fb5d9e39843a0d1d90e2",
+  "source_nonzero_incremental_opex_or_vendor_installed_price_verified": false,
+  "true_project_incremental_NPV_eur": null,
+  "whole_plant_financial_economic_decision_permitted": false,
+  "year_of_original_electricity_data_and_modelled_H2": 2023
+}

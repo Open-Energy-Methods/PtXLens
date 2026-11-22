@@ -1,0 +1,36 @@
+# Scientific evidence data use exact file-byte SHA-256 provenance links.
+# Preserve LF in working tree even on Windows with core.autocrlf=true.
+# Otherwise hash-linked LP -> independently replayed integer evidence can
+# break on a fresh checkout without any scientific input changing.
+data/results/F3D_*.json text eol=lf
+data/results/F3D_*.md text eol=lf
+
+# Keep the source-linked pre-publication validation protocols as plain text.
+
+# L3-E source rebuilt outputs are hash-validated as UTF-8 LF across Windows.
+data/results/L3E_*.json text eol=lf
+data/results/L3E_*.md text eol=lf
+
+# L3-F source-locked scientific output SHA bytes must retain LF on Windows.
+data/results/L3F_*.json text eol=lf
+data/results/L3F_*.md text eol=lf
+
+# L3-G manifest hash audit requires LF on Windows after checkout.
+data/results/L3G_*.json text eol=lf
+data/results/L3G_*.md text eol=lf
+
+# RC2 shared governance and immutable source receipts.
+research/RC2_*.json text eol=lf
+research/gates-v1.0.json text eol=lf
+research/F3D_ARCO_*.json text eol=lf
+research/P0_*.json text eol=lf
+contracts/*.json text eol=lf
+docs/PROGRAMME_MASTER_PLAN_v1.0.md text eol=lf
+docs/DECISION_REGISTER_v1.0.md text eol=lf
+
+# RC2-C Windows clean checkout: all versioned text evidence retains LF.
+# Do not rewrite source bytes or normalize private/untracked provider data.
+data/** text=auto eol=lf
+research/** text=auto eol=lf
+contracts/** text=auto eol=lf
+docs/** text=auto eol=lf
