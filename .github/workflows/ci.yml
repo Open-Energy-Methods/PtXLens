@@ -48,7 +48,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: Open-Energy-Methods/PtXFlex
-          ref: c6a6c3d3691cea17586a2de5dd1370da4317f9a6
+          ref: 93e60709280f4c32b6f0357f4e475455ab309503
           path: _external_ptxflex_source
           persist-credentials: false
       - run: python -m pip install -e "./_external_ptxflex_source[physics]"

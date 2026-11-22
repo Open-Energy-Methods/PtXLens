@@ -97,8 +97,8 @@ def read_verified_inputs():
      "default_terminal_decommission_eur":0
     }
     require(controls==expected,"parameter grid altered without changing source research revision")
-    require(m.get("f3c_path")==str(Path("data/results/F3_C_2023_source_real_gas_equal_H2_hour_E_vs_ES_Lens_operational_bridge.json"))
-            and m.get("f2_path")==str(Path("data/results/F2_L1_2023_source_incremental_20t_to_40t_stationary_typeI_200bar_BOM_SCOPE_NOT_complete_native_LCI.json")),
+    require(m.get("f3c_path")==Path("data/results/F3_C_2023_source_real_gas_equal_H2_hour_E_vs_ES_Lens_operational_bridge.json").as_posix()
+            and m.get("f2_path")==Path("data/results/F2_L1_2023_source_incremental_20t_to_40t_stationary_typeI_200bar_BOM_SCOPE_NOT_complete_native_LCI.json").as_posix(),
             "unexpected research data path")
     f3path=ROOT/m["f3c_path"];f2path=ROOT/m["f2_path"]
     require(digest(f3path)==F3C_SHA and digest(f2path)==F2_SHA,
