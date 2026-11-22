@@ -24,7 +24,7 @@
   "full_native_environment_certified": false,
   "java_compiler_release": "25",
   "java_runtime_version": "25.0.5",
-  "maven_runtime_version": "3.10.0",
+  "maven_runtime_version": "3.10.1",
   "native_database_import_or_LCIA_run": false,
   "native_optional_UMFPACK_binary_checked": false,
   "pom_sha256": "8d1c1bdb17ae1a4cd5b7f58a6213596585a584b9e69ccf93952b863f29b0b3a7",
@@ -193,6 +193,7 @@
   ],
   "schema_version": "ptxlens.rc2c.native_environment_inventory.v1",
   "scientific_v1_approved": false,
-  "observed_ci_run_id": 44418712977,
-  "observed_ci_job_id": 135205705378
+  "observed_ci_run_id": 44984364777,
+  "observed_ci_job_id": 137091583094,
+  "baseline_update_reason": "2026-11-22 GitHub runner Maven 3.10.1; all other Java, source POM, 32 resolved runtime JAR hashes and plugin declarations confirmed unchanged from reviewed 3.10.0 baseline; no native LCIA execution"
 }
