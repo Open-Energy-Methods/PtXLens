@@ -1,5 +1,21 @@
 # PtXLens — source-verified Power-to-X economics and environmental assessment
 
+> **Research software (not scientific v1.0):** PtXLens provides source-linked techno-economic screening and restricted-boundary native openLCA evidence. Complete storage-inclusive matched-service LCIA and independent industrial validation are NOT established.
+
+**Reviewer entry points:** [BAFU:2026 native 2023 restricted-boundary calculation](docs/BAFU_2026_V11_NATIVE_2023_DUTCH_E_ES_VERIFIED.md) · [2022/2024 source-year matched-service method](docs/RC2_SOURCE_CUSTODY_AND_SCIENTIFIC_GOVERNANCE_2026-11-18.md) · [RC2-C reproducibility](docs/RC2C_REPRODUCIBLE_NUMERICAL_ENVIRONMENT.md) · [Scientific gates](research/gates-v1.0.json). Original BAFU .zolca, ENTSO-E and ERA5 source archives are never redistributed here.
+
+<!-- portfolio-reader-guide-2026:start -->
+## Engineering portfolio reader's guide (November 2026)
+
+**What to inspect:** Source-year/provenance-aware techno-economic and environmental screening for Power-to-X. This repository is still developing and is not a completed, ISO-conformant LCA or investment appraisal.
+
+**Portfolio context:** [Project or engineering selection](https://abhijith-sivaprasadan.github.io/for/armada-2026.html) · [Armada 2026 employer-facing selection](https://abhijith-sivaprasadan.github.io/for/armada-2026.html).
+
+These navigation links do not supersede the research status, assumptions, provenance, licences or validation limits documented above. This independent research project is not an employer-commissioned deliverable or externally qualified engineering product.
+<!-- portfolio-reader-guide-2026:end -->
+
+---
+
 ## 18 November 2026 — RC2-A/B provenance and gate reconciliation
 
 [RC2 scientific governance and custody protocol](docs/RC2_SOURCE_CUSTODY_AND_SCIENTIFIC_GOVERNANCE_2026-11-18.md) records the exact frozen original three-archive private readback, 2 source-admitted 2022/2024 pairs, 4 prior selected-service year/mode cases and 2 independent exogenous H30/W090 max_inventory cases. The [shared receipt](research/RC2_SOURCE_PROVENANCE_AND_YEAR_EVIDENCE_2026-11-18.json) separates observed electricity prices, ERA5-derived model wind, prior independent primal/EOS checks and source-reported integer bounds. Paired [RC2 audit](src/ptxlens/rc2_provenance_governance.py) reconstructs the public F3-D admission and runs RC1. **All 12 science gates remain NOT_PASSED.** Independent physical backup and restoration, source rights, actual OEM/site and native matched-storage LCIA, project NPV, external review and full scientific v1.0 are not approved.
